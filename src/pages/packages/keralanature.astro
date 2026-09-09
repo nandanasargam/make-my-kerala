@@ -1,0 +1,1796 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+const packageTitle = "Kerala Nature & Backwater Tour";
+const duration = "5 Days & 4 Nights";
+const places = "Munnar - Thekkady - Alappuzha";
+const price = 15000;
+
+const heroImage = "/images/logo.png";
+
+const days = [
+  {
+    number: "01",
+    title: "Arrival & Transfer to Munnar",
+    description:
+      "Arrive in Kerala and begin your scenic journey towards Munnar, one of Kerala's most beautiful hill stations.",
+    image: "/images/munnar.jpg",
+    activities: [
+      "Pickup from Cochin Airport / Railway Station",
+      "Drive to Munnar",
+      "Visit Cheeyappara Waterfalls",
+      "Visit Valara Waterfalls",
+      "Visit Spice Plantation",
+      "Check-in at hotel",
+      "Overnight stay at Munnar",
+    ],
+  },
+  {
+    number: "02",
+    title: "Munnar Sightseeing",
+    description:
+      "Spend the day exploring Munnar's scenic attractions, tea plantations, viewpoints, lakes and beautiful landscapes.",
+    image: "/images/munnar1.avif",
+    activities: [
+      "Mattupetty Dam",
+      "Echo Point",
+      "Kundala Lake",
+      "Tea Museum",
+      "Rose Garden",
+      "Eravikulam National Park",
+      "Overnight stay at Munnar",
+    ],
+  },
+  {
+    number: "03",
+    title: "Munnar to Thekkady",
+    description:
+      "Travel from Munnar to Thekkady and experience Kerala's wildlife, spice plantations and cultural attractions.",
+    image: "/images/thekkady.jpg",
+    activities: [
+      "Breakfast at hotel",
+      "Drive to Thekkady",
+      "Visit Periyar Lake",
+      "Enjoy Spice Plantation Tour",
+      "Elephant Ride - Optional",
+      "Kathakali - Optional",
+      "Kalaripayattu - Optional",
+      "Overnight stay at Thekkady",
+    ],
+  },
+  {
+    number: "04",
+    title: "Thekkady to Alappuzha",
+    description:
+      "Travel to Alappuzha and enjoy the famous Kerala backwaters aboard a traditional houseboat.",
+    image: "/images/allapey.jpg",
+    activities: [
+      "Breakfast at hotel",
+      "Drive to Alappuzha",
+      "Check-in to houseboat",
+      "Enjoy backwater cruise",
+      "Visit Alleppey Beach",
+      "Enjoy sunset view",
+      "Overnight stay in Houseboat",
+    ],
+  },
+  {
+    number: "05",
+    title: "Alleppey to Cochin Departure",
+    description:
+      "Enjoy your final morning in Kerala before checking out and proceeding to Cochin for your departure.",
+    image: "/images/wayanad.jpg",
+    activities: [
+      "Breakfast at houseboat",
+      "Check-out from houseboat",
+      "Drive to Cochin",
+      "Drop at Cochin Airport / Railway Station",
+    ],
+  },
+];
+
+
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>{packageTitle} | Make My Kerala</title>
+
+    <meta
+      name="description"
+      content="Explore Munnar, Thekkady and Alappuzha with our Kerala Nature & Backwater Tour."
+    />
+  </head>
+
+  <body>
+
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
+
+    <section class="hero">
+
+      <img
+        src={heroImage}
+        alt={packageTitle}
+        class="hero-image"
+      />
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          KERALA TOUR PACKAGE
+        </div>
+
+        <h1>
+          {packageTitle}
+        </h1>
+
+        <p class="hero-subtitle">
+          Nature, Hills & Backwaters
+        </p>
+
+        <div class="hero-details">
+
+          <div>
+            <strong>{duration}</strong>
+            <span>Duration</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>{places}</strong>
+            <span>Destinations</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>
+              ₹{price.toLocaleString("en-IN")}
+            </strong>
+            <span>Per Person</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+    ====================================================== -->
+
+    <section class="intro">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <span>EXPLORE KERALA</span>
+
+          <h2>
+            Kerala Nature & Backwater Tour
+          </h2>
+
+          <p>
+            Explore the misty hills of Munnar, discover the wildlife
+            and spice plantations of Thekkady, and experience the
+            peaceful backwaters of Alappuzha.
+          </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              🚗
+            </div>
+
+            <h3>
+              Pickup & Drop
+            </h3>
+
+            <p>
+              Cochin Airport / Railway Station
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              🛏
+            </div>
+
+            <h3>
+              Comfortable Stay
+            </h3>
+
+            <p>
+              Comfortable accommodation throughout the tour
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              📷
+            </div>
+
+            <h3>
+              Scenic Sightseeing
+            </h3>
+
+            <p>
+              Explore Kerala's beautiful destinations
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              🍴
+            </div>
+
+            <h3>
+              Delicious Food
+            </h3>
+
+            <p>
+              Selected meals included
+            </p>
+
+          </div>
+
+
+          <div class="feature-card">
+
+            <div class="feature-icon">
+              ✓
+            </div>
+
+            <h3>
+              Safe & Memorable
+            </h3>
+
+            <p>
+              Enjoy a comfortable Kerala journey
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TOUR ITINERARY
+    ====================================================== -->
+
+    <section class="itinerary-section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <span>TOUR ITINERARY</span>
+
+          <h2>
+            5 Days & 4 Nights
+          </h2>
+
+          <p>
+            A carefully planned journey through Munnar,
+            Thekkady and Alappuzha.
+          </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+          {
+            days.map((day) => (
+
+              <article class="day-card">
+
+                <div class="day-number">
+
+                  <span>DAY</span>
+
+                  <strong>
+                    {day.number}
+                  </strong>
+
+                </div>
+
+
+                <div class="day-image">
+
+                  <img
+                    src={day.image}
+                    alt={day.title}
+                  />
+
+                </div>
+
+
+                <div class="day-content">
+
+                  <span class="day-label">
+                    DAY {day.number}
+                  </span>
+
+                  <h3>
+                    {day.title}
+                  </h3>
+
+                  <p>
+                    {day.description}
+                  </p>
+
+                  <ul>
+
+                    {
+                      day.activities.map((activity) => (
+                        <li>
+                          <span>✓</span>
+                          {activity}
+                        </li>
+                      ))
+                    }
+
+                  </ul>
+
+                </div>
+
+              </article>
+
+            ))
+          }
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    
+
+    <!-- =====================================================
+         PACKAGE OPTIONS
+    ====================================================== -->
+
+    <section class="package-options">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <span>PACKAGE OPTIONS</span>
+
+          <h2>
+            Choose Your Stay Experience
+          </h2>
+
+        </div>
+
+
+        <div class="package-options-grid">
+
+
+          <!-- PACKAGE 1 -->
+
+          <article class="option-card">
+
+            <div class="option-top">
+
+              <span>
+                PACKAGE 1
+              </span>
+
+              <strong>
+                ECONOMY
+              </strong>
+
+            </div>
+
+            <h3>
+              Kerala Classic Getaway
+            </h3>
+
+            <div class="stay-list">
+
+              <div>
+                <span>🌿</span>
+                2 Nights Munnar
+              </div>
+
+              <div>
+                <span>🌿</span>
+                1 Night Thekkady
+              </div>
+
+              <div>
+                <span>🚤</span>
+                1 Night Alleppey
+              </div>
+
+            </div>
+
+            <p>
+              Ideal for budget travellers looking for a
+              comfortable and scenic Kerala experience.
+            </p>
+
+          </article>
+
+
+          <!-- PACKAGE 2 -->
+
+          <article class="option-card premium">
+
+            <div class="option-top">
+
+              <span>
+                PACKAGE 2
+              </span>
+
+              <strong>
+                DELUXE HOUSEBOAT EXPERIENCE
+              </strong>
+
+            </div>
+
+            <h3>
+              Kerala Premium Escape
+            </h3>
+
+            <div class="stay-list">
+
+              <div>
+                <span>🌿</span>
+                2 Nights Munnar
+              </div>
+
+              <div>
+                <span>🌿</span>
+                1 Night Thekkady
+              </div>
+
+              <div>
+                <span>🚤</span>
+                1 Night Deluxe Houseboat Alleppey
+              </div>
+
+            </div>
+
+            <p>
+              Ideal for travellers seeking a premium
+              experience with a memorable houseboat stay.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PACKAGE INCLUDES
+    ====================================================== -->
+
+    <section class="includes-section">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <span>PACKAGE DETAILS</span>
+
+          <h2>
+            Packages Include
+          </h2>
+
+        </div>
+
+
+        <div class="includes-grid">
+
+
+          <article class="include-card">
+
+            <div class="include-icon">
+              🚗
+            </div>
+
+            <h3>
+              Transportation
+            </h3>
+
+            <ul>
+
+              <li>
+                Pickup & Drop from Cochin Airport / Railway Station
+              </li>
+
+              <li>
+                Private AC Vehicle
+              </li>
+
+              <li>
+                Driver Allowance
+              </li>
+
+              <li>
+                Fuel & Parking
+              </li>
+
+              <li>
+                Toll & Parking Charges
+              </li>
+
+            </ul>
+
+          </article>
+
+
+          <article class="include-card">
+
+            <div class="include-icon">
+              🏨
+            </div>
+
+            <h3>
+              Accommodation
+            </h3>
+
+            <ul>
+
+              <li>
+                4 Nights Accommodation
+              </li>
+
+              <li>
+                2 Nights Munnar
+              </li>
+
+              <li>
+                1 Night Thekkady
+              </li>
+
+              <li>
+                1 Night Alleppey Houseboat
+              </li>
+
+            </ul>
+
+          </article>
+
+
+          <article class="include-card">
+
+            <div class="include-icon">
+              🍴
+            </div>
+
+            <h3>
+              Meals Included
+            </h3>
+
+            <ul>
+
+              <li>
+                Breakfast - Every Day
+              </li>
+
+              <li>
+                Dinner - Day 1 to Day 4
+              </li>
+
+              <li>
+                Day 5 - Breakfast
+              </li>
+
+            </ul>
+
+          </article>
+
+
+          <article class="include-card">
+
+            <div class="include-icon">
+              🎭
+            </div>
+
+            <h3>
+              Optional Activities
+            </h3>
+
+            <ul>
+
+              <li>
+                Elephant Ride - Optional
+              </li>
+
+              <li>
+                Kathakali - Optional
+              </li>
+
+              <li>
+                Kalaripayattu - Optional
+              </li>
+
+            </ul>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         BOOKING CTA
+    ====================================================== -->
+
+    <section class="booking-section">
+
+      <div class="container">
+
+        <div class="booking-box">
+
+          <div class="booking-content">
+
+            <span>
+              PLAN YOUR KERALA JOURNEY
+            </span>
+
+            <h2>
+              Ready to Explore Kerala?
+            </h2>
+
+            <p>
+              Contact us to enquire about the Kerala Nature &
+              Backwater Tour.
+            </p>
+
+          </div>
+
+          <div class="booking-price">
+
+            <small>
+              Starting From
+            </small>
+
+            <strong>
+              ₹{price.toLocaleString("en-IN")}
+            </strong>
+
+            <span>
+              Per Person
+            </span>
+
+          </div>
+
+          <a
+            href="/contact/"
+            class="booking-button"
+          >
+            Enquire Now
+            <span>→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </body>
+</html>
+
+
+<style>
+
+  * {
+    box-sizing: border-box;
+  }
+
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+  body {
+    margin: 0;
+    padding: 0;
+
+    font-family:
+      Arial,
+      Helvetica,
+      sans-serif;
+
+    color: #254538;
+
+    background: #f6f2e8;
+  }
+
+
+  .container {
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+  }
+
+
+  /* =====================================================
+     HERO
+  ====================================================== */
+
+  .hero {
+    position: relative;
+
+    min-height: 620px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    color: white;
+  }
+
+
+  .hero-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+
+  .hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(8, 48, 37, 0.18),
+        rgba(8, 38, 30, 0.88)
+      );
+  }
+
+
+  .hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(950px, 90%);
+
+    padding: 80px 20px;
+  }
+
+
+  .hero-badge {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(255,255,255,.6);
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+  }
+
+
+  .hero h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(42px, 7vw, 76px);
+
+    line-height: 1.05;
+  }
+
+
+  .hero-subtitle {
+    margin: 20px 0 35px;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    font-style: italic;
+  }
+
+
+  .hero-details {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    background: rgba(0,0,0,.25);
+
+    backdrop-filter: blur(8px);
+  }
+
+
+  .hero-details div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+
+  .hero-details strong {
+    font-size: 15px;
+  }
+
+
+  .hero-details span {
+    font-size: 11px;
+
+    opacity: .8;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+  }
+
+
+  .hero-divider {
+    width: 1px;
+
+    height: 45px;
+
+    background: rgba(255,255,255,.4);
+  }
+
+
+  /* =====================================================
+     SECTION TITLE
+  ====================================================== */
+
+  .section-title {
+    max-width: 800px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+  }
+
+
+  .section-title > span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #a56d32;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+  }
+
+
+  .section-title h2 {
+    margin: 0 0 15px;
+
+    color: #244d3c;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(32px, 5vw, 44px);
+
+    line-height: 1.2;
+  }
+
+
+  .section-title p {
+    margin: 0;
+
+    color: #6e7972;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+  }
+
+
+  /* =====================================================
+     INTRO
+  ====================================================== */
+
+  .intro {
+    padding: 90px 0 60px;
+  }
+
+
+  .feature-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(5, 1fr);
+
+    gap: 16px;
+  }
+
+
+  .feature-card {
+    padding: 28px 16px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+      0 8px 30px rgba(30,60,45,.07);
+  }
+
+
+  .feature-icon {
+    margin-bottom: 12px;
+
+    font-size: 28px;
+  }
+
+
+  .feature-card h3 {
+    margin: 0 0 8px;
+
+    color: #244d3c;
+
+    font-size: 15px;
+  }
+
+
+  .feature-card p {
+    margin: 0;
+
+    color: #748078;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+
+  /* =====================================================
+     ITINERARY
+  ====================================================== */
+
+  .itinerary-section {
+    padding: 70px 0 90px;
+
+    background:
+      #eee9dc;
+  }
+
+
+  .timeline {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+  }
+
+
+  .day-card {
+    display: grid;
+
+    grid-template-columns:
+      80px
+      330px
+      1fr;
+
+    min-height: 330px;
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 12px 35px rgba(25,55,40,.08);
+  }
+
+
+  .day-number {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding-top: 32px;
+
+    color: white;
+
+    background: #28533f;
+  }
+
+
+  .day-number span {
+    font-size: 10px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .day-number strong {
+    margin-top: 5px;
+
+    font-family: Georgia, serif;
+
+    font-size: 31px;
+  }
+
+
+  .day-image {
+    min-height: 330px;
+  }
+
+
+  .day-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+
+  .day-content {
+    padding: 38px;
+  }
+
+
+  .day-label {
+    color: #a56d32;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+  }
+
+
+  .day-content h3 {
+    margin: 9px 0 15px;
+
+    color: #244d3c;
+
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    line-height: 1.25;
+  }
+
+
+  .day-content p {
+    margin: 0 0 20px;
+
+    color: #69756e;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  .day-content ul {
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+
+  .day-content li {
+    display: flex;
+
+    gap: 10px;
+
+    margin-bottom: 9px;
+
+    color: #5f6e66;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+  }
+
+
+  .day-content li span {
+    flex-shrink: 0;
+
+    color: #2f694d;
+
+    font-weight: bold;
+  }
+
+
+  /* =====================================================
+     PLACES
+  ====================================================== */
+
+  .places-section {
+    padding: 90px 0;
+  }
+
+
+  .places-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(4, 1fr);
+
+    gap: 18px;
+  }
+
+
+  .place-card {
+    position: relative;
+
+    height: 220px;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background: #ccc;
+  }
+
+
+  .place-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+      transform .4s ease;
+  }
+
+
+  .place-card:hover img {
+    transform: scale(1.07);
+  }
+
+
+  .place-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(0,0,0,.78),
+        rgba(0,0,0,0)
+      );
+  }
+
+
+  .place-card h3 {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    margin: 0;
+
+    padding: 40px 15px 15px;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+  }
+
+
+  /* =====================================================
+     PACKAGE OPTIONS
+  ====================================================== */
+
+  .package-options {
+    padding: 80px 0;
+
+    background: #eee9dc;
+  }
+
+
+  .package-options-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 25px;
+  }
+
+
+  .option-card {
+    padding: 35px;
+
+    background: white;
+
+    border: 1px solid #e2e2d9;
+
+    border-radius: 18px;
+  }
+
+
+  .option-card.premium {
+    border:
+      2px solid #b27635;
+  }
+
+
+  .option-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .option-top span {
+    color: #28533f;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+  }
+
+
+  .option-top strong {
+    padding: 7px 11px;
+
+    color: white;
+
+    background: #28533f;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .option-card h3 {
+    margin: 0 0 22px;
+
+    color: #244d3c;
+
+    font-family: Georgia, serif;
+
+    font-size: 29px;
+  }
+
+
+  .stay-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 22px;
+  }
+
+
+  .stay-list div {
+    color: #657169;
+
+    font-size: 14px;
+  }
+
+
+  .stay-list span {
+    margin-right: 8px;
+  }
+
+
+  .option-card p {
+    margin: 0;
+
+    color: #707a74;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+  }
+
+
+  /* =====================================================
+     INCLUDES
+  ====================================================== */
+
+  .includes-section {
+    padding: 90px 0;
+  }
+
+
+  .includes-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 22px;
+  }
+
+
+  .include-card {
+    padding: 32px;
+
+    background: white;
+
+    border-radius: 17px;
+
+    box-shadow:
+      0 8px 30px rgba(25,55,40,.06);
+  }
+
+
+  .include-icon {
+    margin-bottom: 10px;
+
+    font-size: 28px;
+  }
+
+
+  .include-card h3 {
+    margin: 0 0 20px;
+
+    color: #244d3c;
+
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+  }
+
+
+  .include-card ul {
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+
+  .include-card li {
+    position: relative;
+
+    padding-left: 20px;
+
+    margin-bottom: 11px;
+
+    color: #657169;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
+
+
+  .include-card li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+
+    color: #2f694d;
+
+    font-weight: 800;
+  }
+
+
+  /* =====================================================
+     BOOKING CTA
+  ====================================================== */
+
+  .booking-section {
+    padding: 10px 0 90px;
+  }
+
+
+  .booking-box {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 45px;
+
+    color: white;
+
+    background:
+      linear-gradient(
+        135deg,
+        #214b3a,
+        #35684e
+      );
+
+    border-radius: 22px;
+
+    box-shadow:
+      0 15px 40px rgba(30,60,45,.18);
+  }
+
+
+  .booking-content > span {
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+  }
+
+
+  .booking-content h2 {
+    margin: 9px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+  }
+
+
+  .booking-content p {
+    margin: 0;
+
+    opacity: .85;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+
+  .booking-price {
+    display: flex;
+
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+
+  .booking-price small {
+    font-size: 10px;
+
+    opacity: .8;
+  }
+
+
+  .booking-price strong {
+    margin: 4px 0;
+
+    font-size: 27px;
+  }
+
+
+  .booking-price span {
+    font-size: 10px;
+
+    opacity: .8;
+  }
+
+
+  .booking-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px 23px;
+
+    color: #244d3c;
+
+    background: white;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    transition:
+      transform .3s ease;
+  }
+
+
+  .booking-button:hover {
+    transform: translateY(-3px);
+  }
+
+
+  .booking-button span {
+    font-size: 18px;
+  }
+
+
+  /* =====================================================
+     TABLET
+  ====================================================== */
+
+  @media (max-width: 1050px) {
+
+    .feature-grid {
+      grid-template-columns:
+        repeat(3, 1fr);
+    }
+
+
+    .day-card {
+      grid-template-columns:
+        65px
+        300px
+        1fr;
+    }
+
+
+    .places-grid {
+      grid-template-columns:
+        repeat(3, 1fr);
+    }
+
+  }
+
+
+  /* =====================================================
+     MOBILE
+  ====================================================== */
+
+  @media (max-width: 750px) {
+
+    .hero {
+      min-height: 600px;
+    }
+
+
+    .hero-content {
+      padding: 60px 15px;
+    }
+
+
+    .hero h1 {
+      font-size: 43px;
+    }
+
+
+    .hero-details {
+      flex-direction: column;
+
+      gap: 15px;
+    }
+
+
+    .hero-divider {
+      width: 70px;
+
+      height: 1px;
+    }
+
+
+    .feature-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+
+    .day-card {
+      display: block;
+    }
+
+
+    .day-number {
+      display: flex;
+
+      flex-direction: row;
+
+      align-items: center;
+
+      justify-content: flex-start;
+
+      gap: 8px;
+
+      padding: 13px 20px;
+    }
+
+
+    .day-number strong {
+      margin: 0;
+
+      font-size: 20px;
+    }
+
+
+    .day-image {
+      height: 250px;
+
+      min-height: 0;
+    }
+
+
+    .day-content {
+      padding: 25px 22px;
+    }
+
+
+    .places-grid {
+      grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+
+    .package-options-grid,
+    .includes-grid {
+      grid-template-columns: 1fr;
+    }
+
+
+    .booking-box {
+      flex-direction: column;
+
+      align-items: flex-start;
+
+      padding: 32px 25px;
+    }
+
+
+    .booking-price {
+      text-align: left;
+    }
+
+  }
+
+
+  /* =====================================================
+     SMALL MOBILE
+  ====================================================== */
+
+  @media (max-width: 480px) {
+
+    .hero {
+      min-height: 560px;
+    }
+
+
+    .hero h1 {
+      font-size: 36px;
+    }
+
+
+    .hero-subtitle {
+      font-size: 17px;
+    }
+
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+
+    .places-grid {
+      grid-template-columns: 1fr;
+    }
+
+
+    .place-card {
+      height: 210px;
+    }
+
+
+    .option-card {
+      padding: 25px 20px;
+    }
+
+
+    .option-top {
+      align-items: flex-start;
+
+      flex-direction: column;
+    }
+
+
+    .booking-content h2 {
+      font-size: 28px;
+    }
+
+  }
+
+</style>

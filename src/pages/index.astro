@@ -1,0 +1,1520 @@
+---
+import Header from "../components/Header.astro";
+
+import EnquiryForm from "../components/EnquiryForm.jsx";
+import "../styles/global.css";
+
+const packages = [
+  {
+    title: "Kerala Family Holiday",
+    duration: "5 Days / 4 Nights",
+    places: "Munnar - Thekkady - Alleppey",
+    price: "14,999",
+    image: "/images/kerala-family-holiday.jpg"
+  },
+  {
+    title: "Kerala Honeymoon Escape",
+    duration: "6 Days / 5 Nights",
+    places: "Munnar - Thekkady - Kumarakom",
+    price: "18,999",
+    image: "/images/kerala-honeymoon-escape.jpg"
+  },
+  {
+    title: "Kerala Backwater Experience",
+    duration: "4 Days / 3 Nights",
+    places: "Kochi - Alleppey - Kumarakom",
+    price: "11,999",
+    image: "/images/kerala-backwater-experience.jpg"
+  }
+];
+
+const destinations = [
+  {
+    name: "Munnar",
+    description:
+      "Misty mountains, endless tea gardens and refreshing hill views.",
+    image:
+      "/images/munnar.jpg"
+  },
+  {
+    name: "Alleppey",
+    description:
+      "Cruise through peaceful backwaters aboard a traditional houseboat.",
+    image:
+      "/images/allapey.jpg"
+  },
+  {
+    name: "Wayanad",
+    description:
+      "Explore forests, waterfalls, wildlife and beautiful landscapes.",
+    image:
+      "/images/wayanad.jpg"
+  },
+  {
+    name: "Kovalam",
+    description:
+      "Relax along Kerala's beautiful coastline and enjoy the sea.",
+    image:
+      "/images/kovalam.jpg"
+  }
+];
+
+const features = [
+  {
+    number: "01",
+    title: "Customised Itineraries",
+    description:
+      "Travel plans designed around your interests, budget and schedule."
+  },
+  {
+    number: "02",
+    title: "Local Expertise",
+    description:
+      "Discover Kerala with travel planning built around local knowledge."
+  },
+  {
+    number: "03",
+    title: "Comfortable Travel",
+    description:
+      "Enjoy convenient transportation, stays and well-organised tours."
+  },
+  {
+    number: "04",
+    title: "Memorable Experiences",
+    description:
+      "Create meaningful travel moments that stay with you long after your trip."
+  }
+];
+
+const testimonials = [
+  {
+    name: "Rahul & Ananya",
+    location: "Mumbai",
+    text:
+      "Our Kerala honeymoon was beautifully organised. Munnar and Alleppey were unforgettable."
+  },
+  {
+    name: "Priya Family",
+    location: "Bengaluru",
+    text:
+      "Everything was well planned from the hotel to transportation. The children enjoyed every part of the trip."
+  },
+  {
+    name: "Arjun",
+    location: "Delhi",
+    text:
+      "A wonderful Kerala experience with a perfect balance of sightseeing, relaxation and local experiences."
+  }
+];
+
+const faqs = [
+  {
+    question: "What is the best time to visit Kerala?",
+    answer:
+      "Kerala can be visited throughout the year. The best period depends on the destinations and experiences you want to include in your holiday."
+  },
+  {
+    question: "Can I customise my Kerala tour package?",
+    answer:
+      "Yes. You can customise destinations, duration, accommodation, transportation and experiences according to your requirements."
+  },
+  {
+    question: "Which places should I visit in Kerala?",
+    answer:
+      "Popular destinations include Munnar, Alleppey, Thekkady, Wayanad, Kochi, Kovalam and Kumarakom. Your itinerary can be planned around your interests."
+  },
+  {
+    question: "Do you provide family and honeymoon packages?",
+    answer:
+      "Yes. Kerala holidays can be planned for couples, families, friends, groups and private customised tours."
+  }
+];
+---
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+
+<Header />
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+  <!-- HERO VIDEO -->
+  <div class="hero-video">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    >
+      <source src="/video/keralavideo.mp4" type="video/mp4" />
+      
+    </video>
+  </div>
+
+  <!-- VIDEO OVERLAY -->
+  <div class="hero-overlay"></div>
+
+  
+  <!-- HERO CONTENT -->
+
+<div class="container hero-content">
+
+  <div class="hero-copy">
+
+
+<span class="eyebrow">
+  DISCOVER KERALA
+</span>
+
+<h1>
+  Kerala,
+  <span>Beyond Ordinary.</span>
+</h1>
+
+<p class="hero-description">
+  Curated journeys through misty hills, serene backwaters and sun-kissed shores.
+</p>
+
+<div class="hero-actions">
+
+  <a href="#packages" class="btn btn-primary">
+    Explore Kerala
+  </a>
+
+  <a href="#contact" class="btn btn-outline">
+    Plan Your Journey
+  </a>
+
+</div>
+
+<div class="hero-stats">
+
+  <div class="hero-stat">
+    <strong>500+</strong>
+    <span>Happy Travellers</span>
+  </div>
+
+  <div class="hero-stat">
+    <strong>50+</strong>
+    <span>Experiences</span>
+  </div>
+
+  <div class="hero-stat">
+    <strong>4.9/5</strong>
+    <span>Traveller Rating</span>
+  </div>
+
+</div>
+
+
+  </div>
+
+</div>
+
+</section>
+
+  <!-- TRIP PLANNER -->
+
+<!-- KERALA DESTINATIONS FLOW -->
+
+<section class="trip-planner">
+
+  <div class="container">
+
+    <div class="planner-box">
+
+      <!-- Title -->
+      <div class="planner-title">
+        <span>DISCOVER KERALA</span>
+        <h2>Places worth<br>travelling for.</h2>
+      </div>
+
+      <!-- Moving destinations -->
+      <div class="planner-marquee">
+
+        <div class="planner-track">
+
+          <!-- SET 1 -->
+          <div class="destination-item">
+            <span>Munnar</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Alappuzha</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Wayanad</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Thekkady</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Varkala</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Kovalam</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Fort Kochi</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Kumarakom</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+
+          <!-- SET 2 - DUPLICATE FOR SEAMLESS FLOW -->
+
+          <div class="destination-item">
+            <span>Munnar</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Alappuzha</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Wayanad</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Thekkady</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Varkala</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Kovalam</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Fort Kochi</span>
+          </div>
+
+          <div class="destination-divider"></div>
+
+          <div class="destination-item">
+            <span>Kumarakom</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <a href="#contact" class="planner-button">
+        Plan Your Trip
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+  
+
+<!-- =========================================================
+     ABOUT SECTION
+========================================================= -->
+
+<section class="about-section" id="about">
+
+  <div class="container about-grid">
+
+    <!-- LEFT SIDE - IMAGE -->
+    <div class="about-images">
+
+      <img
+        class="about-main-image"
+        src="/images/25yearslogo.png"
+        alt="MakeMyKerala 25 Years"
+      />
+
+    </div>
+
+
+    <!-- RIGHT SIDE - ABOUT CONTENT -->
+    <div class="about-content">
+
+      <span class="section-eyebrow">
+        ABOUT US
+      </span>
+
+      <h2>
+        Welcome to MakeMyKerala
+      </h2>
+
+      <p>
+        With <strong>25 years of travel experience</strong>, Make My Kerala creates
+        memorable and personalized journeys across <strong>South India</strong>.
+        We specialize in comfortable, authentic holidays across Kerala and
+        Tamil Nadu.
+      </p>
+
+      <p>
+        Trusted by thousands of travelers, families, groups and corporate guests,
+        we create seamless tours combining nature, culture, relaxation and
+        local experiences.
+      </p>
+
+      <div class="about-destinations">
+
+        <span>Munnar</span>
+        <span>Thekkady</span>
+        <span>Alappuzha</span>
+        <span>Trivandrum</span>
+        <span>Kanyakumari</span>
+        <span>Madurai</span>
+        <span>Kovalam</span>
+        <span>Poovar</span>
+        <span>Rameshwaram</span>
+        <span>Cochin</span>
+
+      </div>
+
+      <p>
+        From <strong>honeymoon and family holidays</strong> to pilgrimage,
+        group and customized tours, every itinerary is planned for comfort,
+        value and unforgettable memories.
+      </p>
+
+      <div class="about-founders">
+
+        <strong>Anitha Murali &amp; Muraleedhara Shenoy</strong>
+
+        <span>
+          Jointly operated by Anitha Murali and Muraleedhara Shenoy,
+          whose passion for travel and customer satisfaction has shaped
+          MakeMyKerala for over two decades.
+        </span>
+
+      </div>
+
+      <p class="about-closing">
+        <strong>25 Years. Personalized Service. Genuine South Indian Hospitality.</strong>
+      </p>
+
+      <a href="/about-us" class="btn btn-primary">
+  Begin Your Journey
+</a>
+
+    </div>
+
+  </div>
+
+</section>
+  <!-- TOUR PACKAGES -->
+
+<section class="packages-section" id="packages">
+
+  <div class="container">
+
+    <div class="section-header">
+
+
+      <h2>
+        Choose your way to experience Kerala
+      </h2>
+
+      <p>
+        Thoughtfully crafted Kerala journeys for families,
+        couples and unforgettable escapes.
+      </p>
+
+    </div>
+
+
+    <div class="package-grid">
+
+      {packages.map((pkg) => (
+
+        <article class="package-card">
+
+          <div class="package-image">
+
+            <img
+              src={pkg.image}
+              alt={pkg.title}
+              loading="lazy"
+            />
+
+            <span class="package-duration">
+              {pkg.duration}
+            </span>
+
+          </div>
+
+
+          <div class="package-content">
+
+            <h3>
+              {pkg.title}
+            </h3>
+
+            <p class="package-locations">
+              {pkg.places}
+            </p>
+
+
+            <div class="package-bottom">
+
+              <div class="package-price">
+
+                <small>
+                  Starting from
+                </small>
+
+                <strong>
+  &#8377;{pkg.price}
+</strong>
+
+                <small>
+                  per person
+                </small>
+
+              </div>
+
+
+              
+
+            </div>
+
+          </div>
+
+        </article>
+
+      ))}
+
+    </div>
+
+
+   <div class="center-button">
+  <a href="/packages" class="btn btn-green">
+    View All Kerala Packages
+  </a>
+</div>
+
+  </div>
+
+</section>
+
+  <!-- DESTINATIONS -->
+
+<section class="destinations-section" id="destinations">
+
+  <div class="container">
+
+
+<div class="section-header">
+
+  <span class="section-eyebrow">
+    EXPLORE KERALA
+  </span>
+
+  <h2>
+    Places that belong on your itinerary
+  </h2>
+
+  <p>
+    Discover some of the most-loved destinations
+    across God's Own Country.
+  </p>
+
+</div>
+</div>
+
+  <!-- HORIZONTAL DESTINATION LOOP -->
+
+  <div class="destination-marquee">
+
+<div class="destination-track">
+
+  <!-- SET 1 -->
+
+  {destinations.map((destination) => (
+
+    <article class="destination-card">
+
+      <img
+        src={destination.image}
+        alt={`${destination.name} Kerala`}
+        loading="lazy"
+      />
+
+      <div class="destination-gradient"></div>
+
+      <div class="destination-content">
+
+        <h3>
+          {destination.name}
+        </h3>
+
+        <p>
+          {destination.description}
+        </p>
+
+        <a href="#contact">
+          Discover {destination.name} 
+        </a>
+
+      </div>
+
+    </article>
+
+  ))}
+
+
+  <!-- SET 2 - DUPLICATE FOR SEAMLESS LOOP -->
+
+  {destinations.map((destination) => (
+
+    <article class="destination-card">
+
+      <img
+        src={destination.image}
+        alt={`${destination.name} Kerala`}
+        loading="lazy"
+      />
+
+      <div class="destination-gradient"></div>
+
+      <div class="destination-content">
+
+        <h3>
+          {destination.name}
+        </h3>
+
+        <p>
+          {destination.description}
+        </p>
+
+        <a href="#contact">
+          Discover {destination.name} 
+        </a>
+
+      </div>
+
+    </article>
+
+  ))}
+
+</div>
+
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     HOTELS
+========================================= -->
+
+<section class="hotels-section" id="hotels">
+
+  <div class="container">
+
+    <!-- SECTION HEADER -->
+    <div class="section-header hotels-header">
+
+      <span class="section-eyebrow">
+        STAY IN COMFORT
+      </span>
+
+      <h2>
+        Handpicked stays for your Kerala journey
+      </h2>
+
+      <p>
+        Stay at carefully selected hotels and resorts that
+        complement your Kerala travel experience.
+      </p>
+
+    </div>
+
+
+    <!-- HOTEL GRID -->
+    <div class="hotel-grid">
+
+
+      <!-- HOTEL 1 -->
+      <article class="hotel-card">
+
+        <div class="hotel-image-wrap">
+
+          <img
+            src="/images/hotel1.jpg"
+            alt="Luxury hotel stay in Kerala"
+            loading="lazy"
+          />
+
+          <span class="hotel-tag">
+            Luxury Stay
+          </span>
+
+        </div>
+
+
+        <div class="hotel-content">
+
+          <h3>
+            Premium Kerala Resort
+          </h3>
+
+          <span class="hotel-location">
+            Kochi, Kerala
+          </span>
+
+          <p>
+            Relax in elegant surroundings with comfortable
+            rooms and a peaceful atmosphere.
+          </p>
+
+          <a href="#contact" class="hotel-button">
+            View Details
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- HOTEL 2 -->
+      <article class="hotel-card">
+
+        <div class="hotel-image-wrap">
+
+          <img
+            src="/images/hotel2.jpg"
+            alt="Beautiful resort accommodation in Kerala"
+            loading="lazy"
+          />
+
+          <span class="hotel-tag">
+            Resort Stay
+          </span>
+
+        </div>
+
+
+        <div class="hotel-content">
+
+          <h3>
+            Backwater Resort
+          </h3>
+
+          <span class="hotel-location">
+            Alleppey, Kerala
+          </span>
+
+          <p>
+            Enjoy a relaxing stay surrounded by Kerala's
+            beautiful backwaters and natural scenery.
+          </p>
+
+          <a href="#contact" class="hotel-button">
+            View Details
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- HOTEL 3 -->
+      <article class="hotel-card">
+
+        <div class="hotel-image-wrap">
+
+          <img
+            src="/images/hotel3.webp"
+            alt="Mountain resort stay in Munnar Kerala"
+            loading="lazy"
+          />
+
+          <span class="hotel-tag">
+            Nature Stay
+          </span>
+
+        </div>
+
+
+        <div class="hotel-content">
+
+          <h3>
+            Munnar Mountain Resort
+          </h3>
+
+          <span class="hotel-location">
+            Munnar, Kerala
+          </span>
+
+          <p>
+            Wake up to misty hills, fresh mountain air and
+            the peaceful beauty of Munnar.
+          </p>
+
+          <a href="#contact" class="hotel-button">
+            View Details
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- HOTEL 4 -->
+      <article class="hotel-card">
+
+        <div class="hotel-image-wrap">
+
+          <img
+            src="/images/hotel4.jpg"
+            alt="Beach resort accommodation in Kerala"
+            loading="lazy"
+          />
+
+          <span class="hotel-tag">
+            Beach Stay
+          </span>
+
+        </div>
+
+
+        <div class="hotel-content">
+
+          <h3>
+            Kerala Beach Resort
+          </h3>
+
+          <span class="hotel-location">
+            Kovalam, Kerala
+          </span>
+
+          <p>
+            Unwind by the coast with comfortable rooms,
+            beautiful views and a relaxing beach atmosphere.
+          </p>
+
+          <a href="#contact" class="hotel-button">
+            View Details
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+  <!-- EXPERIENCES -->
+<section class="experience-section" id="experiences">
+
+  <!-- LEFT CONTENT -->
+  <div class="experience-left">
+    <div class="experience-left-content">
+
+      <span class="experience-eyebrow">
+        EXPERIENCE THE REAL KERALA
+      </span>
+
+      <h2>
+        Experience<br />
+        Kerala Differently
+      </h2>
+
+      <p>
+        Discover the beauty of Kerala through peaceful backwaters,
+        lush tea gardens, authentic local food and unforgettable
+        beach experiences.
+      </p>
+
+      <div class="experience-bottom">
+
+        <button class="experience-play" type="button" aria-label="Play">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </button>
+
+        <span class="experience-label">
+          Attractions
+        </span>
+
+        <a href="#contact" class="experience-booking">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 4h-2v2h1l2.6 9.6a2 2 0 0 0 1.9 1.4h7.8v-2h-7.8l-.5-2H18a2 2 0 0 0 1.9-1.4L21 8H8.2l-.6-2H7V4z"></path>
+            <circle cx="10" cy="21" r="1.5"></circle>
+            <circle cx="18" cy="21" r="1.5"></circle>
+          </svg>
+          Booking
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- RIGHT IMAGE -->
+  <div class="experience-right">
+
+    <div class="experience-image"></div>
+    <div class="experience-overlay"></div>
+
+    <button
+      class="experience-arrow experience-arrow-left"
+      type="button"
+      aria-label="Previous experience"
+    >
+      &#8249;
+    </button>
+
+    <button
+      class="experience-arrow experience-arrow-right"
+      type="button"
+      aria-label="Next experience"
+    >
+      &#8250;
+    </button>
+
+    <div class="experience-slide-content">
+
+      <h2>
+        Kerala Backwater Experience
+      </h2>
+
+      <p>
+        Cruise through Kerala's peaceful backwaters and experience
+        the natural beauty and traditional charm of God's Own Country.
+      </p>
+
+      <div class="experience-buttons">
+
+        <a href="#contact" class="experience-btn experience-btn-green">
+          Book Now
+        </a>
+
+        <a href="#packages" class="experience-btn experience-btn-orange">
+          View Details
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================================
+     WHY CHOOSE US
+========================================= -->
+
+<section class="why-section" id="why-us">
+
+  <div class="why-overlay"></div>
+
+  <div class="why-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="why-intro">
+
+      <span class="why-eyebrow">
+        WHY MAKE MY KERALA
+      </span>
+
+      <h2 class="why-title">
+        <span>WHY</span>
+        <span class="why-title-green">CHOOSE</span>
+        <span>US?</span>
+      </h2>
+
+      <div class="why-divider">
+        <span></span>
+        <b>&#10022;</b>
+        <span></span>
+      </div>
+
+      <p class="why-intro-text">
+        We take care of the details so you can focus on
+        enjoying the beauty, culture and experiences of Kerala.
+      </p>
+
+    </div>
+
+
+    <!-- RIGHT FEATURE CARDS -->
+    <div class="why-features">
+
+      <!-- CARD 1 -->
+      <article class="why-card why-card-green why-card-one">
+
+        <div class="why-card-icon">
+
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path
+              d="M11 18h42v34H11z"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M21 18v-5h22v5"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M19 29h26M19 39h16"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+
+        </div>
+
+        <h3>
+          We plan<br />
+          around you.
+        </h3>
+
+        <span class="why-card-line"></span>
+
+        <p>
+          Personalised itineraries designed around your
+          interests, time and travel style.
+        </p>
+
+        <span class="why-card-decoration"></span>
+
+      </article>
+
+
+      <!-- CARD 2 -->
+      <article class="why-card why-card-cream why-card-two">
+
+        <div class="why-card-icon">
+
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+
+            <path
+              d="M32 53V24"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M32 27C24 19 15 20 9 22c3 9 12 14 23 11"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M32 33c8-8 17-7 23-5-3 9-12 14-23 11"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <path
+              d="M32 39c-7-7-14-6-19-4 3 7 9 10 19 8"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+          </svg>
+
+        </div>
+
+        <h3>
+          Kerala,<br />
+          authentically.
+        </h3>
+
+        <span class="why-card-line"></span>
+
+        <p>
+          Discover local experiences, traditions, cuisine
+          and destinations beyond the usual routes.
+        </p>
+
+        <span class="why-card-decoration"></span>
+
+      </article>
+
+
+      <!-- CARD 3 -->
+      <article class="why-card why-card-cream why-card-three">
+
+        <div class="why-card-icon">
+
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+
+            <circle
+              cx="32"
+              cy="32"
+              r="21"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M21 38c5-10 17-14 22-15"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <path
+              d="M25 22l5 5 7-7"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+          </svg>
+
+        </div>
+
+        <h3>
+          Beyond the<br />
+          itinerary.
+        </h3>
+
+        <span class="why-card-line"></span>
+
+        <p>
+          From peaceful backwaters to misty hills, every
+          journey is planned for meaningful memories.
+        </p>
+
+        <span class="why-card-decoration"></span>
+
+      </article>
+
+
+      <!-- CARD 4 -->
+      <article class="why-card why-card-green why-card-four">
+
+        <div class="why-card-icon">
+
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+
+            <path
+              d="M20 36v-6c0-8 5-13 12-13s12 5 12 13v6"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+            <rect
+              x="14"
+              y="32"
+              width="9"
+              height="15"
+              rx="3"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <rect
+              x="41"
+              y="32"
+              width="9"
+              height="15"
+              rx="3"
+              stroke="currentColor"
+              stroke-width="3"
+            />
+
+            <path
+              d="M23 47c3 5 15 7 20 0"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+        </div>
+
+        <h3>
+          Support<br />
+          throughout.
+        </h3>
+
+        <span class="why-card-line"></span>
+
+        <p>
+          Reliable assistance before and during your Kerala
+          holiday, whenever you need it.
+        </p>
+
+        <span class="why-card-decoration"></span>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     TESTIMONIALS
+========================================= -->
+
+<section class="testimonials-section">
+
+  <div class="testimonials-overlay"></div>
+
+  <div class="testimonials-container">
+
+    <!-- SECTION HEADER -->
+    <div class="testimonial-header">
+
+      <div class="testimonial-label">
+        <span class="label-line"></span>
+        <span>TRAVELLER STORIES</span>
+        <span class="label-line"></span>
+      </div>
+
+      <h2>
+        Stories from the road
+      </h2>
+
+      <p>
+        Real experiences from travellers who explored Kerala
+        with us.
+      </p>
+
+    </div>
+
+
+    <!-- TESTIMONIAL CARDS -->
+    <div class="testimonial-slider-wrap">
+
+      <button
+  class="testimonial-arrow testimonial-arrow-left"
+  type="button"
+  aria-label="Previous testimonial"
+></button>
+
+      <div class="testimonial-grid">
+
+        {testimonials.map((testimonial, index) => (
+
+          <article
+            class={`testimonial-card testimonial-card-${index + 1}`}
+          >
+
+            <!-- CARD IMAGE / TRAVEL AREA -->
+            <div class="testimonial-card-top">
+
+              <!-- QUOTE -->
+              <div class="quote-mark">
+                
+              </div>
+
+
+              <!-- RATING -->
+              <div class="testimonial-rating">
+
+               <span class="rating-star">
+                  &#9733;
+                </span>
+
+                <span>
+                  5.0
+                </span>
+
+                <span class="rating-text">
+                  Traveller Review
+                </span>
+
+              </div>
+
+
+              <!-- REVIEW -->
+              <p class="testimonial-text">
+                {testimonial.text}
+              </p>
+
+
+              <!-- TRAVEL ROUTE -->
+              <div class="testimonial-route">
+
+                <span class="route-start"></span>
+
+                <span class="route-dashed"></span>
+
+                <span class="route-pin">
+                  &#9670;
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- TRAVELLER DETAILS -->
+            <div class="testimonial-person">
+
+              <div class="avatar">
+                {testimonial.name.charAt(0)}
+              </div>
+
+              <div class="person-details">
+
+                <strong>
+                  {testimonial.name}
+                </strong>
+
+                <span>
+                  {testimonial.location}
+                </span>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        ))}
+
+      </div>
+
+
+      <button
+  class="testimonial-arrow testimonial-arrow-right"
+  type="button"
+  aria-label="Next testimonial"
+></button>
+
+    </div>
+
+
+    <!-- SLIDER DOTS -->
+    <div class="testimonial-dots">
+
+      <span class="testimonial-dot active"></span>
+      <span class="testimonial-dot"></span>
+      <span class="testimonial-dot"></span>
+
+    </div>
+
+
+    <!-- BOTTOM MESSAGE -->
+    <div class="testimonial-bottom">
+
+      <span class="bottom-leaf">
+        &#9671;
+      </span>
+
+      <p>
+        Thank you to all our amazing travellers
+        <br />
+        for being a part of our journey.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!-- FAQ -->
+
+  <section class="faq-section">
+
+    <div class="container faq-container">
+
+      <div class="section-header">
+
+        <span class="section-eyebrow">
+          FREQUENTLY ASKED QUESTIONS
+        </span>
+
+        <h2>
+          Planning your Kerala trip?
+        </h2>
+
+      </div>
+
+
+      <div class="faq-list">
+
+        {faqs.map((faq) => (
+
+          <details>
+
+            <summary>
+
+              {faq.question}
+
+              <span>+</span>
+
+            </summary>
+
+            <p>
+              {faq.answer}
+            </p>
+
+          </details>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact-section" id="contact">
+
+    <div class="container contact-grid">
+
+      <div class="contact-content">
+
+        <span class="section-eyebrow">
+          LET'S PLAN YOUR TRIP
+        </span>
+
+        <h2>
+          Tell us about your dream Kerala holiday.
+        </h2>
+
+        <p>
+          Share a few details about your trip and
+          our travel team can help you plan an
+          unforgettable journey through Kerala.
+        </p>
+
+
+        <div class="contact-details">
+
+          <div class="contact-detail">
+
+            <span class="contact-detail-icon">&#9742;</span>
+
+            <div>
+
+              <small>Call Us</small>
+
+              <strong>
+                +91 98765 43210
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <span class="contact-detail-icon">&#9993;</span>
+
+            <div>
+
+              <small>Email Us</small>
+
+              <strong>
+                hello@makemykerala.com
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <span class="contact-detail-icon">&#9906;</span>
+
+            <div>
+
+              <small>Based In</small>
+
+              <strong>
+                Kochi, Kerala, India
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="form-container">
+
+        <EnquiryForm client:load />
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+

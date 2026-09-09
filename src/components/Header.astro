@@ -1,0 +1,48 @@
+---
+import MobileMenu from "./MobileMenu.jsx";
+import "../styles/header.css";
+---
+
+<header class="site-header">
+  <div class="nav-container">
+
+    <!-- MAIN LOGO -->
+    <a href="/" class="site-logo">
+      <img
+        src="/images/keralatourist logo.png"
+        alt="Make My Kerala - Kerala Tour Packages"
+      />
+    </a>
+
+    <!-- DESKTOP NAVIGATION -->
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- DESKTOP CTA -->
+    <a href="#contact" class="nav-button">
+      Plan Your Trip
+    </a>
+
+    <!-- 25 YEARS LOGO -->
+    <a
+      href="/"
+      class="header-anniversary-logo"
+      aria-label="Make My Kerala 25 Years"
+    >
+      <img
+        src="/images/25yearslogo.png"
+        alt="Make My Kerala 25 Years"
+      />
+    </a>
+
+    <!-- MOBILE MENU -->
+    <MobileMenu client:load />
+
+  </div>
+</header>

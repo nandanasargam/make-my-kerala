@@ -1,0 +1,700 @@
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(18, 56, 42, 0.08);
+  box-shadow: 0 2px 12px rgba(18, 56, 42, 0.06);
+}
+
+
+/* =========================================
+   NAV CONTAINER
+========================================= */
+
+.nav-container {
+  width: min(1180px, calc(100% - 40px));
+  min-height: 90px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+
+/* =========================================
+   MAIN LOGO
+========================================= */
+
+.site-logo {
+  display: block;
+  flex: 0 1 auto;
+  flex-shrink: 1;
+  min-width: 0;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.site-logo img {
+  display: block;
+  width: 340px;
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-left: auto;
+}
+
+.desktop-nav a {
+  display: inline-block;
+  color: #12382a;
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.desktop-nav a:hover {
+  color: #bd8736;
+}
+
+
+/* =========================================
+   PLAN YOUR TRIP BUTTON
+========================================= */
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  min-height: 48px;
+  padding: 0 28px;
+
+  border-radius: 30px;
+
+  background: #c98b36;
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #ffffff;
+  background: #b97b29;
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   25 YEARS LOGO
+========================================= */
+
+.header-anniversary-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100px;
+  height: 95px;
+
+  flex-shrink: 0;
+  margin-left: 0;
+
+  text-decoration: none;
+}
+
+.header-anniversary-logo img {
+  display: block;
+
+  width: 95px;
+  height: 95px;
+
+  object-fit: contain;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.header-anniversary-logo:hover img {
+  transform: scale(1.06);
+  opacity: 0.9;
+}
+
+
+/* =========================================
+   MOBILE MENU WRAPPER
+========================================= */
+
+.mobile-menu-wrapper {
+  display: none;
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   MOBILE MENU BUTTON
+   Simple hamburger - no background box
+========================================= */
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 22px;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+  flex-shrink: 0;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.menu-button:hover {
+  background: transparent;
+  transform: none;
+}
+
+.menu-button span {
+  display: block;
+
+  width: 24px;
+  height: 2px;
+
+  margin: 3px 0;
+
+  background: #12382a;
+
+  border-radius: 2px;
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+
+  width: min(330px, 88vw);
+  height: 100vh;
+
+  padding: 25px;
+
+  background: #ffffff;
+
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.18);
+
+  box-sizing: border-box;
+
+  overflow-y: auto;
+
+  z-index: 1100;
+}
+
+
+/* =========================================
+   MOBILE MENU TOP
+========================================= */
+
+.mobile-menu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid rgba(18, 56, 42, 0.12);
+}
+
+.mobile-menu-top strong {
+  color: #12382a;
+
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.close-button {
+  border: 0;
+  background: transparent;
+
+  color: #12382a;
+
+  font-size: 32px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.close-button:hover {
+  color: #c98b36;
+  transform: rotate(90deg);
+}
+
+
+/* =========================================
+   MOBILE MENU LINKS
+========================================= */
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px 0;
+}
+
+.mobile-menu nav a {
+  display: block;
+
+  padding: 15px 0;
+
+  color: #12382a;
+
+  text-decoration: none;
+
+  border-bottom: 1px solid rgba(18, 56, 42, 0.12);
+
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease;
+}
+
+.mobile-menu nav a:hover {
+  color: #c98b36;
+  padding-left: 5px;
+}
+
+
+/* =========================================
+   MOBILE CTA
+========================================= */
+
+.mobile-cta {
+  display: block;
+
+  padding: 15px;
+
+  background: #c98b36;
+  color: #ffffff;
+
+  text-align: center;
+  text-decoration: none;
+
+  border-radius: 30px;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-cta:hover {
+  background: #b97b29;
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .nav-container {
+    width: calc(100% - 30px);
+    min-height: 88px;
+    gap: 18px;
+  }
+
+  .site-logo img {
+    width: 300px;
+  }
+
+  .desktop-nav {
+    gap: 18px;
+  }
+
+  .desktop-nav a {
+    font-size: 13px;
+  }
+
+  .nav-button {
+    padding: 0 17px;
+    font-size: 12px;
+  }
+
+  .header-anniversary-logo {
+    width: 75px;
+    height: 75px;
+  }
+
+  .header-anniversary-logo img {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+
+/* =========================================
+   MOBILE HEADER
+========================================= */
+
+@media (max-width: 900px) {
+
+  .site-header {
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .nav-container {
+    width: calc(100% - 20px);
+    min-height: 76px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    /* Main logo | 25 Years | Menu */
+    grid-template-columns: minmax(0, 1fr) auto auto;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+
+  /* =========================================
+     HIDE DESKTOP NAVIGATION
+  ========================================= */
+
+  .desktop-nav,
+  .nav-button {
+    display: none !important;
+  }
+
+
+  /* =========================================
+     MAIN LOGO
+  ========================================= */
+
+  .site-logo {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-logo img {
+    display: block;
+
+    width: 230px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  /* =========================================
+     25 YEARS LOGO
+  ========================================= */
+
+  .header-anniversary-logo {
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    margin: 0 !important;
+    padding: 0;
+
+    flex-shrink: 0;
+  }
+
+  .header-anniversary-logo img {
+    display: block;
+
+    width: 62px;
+    height: 62px;
+
+    max-width: none;
+
+    object-fit: contain;
+  }
+
+
+  /* =========================================
+     MOBILE MENU WRAPPER
+  ========================================= */
+
+  .mobile-menu-wrapper {
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 22px;
+
+    margin: 0;
+    padding: 0;
+
+    flex-shrink: 0;
+  }
+
+
+  /* =========================================
+     SIMPLE HAMBURGER BUTTON
+  ========================================= */
+
+  .menu-button {
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 32px !important;
+    height: 22px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    background:  #12382a !important;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+  }
+
+  .menu-button:hover {
+    background: transparent !important;
+    transform: none;
+  }
+
+  .menu-button span {
+    display: block;
+
+    width: 24px;
+    height: 2px;
+
+    margin: 3px 0;
+
+    background: #12382a;
+
+    border-radius: 2px;
+  }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .site-header {
+    padding: 7px 0;
+  }
+
+  .nav-container {
+    width: calc(100% - 16px);
+
+    min-height: 72px;
+
+    grid-template-columns: minmax(0, 1fr) auto auto;
+
+    gap: 7px;
+  }
+
+
+  /* MAIN LOGO */
+
+  .site-logo {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-logo img {
+    width: 215px;
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  /* 25 YEARS */
+
+  .header-anniversary-logo {
+    width: 57px;
+    height: 57px;
+  }
+
+  .header-anniversary-logo img {
+    width: 57px;
+    height: 57px;
+  }
+
+
+  /* HAMBURGER */
+
+  .mobile-menu-wrapper {
+    width: 32px;
+    height: 22px;
+  }
+
+  .menu-button {
+    width: 32px !important;
+    height: 22px !important;
+    padding: 0 !important;
+  }
+
+  .menu-button span {
+    width: 24px;
+    height: 2px;
+    margin: 3px 0;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 400px) {
+
+  .site-header {
+    padding: 6px 0;
+  }
+
+  .nav-container {
+    width: calc(100% - 12px);
+
+    min-height: 68px;
+
+    grid-template-columns: minmax(0, 1fr) auto auto;
+
+    gap: 5px;
+  }
+
+
+  /* MAIN LOGO */
+
+  .site-logo {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-logo img {
+    width: 195px;
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  /* 25 YEARS */
+
+  .header-anniversary-logo {
+    width: 52px;
+    height: 52px;
+  }
+
+  .header-anniversary-logo img {
+    width: 52px;
+    height: 52px;
+  }
+
+
+  /* HAMBURGER */
+
+  .mobile-menu-wrapper {
+    width: 32px;
+    height: 22px;
+  }
+
+  .menu-button {
+    width: 32px !important;
+    height: 22px !important;
+    padding: 0 !important;
+  }
+
+  .menu-button span {
+    width: 20px;
+    height: 2px;
+    margin: 3px 0;
+  }
+}

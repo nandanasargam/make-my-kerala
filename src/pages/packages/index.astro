@@ -1,0 +1,446 @@
+---
+import { packages } from "../../data/packages.js";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kerala Tour Packages</title>
+
+    <meta
+      name="description"
+      content="Explore our Kerala tour packages covering Munnar, Thekkady, Alappuzha and other beautiful destinations."
+    />
+  </head>
+
+  <body>
+    <main class="packages-page">
+
+      <!-- Blurred Background -->
+      <div class="background-image"></div>
+      <div class="background-overlay"></div>
+
+      <!-- Page Content -->
+      <section class="packages-section">
+
+        <div class="page-heading">
+          <span>EXPLORE KERALA</span>
+          <h1>Kerala Tour Packages</h1>
+          <p>
+            Discover beautiful hill stations, wildlife, beaches and
+            peaceful backwaters with our specially designed Kerala tours.
+          </p>
+        </div>
+
+        <!-- Packages Grid -->
+        <div class="packages-grid">
+
+          {
+            packages.map((pkg) => (
+              <article class="package-card">
+
+                <!-- Package Image -->
+                <img
+                  src={pkg.image}
+                  alt={pkg.title}
+                  class="package-image"
+                />
+
+                <!-- Image Overlay -->
+                <div class="card-overlay"></div>
+
+                <!-- Package Content -->
+                <div class="package-content">
+
+                  <h2>{pkg.title}</h2>
+
+                  <div class="package-info">
+                    <span>{pkg.duration}</span>
+                    <span>{pkg.places}</span>
+                  </div>
+
+                  <p class="package-description">
+                    {pkg.description}
+                  </p>
+
+                  <div class="package-bottom">
+
+                    <div class="price">
+                      <small>Starting from</small>
+                      <strong>₹{pkg.price.toLocaleString("en-IN")}</strong>
+                      <small>per person</small>
+                    </div>
+
+                    <a
+                      href={pkg.itineraryLink}
+                      class="itinerary-button"
+                    >
+                      View All Itinerary
+                      <span>→</span>
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </article>
+            ))
+          }
+
+        </div>
+
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .packages-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  /* =========================
+     BLURRED BACKGROUND
+  ========================= */
+
+  .background-image {
+    position: fixed;
+    inset: -30px;
+    z-index: -3;
+
+    background-image: url("/images/kerala-nature-backwater-tour.jpg");
+    background-size: cover;
+    background-position: center;
+
+    filter: blur(12px);
+    transform: scale(1.08);
+  }
+
+  .background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  /* =========================
+     SECTION
+  ========================= */
+
+  .packages-section {
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 70px 30px 90px;
+  }
+
+  /* =========================
+     HEADING
+  ========================= */
+
+  .page-heading {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    color: white;
+  }
+
+  .page-heading span {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  .page-heading h1 {
+    margin: 0 0 15px;
+    font-size: 48px;
+    line-height: 1.15;
+    font-weight: 700;
+  }
+
+  .page-heading p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+
+  /* =========================
+     GRID
+  ========================= */
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  /* =========================
+     PACKAGE CARD
+  ========================= */
+
+  .package-card {
+    position: relative;
+    height: 560px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #222;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.45);
+  }
+
+  /* =========================
+     CARD IMAGE
+  ========================= */
+
+  .package-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .package-card:hover .package-image {
+    transform: scale(1.08);
+  }
+
+  /* =========================
+     IMAGE GRADIENT
+  ========================= */
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.65) 35%,
+        rgba(0, 0, 0, 0.1) 75%,
+        rgba(0, 0, 0, 0) 100%
+      );
+  }
+
+  /* =========================
+     CARD CONTENT
+  ========================= */
+
+  .package-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 30px 28px;
+    color: white;
+  }
+
+  .package-content h2 {
+    margin: 0 0 15px;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .package-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .package-info span:first-child {
+    font-size: 15px;
+  }
+
+  .package-description {
+    margin: 0 0 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+   .background-image {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("/images/blurry.png");
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(10px);
+  transform: scale(1.05);
+}
+  /* =========================
+     PRICE + BUTTON
+  ========================= */
+
+  .package-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price small {
+    font-size: 11px;
+    opacity: 0.8;
+  }
+
+  .price strong {
+    margin: 2px 0;
+    font-size: 23px;
+  }
+
+  .itinerary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 17px;
+
+    color: white;
+    background: rgba(255, 255, 255, 0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .itinerary-button:hover {
+    background: white;
+    color: black;
+    transform: translateX(3px);
+  }
+
+  .itinerary-button span {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* =========================
+     TABLET
+  ========================= */
+
+  @media (max-width: 1100px) {
+    .packages-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .package-card {
+      height: 520px;
+    }
+  }
+
+  @media (max-width: 650px) {
+  .packages-section {
+    padding: 50px 18px 60px;
+  }
+
+  .page-heading {
+    margin-bottom: 35px;
+  }
+
+  .page-heading h1 {
+    font-size: 34px;
+  }
+
+  .page-heading p {
+    font-size: 15px;
+  }
+
+  /* MOBILE HORIZONTAL SCROLL */
+   .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    max-height: 650px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+    scroll-behavior: smooth;
+  }
+
+  /* Keep cards side-by-side */
+  .package-card {
+    flex: 0 0 82%;
+    width: 82%;
+    height: 500px;
+    scroll-snap-align: start;
+  }
+
+  .package-content {
+    padding: 25px 22px;
+  }
+
+  .package-content h2 {
+    font-size: 24px;
+  }
+
+  .package-bottom {
+    align-items: flex-end;
+  }
+
+  .itinerary-button {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+
+  /* Hide scrollbar */
+  .packages-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .packages-grid {
+    scrollbar-width: none;
+  }
+}
+</style>
