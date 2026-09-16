@@ -1,3 +1,72 @@
+---
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  schema?: Record<string, any>;
+}
+
+const {
+  title = "Make My Kerala | Explore God's Own Country - 25 Years of Travel Excellence",
+  description = "Discover Kerala with MakeMyKerala. 25 years of crafting memorable journeys through Munnar, Alleppey, Thekkady, Wayanad and across South India.",
+  image = "/images/allapey.jpg",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://makemykerala.vercel.app").href,
+  schema,
+} = Astro.props;
+
+const siteUrl = Astro.site ? Astro.site.href : "https://makemykerala.vercel.app/";
+const absoluteImage = image.startsWith("http") ? image : new URL(image, siteUrl).href;
+
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      "@id": `${siteUrl}#agency`,
+      "name": "Make My Kerala",
+      "alternateName": "MakeMyKerala",
+      "url": siteUrl,
+      "logo": `${siteUrl}images/25yearslogo.png`,
+      "image": `${siteUrl}images/allapey.jpg`,
+      "description": "25 years of crafting memorable journeys and curated holiday packages across Kerala and South India.",
+      "telephone": "+91-98765-43210",
+      "email": "hello@makemykerala.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kochi",
+        "addressRegion": "Kerala",
+        "addressCountry": "IN"
+      },
+      "priceRange": "₹₹₹",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Anitha Murali"
+        },
+        {
+          "@type": "Person",
+          "name": "Muraleedhara Shenoy"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      "url": siteUrl,
+      "name": "Make My Kerala",
+      "description": "Discover God's Own Country with Make My Kerala.",
+      "publisher": {
+        "@id": `${siteUrl}#agency`
+      }
+    }
+  ]
+};
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +74,7 @@
 
     <meta
       name="viewport"
-      content="width=device-width"
+      content="width=device-width, initial-scale=1.0"
     />
 
     <link
@@ -24,7 +93,31 @@
       content={Astro.generator}
     />
 
-    <title>Kerala Tourism | Explore God's Own Country</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Make My Kerala" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(defaultSchema)} />
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
 
     <!-- Google Fonts -->
     <link
@@ -39,25 +132,40 @@
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
     <slot />
+    <WhatsAppButton />
+
+    <!-- LIGHTWEIGHT HARDWARE-ACCELERATED SCROLL REVEAL OBSERVER -->
+    <script is:inline>
+      (() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          document.querySelectorAll('.reveal, .reveal-up, .reveal-scale').forEach(el => el.classList.add('is-revealed'));
+          return;
+        }
+
+        const revealElements = document.querySelectorAll('.reveal, .reveal-up, .reveal-scale');
+        if (!revealElements.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-revealed');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: '0px 0px -40px 0px', threshold: 0.08 }
+        );
+
+        revealElements.forEach((el) => observer.observe(el));
+      })();
+    </script>
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  body {
-    font-family: "Manrope", sans-serif;
-  }
-</style>

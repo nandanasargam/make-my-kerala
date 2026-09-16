@@ -1,0 +1,475 @@
+---
+// src/components/ExperienceShowcase.astro
+const featuredExperience = {
+  title: "Kerala Backwaters & Houseboats",
+  location: "Alleppey & Kumarakom",
+  description:
+    "Drift serenely through palm-fringed canals aboard a private handcrafted Kettuvallam houseboat. Enjoy authentic Kerala meals prepared freshly by your private on-board chef as golden sunset reflections ripple across Vembanad Lake.",
+  image: "/images/allapey.webp",
+  tag: "Signature Waterways",
+  highlights: ["Private Overnight Kettuvallam", "Traditional Meals on Board", "Village Life Along the Canals"],
+  link: "/experience"
+};
+
+const supportingExperiences = [
+  {
+    title: "Misty Tea Garden Trails",
+    location: "Munnar",
+    description:
+      "Stroll through rolling emerald tea hills, tour historic processing factories, and breathe in crisp highland mountain air.",
+    image: "/images/munnar.webp",
+    tag: "Mountain Retreats",
+    link: "/experience"
+  },
+  {
+    title: "Spice & Wildlife Safaris",
+    location: "Thekkady & Periyar",
+    description:
+      "Glide past elephant herds on a Periyar reservoir boat safari, and explore aromatic cardamom and pepper plantation trails.",
+    image: "/images/thekkady.webp",
+    tag: "Wildlife & Nature",
+    link: "/experience"
+  },
+  {
+    title: "Coastal Sunsets & Cliffs",
+    location: "Kovalam & Varkala",
+    description:
+      "Watch Arabian Sea sunsets from dramatic red cliffside cafes and unwind along sheltered crescent sands with ocean breezes.",
+    image: "/images/kovalam.webp",
+    tag: "Coastal Escapes",
+    link: "/experience"
+  }
+];
+---
+
+<section class="section section-forest experiences-section" id="experiences" aria-label="Authentic Kerala Experiences">
+  <div class="container">
+    <!-- SECTION HEADER -->
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>SIGNATURE EXPERIENCES</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+      <h2 class="section-title">
+        Experience <span class="editorial-accent">Kerala Differently</span>
+      </h2>
+      <p class="section-lede">
+        Beyond ordinary sightseeing — immerse yourself in backwater serenades, fragrant spice trails, mountain mist, and golden coastal sunsets.
+      </p>
+    </div>
+
+    <!-- EDITORIAL EXPERIENCES COMPOSITION -->
+    <div class="experiences-editorial-wrap">
+      
+      <!-- 1. HERO FEATURED EXPERIENCE -->
+      <article class="featured-exp-card reveal">
+        <div class="featured-exp-media">
+          <img
+            src={featuredExperience.image}
+            alt={featuredExperience.title}
+            width="1200"
+            height="600"
+            loading="lazy"
+            decoding="async"
+            class="featured-exp-img"
+          />
+          <div class="featured-exp-veil"></div>
+          <div class="featured-top-badge">
+            <span class="badge-accent">✦ SIGNATURE EXPERIENCE</span>
+            <span class="badge-tag">{featuredExperience.tag}</span>
+          </div>
+        </div>
+
+        <div class="featured-exp-body">
+          <span class="exp-location">📍 {featuredExperience.location}</span>
+          <h3 class="featured-exp-title">{featuredExperience.title}</h3>
+          <p class="featured-exp-desc">{featuredExperience.description}</p>
+
+          <!-- HIGHLIGHT CHIPS -->
+          <div class="featured-highlights-wrap">
+            {featuredExperience.highlights.map((h) => (
+              <span class="exp-chip">✦ {h}</span>
+            ))}
+          </div>
+
+          <div class="featured-exp-actions">
+            <a href={featuredExperience.link} class="btn btn-primary btn-sm">
+              Explore Backwater Experience
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#plan-trip" class="btn btn-outline btn-sm">
+              Enquire Custom Trip
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2. SUPPORTING EXPERIENCES (3-COLUMN RHYTHM) -->
+      <div class="supporting-exp-grid">
+        {supportingExperiences.map((exp, idx) => (
+          <article class={`supporting-exp-card reveal ${idx === 1 ? 'reveal-delay-1' : idx === 2 ? 'reveal-delay-2' : ''}`}>
+            <div class="supporting-exp-media">
+              <img
+                src={exp.image}
+                alt={exp.title}
+                width="480"
+                height="320"
+                loading="lazy"
+                decoding="async"
+                class="supporting-exp-img"
+              />
+              <div class="supporting-exp-veil"></div>
+              <span class="supporting-tag">{exp.tag}</span>
+            </div>
+
+            <div class="supporting-exp-body">
+              <span class="exp-location">📍 {exp.location}</span>
+              <h4 class="supporting-title">{exp.title}</h4>
+              <p class="supporting-desc">{exp.description}</p>
+
+              <div class="supporting-card-foot">
+                <a href={exp.link} class="supporting-link">
+                  <span>Discover More</span>
+                  <span class="link-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- CENTER CTA -->
+    <div class="experiences-cta-center">
+      <a href="/experience" class="btn btn-primary">
+        Explore All Kerala Experiences
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experiences-section {
+    background-color: var(--color-forest-dark, #061913);
+    color: #ffffff;
+  }
+
+  .experiences-editorial-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    margin-bottom: 50px;
+  }
+
+  /* ===================================================
+     1. FEATURED HERO EXPERIENCE CARD
+  =================================================== */
+  .featured-exp-card {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .featured-exp-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200, 139, 59, 0.4);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .featured-exp-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    min-height: 380px;
+    overflow: hidden;
+    background-color: #0d2e22;
+  }
+
+  .featured-exp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .featured-exp-card:hover .featured-exp-img {
+    transform: scale(1.05);
+  }
+
+  .featured-exp-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(6, 25, 19, 0.2) 0%,
+      rgba(6, 25, 19, 0.6) 100%
+    );
+  }
+
+  .featured-top-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .badge-accent {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background-color: var(--color-gold, #c88b3b);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .badge-tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(6, 25, 19, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .featured-exp-body {
+    padding: clamp(28px, 4vw, 44px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .exp-location {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--color-gold-light, #e5a95b);
+    margin-bottom: 10px;
+  }
+
+  .featured-exp-title {
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .featured-exp-desc {
+    font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+    line-height: 1.7;
+    color: #a4b7ad;
+    margin-bottom: 22px;
+  }
+
+  .featured-highlights-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .exp-chip {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #e5f0ea;
+  }
+
+  .featured-exp-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+
+  /* ===================================================
+     2. SUPPORTING EXPERIENCES GRID
+  =================================================== */
+  .supporting-exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .supporting-exp-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .supporting-exp-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(200, 139, 59, 0.35);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  }
+
+  .supporting-exp-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #0d2e22;
+  }
+
+  .supporting-exp-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .supporting-exp-card:hover .supporting-exp-img {
+    transform: scale(1.05);
+  }
+
+  .supporting-exp-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(6, 25, 19, 0.1) 0%,
+      rgba(6, 25, 19, 0.6) 100%
+    );
+  }
+
+  .supporting-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background: rgba(6, 25, 19, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--color-gold-light, #e5a95b);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .supporting-exp-body {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .supporting-title {
+    font-size: 1.22rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .supporting-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: #a4b7ad;
+    margin-bottom: 18px;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .supporting-card-foot {
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .supporting-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-gold-light, #e5a95b);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .supporting-link:hover {
+    color: #ffffff;
+  }
+
+  .link-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .supporting-link:hover .link-arrow {
+    transform: translateX(4px);
+  }
+
+  .experiences-cta-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* RESPONSIVE BREAKPOINTS */
+  @media (max-width: 1024px) {
+    .featured-exp-card {
+      grid-template-columns: 1fr;
+    }
+
+    .featured-exp-media {
+      aspect-ratio: 16 / 9;
+      min-height: auto;
+    }
+
+    .supporting-exp-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .supporting-exp-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .featured-exp-body {
+      padding: 22px 18px 20px;
+    }
+
+    .featured-exp-title {
+      font-size: 1.45rem;
+    }
+
+    .featured-exp-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .featured-exp-actions .btn {
+      width: 100%;
+    }
+
+    .experiences-cta-center .btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 import "../styles/about.css";
 ---
 
 <Layout
-  title="About Us | MakeMyKerala"
+  title="About Us | Make My Kerala - 25 Years of Travel Excellence in South India"
   description="Learn about MakeMyKerala, a trusted South India travel partner with 25 years of experience creating memorable journeys across Kerala, Tamil Nadu and beyond."
 >
 
@@ -67,7 +68,11 @@ import "../styles/about.css";
             <div class="hero-logo-glow"></div>
 
             <img
-              src="/images/25yearslogo.png"
+              src="/images/25yearslogo.webp"
+              width="360"
+              height="333"
+              loading="eager"
+              decoding="async"
               alt="MakeMyKerala 25 Years"
             />
 
@@ -408,7 +413,7 @@ import "../styles/about.css";
          DESTINATIONS
     ====================================================== -->
 
-    <section class="destinations-section" id="destinations">
+    <section class="destinations-section" id="why-makemykerala">
 
       <div class="container">
 
@@ -417,20 +422,20 @@ import "../styles/about.css";
           <div>
 
             <span class="section-tag">
-              EXPLORE SOUTH INDIA
+              OUR SERVICE COMMITMENT
             </span>
 
             <h2>
-              Places that
-              <span>stay with you.</span>
+              The Pillars of
+              <span>MakeMyKerala.</span>
             </h2>
 
           </div>
 
           <p>
-            Our travel expertise covers some of the region's most loved
-            destinations, each offering its own atmosphere, culture and
-            experience.
+            With 25 years of local travel excellence, our promise to every guest
+            is built on genuine hospitality, seamless planning, and unforgettable
+            memories across God's Own Country.
           </p>
 
         </div>
@@ -440,62 +445,38 @@ import "../styles/about.css";
 
           <div class="destination-item">
             <span class="destination-index">01</span>
-            <strong>Munnar</strong>
-            <span class="destination-arrow">↗</span>
+            <strong>25+ Years of Local Mastery</strong>
+            <span class="destination-arrow">✓</span>
           </div>
 
           <div class="destination-item">
             <span class="destination-index">02</span>
-            <strong>Thekkady</strong>
-            <span class="destination-arrow">↗</span>
+            <strong>100% Customized Itineraries</strong>
+            <span class="destination-arrow">✓</span>
           </div>
 
           <div class="destination-item">
             <span class="destination-index">03</span>
-            <strong>Alappuzha (Alleppey)</strong>
-            <span class="destination-arrow">↗</span>
+            <strong>Handpicked &amp; Inspected Stays</strong>
+            <span class="destination-arrow">✓</span>
           </div>
 
           <div class="destination-item">
             <span class="destination-index">04</span>
-            <strong>Trivandrum</strong>
-            <span class="destination-arrow">↗</span>
+            <strong>Dedicated Chauffeur Guides</strong>
+            <span class="destination-arrow">✓</span>
           </div>
 
           <div class="destination-item">
             <span class="destination-index">05</span>
-            <strong>Kanyakumari</strong>
-            <span class="destination-arrow">↗</span>
+            <strong>Transparent, Direct Pricing</strong>
+            <span class="destination-arrow">✓</span>
           </div>
 
           <div class="destination-item">
             <span class="destination-index">06</span>
-            <strong>Madurai</strong>
-            <span class="destination-arrow">↗</span>
-          </div>
-
-          <div class="destination-item">
-            <span class="destination-index">07</span>
-            <strong>Kovalam</strong>
-            <span class="destination-arrow">↗</span>
-          </div>
-
-          <div class="destination-item">
-            <span class="destination-index">08</span>
-            <strong>Poovar</strong>
-            <span class="destination-arrow">↗</span>
-          </div>
-
-          <div class="destination-item">
-            <span class="destination-index">09</span>
-            <strong>Rameshwaram</strong>
-            <span class="destination-arrow">↗</span>
-          </div>
-
-          <div class="destination-item">
-            <span class="destination-index">10</span>
-            <strong>Cochin (Kochi)</strong>
-            <span class="destination-arrow">↗</span>
+            <strong>24/7 On-Tour Guest Support</strong>
+            <span class="destination-arrow">✓</span>
           </div>
 
         </div>
@@ -858,7 +839,7 @@ import "../styles/about.css";
 
         </div>
 
-        <a href="#contact" class="about-cta-button">
+        <a href="/contact" class="about-cta-button">
           Begin Your Journey
           <span>→</span>
         </a>
@@ -869,6 +850,6 @@ import "../styles/about.css";
 
   </main>
 
-
+  <Footer />
 
 </Layout>

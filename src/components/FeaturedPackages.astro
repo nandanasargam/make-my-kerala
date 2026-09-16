@@ -1,0 +1,538 @@
+---
+// src/components/FeaturedPackages.astro
+import { packages } from "../data/packages.js";
+
+const signaturePackage = packages[0];
+const companionPackages = packages.slice(1);
+---
+
+<section class="section section-sand packages-section" id="packages" aria-label="Curated Kerala Tour Packages">
+  <div class="container">
+    <!-- SECTION HEADER -->
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>CURATED JOURNEYS</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+      <h2 class="section-title">
+        Thoughtfully Crafted <span class="editorial-accent">Kerala Packages</span>
+      </h2>
+      <p class="section-lede">
+        Curated for families, couples, and nature lovers. Every itinerary is planned for comfort, authentic experiences, and true South Indian hospitality.
+      </p>
+    </div>
+
+    <!-- ASYMMETRIC EDITORIAL SHOWCASE -->
+    <div class="packages-editorial-showcase">
+      
+      <!-- LEFT: SIGNATURE FEATURED PACKAGE -->
+      <article class="signature-card reveal">
+        <a href={signaturePackage.itineraryLink} class="signature-media-link" aria-label={`View ${signaturePackage.title} itinerary`}>
+          <div class="signature-media-wrap">
+            <img
+              src={signaturePackage.image}
+              alt={signaturePackage.title}
+              width="800"
+              height="500"
+              loading="lazy"
+              decoding="async"
+              class="signature-card-img"
+            />
+            <div class="signature-card-overlay"></div>
+            <div class="signature-top-badges">
+              <span class="badge-signature">✦ SIGNATURE JOURNEY</span>
+              <span class="badge-duration">{signaturePackage.duration}</span>
+            </div>
+          </div>
+        </a>
+
+        <div class="signature-card-body">
+          <div class="package-route">
+            <span class="route-icon" aria-hidden="true">📍</span>
+            <span class="route-text">{signaturePackage.places}</span>
+          </div>
+
+          <h3 class="signature-title">
+            <a href={signaturePackage.itineraryLink}>{signaturePackage.title}</a>
+          </h3>
+
+          <p class="signature-desc">{signaturePackage.description}</p>
+
+          <!-- HIGHLIGHT BULLETS -->
+          <ul class="signature-highlights">
+            {signaturePackage.highlights.slice(0, 3).map((h) => (
+              <li class="sig-highlight-item">
+                <span class="check-icon" aria-hidden="true">✓</span>
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="signature-card-footer">
+            <div class="package-price-wrap">
+              <span class="price-prefix">Starting from</span>
+              <strong class="price-value">₹{signaturePackage.price.toLocaleString("en-IN")}</strong>
+              <span class="price-suffix">per person</span>
+            </div>
+            <a href={signaturePackage.itineraryLink} class="btn btn-primary btn-sm">
+              View Full Itinerary
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIGHT: COMPANION PACKAGES STACK -->
+      <div class="companion-packages-stack">
+        {companionPackages.map((pkg, idx) => (
+          <article class={`companion-card reveal ${idx === 0 ? 'reveal-delay-1' : idx === 1 ? 'reveal-delay-2' : 'reveal-delay-3'}`}>
+            <a href={pkg.itineraryLink} class="companion-media-link" aria-label={`View ${pkg.title} itinerary`}>
+              <div class="companion-image-wrap">
+                <img
+                  src={pkg.image}
+                  alt={pkg.title}
+                  width="360"
+                  height="240"
+                  loading="lazy"
+                  decoding="async"
+                  class="companion-card-img"
+                />
+                <span class="companion-duration-pill">{pkg.duration}</span>
+              </div>
+            </a>
+
+            <div class="companion-body">
+              <div class="package-route">
+                <span class="route-icon" aria-hidden="true">📍</span>
+                <span class="route-text">{pkg.places}</span>
+              </div>
+
+              <h4 class="companion-title">
+                <a href={pkg.itineraryLink}>{pkg.title}</a>
+              </h4>
+
+              <p class="companion-desc">{pkg.description}</p>
+
+              <div class="companion-footer">
+                <div class="companion-price-wrap">
+                  <span class="price-prefix">From</span>
+                  <strong class="price-value-sm">₹{pkg.price.toLocaleString("en-IN")}</strong>
+                  <span class="price-suffix">/ person</span>
+                </div>
+                <a href={pkg.itineraryLink} class="btn btn-outline-forest btn-xs">
+                  View Itinerary
+                  <span class="btn-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- CENTERED VIEW ALL BUTTON -->
+    <div class="packages-cta-center">
+      <a href="/packages" class="btn btn-forest">
+        Explore All Kerala Tour Packages
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .packages-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+  }
+
+  /* ASYMMETRIC EDITORIAL LAYOUT */
+  .packages-editorial-showcase {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 32px;
+    align-items: stretch;
+    margin-bottom: 50px;
+  }
+
+  /* ===================================================
+     LEFT: SIGNATURE HERO CARD
+  =================================================== */
+  .signature-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.07));
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .signature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
+  }
+
+  .signature-media-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .signature-media-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #e8e2d8;
+  }
+
+  .signature-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .signature-card:hover .signature-card-img {
+    transform: scale(1.05);
+  }
+
+  .signature-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      transparent 40%,
+      rgba(8, 32, 23, 0.65) 100%
+    );
+  }
+
+  .signature-top-badges {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .badge-signature {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--color-gold, #c88b3b);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    box-shadow: 0 4px 12px rgba(200, 139, 59, 0.35);
+  }
+
+  .badge-duration {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(8, 32, 23, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .signature-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 28px 26px 26px;
+  }
+
+  .signature-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    text-wrap: balance;
+  }
+
+  .signature-title a:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .signature-desc {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 20px;
+    max-width: 58ch;
+    text-wrap: pretty;
+  }
+
+  /* HIGHLIGHTS LIST */
+  .signature-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 0 24px;
+    padding: 16px 18px;
+    background-color: var(--color-sand-light, #fbf8f2);
+    border-radius: 12px;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    list-style: none;
+  }
+
+  .sig-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--color-forest, #12382a);
+  }
+
+  .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: rgba(200, 139, 59, 0.15);
+    color: var(--color-gold, #c88b3b);
+    font-size: 0.75rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .signature-card-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  /* ===================================================
+     RIGHT: COMPANION PACKAGES STACK
+  =================================================== */
+  .companion-packages-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: space-between;
+  }
+
+  .companion-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .companion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.08));
+  }
+
+  .companion-media-link {
+    display: block;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .companion-image-wrap {
+    position: relative;
+    height: 100%;
+    min-height: 140px;
+    background-color: #e8e2d8;
+  }
+
+  .companion-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .companion-card:hover .companion-card-img {
+    transform: scale(1.06);
+  }
+
+  .companion-duration-pill {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background: rgba(8, 32, 23, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .companion-body {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px 14px;
+  }
+
+  .companion-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+
+  .companion-title a:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .companion-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .companion-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  .companion-price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .price-value-sm {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+  }
+
+  .btn-xs {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+    border-radius: 8px;
+  }
+
+  /* SHARED ROUTE STYLES */
+  .package-route {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .route-icon {
+    font-size: 0.82rem;
+    flex-shrink: 0;
+  }
+
+  .route-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-gold, #c88b3b);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .package-price-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-prefix {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-text-subtle, #7a8c83);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .price-value {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.1;
+  }
+
+  .price-suffix {
+    font-size: 0.72rem;
+    color: var(--color-text-subtle, #7a8c83);
+  }
+
+  .packages-cta-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* RESPONSIVE BREAKPOINTS */
+  @media (max-width: 1024px) {
+    .packages-editorial-showcase {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .companion-packages-stack {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .companion-card {
+      grid-template-columns: 1fr;
+    }
+
+    .companion-image-wrap {
+      aspect-ratio: 16 / 10;
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .companion-packages-stack {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .signature-card-body {
+      padding: 22px 18px 20px;
+    }
+
+    .signature-title {
+      font-size: 1.4rem;
+    }
+
+    .packages-cta-center .btn {
+      width: 100%;
+    }
+  }
+</style>

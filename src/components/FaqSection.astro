@@ -1,0 +1,252 @@
+---
+// src/components/FaqSection.astro
+const faqs = [
+  {
+    question: "What is the best time to visit Kerala?",
+    answer:
+      "Kerala can be visited throughout the year. September to March is the most popular period with pleasant, sunny weather ideal for sightseeing, hill stations, and backwaters. June to August is the monsoon season, beloved for lush green landscapes, refreshing waterfalls, and traditional Ayurvedic rejuvenation retreats."
+  },
+  {
+    question: "Can I customise my Kerala tour package?",
+    answer:
+      "Yes, completely. You can customise destinations, duration, accommodation tier (heritage, luxury, boutique resort, or traditional houseboat), transportation, and experiences according to your exact preferences and budget. Our Kerala specialists design the itinerary around you."
+  },
+  {
+    question: "Which places should I visit in Kerala?",
+    answer:
+      "Popular destinations include Munnar for misty tea estates, Alleppey and Kumarakom for iconic backwater cruises, Thekkady for Periyar wildlife sanctuaries and spice gardens, Wayanad for waterfalls and trekking, and Kovalam or Varkala for coastal serenity. We help you choose the ideal combination based on your travel style."
+  },
+  {
+    question: "Do you provide family and honeymoon packages?",
+    answer:
+      "Yes. We offer bespoke packages designed specifically for honeymoon couples (candlelit dinners, flower beds, private houseboat stays) and families (child-safe vehicles, spacious interconnected suites, flexible pacing). We also cater to solo travellers and private groups."
+  }
+];
+---
+
+<section class="section section-sand-warm faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+    <div class="faq-grid">
+      
+      <!-- LEFT: ASIDE HEADER & PHONE CALL CARD -->
+      <div class="faq-intro">
+        <div class="section-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>GOT QUESTIONS?</span>
+        </div>
+
+        <h2 class="section-title">
+          Frequently Asked <span class="editorial-accent">Questions</span>
+        </h2>
+
+        <p class="faq-lead">
+          Everything you need to know about planning your Kerala journey. Have a custom question? Our travel desk in Kochi is always here to assist.
+        </p>
+
+        <!-- DIRECT REACH CARD -->
+        <div class="faq-help-box">
+          <span class="help-box-icon" aria-hidden="true">📞</span>
+          <div class="help-box-text">
+            <strong>Need instant trip advice?</strong>
+            <span>Call our Kochi travel desk directly</span>
+          </div>
+          <a href="tel:+919876543210" class="btn btn-forest btn-sm">
+            +91 98765 43210
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: ACCORDION -->
+      <div class="faq-accordion-wrap">
+        {faqs.map((faq, idx) => (
+          <details class="faq-accordion-item" open={idx === 0}>
+            <summary class="faq-summary">
+              <span class="faq-index">0{idx + 1}</span>
+              <span class="faq-question">{faq.question}</span>
+              <span class="faq-chevron" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer">
+              <p>{faq.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background-color: var(--color-sand, #f4ede2);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: flex-start;
+  }
+
+  /* LEFT ASIDE */
+  .faq-intro {
+    position: sticky;
+    top: 110px;
+    align-self: flex-start;
+  }
+
+  .faq-lead {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 28px;
+  }
+
+  .faq-help-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .help-box-icon {
+    font-size: 1.6rem;
+  }
+
+  .help-box-text strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 2px;
+  }
+
+  .help-box-text span {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #5a6b63);
+  }
+
+  /* RIGHT ACCORDION */
+  .faq-accordion-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .faq-accordion-item {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .faq-accordion-item[open] {
+    border-color: var(--color-gold, #c88b3b);
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.08));
+  }
+
+  .faq-summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 22px 24px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.25s ease;
+  }
+
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-accordion-item[open] .faq-summary {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .faq-index {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-gold, #c88b3b);
+    flex-shrink: 0;
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  .faq-accordion-item[open] .faq-question {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .faq-chevron {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--color-sand-light, #fbf8f2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-forest, #12382a);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .faq-accordion-item[open] .faq-chevron {
+    transform: rotate(180deg);
+    background-color: var(--color-gold, #c88b3b);
+    color: #ffffff;
+  }
+
+  .faq-answer {
+    padding: 0 24px 24px 62px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-text-muted, #5a6b63);
+  }
+
+  @media (max-width: 900px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .faq-intro {
+      position: static;
+    }
+
+    .faq-answer {
+      padding-left: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .faq-summary {
+      padding: 18px 18px;
+      gap: 12px;
+    }
+
+    .faq-question {
+      font-size: 1rem;
+    }
+
+    .faq-answer {
+      padding: 0 18px 20px 18px;
+      font-size: 0.9rem;
+    }
+  }
+</style>

@@ -1,0 +1,395 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/package-detail.css";
+
+const packageTitle = "Kerala Backwater Experience";
+const duration = "4 Days / 3 Nights";
+const places = "Kochi - Alleppey - Kumarakom";
+const price = 11999;
+const heroImage = "/images/kerala-backwater-experience.webp";
+
+const whatsappNumber = "919876543210";
+const whatsappText = encodeURIComponent(
+  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}) starting at ₹${price.toLocaleString("en-IN")}/person.`
+);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+const highlights = [
+  "Overnight stay aboard a traditional luxury Kerala Houseboat",
+  "Heritage exploration of Fort Kochi & iconic Chinese Fishing Nets",
+  "Dawn birdwatching cruise at Kumarakom Bird Sanctuary",
+  "Authentic banana-leaf Kerala Sadya culinary experience",
+  "Scenic canoe rides through hidden village canals"
+];
+
+const days = [
+  {
+    number: "01",
+    title: "Arrival in Cochin & Transfer to Kumarakom",
+    description:
+      "Arrive at Cochin where your chauffeur greets you. Explore historic Fort Kochi before driving to your serene lakeside resort in Kumarakom.",
+    image: "/images/hotel2.webp",
+    activities: [
+      "Airport / Railway station pickup in private AC vehicle",
+      "Visit Fort Kochi, St. Francis Church, and Chinese Fishing Nets",
+      "Scenic coastal drive to Kumarakom on Vembanad Lake",
+      "Check-in at lakeside resort with welcome refreshments",
+      "Sunset lake views and dinner at the resort"
+    ]
+  },
+  {
+    number: "02",
+    title: "Kumarakom Bird Sanctuary & Village Heritage",
+    description:
+      "Wake up to the sounds of migratory birds and explore local backwater village life, coir making, and authentic Kerala culture.",
+    image: "/images/allapuzha.avif",
+    activities: [
+      "Early morning guided visit to Kumarakom Bird Sanctuary",
+      "Traditional Kerala breakfast at the resort",
+      "Village life walk witnessing toddy tapping and coir spinning",
+      "Authentic Kerala Sadya lunch served on plantain leaves",
+      "Evening country canoe ride through narrow coconut-canopied canals",
+      "Overnight stay in Kumarakom"
+    ]
+  },
+  {
+    number: "03",
+    title: "Kumarakom to Alleppey Houseboat Cruise",
+    description:
+      "Board your private traditional Kettuvallam (houseboat) in Alleppey. Cruise endlessly through lagoons, rivers, and emerald paddy fields.",
+    image: "/images/allapey.webp",
+    activities: [
+      "Breakfast at resort and short transfer to Alleppey jetty",
+      "Board deluxe houseboat at 12:00 PM with tender coconut drink",
+      "Cruise through the Punnamada Lake & scenic rural backwaters",
+      "Freshly prepared Kerala lunch featuring Karimeen fish (or vegetarian delights)",
+      "Evening tea and hot Kerala banana fritters on the deck",
+      "Candlelit dinner and overnight stay docked in tranquil backwaters"
+    ]
+  },
+  {
+    number: "04",
+    title: "Backwater Morning & Cochin Departure",
+    description:
+      "Enjoy your final sunrise cruise across the misty waters before checking out and heading to Cochin for your onward journey.",
+    image: "/images/kerala-backwater-experience.webp",
+    activities: [
+      "Morning cruise while the backwaters awaken",
+      "Freshly prepared hot breakfast on board",
+      "Check-out at 9:00 AM and drive back to Cochin",
+      "Optional visit to Mattancherry Dutch Palace & Jew Town",
+      "Transfer to Cochin Airport / Railway Station for departure"
+    ]
+  }
+];
+
+const inclusions = [
+  "3 Nights accommodation (2N Kumarakom Lakeside Resort, 1N Deluxe Houseboat)",
+  "Daily breakfast at resort and all meals (Lunch, Dinner, Breakfast) on Houseboat",
+  "Private AC sedan with professional English/Hindi-speaking chauffeur",
+  "Airport / Railway station pickup and drop from Cochin",
+  "Fuel, tolls, parking fees, and driver allowances included",
+  "Village canoe experience and backwater cruise"
+];
+
+const exclusions = [
+  "Air or train tickets",
+  "Entry fees to monuments or bird sanctuary",
+  "Optional Ayurvedic massages or water sports",
+  "Personal expenses, telephone calls, laundry, and tips"
+];
+
+const gallery = [
+  "/images/allapey.webp",
+  "/images/hotel2.webp",
+  "/images/allapuzha.avif",
+  "/images/kerala-backwater-experience.webp"
+];
+
+const tripSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": packageTitle,
+  "description": "4 Days & 3 Nights signature tour covering Kochi heritage, Kumarakom lakeside resort, and an overnight Alleppey backwater houseboat cruise.",
+  "touristType": ["Couples", "Family", "Solo"],
+  "offers": {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://make-my-kerala.vercel.app/packages/backwater-experience/"
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Make My Kerala",
+    "url": "https://make-my-kerala.vercel.app/"
+  }
+};
+---
+
+<Layout
+  title={`${packageTitle} | Make My Kerala - 4D/3N Backwater Tour`}
+  description="Book the Kerala Backwater Experience: 4 Days & 3 Nights in Kochi, Kumarakom and an Alleppey Houseboat cruise. Unwind along God's Own Country's serene waterways."
+  image={heroImage}
+  schema={tripSchema}
+>
+  <Header />
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img
+        src={heroImage}
+        alt={packageTitle}
+        class="hero-image"
+        width="1200"
+        height="600"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          BACKWATER SIGNATURE TOUR
+        </div>
+
+        <h1>{packageTitle}</h1>
+        <p class="hero-subtitle">God's Own Waters: Canals, Lakes &amp; Heritage</p>
+
+        <div class="hero-details">
+          <div>
+            <strong>{duration}</strong>
+            <span>Duration</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>{places}</strong>
+            <span>Destinations</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>₹{price.toLocaleString("en-IN")}</strong>
+            <span>Per Person</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+      <div class="container">
+        <div class="section-title">
+          <span>THE BACKWATER JOURNEY</span>
+          <h2>A World That Moves to the Rhythm of Water</h2>
+          <p>
+            Escape the rush of modern life. Glide along mirror-like backwaters, stay in floating
+            luxury, and experience the warmth of Kerala's waterside villages.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🚤</div>
+            <h3>Houseboat Stay</h3>
+            <p>Overnight on a traditional deluxe Kettuvallam</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🌿</div>
+            <h3>Bird Sanctuary</h3>
+            <p>Dawn boat safari at Kumarakom sanctuary</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏛️</div>
+            <h3>Heritage Kochi</h3>
+            <p>Colonial churches, spice markets &amp; nets</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🥥</div>
+            <h3>Authentic Sadya</h3>
+            <p>Traditional multi-course feast on banana leaf</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚗</div>
+            <h3>Chauffeured Transfers</h3>
+            <p>Comfortable AC travel throughout</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="section-title">
+          <span>TOUR HIGHLIGHTS</span>
+          <h2>Signature Waterway Experiences</h2>
+        </div>
+
+        <div class="highlights-grid">
+          {highlights.map((item) => (
+            <div class="highlight-card">
+              <span class="highlight-icon">✦</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY TIMELINE -->
+    <section class="itinerary-section">
+      <div class="container">
+        <div class="section-title">
+          <span>DAY-BY-DAY ITINERARY</span>
+          <h2>4 Days &amp; 3 Nights of Waterway Wonders</h2>
+          <p>Carefully timed so you enjoy sunrises, sunsets, and local heritage.</p>
+        </div>
+
+        <div class="timeline">
+          {days.map((day) => (
+            <article class="day-card">
+              <div class="day-number">
+                <span>DAY</span>
+                <strong>{day.number}</strong>
+              </div>
+
+              <div class="day-image">
+                <img
+                  src={day.image}
+                  alt={day.title}
+                  width="400"
+                  height="260"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="day-content">
+                <span class="day-label">DAY {day.number}</span>
+                <h3>{day.title}</h3>
+                <p>{day.description}</p>
+
+                <ul>
+                  {day.activities.map((act) => (
+                    <li>
+                      <span>✓</span>
+                      {act}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUSIONS & EXCLUSIONS -->
+    <section class="includes-section">
+      <div class="container">
+        <div class="section-title">
+          <span>ALL-INCLUSIVE DETAILS</span>
+          <h2>What's Included &amp; Excluded</h2>
+        </div>
+
+        <div class="includes-grid">
+          <div class="include-card">
+            <div class="include-icon">✨</div>
+            <h3>What's Included</h3>
+            <ul>
+              {inclusions.map((item) => (
+                <li class="inc">{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="include-card">
+            <div class="include-icon">ℹ️</div>
+            <h3>What's Excluded</h3>
+            <ul>
+              {exclusions.map((item) => (
+                <li class="exc">{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-title">
+          <span>WATERWAY GALLERY</span>
+          <h2>Scenes From God's Own Backwaters</h2>
+        </div>
+
+        <div class="gallery-grid">
+          {gallery.map((imgUrl, i) => (
+            <div class="gallery-card">
+              <img
+                src={imgUrl}
+                alt={`Kerala Backwaters Photo ${i + 1}`}
+                width="360"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & WHATSAPP CTA -->
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-box">
+          <div class="booking-content">
+            <span>PLAN YOUR BACKWATER HOLIDAY</span>
+            <h2>Glide Across Kerala's Famous Waters</h2>
+            <p>
+              Custom dates, premium houseboat upgrades, and private transfers available.
+              Speak directly with our local travel team.
+            </p>
+          </div>
+
+          <div class="booking-price">
+            <small>Starting From</small>
+            <strong>₹{price.toLocaleString("en-IN")}</strong>
+            <span>Per Person</span>
+          </div>
+
+          <div class="booking-actions">
+            <a href="/contact" class="booking-button">
+              Enquire Online <span>→</span>
+            </a>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="booking-whatsapp-btn"
+            >
+              WhatsApp Enquiry <span>💬</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

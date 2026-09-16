@@ -1,0 +1,925 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+const experiences = [
+  {
+    id: "backwaters",
+    title: "Serene Backwater & Houseboat Cruises",
+    location: "Alleppey & Kumarakom",
+    category: "Backwater Cruises",
+    image: "/images/allapey.webp",
+    description:
+      "Cruise through palm-fringed lagoons aboard a traditional thatch-roofed Kettuvallam houseboat. Relax as emerald waters, quiet village banks, and sunset reflections unfold around you.",
+    highlights: [
+      "Overnight stay on private luxury houseboat",
+      "Traditional Kerala meals freshly cooked on board",
+      "Canal kayaking and country canoe excursions",
+      "Sunset views across Lake Vembanad"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Family Holiday",
+      quote:
+        "Drifting along the Alleppey canals while fresh tender coconut water was served on deck was the highlight of our trip. The stillness at night in the backwaters is something we will never forget.",
+      traveller: "Anita & Family, Mumbai"
+    },
+    primaryCta: { label: "Enquire for Backwaters", href: "/contact" },
+    secondaryCta: { label: "View Backwater Package", href: "/packages/backwater-experience" }
+  },
+  {
+    id: "hill-stations",
+    title: "Misty Tea Plantations & Hilltop Trails",
+    location: "Munnar & Wayanad",
+    category: "Hill Station & Tea Gardens",
+    image: "/images/munnar.webp",
+    description:
+      "Awaken to cool mountain air, endless emerald tea slopes, and winding mountain roads that pass cascading waterfalls, colonial tea factories, and panoramic summit viewpoints.",
+    highlights: [
+      "Guided strolls through sprawling tea estates",
+      "Scenic visits to Mattupetty Dam & Echo Point",
+      "Fresh tea tasting at heritage processing factories",
+      "Chilly mountain mornings with cloud-covered peaks"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Mountain Retreat",
+      quote:
+        "Waking up to rolling morning mist drifting over tea slopes in Munnar was pure poetry. Our driver knew every scenic photo viewpoint along the ghats.",
+      traveller: "Rajesh & Neha, Bangalore"
+    },
+    primaryCta: { label: "Plan Mountain Tour", href: "/contact" },
+    secondaryCta: { label: "View Family Package", href: "/packages/family-holiday" }
+  },
+  {
+    id: "beaches",
+    title: "Golden Beaches & Coastal Sunsets",
+    location: "Kovalam, Varkala & Marari",
+    category: "Beach & Coastal Retreats",
+    image: "/images/kovalam.webp",
+    description:
+      "Unwind on the sun-drenched shores of the Arabian Sea. From the iconic red clifftops of Varkala to the crescent sands of Kovalam and the quiet coconut palms of Marari.",
+    highlights: [
+      "Lighthouse Beach sunsets & evening promenade",
+      "Seaside cafes perched atop dramatic red cliffs",
+      "Freshly prepared coastal catch of the day",
+      "Gentle beach walks along palm-fringed sands"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Beach Holiday",
+      quote:
+        "Evenings at Kovalam with warm waves and fresh grilled seafood under swaying palms was the perfect wind-down to our Kerala journey.",
+      traveller: "Vikram S., New Delhi"
+    },
+    primaryCta: { label: "Plan Beach Holiday", href: "/contact" },
+    secondaryCta: { label: "View Honeymoon Escape", href: "/packages/honeymoon-escape" }
+  },
+  {
+    id: "culture",
+    title: "Classical Arts & Heritage Traditions",
+    location: "Fort Kochi & Thrissur",
+    category: "Cultural & Heritage",
+    image: "/images/kerala4.webp",
+    description:
+      "Immerse yourself in centuries of living tradition. Witness the elaborate facial pigments of Kathakali dance drama, hypnotic percussion rhythms, and historic colonial streets.",
+    highlights: [
+      "Backstage access to Kathakali makeup and performances",
+      "Centuries-old Chinese fishing nets at Fort Kochi harbour",
+      "Heritage walking tours through Jew Town & Dutch Palace",
+      "Traditional Kalaripayattu martial arts demonstrations"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Heritage Journey",
+      quote:
+        "Watching the Kathakali performers apply natural pigments backstage before the evening performance was utterly mesmerizing. A rich cultural window into South India.",
+      traveller: "David & Sarah, London"
+    },
+    primaryCta: { label: "Plan Cultural Journey", href: "/contact" },
+    secondaryCta: { label: "Contact Travel Specialist", href: "/contact" }
+  },
+  {
+    id: "cuisine",
+    title: "Authentic Kerala Culinary Delights",
+    location: "Kochi, Malabar & Backwaters",
+    category: "Authentic Kerala Cuisine",
+    image: "/images/kerala6.webp",
+    description:
+      "A feast for all senses. Savor authentic 24-dish traditional Sadhyas served on fresh plantain leaves, fragrant spiced biryanis, crispy Appams with coconut stew, and spiced river fish.",
+    highlights: [
+      "Traditional Grand Sadhya with over 20 side dishes",
+      "Karimeen Pollichathu wrapped in charred banana leaves",
+      "Aromatic spice plantation tastings in the Western Ghats",
+      "Fresh coconut water and homemade banana chips"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Food & Culture",
+      quote:
+        "Eating a traditional banana-leaf Sadhya with 20+ dishes in a heritage home was culinary heaven. The flavors of fresh coconut and curry leaves are unmatched.",
+      traveller: "Priyanka M., Pune"
+    },
+    primaryCta: { label: "Enquire for Foodie Tours", href: "/contact" },
+    secondaryCta: { label: "Custom Travel Quote", href: "/contact" }
+  },
+  {
+    id: "wildlife",
+    title: "Wildlife Safaris & Wilderness Treks",
+    location: "Thekkady (Periyar Tiger Reserve)",
+    category: "Wildlife & Adventure",
+    image: "/images/thekkady.webp",
+    description:
+      "Encounter wild elephant herds and rare avian species in the dense forests of Periyar. Journey through cardamom-scented jungle trails and calm inland sanctuary waters.",
+    highlights: [
+      "Periyar Lake wildlife boat safaris",
+      "Guided nature walks through cardamom and spice plantations",
+      "Bamboo rafting on scenic forest reservoir waters",
+      "Tribal village heritage and conservation walks"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Wildlife Encounter",
+      quote:
+        "Spotting a herd of wild elephants grazing by the water’s edge in Periyar on the morning boat ride was thrilling for the kids! Very smooth arrangements.",
+      traveller: "Arvind & Shweta, Hyderabad"
+    },
+    primaryCta: { label: "Book Wildlife Tour", href: "/contact" },
+    secondaryCta: { label: "View Nature Package", href: "/packages/keralanature" }
+  },
+  {
+    id: "nature",
+    title: "Majestic Waterfalls & Forest Retreats",
+    location: "Athirappilly & Wayanad",
+    category: "Nature & Waterfalls",
+    image: "/images/wayanad.webp",
+    description:
+      "Stand before the roaring 80-foot cascades of Athirappilly, celebrated as India's Niagara. Wander through mist-laden rainforest canopies and serene hill viewpoints.",
+    highlights: [
+      "Dramatic vistas of the roaring Athirappilly cascades",
+      "Scenic trek down to the spray-filled riverbed",
+      "Lush bamboo groves and exotic Western Ghats birds",
+      "Fresh river breezes and verdant rainforest trails"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Nature Retreat",
+      quote:
+        "The roaring cascade of Athirappilly surrounded by dense Western Ghats jungle felt completely untouched and majestic. A must-see on any Kerala trip.",
+      traveller: "Rohan K., Kolkata"
+    },
+    primaryCta: { label: "Plan Nature Excursion", href: "/contact" },
+    secondaryCta: { label: "View All Packages", href: "/packages" }
+  },
+  {
+    id: "village",
+    title: "Country Canoe & Village Life Living",
+    location: "Kumbalangi & Kuttanad",
+    category: "Village & Rural Life",
+    image: "/images/kerala2.webp",
+    description:
+      "Step off the beaten path into quiet backwater hamlets. Glide through peaceful village canals in hand-paddled wooden canoes and discover authentic coastal lifestyles.",
+    highlights: [
+      "Country canoe paddling through quiet village canals",
+      "Watch traditional coir-making and coconut leaf weaving",
+      "Interactions with local fishermen and craftspeople",
+      "Peaceful country lunches prepared by local hosts"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Village Experience",
+      quote:
+        "Taking a hand-paddled wooden canoe through narrow canals where village kids waved and fishermen cast their nets gave us the most authentic glimpse of Kerala.",
+      traveller: "Meera T., Chennai"
+    },
+    primaryCta: { label: "Experience Village Life", href: "/contact" },
+    secondaryCta: { label: "Custom Itinerary", href: "/contact" }
+  },
+  {
+    id: "wellness",
+    title: "Ayurvedic Rejuvenation & Herbal Wellness",
+    location: "Kovalam, Kumarakom & Palakkad",
+    category: "Wellness & Ayurveda",
+    image: "/images/kerala5.webp",
+    description:
+      "Revitalize mind and body with 5,000-year-old Vedic healing traditions. Experience personalized herbal oil therapies, calming Shirodhara, and rejuvenating spa treatments.",
+    highlights: [
+      "Authentic herbal Abhyanga full-body oil massage",
+      "Soothing Shirodhara warm-oil stream therapy",
+      "Doctor-guided herbal rejuvenation programs",
+      "Peaceful retreat settings surrounded by nature"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Wellness Rejuvenation",
+      quote:
+        "Three days of authentic Ayurvedic massages and herbal therapy relieved months of work stress. A deeply restorative and peaceful sanctuary.",
+      traveller: "Sanjay & Sunita, Ahmedabad"
+    },
+    primaryCta: { label: "Enquire for Ayurveda", href: "/contact" },
+    secondaryCta: { label: "Book Wellness Stay", href: "/contact" }
+  },
+  {
+    id: "romantic",
+    title: "Romantic Getaways & Honeymoon Escapes",
+    location: "Munnar, Alleppey & Kovalam",
+    category: "Romantic & Honeymoon",
+    image: "/images/kerala-honeymoon-escape.webp",
+    description:
+      "Celebrate love in one of the world's most romantic landscapes. Private candlelight dinners on houseboat decks, secluded pool villas overlooking tea valleys, and sunset walks.",
+    highlights: [
+      "Private luxury houseboat with flower decoration & cake",
+      "Hillside pool villa stay with private tea estate views",
+      "Candlelight dinners with traditional coastal delicacies",
+      "Secluded beach walks and couple spa rejuvenation"
+    ],
+    sampleStory: {
+      tag: "Sample Traveller Story • Honeymoon Celebration",
+      quote:
+        "MakeMyKerala planned every detail of our honeymoon to perfection — from the candlelit dinner on the houseboat deck to our private tea garden villa in Munnar.",
+      traveller: "Nikhil & Tanya, Chandigarh"
+    },
+    primaryCta: { label: "Plan Romantic Escape", href: "/contact" },
+    secondaryCta: { label: "View Honeymoon Package", href: "/packages/honeymoon-escape" }
+  }
+];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Kerala Travel Experiences - MakeMyKerala",
+  "description": "Discover 10 authentic Kerala travel experiences including backwater houseboat cruises, tea estate trails, beach escapes, Ayurveda, and cultural heritage.",
+  "itemListElement": experiences.map((exp, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": exp.title,
+    "description": exp.description
+  }))
+};
+---
+
+<Layout
+  title="10 Authentic Kerala Travel Experiences | Make My Kerala"
+  description="Explore 10 curated Kerala experiences: backwater cruises, tea gardens, coastal beaches, Kathakali culture, Ayurveda wellness, and romantic honeymoons."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+  <Header />
+
+  <main class="experiences-page">
+    <!-- HERO -->
+    <section class="exp-hero">
+      <div class="exp-hero-bg" aria-hidden="true"></div>
+      <div class="container exp-hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep">/</span>
+          <span class="current">Experiences</span>
+        </nav>
+        <span class="hero-tag">GOD'S OWN COUNTRY</span>
+        <h1>10 Signature Kerala Travel Experiences</h1>
+        <p class="hero-lead">
+          From tranquil backwater houseboats and misty mountain tea gardens to authentic Ayurvedic rejuvenation
+          and rich cultural heritage. Discover the unforgettable journeys waiting for you in Kerala.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-pill"><strong>25+</strong> Years of Expertise</div>
+          <div class="stat-pill"><strong>10</strong> Unique Categories</div>
+          <div class="stat-pill"><strong>100%</strong> Tailored Itineraries</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK CATEGORY JUMP -->
+    <section class="categories-nav">
+      <div class="container">
+        <div class="nav-chips-track">
+          {experiences.map((exp) => (
+            <a href={`#${exp.id}`} class="chip-link">
+              {exp.category}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCES LIST -->
+    <section class="experiences-list-section">
+      <div class="container">
+        <div class="experiences-grid">
+          {experiences.map((exp, index) => (
+            <article class="exp-card" id={exp.id}>
+              <!-- IMAGE -->
+              <div class="exp-image-wrap">
+                <img
+                  src={exp.image}
+                  alt={`${exp.title} in ${exp.location}`}
+                  width="600"
+                  height="400"
+                  loading={index < 2 ? "eager" : "lazy"}
+                  decoding="async"
+                />
+                <span class="exp-category-badge">{exp.category}</span>
+                <span class="exp-location-badge">📍 {exp.location}</span>
+              </div>
+
+              <!-- CONTENT -->
+              <div class="exp-content">
+                <h2>{exp.title}</h2>
+                <p class="exp-desc">{exp.description}</p>
+
+                <!-- HIGHLIGHTS -->
+                <div class="exp-highlights-box">
+                  <h4>Experience Highlights</h4>
+                  <ul>
+                    {exp.highlights.map((h) => (
+                      <li>
+                        <span class="bullet-check">✓</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <!-- SAMPLE TRAVELLER STORY -->
+                <div class="traveller-story-card">
+                  <div class="story-header">
+                    <span class="story-badge">{exp.sampleStory.tag}</span>
+                  </div>
+                  <blockquote class="story-quote">
+                    "{exp.sampleStory.quote}"
+                  </blockquote>
+                  <cite class="story-author">— {exp.sampleStory.traveller}</cite>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="exp-actions">
+                  <a href={exp.primaryCta.href} class="btn-primary-exp">
+                    {exp.primaryCta.label}
+                  </a>
+                  <a href={exp.secondaryCta.href} class="btn-secondary-exp">
+                    {exp.secondaryCta.label} &rarr;
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="cta-bottom-banner">
+      <div class="container banner-card">
+        <div class="banner-content">
+          <span class="banner-eyebrow">READY TO PLAN?</span>
+          <h2>Experience Kerala Your Way</h2>
+          <p>
+            Whether you want a relaxing family holiday, an adventurous trek, or a romantic backwater cruise,
+            our Kerala specialists will design a custom itinerary shaped around your preferences.
+          </p>
+        </div>
+        <div class="banner-actions">
+          <a href="/contact" class="banner-btn-gold">Start Customizing Your Trip</a>
+          <a
+            href="https://wa.me/919876543210?text=Hello%20MakeMyKerala%2C%20I%20am%20interested%20in%20customizing%20a%20Kerala%20holiday."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="banner-btn-wa"
+          >
+            <span>💬</span> WhatsApp Direct
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .experiences-page {
+    background-color: #f7f5ed;
+  }
+
+  /* HERO */
+  .exp-hero {
+    position: relative;
+    padding: 75px 0 65px;
+    background: linear-gradient(135deg, #092e22 0%, #12382a 100%);
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  .exp-hero-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    background-image: radial-gradient(circle at 85% 20%, #c98b36 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .exp-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb a:hover {
+    color: #f1c47b;
+  }
+
+  .breadcrumb .sep {
+    opacity: 0.4;
+  }
+
+  .breadcrumb .current {
+    color: #f1c47b;
+    font-weight: 600;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: #f1c47b;
+    margin-bottom: 12px;
+  }
+
+  .exp-hero h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(34px, 4.8vw, 56px);
+    line-height: 1.15;
+    margin: 0 0 16px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .hero-lead {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 26px;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-size: 13px;
+    color: #ffffff;
+  }
+
+  .stat-pill strong {
+    color: #f1c47b;
+  }
+
+  /* CATEGORIES TRACK */
+  .categories-nav {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(18, 56, 42, 0.1);
+    padding: 14px 0;
+    position: sticky;
+    top: var(--header-height, 108px);
+    z-index: 90;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  }
+
+  .nav-chips-track {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 0;
+  }
+
+  .nav-chips-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f3f7f4;
+    color: #12382a;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+  }
+
+  .chip-link:hover {
+    background: #12382a;
+    color: #f1c47b;
+  }
+
+  /* EXPERIENCES LIST */
+  .experiences-list-section {
+    padding: 60px 0 80px;
+  }
+
+  .experiences-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  /* EXP CARD */
+  .exp-card {
+    display: grid;
+    grid-template-columns: 460px 1fr;
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(18, 56, 42, 0.08);
+    box-shadow: 0 10px 35px rgba(18, 56, 42, 0.05);
+    scroll-margin-top: 130px;
+  }
+
+  .exp-card:nth-child(even) {
+    grid-template-columns: 1fr 460px;
+  }
+
+  .exp-card:nth-child(even) .exp-image-wrap {
+    order: 2;
+  }
+
+  .exp-card:nth-child(even) .exp-content {
+    order: 1;
+  }
+
+  /* IMAGE */
+  .exp-image-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    overflow: hidden;
+    background: #12382a;
+  }
+
+  .exp-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .exp-card:hover .exp-image-wrap img {
+    transform: scale(1.04);
+  }
+
+  .exp-category-badge {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    padding: 6px 14px;
+    background: rgba(18, 56, 42, 0.92);
+    color: #f1c47b;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  .exp-location-badge {
+    position: absolute;
+    bottom: 18px;
+    left: 18px;
+    padding: 5px 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 14px;
+  }
+
+  /* CONTENT */
+  .exp-content {
+    padding: 38px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .exp-content h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(26px, 2.8vw, 34px);
+    color: #12382a;
+    line-height: 1.2;
+    margin: 0 0 14px;
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #556b60;
+    margin: 0 0 20px;
+  }
+
+  /* HIGHLIGHTS */
+  .exp-highlights-box {
+    background: #f7fbf8;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 22px;
+    border-left: 3px solid #12382a;
+  }
+
+  .exp-highlights-box h4 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #12382a;
+    font-weight: 700;
+  }
+
+  .exp-highlights-box ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 14px;
+  }
+
+  .exp-highlights-box li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #3e5348;
+    line-height: 1.4;
+  }
+
+  .bullet-check {
+    color: #c98b36;
+    font-weight: 800;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  /* SAMPLE STORY CARD */
+  .traveller-story-card {
+    background: #fdfbf7;
+    border: 1px dashed rgba(201, 139, 54, 0.4);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+  }
+
+  .story-header {
+    margin-bottom: 6px;
+  }
+
+  .story-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #8c5d1a;
+    background: #faeed9;
+    padding: 3px 8px;
+    border-radius: 12px;
+  }
+
+  .story-quote {
+    margin: 0 0 6px;
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.55;
+    color: #444b47;
+  }
+
+  .story-author {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #12382a;
+    font-style: normal;
+  }
+
+  /* ACTIONS */
+  .exp-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary-exp {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: #12382a;
+    color: #ffffff;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .btn-primary-exp:hover {
+    background: #c98b36;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary-exp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #12382a;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-secondary-exp:hover {
+    color: #c98b36;
+    transform: translateX(3px);
+  }
+
+  /* BOTTOM BANNER */
+  .cta-bottom-banner {
+    padding: 20px 0 90px;
+  }
+
+  .banner-card {
+    background: linear-gradient(135deg, #12382a 0%, #0d281e 100%);
+    border-radius: 20px;
+    padding: 55px 50px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    box-shadow: 0 15px 45px rgba(18, 56, 42, 0.15);
+  }
+
+  .banner-content {
+    max-width: 620px;
+  }
+
+  .banner-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #f1c47b;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .banner-card h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(28px, 3.5vw, 42px);
+    margin: 0 0 12px;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  .banner-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+  }
+
+  .banner-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .banner-btn-gold {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 28px;
+    background: #c98b36;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .banner-btn-gold:hover {
+    background: #e2a048;
+    transform: translateY(-2px);
+  }
+
+  .banner-btn-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #25d366;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .banner-btn-wa:hover {
+    background: #20ba59;
+    transform: translateY(-2px);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 980px) {
+    .exp-card,
+    .exp-card:nth-child(even) {
+      grid-template-columns: 1fr;
+    }
+
+    .exp-card:nth-child(even) .exp-image-wrap {
+      order: 1;
+    }
+
+    .exp-card:nth-child(even) .exp-content {
+      order: 2;
+    }
+
+    .exp-image-wrap {
+      aspect-ratio: 16 / 10;
+      min-height: 0;
+    }
+
+    .exp-content {
+      padding: 30px 24px;
+    }
+
+    .banner-card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 38px 28px;
+    }
+
+    .banner-actions {
+      width: 100%;
+    }
+
+    .banner-btn-gold,
+    .banner-btn-wa {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .exp-hero {
+      padding: 50px 0 42px;
+    }
+
+    .exp-highlights-box ul {
+      grid-template-columns: 1fr;
+    }
+
+    .exp-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-primary-exp,
+    .btn-secondary-exp {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

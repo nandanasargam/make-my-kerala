@@ -1,0 +1,177 @@
+---
+// src/components/KeralaIntro.astro
+---
+
+<section class="section section-sand kerala-intro-section" aria-label="Introduction to Kerala">
+  <div class="container">
+    <div class="intro-content-wrap">
+      
+      <!-- EYEBROW -->
+      <div class="section-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>A SENSORY AWAKENING</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+
+      <!-- LARGE EDITORIAL OPENING STATEMENT -->
+      <h2 class="intro-statement">
+        Kerala is more than a destination — <span class="editorial-accent">it is a timeless rhythm.</span>
+      </h2>
+
+      <!-- NARRATIVE PROSE -->
+      <p class="intro-prose">
+        Kerala is more than a destination — it is a timeless rhythm. Drift through serene canals aboard a handcrafted houseboat, inhale fresh cardamom in highland spice groves, and listen to the Arabian Sea lapping warm golden shores. With 25 years of local travel heritage, Make My Kerala invites you to experience God’s Own Country with authentic warmth and effortless comfort.
+      </p>
+
+      <!-- GEOGRAPHICAL SIGNATURE PILLS -->
+      <div class="intro-realms-grid">
+        <div class="realm-card">
+          <span class="realm-icon" aria-hidden="true">⛰️</span>
+          <strong class="realm-title">The High Ranges</strong>
+          <span class="realm-desc">Munnar, Thekkady & Wayanad</span>
+        </div>
+
+        <div class="realm-card">
+          <span class="realm-icon" aria-hidden="true">🛶</span>
+          <strong class="realm-title">The Backwaters</strong>
+          <span class="realm-desc">Alleppey, Kumarakom & Poovar</span>
+        </div>
+
+        <div class="realm-card">
+          <span class="realm-icon" aria-hidden="true">🌴</span>
+          <strong class="realm-title">The Malabar Coast</strong>
+          <span class="realm-desc">Kovalam, Varkala & Fort Kochi</span>
+        </div>
+      </div>
+
+      <!-- DISCOVER MORE LINK -->
+      <div class="intro-cta-wrap">
+        <a href="/destinations" class="intro-discover-link">
+          <span>Explore All Kerala Destinations</span>
+          <span class="discover-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .kerala-intro-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(80px, 10vw, 130px);
+    text-align: center;
+    border-bottom: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  .intro-content-wrap {
+    max-width: 980px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-statement {
+    font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.18;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 24px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .intro-prose {
+    font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+    line-height: 1.8;
+    color: var(--color-text-muted, #5a6b63);
+    max-width: 65ch;
+    margin-inline: auto;
+    margin-bottom: 48px;
+    text-wrap: pretty;
+  }
+
+  /* REALMS GRID */
+  .intro-realms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 44px;
+  }
+
+  .realm-card {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    border-radius: 16px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .realm-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.08));
+  }
+
+  .realm-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+
+  .realm-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 4px;
+  }
+
+  .realm-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-subtle, #7a8c83);
+  }
+
+  /* CTA */
+  .intro-discover-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-gold, #c88b3b);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 2px;
+    transition: all 0.25s ease;
+  }
+
+  .intro-discover-link:hover {
+    color: var(--color-gold-hover, #b0742a);
+    border-color: var(--color-gold, #c88b3b);
+  }
+
+  .discover-arrow {
+    transition: transform 0.25s ease;
+  }
+
+  .intro-discover-link:hover .discover-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 768px) {
+    .intro-realms-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .realm-card {
+      padding: 18px;
+    }
+  }
+</style>

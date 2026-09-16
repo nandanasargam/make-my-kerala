@@ -1,0 +1,422 @@
+---
+// src/components/AboutStory.astro
+const destinations = [
+  "Munnar",
+  "Thekkady",
+  "Alappuzha",
+  "Trivandrum",
+  "Kanyakumari",
+  "Madurai",
+  "Kovalam",
+  "Poovar",
+  "Rameshwaram",
+  "Cochin"
+];
+---
+
+<section class="section section-sand-warm about-section" id="about" aria-label="About MakeMyKerala">
+  <div class="container">
+    <div class="about-split-grid">
+      
+      <!-- LEFT: STORY & NARRATIVE -->
+      <div class="about-text-pane">
+        <!-- EYEBROW -->
+        <div class="about-eyebrow">
+          <span class="eyebrow-dash" aria-hidden="true">—</span>
+          <span>ABOUT US</span>
+        </div>
+
+        <!-- MAIN TITLE -->
+        <h2 class="about-main-title">
+          Welcome to <span class="editorial-accent">MakeMyKerala</span>
+        </h2>
+
+        <!-- LEAD PARAGRAPH -->
+        <p class="about-lead-para">
+          With <strong>25 years of travel experience</strong>, Make My Kerala creates memorable and personalized journeys across <strong>South India</strong>. We specialize in comfortable, authentic holidays across Kerala and Tamil Nadu.
+        </p>
+
+        <!-- TRUST PARAGRAPH -->
+        <p class="about-trust-para">
+          Trusted by thousands of travelers, families, groups and corporate guests, we create seamless tours combining nature, culture, relaxation and local experiences.
+        </p>
+
+        <!-- DESTINATION PILLS -->
+        <div class="about-pills-row" aria-label="Destinations served">
+          {destinations.map((dest) => (
+            <span class="dest-pill">{dest}</span>
+          ))}
+        </div>
+
+        <!-- SUMMARY PARAGRAPH -->
+        <p class="about-summary-para">
+          From <strong>honeymoon and family holidays</strong> to pilgrimage, group and customized tours, every itinerary is planned for comfort, value and unforgettable memories.
+        </p>
+
+        <!-- DUAL ACTIONS -->
+        <div class="about-actions-row">
+          <a href="/about-us" class="btn btn-forest-solid">
+            Our Story
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#plan-trip" class="btn btn-outline-clean">
+            Begin Your Journey
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: DARK GREEN FOUNDERS & HERITAGE CARD -->
+      <div class="about-founders-pane">
+        <aside class="founders-card" aria-label="Founders & Heritage">
+          
+          <!-- 25 YEARS WHITE BADGE -->
+          <div class="founders-badge-box">
+            <img
+              src="/images/25yearslogo.webp"
+              alt="Make My Kerala 25 Years of Travel Heritage"
+              width="140"
+              height="125"
+              loading="lazy"
+              decoding="async"
+              class="founders-logo-img"
+            />
+          </div>
+
+          <!-- FOUNDERS NAMES -->
+          <h3 class="founders-names">
+            Anitha Murali <span class="founders-amp">&amp;</span><br />
+            Muraleedhara Shenoy
+          </h3>
+
+          <!-- BIO NARRATIVE -->
+          <p class="founders-bio">
+            Jointly operated by Anitha Murali and Muraleedhara Shenoy, whose passion for travel and customer satisfaction has shaped MakeMyKerala for over two decades.
+          </p>
+
+          <!-- GOLD DIVIDER -->
+          <div class="founders-divider" aria-hidden="true"></div>
+
+          <!-- 25 YEARS MOTTO -->
+          <p class="founders-motto">
+            25 YEARS. PERSONALIZED SERVICE.<br />
+            GENUINE SOUTH INDIAN HOSPITALITY.
+          </p>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    background-color: var(--color-sand, #f4ede2);
+    padding-block: clamp(80px, 10vw, 130px);
+  }
+
+  .about-split-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: clamp(40px, 6vw, 84px);
+    align-items: center;
+  }
+
+  /* LEFT TEXT PANE */
+  .about-text-pane {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-accent, "Manrope", sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .about-main-title {
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(2.4rem, 4.2vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 24px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .about-main-title .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #12382a);
+  }
+
+  .about-lead-para {
+    font-size: clamp(1.05rem, 1.25vw, 1.18rem);
+    line-height: 1.75;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 16px;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+
+  .about-lead-para strong {
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+  }
+
+  .about-trust-para {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 24px;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+
+  /* PILLS */
+  .about-pills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .dest-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #ffffff;
+    border: 1px solid rgba(18, 56, 42, 0.12);
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-forest, #12382a);
+    box-shadow: 0 2px 6px rgba(18, 56, 42, 0.04);
+    transition: all 0.2s ease;
+  }
+
+  .dest-pill:hover {
+    border-color: var(--color-gold, #c88b3b);
+    color: var(--color-gold, #c88b3b);
+    transform: translateY(-1px);
+  }
+
+  .about-summary-para {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 32px;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+
+  .about-summary-para strong {
+    color: var(--color-forest, #12382a);
+    font-weight: 700;
+  }
+
+  /* CTAS */
+  .about-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .btn-forest-solid {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 28px;
+    border-radius: 30px;
+    background-color: var(--color-forest, #12382a);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(18, 56, 42, 0.2);
+    transition: all 0.25s ease;
+  }
+
+  .btn-forest-solid:hover {
+    background-color: var(--color-forest-deep, #082017);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(18, 56, 42, 0.3);
+  }
+
+  .btn-outline-clean {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 26px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    border: 1px solid rgba(18, 56, 42, 0.2);
+    color: var(--color-forest, #12382a);
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .btn-outline-clean:hover {
+    border-color: var(--color-forest, #12382a);
+    background-color: var(--color-sand-light, #fbf8f2);
+    transform: translateY(-2px);
+  }
+
+  /* RIGHT: FOUNDERS CARD */
+  .about-founders-pane {
+    display: flex;
+    justify-content: center;
+  }
+
+  .founders-card {
+    background-color: #0d2a1f;
+    border-radius: 24px;
+    padding: clamp(36px, 5vw, 48px) clamp(26px, 4vw, 40px);
+    box-shadow: 0 20px 50px rgba(13, 42, 31, 0.25);
+    border: 1px solid rgba(200, 139, 59, 0.28);
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founders-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 15%, rgba(200, 139, 59, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* WHITE BADGE BOX */
+  .founders-badge-box {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 14px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(200, 139, 59, 0.3);
+  }
+
+  .founders-logo-img {
+    width: 130px;
+    height: auto;
+    max-height: 100px;
+    object-fit: contain;
+  }
+
+  /* NAMES */
+  .founders-names {
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(1.7rem, 2.6vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: #fcf8f0;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .founders-amp {
+    font-family: var(--font-display, Georgia, serif);
+    font-style: italic;
+    color: var(--color-gold-light, #e5a95b);
+    font-weight: 400;
+  }
+
+  /* BIO */
+  .founders-bio {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: rgba(252, 248, 240, 0.85);
+    max-width: 40ch;
+    margin-bottom: 24px;
+    text-wrap: pretty;
+  }
+
+  /* DIVIDER */
+  .founders-divider {
+    width: 80%;
+    height: 1px;
+    background: rgba(200, 139, 59, 0.35);
+    margin: 6px auto 24px;
+  }
+
+  /* MOTTO */
+  .founders-motto {
+    font-family: var(--font-accent, "Manrope", sans-serif);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-gold-light, #e5a95b);
+    line-height: 1.65;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .about-split-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .about-founders-pane {
+      width: 100%;
+    }
+
+    .founders-card {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-main-title {
+      font-size: clamp(2.1rem, 7vw, 2.5rem);
+    }
+
+    .about-actions-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .about-actions-row .btn-forest-solid,
+    .about-actions-row .btn-outline-clean {
+      width: 100%;
+      text-align: center;
+    }
+
+    .founders-card {
+      padding: 32px 20px;
+    }
+
+    .founders-badge-box {
+      padding: 10px 16px;
+    }
+
+    .founders-logo-img {
+      width: 110px;
+    }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+interface Props {
+  phone?: string;
+  message?: string;
+}
+
+const {
+  phone = "919876543210",
+  message = "Hi MakeMyKerala! I am planning a trip to Kerala and would like to know more about your tour packages."
+} = Astro.props;
+
+const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<aside class="floating-whatsapp-wrap" aria-label="Contact us on WhatsApp">
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="floating-whatsapp"
+    aria-label="Chat with MakeMyKerala Travel Planner on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.33 7.35 9 7.42 8.73 7.72C8.46 8.01 7.7 8.73 7.7 10.19C7.7 11.65 8.76 13.06 8.91 13.26C9.06 13.46 11 16.44 13.93 17.71C14.63 18.01 15.17 18.19 15.6 18.33C16.3 18.55 16.94 18.52 17.44 18.45C18 18.36 19.16 17.74 19.4 17.06C19.65 16.38 19.65 15.8 19.57 15.68C19.5 15.56 19.3 15.49 19 15.34C18.7 15.19 17.23 14.47 16.96 14.37C16.69 14.27 16.49 14.22 16.29 14.52C16.09 14.82 15.52 15.49 15.35 15.68C15.18 15.88 15 15.91 14.7 15.76C14.4 15.61 13.44 15.3 12.3 14.28C11.42 13.49 10.82 12.52 10.65 12.23C10.48 11.93 10.63 11.77 10.78 11.62C10.92 11.49 11.08 11.27 11.23 11.1C11.38 10.93 11.43 10.81 11.53 10.61C11.63 10.41 11.58 10.24 11.5 10.09C11.43 9.94 10.83 8.47 10.58 7.87C10.33 7.27 10.08 7.37 9.9 7.36C9.72 7.35 9.53 7.35 9.53 7.35Z" />
+    </svg>
+    <span class="floating-whatsapp-text">Chat with us</span>
+  </a>
+</aside>
+
+<style>
+  .floating-whatsapp-wrap {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+  }
+
+  .floating-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background-color: #25d366;
+    color: #ffffff;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.38);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .floating-whatsapp:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.48);
+  }
+
+  @media (max-width: 600px) {
+    .floating-whatsapp-wrap {
+      bottom: 18px;
+      right: 18px;
+    }
+
+    .floating-whatsapp-text {
+      display: none;
+    }
+
+    .floating-whatsapp {
+      padding: 14px;
+      border-radius: 50%;
+    }
+  }
+</style>

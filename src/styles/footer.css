@@ -46,7 +46,7 @@
       rgba(3, 35, 26, 0.90),
       rgba(3, 35, 26, 0.95)
     ),
-    url("/images/footer-bg.jpg");
+    url("/images/allapey.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -61,7 +61,7 @@
 .site-footer .footer-container {
   position: relative;
   z-index: 3;
-  width: min(1180px, calc(100% - 40px));
+  width: min(var(--container-max, 1280px), calc(100% - 40px));
   margin: 0 auto;
   box-sizing: border-box;
 }

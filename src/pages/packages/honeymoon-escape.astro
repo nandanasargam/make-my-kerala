@@ -1,0 +1,423 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/package-detail.css";
+
+const packageTitle = "Kerala Honeymoon Escape";
+const duration = "6 Days / 5 Nights";
+const places = "Munnar - Thekkady - Kumarakom";
+const price = 18999;
+const heroImage = "/images/kerala-honeymoon-escape.webp";
+
+const whatsappNumber = "919876543210";
+const whatsappText = encodeURIComponent(
+  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}) starting at ₹${price.toLocaleString("en-IN")}/person.`
+);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+const highlights = [
+  "Complimentary floral bed decoration & honeymoon cake on arrival",
+  "Private candlelit dinner aboard a luxury backwater houseboat",
+  "Sunset couples boat cruise on Vembanad Lake, Kumarakom",
+  "Romantic walks through mist-veiled tea gardens in Munnar",
+  "Handpicked boutique romantic resorts with panoramic views"
+];
+
+const days = [
+  {
+    number: "01",
+    title: "Romantic Arrival & Transfer to Munnar",
+    description:
+      "Begin your romantic Kerala honeymoon as your chauffeur greets you at Cochin. Drive past misty mountain waterfalls to your hill resort.",
+    image: "/images/munnar.webp",
+    activities: [
+      "Warm airport reception with welcome flower garland",
+      "Scenic hill drive with photo stops at Cheeyappara Waterfalls",
+      "Check-in at romantic mountain resort with breathtaking views",
+      "Special honeymoon room decoration with flowers & cake",
+      "Cozy candlelit dinner and overnight stay in Munnar"
+    ]
+  },
+  {
+    number: "02",
+    title: "Munnar Tea Gardens & Viewpoints",
+    description:
+      "Spend an unforgettable day exploring Munnar's most romantic spots amidst rolling clouds and aromatic tea plantations.",
+    image: "/images/munnar1.avif",
+    activities: [
+      "Leisurely breakfast overlooking mist-covered valleys",
+      "Visit scenic Mattupetty Dam and peaceful Kundala Lake",
+      "Romantic photo session at Echo Point",
+      "Walk hand-in-hand through lush green tea trails",
+      "Visit the vibrant Blossom Hydel Park & Rose Garden",
+      "Return to resort for dinner and relaxation"
+    ]
+  },
+  {
+    number: "03",
+    title: "Munnar to Thekkady (Spices & Culture)",
+    description:
+      "A picturesque drive through the cloud forests of the Western Ghats into Thekkady's cardamom and spice hills.",
+    image: "/images/thekkady.webp",
+    activities: [
+      "Breakfast at resort and check-out",
+      "Scenic drive through tea and cardamom hills",
+      "Check-in at boutique nature resort in Thekkady",
+      "Private guided walk through an aromatic spice garden",
+      "Evening Kathakali dance & classical martial arts show",
+      "Overnight stay in Thekkady"
+    ]
+  },
+  {
+    number: "04",
+    title: "Thekkady to Kumarakom (Lakeside Romance)",
+    description:
+      "Descend towards the tranquil shores of Vembanad Lake in Kumarakom, one of Kerala's most peaceful romantic destinations.",
+    image: "/images/hotel3.webp",
+    activities: [
+      "Breakfast and drive towards the serene backwater lakes",
+      "Check-in at a luxury lakeside water resort",
+      "Afternoon couples relaxation by the infinity pool",
+      "Private sunset boat cruise on Vembanad Lake",
+      "Romantic dinner by the water and overnight stay in Kumarakom"
+    ]
+  },
+  {
+    number: "05",
+    title: "Kumarakom to Alleppey Houseboat Odyssey",
+    description:
+      "Board your private luxury houseboat for a signature Kerala backwater cruise with dedicated chef and captain.",
+    image: "/images/allapey.webp",
+    activities: [
+      "Morning breakfast at resort and transfer to Alleppey",
+      "Board private deluxe honeymoon houseboat at 12:00 PM",
+      "Traditional Kerala lunch prepared fresh on board",
+      "Cruise through narrow village canals, lotus ponds, and lagoons",
+      "Private candlelit dinner under the stars on the tranquil water",
+      "Overnight stay in an air-conditioned luxury houseboat suite"
+    ]
+  },
+  {
+    number: "06",
+    title: "Backwater Sunrise & Cochin Departure",
+    description:
+      "Savor your final morning watching fishermen on the backwaters before proceeding to Cochin for departure.",
+    image: "/images/hotel4.webp",
+    activities: [
+      "Sunrise tea and breakfast on the open deck of the houseboat",
+      "Check-out at 9:00 AM and comfortable transfer to Cochin",
+      "Optional shopping for Kerala spices, silk, and handicrafts",
+      "Drop at Cochin Airport / Railway Station with timeless memories"
+    ]
+  }
+];
+
+const inclusions = [
+  "5 Nights accommodation (2N Munnar, 1N Thekkady, 1N Kumarakom, 1N Private Houseboat)",
+  "Special honeymoon inclusions: flower bed decoration, honeymoon cake & candlelit dinner",
+  "Daily breakfast at all luxury resorts and all meals on the Houseboat",
+  "Private AC premium sedan for all transfers and sightseeing tours",
+  "Pickup and drop from Cochin International Airport / Railway Station",
+  "Driver allowance, fuel, toll, parking, and all state taxes"
+];
+
+const exclusions = [
+  "Airfare or train tickets",
+  "Ayurvedic spa treatments (can be arranged on request)",
+  "Monument entry fees and camera charges",
+  "Personal expenses, room service, laundry, and tips"
+];
+
+const gallery = [
+  "/images/hotel3.webp",
+  "/images/munnar.webp",
+  "/images/allapuzha.avif",
+  "/images/kerala-honeymoon-escape.webp"
+];
+
+const tripSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": packageTitle,
+  "description": "6 Days & 5 Nights romantic honeymoon tour covering Munnar hill stations, Thekkady, and a private backwater houseboat cruise with candlelit dinner.",
+  "touristType": ["Couples", "Honeymooners"],
+  "offers": {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://make-my-kerala.vercel.app/packages/honeymoon-escape/"
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Make My Kerala",
+    "url": "https://make-my-kerala.vercel.app/"
+  }
+};
+---
+
+<Layout
+  title={`${packageTitle} | Make My Kerala - 6D/5N Honeymoon Package`}
+  description="Book the Kerala Honeymoon Escape: 6 Days & 5 Nights covering Munnar, Thekkady, Kumarakom and an Alleppey Houseboat. Private luxury sedan and romantic inclusions."
+  image={heroImage}
+  schema={tripSchema}
+>
+  <Header />
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img
+        src={heroImage}
+        alt={packageTitle}
+        class="hero-image"
+        width="1200"
+        height="600"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          HONEYMOON SPECIAL
+        </div>
+
+        <h1>{packageTitle}</h1>
+        <p class="hero-subtitle">Romance Amidst Misty Hills &amp; Serene Waters</p>
+
+        <div class="hero-details">
+          <div>
+            <strong>{duration}</strong>
+            <span>Duration</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>{places}</strong>
+            <span>Destinations</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>₹{price.toLocaleString("en-IN")}</strong>
+            <span>Per Person</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+      <div class="container">
+        <div class="section-title">
+          <span>COUPLES ESCAPE</span>
+          <h2>Where Romance Meets Nature</h2>
+          <p>
+            Designed exclusively for couples, this 6-day honeymoon tour combines the cool
+            tranquility of Munnar's tea hills with the slow, romantic rhythms of Kerala's backwaters.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🌹</div>
+            <h3>Romantic Inclusions</h3>
+            <p>Floral decor, honeymoon cake &amp; candlelight dinner</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Private Houseboat</h3>
+            <p>Exclusive 1-bedroom deluxe boat for couples</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚗</div>
+            <h3>Private Sedan</h3>
+            <p>Dedicated AC vehicle and professional chauffeur</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🌅</div>
+            <h3>Sunset Cruise</h3>
+            <p>Romantic boat tour across Vembanad Lake</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Handpicked Stays</h3>
+            <p>Premium boutique resorts with couple privacy</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="section-title">
+          <span>HONEYMOON HIGHLIGHTS</span>
+          <h2>Moments You Will Cherish Forever</h2>
+        </div>
+
+        <div class="highlights-grid">
+          {highlights.map((item) => (
+            <div class="highlight-card">
+              <span class="highlight-icon">✦</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY TIMELINE -->
+    <section class="itinerary-section">
+      <div class="container">
+        <div class="section-title">
+          <span>DAY-BY-DAY ITINERARY</span>
+          <h2>6 Days &amp; 5 Nights of Romance</h2>
+          <p>Unrushed, intimate, and thoughtfully planned for couples.</p>
+        </div>
+
+        <div class="timeline">
+          {days.map((day) => (
+            <article class="day-card">
+              <div class="day-number">
+                <span>DAY</span>
+                <strong>{day.number}</strong>
+              </div>
+
+              <div class="day-image">
+                <img
+                  src={day.image}
+                  alt={day.title}
+                  width="400"
+                  height="260"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="day-content">
+                <span class="day-label">DAY {day.number}</span>
+                <h3>{day.title}</h3>
+                <p>{day.description}</p>
+
+                <ul>
+                  {day.activities.map((act) => (
+                    <li>
+                      <span>✓</span>
+                      {act}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUSIONS & EXCLUSIONS -->
+    <section class="includes-section">
+      <div class="container">
+        <div class="section-title">
+          <span>HONEYMOON DETAILS</span>
+          <h2>Inclusions &amp; Exclusions</h2>
+        </div>
+
+        <div class="includes-grid">
+          <div class="include-card">
+            <div class="include-icon">✨</div>
+            <h3>What's Included</h3>
+            <ul>
+              {inclusions.map((item) => (
+                <li class="inc">{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="include-card">
+            <div class="include-icon">ℹ️</div>
+            <h3>What's Excluded</h3>
+            <ul>
+              {exclusions.map((item) => (
+                <li class="exc">{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-title">
+          <span>ROMANTIC VISUALS</span>
+          <h2>A Glimpse Into Your Getaway</h2>
+        </div>
+
+        <div class="gallery-grid">
+          {gallery.map((imgUrl, i) => (
+            <div class="gallery-card">
+              <img
+                src={imgUrl}
+                alt={`Kerala Honeymoon Photo ${i + 1}`}
+                width="360"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & WHATSAPP CTA -->
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-box">
+          <div class="booking-content">
+            <span>PLAN YOUR HONEYMOON</span>
+            <h2>Begin Your Life's Greatest Journey</h2>
+            <p>
+              Let our honeymoon specialists customize this itinerary with luxury pool villas,
+              ayurvedic couple massages, or private transfers.
+            </p>
+          </div>
+
+          <div class="booking-price">
+            <small>Starting From</small>
+            <strong>₹{price.toLocaleString("en-IN")}</strong>
+            <span>Per Person</span>
+          </div>
+
+          <div class="booking-actions">
+            <a href="/contact" class="booking-button">
+              Enquire Online <span>→</span>
+            </a>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="booking-whatsapp-btn"
+            >
+              WhatsApp Enquiry <span>💬</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

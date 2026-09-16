@@ -1,0 +1,281 @@
+---
+// src/components/PlanningCta.astro
+import EnquiryForm from "./EnquiryForm.jsx";
+
+const features = [
+  {
+    title: "100% Customized Itineraries",
+    desc: "Crafted around your pacing, hotel tier choices, and specific interests."
+  },
+  {
+    title: "Transparent, Best-Value Pricing",
+    desc: "No hidden booking charges, surprise taxes, or middleman fees."
+  },
+  {
+    title: "24/7 On-Ground Support",
+    desc: "A dedicated personal concierge in Kerala throughout your stay."
+  },
+  {
+    title: "25 Years of Travel Heritage",
+    desc: "Over two decades of trusted hospitality across South India."
+  }
+];
+---
+
+<section class="section section-forest planning-cta-section" id="enquiry" aria-label="Trip Enquiry Form">
+  <span id="plan-trip" class="anchor-offset" aria-hidden="true"></span>
+  <div class="container">
+    <div class="planning-grid">
+      
+      <!-- LEFT: VALUE PROPOSITION & DIRECT CONTACT -->
+      <div class="planning-info-col">
+        <div class="section-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>START PLANNING</span>
+        </div>
+
+        <h2 class="section-title">
+          Let’s Craft Your <span class="editorial-accent">Unforgettable</span> Kerala Journey
+        </h2>
+
+        <p class="section-lede">
+          Whether you seek a romantic backwater retreat, a family holiday through misty tea hills, or an immersive cultural escape, our Kochi travel specialists will craft your perfect itinerary within 24 hours.
+        </p>
+
+        <!-- VALUE PILLARS -->
+        <div class="planning-features-list">
+          {features.map((f) => (
+            <div class="planning-feature-item">
+              <span class="feature-check" aria-hidden="true">✓</span>
+              <div>
+                <strong class="feature-title">{f.title}</strong>
+                <p class="feature-desc">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- DIRECT REACH CARDS -->
+        <div class="planning-contacts-grid">
+          <a href="tel:+919876543210" class="contact-card-item">
+            <span class="contact-icon" aria-hidden="true">📞</span>
+            <div class="contact-card-text">
+              <span class="contact-lbl">Direct Call</span>
+              <strong class="contact-val">+91 98765 43210</strong>
+            </div>
+          </a>
+
+          <a href="mailto:hello@makemykerala.com" class="contact-card-item">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <div class="contact-card-text">
+              <span class="contact-lbl">Email Us</span>
+              <strong class="contact-val">hello@makemykerala.com</strong>
+            </div>
+          </a>
+
+          <div class="contact-card-item">
+            <span class="contact-icon" aria-hidden="true">📍</span>
+            <div class="contact-card-text">
+              <span class="contact-lbl">Head Office</span>
+              <strong class="contact-val">Kochi, Kerala, India</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM CONTAINER -->
+      <div class="planning-form-col">
+        <div class="planning-form-card">
+          <div class="form-card-head">
+            <span class="form-badge">Quick Enquiry</span>
+            <h3 class="form-card-title">Request a Custom Quote</h3>
+            <p class="form-card-desc">Share your travel details below and our team will get in touch with an itinerary.</p>
+          </div>
+
+          <EnquiryForm client:load />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .planning-cta-section {
+    background-color: var(--color-forest-deep, #082017);
+    color: #ffffff;
+  }
+
+  .planning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+
+  /* LEFT INFO */
+  .planning-info-col .section-title {
+    color: #ffffff;
+    text-wrap: balance;
+  }
+
+  .planning-info-col .editorial-accent {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .planning-info-col .section-lede {
+    max-width: 58ch;
+    text-wrap: pretty;
+  }
+
+  .planning-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-block: 30px;
+  }
+
+  .planning-feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .feature-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(200, 139, 59, 0.2);
+    color: var(--color-gold-light, #e5a95b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .feature-title {
+    display: block;
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
+
+  .feature-desc {
+    font-size: 0.86rem;
+    color: #a3b8af;
+    line-height: 1.5;
+  }
+
+  .planning-contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .contact-card-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .contact-card-item:hover {
+    background: rgba(200, 139, 59, 0.15);
+    border-color: var(--color-gold-light, #e5a95b);
+  }
+
+  .contact-icon {
+    font-size: 1.2rem;
+  }
+
+  .contact-lbl {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #a3b8af;
+  }
+
+  .contact-val {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* RIGHT FORM */
+  .planning-form-card {
+    background-color: #ffffff;
+    color: var(--color-forest, #12382a);
+    border-radius: 20px;
+    padding: clamp(28px, 4vw, 44px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  .form-card-head {
+    margin-bottom: 24px;
+  }
+
+  .form-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background-color: var(--color-sand, #f4ede2);
+    color: var(--color-gold, #c88b3b);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+
+  .form-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .form-card-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted, #5a6b63);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .planning-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .planning-contacts-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .planning-contacts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .planning-form-card {
+      padding: 24px 20px;
+    }
+  }
+</style>

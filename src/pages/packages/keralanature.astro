@@ -1,12 +1,14 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
 const packageTitle = "Kerala Nature & Backwater Tour";
 const duration = "5 Days & 4 Nights";
 const places = "Munnar - Thekkady - Alappuzha";
 const price = 15000;
 
-const heroImage = "/images/logo.png";
+const heroImage = "/images/allapey.webp";
 
 const days = [
   {
@@ -14,7 +16,7 @@ const days = [
     title: "Arrival & Transfer to Munnar",
     description:
       "Arrive in Kerala and begin your scenic journey towards Munnar, one of Kerala's most beautiful hill stations.",
-    image: "/images/munnar.jpg",
+    image: "/images/munnar.webp",
     activities: [
       "Pickup from Cochin Airport / Railway Station",
       "Drive to Munnar",
@@ -46,7 +48,7 @@ const days = [
     title: "Munnar to Thekkady",
     description:
       "Travel from Munnar to Thekkady and experience Kerala's wildlife, spice plantations and cultural attractions.",
-    image: "/images/thekkady.jpg",
+    image: "/images/thekkady.webp",
     activities: [
       "Breakfast at hotel",
       "Drive to Thekkady",
@@ -63,7 +65,7 @@ const days = [
     title: "Thekkady to Alappuzha",
     description:
       "Travel to Alappuzha and enjoy the famous Kerala backwaters aboard a traditional houseboat.",
-    image: "/images/allapey.jpg",
+    image: "/images/allapey.webp",
     activities: [
       "Breakfast at hotel",
       "Drive to Alappuzha",
@@ -89,27 +91,36 @@ const days = [
   },
 ];
 
-
+const tripSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": packageTitle,
+  "description": "5 Days & 4 Nights Kerala nature and backwater tour covering Munnar tea gardens, Periyar wildlife at Thekkady, and Alappuzha houseboat cruise.",
+  "touristType": ["Nature Lovers", "Family", "Couples"],
+  "offers": {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://make-my-kerala.vercel.app/packages/keralanature/"
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Make My Kerala",
+    "url": "https://make-my-kerala.vercel.app/"
+  }
+};
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<Layout
+  title={`${packageTitle} | Make My Kerala - 5D/4N Kerala Itinerary`}
+  description="Explore Munnar, Thekkady and Alappuzha with our 5 Days & 4 Nights Kerala Nature & Backwater Tour. Pickup, comfortable stays, and backwater cruise included."
+  image={heroImage}
+  schema={tripSchema}
+>
+  <Header />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-
-    <title>{packageTitle} | Make My Kerala</title>
-
-    <meta
-      name="description"
-      content="Explore Munnar, Thekkady and Alappuzha with our Kerala Nature & Backwater Tour."
-    />
-  </head>
-
-  <body>
+  <main>
 
     <!-- =====================================================
          HERO SECTION
@@ -121,6 +132,11 @@ const days = [
         src={heroImage}
         alt={packageTitle}
         class="hero-image"
+        width="1200"
+        height="600"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
       />
 
       <div class="hero-overlay"></div>
@@ -334,6 +350,10 @@ const days = [
                   <img
                     src={day.image}
                     alt={day.title}
+                    width="400"
+                    height="260"
+                    loading="lazy"
+                    decoding="async"
                   />
 
                 </div>
@@ -703,13 +723,26 @@ const days = [
 
           </div>
 
-          <a
-            href="/contact/"
-            class="booking-button"
-          >
-            Enquire Now
-            <span>→</span>
-          </a>
+          <div class="booking-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a
+              href="/contact"
+              class="booking-button"
+            >
+              Enquire Online
+              <span>→</span>
+            </a>
+
+            <a
+              href="https://wa.me/919876543210?text=Hi%20MakeMyKerala!%20I%20would%20like%20to%20enquire%20about%20the%20Kerala%20Nature%20%26%20Backwater%20Tour."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="booking-whatsapp-btn"
+              style="display: inline-flex; align-items: center; gap: 8px; padding: 15px 23px; color: white; background: #25d366; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 800; white-space: nowrap;"
+            >
+              WhatsApp Enquiry
+              <span>💬</span>
+            </a>
+          </div>
 
         </div>
 
@@ -718,8 +751,10 @@ const days = [
     </section>
 
 
-  </body>
-</html>
+  </main>
+
+  <Footer />
+</Layout>
 
 
 <style>
@@ -737,11 +772,7 @@ const days = [
   body {
     margin: 0;
     padding: 0;
-
-    font-family:
-      Arial,
-      Helvetica,
-      sans-serif;
+  }
 
     color: #254538;
 

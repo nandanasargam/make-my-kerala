@@ -1,0 +1,202 @@
+---
+// src/components/TravellerStories.astro
+const testimonials = [
+  {
+    name: "Rahul & Ananya",
+    location: "Mumbai",
+    text: "Our Kerala honeymoon was beautifully organised. Munnar tea slopes and our Alleppey houseboat were unforgettable memories.",
+    rating: "5.0",
+    image: "/images/travellers/rahul-ananya.jpg"
+  },
+  {
+    name: "Priya & Family",
+    location: "Bengaluru",
+    text: "Everything was seamlessly planned from comfortable vehicles to kid-friendly resorts. The children loved every single day.",
+    rating: "5.0",
+    image: "/images/travellers/priya-family.jpg"
+  },
+  {
+    name: "Arjun",
+    location: "Delhi",
+    text: "A wonderful Kerala experience with a perfect balance of scenic exploration, authentic cuisine, and relaxing backwater serenity.",
+    rating: "5.0",
+    image: "/images/travellers/arjun.jpg"
+  },
+  {
+    name: "Vikram & Sneha",
+    location: "Hyderabad",
+    text: "The private houseboat in Alleppey was pure magic. The crew treated us with warmth and served exceptional Kerala fish curry on deck.",
+    rating: "5.0",
+    image: "/images/travellers/vikram-sneha.jpg"
+  }
+];
+---
+
+<section class="section section-sand stories-section" id="stories" aria-label="Traveller Stories and Reviews">
+  <div class="container">
+    <!-- SECTION HEADER -->
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>TESTIMONIALS</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+      <h2 class="section-title">
+        Cherished Moments from <span class="editorial-accent">Our Travellers</span>
+      </h2>
+      <p class="section-lede">
+        Real stories from couples, families, and solo travellers who explored Kerala with our bespoke itineraries and dedicated on-ground care.
+      </p>
+    </div>
+
+    <!-- TESTIMONIALS GRID (2x2 on desktop, 1-col on mobile) -->
+    <div class="stories-grid">
+      {testimonials.map((t) => (
+        <article class="testimonial-card">
+          <div class="testimonial-top">
+            <div class="rating-stars" aria-label="5 out of 5 stars">
+              <span class="star-icon">★★★★★</span>
+              <span class="rating-val">{t.rating}</span>
+            </div>
+            <span class="quote-symbol" aria-hidden="true">“</span>
+          </div>
+
+          <blockquote class="testimonial-quote">
+            "{t.text}"
+          </blockquote>
+
+          <div class="testimonial-author">
+            <img
+              src={t.image}
+              alt={t.name}
+              width="50"
+              height="50"
+              loading="lazy"
+              decoding="async"
+              class="author-avatar"
+            />
+            <div class="author-info">
+              <strong class="author-name">{t.name}</strong>
+              <span class="author-location">📍 {t.location}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stories-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .testimonial-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 36px 32px 30px;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.08));
+  }
+
+  .testimonial-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+  }
+
+  .rating-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .star-icon {
+    color: var(--color-gold, #c88b3b);
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .rating-val {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+  }
+
+  .quote-symbol {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 3.5rem;
+    line-height: 0.8;
+    color: var(--color-sand-warm, #eee5d5);
+    user-select: none;
+  }
+
+  .testimonial-quote {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--color-text, #26362e);
+    font-style: italic;
+    margin-bottom: 24px;
+    flex: 1;
+    text-wrap: pretty;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-gold-light, #e5a95b);
+  }
+
+  .author-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+  }
+
+  .author-location {
+    font-size: 0.82rem;
+    color: var(--color-text-muted, #5a6b63);
+  }
+
+  @media (max-width: 768px) {
+    .stories-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 26px 22px 22px;
+    }
+  }
+</style>

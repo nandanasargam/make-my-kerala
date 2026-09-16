@@ -1,0 +1,459 @@
+---
+// src/components/ScrollStorytelling.astro
+const storyChapters = [
+  {
+    id: "story-munnar",
+    num: "01",
+    name: "Munnar",
+    tag: "Hills & Mist",
+    subtitle: "Endless tea slopes wrapped in cool mountain mist",
+    story:
+      "Ascend into the Western Ghats where rolling emerald tea gardens meet cloud-brushed summits. Wake up to crisp mountain air, explore Eravikulam National Park, and listen to the cascade of fresh mountain streams.",
+    highlights: ["Tea Plantations", "Eravikulam Sanctuary", "Mattupetty Dam", "Anamudi Views"],
+    image: "/images/destinations/munnar-600.webp",
+    ctaLabel: "Explore Munnar Packages"
+  },
+  {
+    id: "story-thekkady",
+    num: "02",
+    name: "Thekkady",
+    tag: "Wildlife & Spices",
+    subtitle: "Wild elephants, cardamom trails & sanctuary waters",
+    story:
+      "Home of the Periyar Tiger Reserve, where scenic boat safaris glide past wild elephant herds along tranquil reservoir banks. Inhale the rich fragrance of fresh cardamom, cinnamon, and pepper through hillside spice groves.",
+    highlights: ["Periyar Lake Safari", "Spice Plantations", "Bamboo Rafting", "Forest Trails"],
+    image: "/images/thekkady.webp",
+    ctaLabel: "Explore Thekkady Packages"
+  },
+  {
+    id: "story-alleppey",
+    num: "03",
+    name: "Alleppey",
+    tag: "Backwaters & Houseboats",
+    subtitle: "Timeless canals, village life & houseboat voyages",
+    story:
+      "The soul of Kerala's water world. Drift serenely aboard a private handcrafted Kettuvallam houseboat through palm-shaded canals, watching peaceful rural river life unfold with authentic Kerala cuisine on deck.",
+    highlights: ["Private Houseboat Cruise", "Canal Kayaking", "Vembanad Lake", "Sunset Reflections"],
+    image: "/images/destinations/allapey-600.webp",
+    ctaLabel: "Explore Alleppey Packages"
+  },
+  {
+    id: "story-wayanad",
+    num: "04",
+    name: "Wayanad",
+    tag: "Rainforests & Waterfalls",
+    subtitle: "Untamed greenery, prehistoric caves & forest streams",
+    story:
+      "A verdant mountain plateau where dense rainforests shelter diverse wildlife and ancient heritage. Stand before rushing tiered waterfalls, explore prehistoric Edakkal Caves, and enjoy the untouched serenity of northern Kerala.",
+    highlights: ["Tiered Waterfalls", "Edakkal Caves", "Chembra Peak", "Wildlife Sanctuary"],
+    image: "/images/destinations/wayanad-600.webp",
+    ctaLabel: "Explore Wayanad Packages"
+  },
+  {
+    id: "story-kovalam",
+    num: "05",
+    name: "Kovalam & Varkala",
+    tag: "Coast & Sunsets",
+    subtitle: "Crescent shores, red coastal cliffs & Arabian sea sunsets",
+    story:
+      "Golden sands fringed with towering coconut palms and warm Arabian Sea surf. From the iconic red cliff cafes of Varkala to the sheltered crescent bays of Lighthouse Beach in Kovalam, unwind to coastal rhythms.",
+    highlights: ["Lighthouse Beach", "Red Cliff Cafes", "Sunset Promenades", "Fresh Seafood"],
+    image: "/images/destinations/kovalam-600.webp",
+    ctaLabel: "Explore Coastal Packages"
+  }
+];
+---
+
+<section class="section section-sand-warm storytelling-section" id="destinations" aria-label="Destination Storytelling">
+  <div class="container">
+    <div class="storytelling-layout">
+      
+      <!-- LEFT: STICKY INTRO & CHAPTER NAVIGATION (DESKTOP) -->
+      <aside class="story-sticky-pane">
+        <div class="sticky-content-wrap">
+          <div class="section-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span>DESTINATION STORIES</span>
+          </div>
+
+          <h2 class="section-title story-main-title">
+            Kerala, One Journey <span class="editorial-accent">at a Time.</span>
+          </h2>
+
+          <p class="story-intro-desc">
+            Explore our handpicked chapters of God’s Own Country. Each destination offers a distinct rhythm of misty peaks, emerald waters, wildlife, and coastal calm.
+          </p>
+
+          <!-- CHAPTER TABS NAV -->
+          <nav class="story-chapters-nav" aria-label="Destination Chapters">
+            <ul class="story-chapters-list">
+              {storyChapters.map((ch, idx) => (
+                <li>
+                  <a
+                    href={`#${ch.id}`}
+                    class={`chapter-nav-item ${idx === 0 ? "is-active" : ""}`}
+                    data-target={ch.id}
+                  >
+                    <span class="nav-ch-num">{ch.num}</span>
+                    <span class="nav-ch-name">{ch.name}</span>
+                    <span class="nav-ch-tag">{ch.tag}</span>
+                    <span class="nav-ch-arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div class="story-sticky-cta">
+            <a href="#plan-trip" class="btn btn-forest">
+              Plan Your Kerala Journey
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: VERTICAL STORY CARDS -->
+      <div class="story-cards-pane">
+        {storyChapters.map((ch) => (
+          <article class="story-card" id={ch.id} data-chapter={ch.id}>
+            <!-- CARD MEDIA -->
+            <div class="story-card-media">
+              <img
+                src={ch.image}
+                alt={`${ch.name} Kerala`}
+                width="720"
+                height="450"
+                loading="lazy"
+                decoding="async"
+                class="story-card-image"
+              />
+              <div class="story-card-overlay"></div>
+              <div class="story-media-badge">
+                <span class="badge-num">{ch.num}</span>
+                <span class="badge-tag">{ch.tag}</span>
+              </div>
+            </div>
+
+            <!-- CARD BODY -->
+            <div class="story-card-body">
+              <h3 class="story-card-title">{ch.name}</h3>
+              <p class="story-card-subtitle">{ch.subtitle}</p>
+              <p class="story-card-text">{ch.story}</p>
+
+              <!-- HIGHLIGHT CHIPS -->
+              <div class="story-chips-wrap">
+                {ch.highlights.map((h) => (
+                  <span class="story-chip">{h}</span>
+                ))}
+              </div>
+
+              <!-- CARD CTA -->
+              <div class="story-card-foot">
+                <a href="#packages" class="btn btn-outline-forest btn-sm">
+                  {ch.ctaLabel}
+                  <span class="btn-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTWEIGHT SCROLL INTERSECTION SCRIPT -->
+<script is:inline>
+  (() => {
+    const cards = document.querySelectorAll('.story-card');
+    const navItems = document.querySelectorAll('.chapter-nav-item');
+    if (!cards.length || !navItems.length) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navItems.forEach((item) => {
+                const isMatch = item.getAttribute('data-target') === id;
+                item.classList.toggle('is-active', isMatch);
+              });
+            }
+          });
+        },
+        { rootMargin: '-20% 0px -40% 0px', threshold: 0.15 }
+      );
+      cards.forEach((card) => observer.observe(card));
+    }
+  })();
+</script>
+
+<style>
+  .storytelling-section {
+    background-color: var(--color-sand, #f4ede2);
+  }
+
+  .storytelling-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: flex-start;
+  }
+
+  /* LEFT STICKY PANE */
+  .story-sticky-pane {
+    position: sticky;
+    top: 110px;
+    align-self: flex-start;
+  }
+
+  .sticky-content-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .story-main-title {
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    margin-bottom: 16px;
+    text-wrap: balance;
+  }
+
+  .story-intro-desc {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 30px;
+    max-width: 48ch;
+    text-wrap: pretty;
+  }
+
+  /* CHAPTER NAV */
+  .story-chapters-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .chapter-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: all 0.25s ease;
+    color: var(--color-text-muted, #5a6b63);
+    text-decoration: none;
+  }
+
+  .chapter-nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: var(--color-forest, #12382a);
+  }
+
+  .chapter-nav-item.is-active {
+    background-color: #ffffff;
+    border-color: rgba(18, 56, 42, 0.1);
+    color: var(--color-forest, #12382a);
+    box-shadow: 0 4px 16px rgba(18, 56, 42, 0.06);
+  }
+
+  .nav-ch-num {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .nav-ch-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+  }
+
+  .nav-ch-tag {
+    font-size: 0.78rem;
+    color: var(--color-text-subtle, #7a8c83);
+    margin-left: auto;
+  }
+
+  .nav-ch-arrow {
+    font-size: 0.9rem;
+    color: var(--color-gold, #c88b3b);
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .chapter-nav-item.is-active .nav-ch-arrow,
+  .chapter-nav-item:hover .nav-ch-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  /* RIGHT CARDS */
+  .story-cards-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .story-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.08));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .story-card:hover {
+    box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
+  }
+
+  /* CARD MEDIA */
+  .story-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #e5dfd5;
+  }
+
+  .story-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .story-card:hover .story-card-image {
+    transform: scale(1.03);
+  }
+
+  .story-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(8, 32, 23, 0.6) 100%
+    );
+  }
+
+  .story-media-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(8, 32, 23, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: #ffffff;
+  }
+
+  .badge-num {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .badge-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* CARD BODY */
+  .story-card-body {
+    padding: 30px 28px 28px;
+  }
+
+  .story-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 6px;
+    text-wrap: balance;
+  }
+
+  .story-card-subtitle {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-gold, #c88b3b);
+    margin-bottom: 14px;
+    text-wrap: balance;
+  }
+
+  .story-card-text {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 22px;
+    max-width: 58ch;
+    text-wrap: pretty;
+  }
+
+  /* HIGHLIGHT CHIPS */
+  .story-chips-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .story-chip {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: var(--color-sand-light, #fbf8f2);
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.1));
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-forest, #12382a);
+  }
+
+  .story-card-foot {
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .storytelling-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .story-sticky-pane {
+      position: static;
+    }
+
+    .story-chapters-nav {
+      display: none;
+    }
+
+    .story-cards-pane {
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .story-card-body {
+      padding: 22px 18px 20px;
+    }
+
+    .story-card-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

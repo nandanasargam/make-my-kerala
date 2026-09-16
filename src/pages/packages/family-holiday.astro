@@ -1,0 +1,410 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import "../../styles/package-detail.css";
+
+const packageTitle = "Kerala Family Holiday";
+const duration = "5 Days / 4 Nights";
+const places = "Munnar - Thekkady - Alleppey";
+const price = 14999;
+const heroImage = "/images/kerala-family-holiday.webp";
+
+const whatsappNumber = "919876543210";
+const whatsappText = encodeURIComponent(
+  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}) starting at ₹${price.toLocaleString("en-IN")}/person.`
+);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+const highlights = [
+  "Kid-friendly spice plantation and aromatic tea garden trails",
+  "Scenic boating at Periyar Lake & Wildlife Sanctuary, Thekkady",
+  "Overnight backwater cruise aboard a private deluxe houseboat",
+  "Mattupetty Dam boating & Echo Point in Munnar",
+  "Comfortable family-friendly stays with curated meal plans"
+];
+
+const days = [
+  {
+    number: "01",
+    title: "Arrival in Cochin & Transfer to Munnar",
+    description:
+      "Arrive at Cochin Airport or Railway Station where your friendly driver welcomes your family. Enjoy a scenic Western Ghats drive to Munnar.",
+    image: "/images/munnar.webp",
+    activities: [
+      "Warm airport/station reception by dedicated chauffeur",
+      "Scenic hill drive with stops at Cheeyappara and Valara Waterfalls",
+      "Visit an authentic Spice Garden with guided walk",
+      "Check-in at family-friendly mountain resort in Munnar",
+      "Evening at leisure enjoying cool mountain breeze",
+      "Delicious dinner & overnight stay in Munnar"
+    ]
+  },
+  {
+    number: "02",
+    title: "Munnar Full Day Family Sightseeing",
+    description:
+      "Embark on a refreshing day discovering Munnar's iconic tea hills, lakes, dams, and nature parks suitable for all ages.",
+    image: "/images/munnar1.avif",
+    activities: [
+      "Hearty breakfast at the resort",
+      "Visit Mattupetty Dam with optional speed boating",
+      "Experience the famous acoustic fun at Echo Point",
+      "Explore Kundala Lake and beautiful flower gardens",
+      "Visit the Tata Tea Museum to learn tea manufacturing",
+      "Return to resort for dinner and overnight stay"
+    ]
+  },
+  {
+    number: "03",
+    title: "Munnar to Thekkady (Periyar Wildlife)",
+    description:
+      "Travel along misty valleys towards Thekkady, the heart of Kerala's cardamom hills and wildlife sanctuaries.",
+    image: "/images/thekkady.webp",
+    activities: [
+      "Breakfast at resort and checkout",
+      "Scenic drive through cardamom and pepper plantations",
+      "Arrival and check-in at Thekkady nature resort",
+      "Boat cruise on Periyar Lake to spot wild elephants and birds",
+      "Optional Elephant ride and spice shopping in local markets",
+      "Overnight stay in Thekkady"
+    ]
+  },
+  {
+    number: "04",
+    title: "Thekkady to Alleppey Houseboat Cruise",
+    description:
+      "Descend the hills towards the world-famous backwaters of Alleppey. Board your traditional houseboat for an unforgettable experience on water.",
+    image: "/images/allapey.webp",
+    activities: [
+      "Breakfast at hotel and drive to Alleppey",
+      "Board traditional Kerala Houseboat at 12:00 PM",
+      "Welcome tender coconut drink and traditional Kerala lunch",
+      "Cruise through scenic palm-fringed canals and emerald paddy fields",
+      "Sunset view across the vast backwaters",
+      "Freshly prepared candlelit dinner and overnight stay on water"
+    ]
+  },
+  {
+    number: "05",
+    title: "Houseboat Sunrise & Cochin Departure",
+    description:
+      "Wake up to the gentle lapping of backwater waves. Enjoy a traditional breakfast before proceeding to Cochin for departure.",
+    image: "/images/hotel1.webp",
+    activities: [
+      "Morning backwater cruise during golden sunrise",
+      "Fresh Kerala breakfast aboard the houseboat",
+      "Check-out at 9:00 AM and drive to Cochin",
+      "Sightseeing at Fort Kochi & Chinese Fishing Nets (time permitting)",
+      "Drop at Cochin Airport / Railway Station with joyful memories"
+    ]
+  }
+];
+
+const inclusions = [
+  "4 Nights accommodation (2N Munnar, 1N Thekkady, 1N Alleppey Houseboat)",
+  "Daily breakfast at resorts and all meals (Lunch, Dinner, Breakfast) on Houseboat",
+  "Private AC sedan or spacious Innova throughout the tour",
+  "Airport / Railway station pickup and drop",
+  "Driver allowance, fuel charges, state permits, toll, and parking",
+  "Guided spice plantation tour entry"
+];
+
+const exclusions = [
+  "Airfare or train tickets",
+  "Entry tickets for boating, national parks, and adventure activities",
+  "Personal expenses, room service, laundry, and tips",
+  "Any meal not mentioned in the inclusions"
+];
+
+const gallery = [
+  "/images/munnar.webp",
+  "/images/thekkady.webp",
+  "/images/allapey.webp",
+  "/images/kerala-family-holiday.webp"
+];
+
+const tripSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": packageTitle,
+  "description": "5 Days & 4 Nights family tour covering Munnar tea gardens, Periyar wildlife boating, and an Alleppey private houseboat cruise.",
+  "touristType": ["Family", "Groups"],
+  "offers": {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "INR",
+    "availability": "https://schema.org/InStock",
+    "url": "https://make-my-kerala.vercel.app/packages/family-holiday/"
+  },
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Make My Kerala",
+    "url": "https://make-my-kerala.vercel.app/"
+  }
+};
+---
+
+<Layout
+  title={`${packageTitle} | Make My Kerala - 5D/4N Family Tour Package`}
+  description="Book the Kerala Family Holiday: 5 Days & 4 Nights covering Munnar, Thekkady and an Alleppey Houseboat stay. Complete family-friendly planning with private vehicle."
+  image={heroImage}
+  schema={tripSchema}
+>
+  <Header />
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img
+        src={heroImage}
+        alt={packageTitle}
+        class="hero-image"
+        width="1200"
+        height="600"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          FAMILY SPECIAL TOUR
+        </div>
+
+        <h1>{packageTitle}</h1>
+        <p class="hero-subtitle">Misty Hills, Wildlife Safaris &amp; Houseboat Fun</p>
+
+        <div class="hero-details">
+          <div>
+            <strong>{duration}</strong>
+            <span>Duration</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>{places}</strong>
+            <span>Destinations</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>₹{price.toLocaleString("en-IN")}</strong>
+            <span>Per Person</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+      <div class="container">
+        <div class="section-title">
+          <span>FAMILY HOLIDAY EXPERIENCE</span>
+          <h2>Crafted for Smiles Across Generations</h2>
+          <p>
+            From cool mountain tea estates to calm backwater lagoons, this 5-day holiday
+            balances sightseeing with comfortable relaxation for kids, parents, and grandparents alike.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🚗</div>
+            <h3>Private AC Vehicle</h3>
+            <p>Spacious, clean sanitized vehicle for your family</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏨</div>
+            <h3>Verified Family Stays</h3>
+            <p>Handpicked resorts with family amenities</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🚤</div>
+            <h3>Private Houseboat</h3>
+            <p>Exclusive deluxe boat with dedicated crew</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🍴</div>
+            <h3>Curated Meals</h3>
+            <p>Freshly cooked tasty dishes for all tastes</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>24/7 Assistance</h3>
+            <p>Local support team throughout your stay</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="section-title">
+          <span>TOUR HIGHLIGHTS</span>
+          <h2>What Your Family Will Love</h2>
+        </div>
+
+        <div class="highlights-grid">
+          {highlights.map((item) => (
+            <div class="highlight-card">
+              <span class="highlight-icon">✦</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY TIMELINE -->
+    <section class="itinerary-section">
+      <div class="container">
+        <div class="section-title">
+          <span>DAY-BY-DAY ITINERARY</span>
+          <h2>5 Days &amp; 4 Nights of Wonder</h2>
+          <p>A relaxed pace designed to ensure everyone enjoys every moment.</p>
+        </div>
+
+        <div class="timeline">
+          {days.map((day) => (
+            <article class="day-card">
+              <div class="day-number">
+                <span>DAY</span>
+                <strong>{day.number}</strong>
+              </div>
+
+              <div class="day-image">
+                <img
+                  src={day.image}
+                  alt={day.title}
+                  width="400"
+                  height="260"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="day-content">
+                <span class="day-label">DAY {day.number}</span>
+                <h3>{day.title}</h3>
+                <p>{day.description}</p>
+
+                <ul>
+                  {day.activities.map((act) => (
+                    <li>
+                      <span>✓</span>
+                      {act}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUSIONS & EXCLUSIONS -->
+    <section class="includes-section">
+      <div class="container">
+        <div class="section-title">
+          <span>TRANSPARENT PRICING</span>
+          <h2>Package Inclusions &amp; Exclusions</h2>
+        </div>
+
+        <div class="includes-grid">
+          <div class="include-card">
+            <div class="include-icon">✨</div>
+            <h3>What's Included</h3>
+            <ul>
+              {inclusions.map((item) => (
+                <li class="inc">{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="include-card">
+            <div class="include-icon">ℹ️</div>
+            <h3>What's Excluded</h3>
+            <ul>
+              {exclusions.map((item) => (
+                <li class="exc">{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-title">
+          <span>DESTINATION GALLERY</span>
+          <h2>Memories Waiting to Be Made</h2>
+        </div>
+
+        <div class="gallery-grid">
+          {gallery.map((imgUrl, i) => (
+            <div class="gallery-card">
+              <img
+                src={imgUrl}
+                alt={`Kerala Family Tour Photo ${i + 1}`}
+                width="360"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & WHATSAPP CTA -->
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-box">
+          <div class="booking-content">
+            <span>PLAN YOUR FAMILY VACATION</span>
+            <h2>Ready to Experience Kerala?</h2>
+            <p>
+              Contact our Kerala holiday planners for custom dates, hotel upgrades, or instant quotes.
+            </p>
+          </div>
+
+          <div class="booking-price">
+            <small>Starting From</small>
+            <strong>₹{price.toLocaleString("en-IN")}</strong>
+            <span>Per Person</span>
+          </div>
+
+          <div class="booking-actions">
+            <a href="/contact" class="booking-button">
+              Enquire Online <span>→</span>
+            </a>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="booking-whatsapp-btn"
+            >
+              WhatsApp Enquiry <span>💬</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

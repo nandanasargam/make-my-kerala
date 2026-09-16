@@ -1,0 +1,157 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<Layout
+  title="Privacy Policy | Make My Kerala"
+  description="Privacy Policy for Make My Kerala. Learn how we handle and protect your personal data when booking Kerala tour packages."
+>
+  <Header />
+
+  <main class="legal-page">
+    <section class="legal-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep">/</span>
+          <span class="current">Privacy Policy</span>
+        </nav>
+        <h1>Privacy Policy</h1>
+        <p>Last updated: September 2026</p>
+      </div>
+    </section>
+
+    <section class="legal-content-section">
+      <div class="container legal-body">
+        <h2>1. Information We Collect</h2>
+        <p>
+          When you submit an enquiry, request a customized itinerary, or contact Make My Kerala via our website, phone, or WhatsApp, we collect basic travel planning information including your name, phone number, email address, proposed travel dates, group size, and destination preferences.
+        </p>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>
+          We use the information you provide solely to:
+        </p>
+        <ul>
+          <li>Prepare and send customized Kerala travel quotes and itineraries.</li>
+          <li>Coordinate hotel reservations, houseboat bookings, and dedicated transportation.</li>
+          <li>Provide customer support before, during, and after your trip.</li>
+          <li>Comply with legal, regulatory, and tax requirements in India.</li>
+        </ul>
+
+        <h2>3. Data Security & Confidentiality</h2>
+        <p>
+          Make My Kerala does not sell, rent, or trade your personal information to third-party marketers. Your details are shared strictly with verified local service partners (such as contracted hotels and licensed houseboat operators) solely for the purpose of fulfilling your confirmed travel booking.
+        </p>
+
+        <h2>4. Cookies & Analytics</h2>
+        <p>
+          Our website may use standard cookies and analytics to evaluate site traffic and improve visitor experience. You can choose to disable cookies through your browser settings at any time.
+        </p>
+
+        <h2>5. Contact Our Privacy Team</h2>
+        <p>
+          If you have questions regarding our privacy practices or wish to request data correction, please email us at <a href="mailto:hello@makemykerala.com">hello@makemykerala.com</a> or call <a href="tel:+919876543210">+91 98765 43210</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .legal-page {
+    background: #f7f5ed;
+    min-height: 80vh;
+  }
+
+  .legal-hero {
+    background: linear-gradient(135deg, #092e22 0%, #12382a 100%);
+    color: white;
+    padding: 65px 0 50px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+  }
+
+  .breadcrumb .current {
+    color: #f1c47b;
+  }
+
+  .legal-hero h1 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 0 0 8px;
+    color: #ffffff;
+  }
+
+  .legal-hero p {
+    font-size: 13px;
+    color: #f1c47b;
+    margin: 0;
+  }
+
+  .legal-content-section {
+    padding: 60px 0 90px;
+  }
+
+  .legal-body {
+    max-width: 820px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 45px 50px;
+    box-shadow: 0 10px 30px rgba(18, 56, 42, 0.05);
+    border: 1px solid rgba(18, 56, 42, 0.08);
+  }
+
+  .legal-body h2 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 24px;
+    color: #12382a;
+    margin: 28px 0 12px;
+  }
+
+  .legal-body h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-body p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #556b60;
+    margin: 0 0 14px;
+  }
+
+  .legal-body ul {
+    margin: 0 0 18px 20px;
+    color: #556b60;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .legal-body a {
+    color: #c98b36;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .legal-body {
+      padding: 30px 22px;
+    }
+  }
+</style>

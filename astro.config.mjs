@@ -4,13 +4,6 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()],
-
-  vite: {
-    server: {
-      allowedHosts: [
-        'drew-compaq-potential-though.trycloudflare.com'
-      ]
-    }
-  }
+  site: 'https://make-my-kerala.vercel.app',
+  integrations: [react()]
 });

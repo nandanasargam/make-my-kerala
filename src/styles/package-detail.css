@@ -1,0 +1,669 @@
+/* =====================================================
+   PACKAGE DETAIL SHARED STYLES
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #254538;
+}
+
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  position: relative;
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: white;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8, 48, 37, 0.40) 0%,
+    rgba(8, 38, 30, 0.82) 65%,
+    rgba(8, 38, 30, 0.94) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(950px, 90%);
+  padding: 80px 20px;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 9px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: rgba(18, 56, 42, 0.4);
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(40px, 6.5vw, 70px);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  margin: 18px 0 32px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #f1c47b;
+}
+
+.hero-details {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 20px 32px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.hero-details strong {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.hero-details span {
+  font-size: 10px;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.hero-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+  max-width: 800px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.section-title > span {
+  display: block;
+  margin-bottom: 10px;
+  color: #a56d32;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.section-title h2 {
+  margin: 0 0 15px;
+  color: #12382a;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(32px, 5vw, 44px);
+  line-height: 1.2;
+}
+
+.section-title p {
+  margin: 0;
+  color: #6e7972;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =====================================================
+   INTRO & FEATURES
+===================================================== */
+
+.intro {
+  padding: 85px 0 50px;
+  background: #ffffff;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.feature-card {
+  padding: 26px 16px;
+  text-align: center;
+  background: #faf8f2;
+  border: 1px solid #e1e7e3;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.feature-card h3 {
+  margin: 0 0 8px;
+  color: #12382a;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #748078;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   HIGHLIGHTS PILLS
+===================================================== */
+
+.highlights-section {
+  padding: 50px 0 70px;
+  background: #ffffff;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  background: #f4f8f5;
+  border-left: 4px solid #c88b3b;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #12382a;
+}
+
+.highlight-icon {
+  color: #c88b3b;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   ITINERARY TIMELINE
+===================================================== */
+
+.itinerary-section {
+  padding: 80px 0 95px;
+  background: #f7f5ed;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.day-card {
+  display: grid;
+  grid-template-columns: 80px 330px 1fr;
+  min-height: 330px;
+  overflow: hidden;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(25, 55, 40, 0.07);
+  border: 1px solid #e7e5dc;
+}
+
+.day-number {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+  color: white;
+  background: #12382a;
+}
+
+.day-number span {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.day-number strong {
+  margin-top: 5px;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 32px;
+}
+
+.day-image {
+  min-height: 330px;
+}
+
+.day-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.day-content {
+  padding: 38px;
+}
+
+.day-label {
+  color: #c88b3b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.day-content h3 {
+  margin: 9px 0 15px;
+  color: #12382a;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  line-height: 1.25;
+}
+
+.day-content p {
+  margin: 0 0 20px;
+  color: #69756e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.day-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day-content li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 9px;
+  color: #5f6e66;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.day-content li span {
+  flex-shrink: 0;
+  color: #2e684d;
+  font-weight: bold;
+}
+
+/* =====================================================
+   GALLERY SECTION
+===================================================== */
+
+.gallery-section {
+  padding: 85px 0;
+  background: #ffffff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.gallery-card {
+  position: relative;
+  height: 230px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.06);
+}
+
+/* =====================================================
+   INCLUSIONS & EXCLUSIONS
+===================================================== */
+
+.includes-section {
+  padding: 85px 0;
+  background: #f7f5ed;
+}
+
+.includes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.include-card {
+  padding: 34px;
+  background: white;
+  border-radius: 17px;
+  box-shadow: 0 8px 30px rgba(25, 55, 40, 0.06);
+  border: 1px solid #e1e7e3;
+}
+
+.include-icon {
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.include-card h3 {
+  margin: 0 0 20px;
+  color: #12382a;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+}
+
+.include-card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.include-card li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 11px;
+  color: #657169;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.include-card li.inc::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #2e684d;
+  font-weight: 800;
+}
+
+.include-card li.exc::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  color: #c8503b;
+  font-weight: 800;
+}
+
+/* =====================================================
+   BOOKING CTA SECTION
+===================================================== */
+
+.booking-section {
+  padding: 30px 0 90px;
+  background: #ffffff;
+}
+
+.booking-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 45px;
+  color: white;
+  background: linear-gradient(135deg, #12382a, #23553f);
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(18, 56, 42, 0.22);
+}
+
+.booking-content > span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #f1c47b;
+}
+
+.booking-content h2 {
+  margin: 9px 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 34px;
+}
+
+.booking-content p {
+  margin: 0;
+  opacity: 0.88;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.booking-price {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 140px;
+}
+
+.booking-price small {
+  font-size: 10px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.booking-price strong {
+  margin: 4px 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 32px;
+  color: #f1c47b;
+}
+
+.booking-price span {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.booking-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.booking-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  color: #12382a;
+  background: #f1c47b;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.booking-button:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+}
+
+.booking-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  color: #ffffff;
+  background: #25d366;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.booking-whatsapp-btn:hover {
+  transform: translateY(-2px);
+  background: #20ba59;
+}
+
+/* =====================================================
+   RESPONSIVE MEDIA QUERIES
+===================================================== */
+
+@media (max-width: 1050px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .day-card {
+    grid-template-columns: 65px 280px 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 540px;
+  }
+
+  .hero-content {
+    padding: 60px 15px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-details {
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px 24px;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-card {
+    display: block;
+  }
+
+  .day-number {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+  }
+
+  .day-number strong {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .day-image {
+    height: 240px;
+    min-height: 0;
+  }
+
+  .day-content {
+    padding: 24px 20px;
+  }
+
+  .includes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 22px;
+  }
+
+  .booking-price {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .booking-button,
+  .booking-whatsapp-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

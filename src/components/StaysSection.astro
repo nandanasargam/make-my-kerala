@@ -1,0 +1,227 @@
+---
+// src/components/StaysSection.astro
+const stays = [
+  {
+    title: "Premium Kerala Resort",
+    tag: "Luxury Stay",
+    location: "Kochi, Kerala",
+    description: "Relax in elegant surroundings with comfortable rooms and a peaceful atmosphere.",
+    image: "/images/hotel1.webp"
+  },
+  {
+    title: "Backwater Resort",
+    tag: "Resort Stay",
+    location: "Alleppey, Kerala",
+    description: "Enjoy a relaxing stay surrounded by Kerala's beautiful backwaters and natural scenery.",
+    image: "/images/hotel2.webp"
+  },
+  {
+    title: "Munnar Mountain Resort",
+    tag: "Nature Stay",
+    location: "Munnar, Kerala",
+    description: "Wake up to misty hills, fresh mountain air and the peaceful beauty of Munnar.",
+    image: "/images/hotel3.webp"
+  },
+  {
+    title: "Kerala Beach Resort",
+    tag: "Beach Stay",
+    location: "Kovalam, Kerala",
+    description: "Unwind by the coast with comfortable rooms, beautiful views and a relaxing beach atmosphere.",
+    image: "/images/hotel4.webp"
+  }
+];
+---
+
+<section class="section section-sand stays-section" id="stays" aria-label="Handpicked Stays in Kerala">
+  <div class="container">
+    <!-- SECTION HEADER -->
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-dash" aria-hidden="true">—</span>
+        <span>STAY IN COMFORT</span>
+      </div>
+      <h2 class="section-title">
+        Handpicked stays for <span class="editorial-accent">your Kerala journey</span>
+      </h2>
+      <p class="section-lede">
+        Carefully selected hotels and resorts that complement your Kerala travel experience.
+      </p>
+    </div>
+
+    <!-- STAYS GRID -->
+    <div class="stays-grid">
+      {stays.map((stay) => (
+        <article class="stay-card">
+          <div class="stay-media-wrap">
+            <img
+              src={stay.image}
+              alt={stay.title}
+              width="480"
+              height="320"
+              loading="lazy"
+              decoding="async"
+              class="stay-image"
+            />
+            <span class="stay-badge">{stay.tag}</span>
+          </div>
+
+          <div class="stay-body">
+            <h3 class="stay-title">{stay.title}</h3>
+            <span class="stay-location">📍 {stay.location}</span>
+            <p class="stay-desc">{stay.description}</p>
+            <div class="stay-foot">
+              <a href="#plan-trip" class="stay-details-link">
+                <span>View Details</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stays-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(80px, 10vw, 130px);
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .stays-section .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #12382a);
+  }
+
+  .stays-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .stay-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .stay-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
+  }
+
+  .stay-media-wrap {
+    position: relative;
+    aspect-ratio: 16 / 11;
+    overflow: hidden;
+    background-color: #e8e2d8;
+  }
+
+  .stay-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .stay-card:hover .stay-image {
+    transform: scale(1.05);
+  }
+
+  .stay-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: #ffffff;
+    color: var(--color-forest, #12382a);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .stay-body {
+    padding: 22px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .stay-title {
+    font-family: var(--font-display, "Cormorant Garamond", Georgia, serif);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 6px;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+
+  .stay-location {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-gold, #c88b3b);
+    margin-bottom: 10px;
+  }
+
+  .stay-desc {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 20px;
+    flex: 1;
+    text-wrap: pretty;
+  }
+
+  .stay-foot {
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  .stay-details-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .stay-details-link:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .stay-details-link:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 1200px) {
+    .stays-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .stays-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+</style>

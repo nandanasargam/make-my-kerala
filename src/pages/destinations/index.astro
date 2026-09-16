@@ -1,0 +1,588 @@
+---
+// src/pages/destinations/index.astro
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { destinations } from "../../data/destinations.js";
+import "../../styles/global.css";
+
+const categories = [
+  "All",
+  "Hills & Mist",
+  "Backwaters",
+  "Wildlife & Spices",
+  "Coastal Escapes",
+  "Heritage & Culture"
+];
+---
+
+<Layout
+  title="Destinations in Kerala | Munnar, Alleppey, Thekkady, Wayanad - Make My Kerala"
+  description="Explore the best travel destinations in Kerala. Discover misty hill stations, tranquil backwaters, wildlife sanctuaries, and golden beaches with Make My Kerala."
+>
+  <Header />
+
+  <main class="destinations-page">
+    
+    <!-- 1. HERO BANNER -->
+    <section class="dest-hero-section" aria-label="Destinations Header">
+      <div class="dest-hero-bg" aria-hidden="true">
+        <img
+          src="/images/destinations/munnar-600.webp"
+          alt="Misty tea valleys of Kerala"
+          width="1920"
+          height="700"
+          class="dest-hero-image"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="dest-hero-veil"></div>
+      </div>
+
+      <div class="container dest-hero-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <span class="current">Destinations</span>
+        </nav>
+
+        <div class="section-eyebrow dest-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>PLACES THAT STAY WITH YOU</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h1 class="dest-hero-title">
+          Explore <span class="editorial-accent">Kerala</span>
+        </h1>
+
+        <p class="dest-hero-desc">
+          From rolling high-altitude tea trails to labyrinthine backwater canals and golden Arabian sea cliffs — immerse yourself in the living landscapes of God’s Own Country.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. DESTINATIONS DIRECTORY & FILTER TABS -->
+    <section class="section section-sand dest-directory-section" aria-label="Destination Directory">
+      <div class="container">
+        
+        <!-- CATEGORY TABS -->
+        <div class="dest-filter-bar" role="tablist" aria-label="Filter by landscape">
+          {categories.map((cat, idx) => (
+            <button
+              type="button"
+              class={`dest-tab-btn ${idx === 0 ? "is-active" : ""}`}
+              data-filter={cat}
+              role="tab"
+              aria-selected={idx === 0}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <!-- ASYMMETRIC EDITORIAL GRID -->
+        <div class="dest-editorial-grid" id="destinations-grid">
+          {destinations.map((d) => (
+            <article
+              class={`dest-card dest-card-${d.aspect || "medium"}`}
+              data-category={d.category}
+            >
+              <div class="dest-card-media">
+                <img
+                  src={d.image}
+                  alt={`${d.name} Kerala`}
+                  width="720"
+                  height="480"
+                  loading="lazy"
+                  decoding="async"
+                  class="dest-card-img"
+                />
+                <div class="dest-card-veil"></div>
+
+                <!-- TAGS OVERLAY -->
+                <div class="dest-card-badges">
+                  <span class="dest-category-pill">{d.category}</span>
+                  <span class="dest-region-pill">{d.region}</span>
+                </div>
+              </div>
+
+              <!-- BODY -->
+              <div class="dest-card-content">
+                <h2 class="dest-card-name">{d.name}</h2>
+                <p class="dest-card-tagline">{d.tagline}</p>
+                <p class="dest-card-desc">{d.shortDescription}</p>
+
+                <!-- HIGHLIGHTS -->
+                <div class="dest-highlights-list">
+                  {d.highlights.slice(0, 3).map((h) => (
+                    <span class="dest-highlight-chip">✦ {h}</span>
+                  ))}
+                </div>
+
+                <!-- FOOTER CTA -->
+                <div class="dest-card-footer">
+                  <a href="/packages" class="dest-explore-btn">
+                    <span>View Tour Packages</span>
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                  </a>
+                  <a href="/contact" class="dest-custom-btn">
+                    Plan Custom Trip
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. BOTTOM CTA BANNER -->
+    <section class="section section-forest dest-cta-banner">
+      <div class="container text-center">
+        <div class="section-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>CURATED BY LOCAL SPECIALISTS</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+        <h2 class="section-title">
+          Ready to Craft Your <span class="editorial-accent">Kerala Itinerary?</span>
+        </h2>
+        <p class="section-lede dest-cta-lede">
+          Whether you want a 4-day backwater escape or a 10-day grand South India journey, our Kochi travel specialists design every day around you.
+        </p>
+        <div class="dest-cta-actions">
+          <a href="/contact" class="btn btn-primary">
+            Plan Your Journey
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="tel:+919876543210" class="btn btn-outline">
+            Call +91 98765 43210
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<!-- CLIENTSIDE FILTER SCRIPT -->
+<script is:inline>
+  (() => {
+    const tabs = document.querySelectorAll('.dest-tab-btn');
+    const cards = document.querySelectorAll('.dest-card');
+    if (!tabs.length || !cards.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filterVal = tab.getAttribute('data-filter');
+
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute('data-category') || '';
+          if (filterVal === 'All' || cardCat.includes(filterVal) || filterVal.includes(cardCat)) {
+            card.style.display = '';
+            card.style.opacity = '1';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+<style>
+  /* HERO BANNER */
+  .dest-hero-section {
+    position: relative;
+    min-height: clamp(420px, 50vh, 560px);
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    overflow: hidden;
+    background-color: var(--color-forest-deep, #082017);
+  }
+
+  .dest-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .dest-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .dest-hero-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 32, 23, 0.6) 0%,
+      rgba(8, 32, 23, 0.85) 100%
+    );
+  }
+
+  .dest-hero-container {
+    position: relative;
+    z-index: 2;
+    padding-block: clamp(60px, 8vw, 100px);
+  }
+
+  .breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .breadcrumb .sep {
+    opacity: 0.5;
+  }
+
+  .breadcrumb .current {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .dest-eyebrow {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .dest-eyebrow .eyebrow-line {
+    background-color: var(--color-gold-light, #e5a95b);
+  }
+
+  .dest-hero-title {
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .dest-hero-desc {
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+
+  /* DIRECTORY & FILTER */
+  .dest-directory-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+  }
+
+  .dest-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+
+  .dest-tab-btn {
+    padding: 9px 20px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.1));
+    color: var(--color-text, #26362e);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .dest-tab-btn:hover {
+    border-color: var(--color-gold, #c88b3b);
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .dest-tab-btn.is-active {
+    background-color: var(--color-forest, #12382a);
+    color: #ffffff;
+    border-color: var(--color-forest, #12382a);
+  }
+
+  /* ASYMMETRIC GRID */
+  .dest-editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .dest-card-wide {
+    grid-column: span 2;
+  }
+
+  .dest-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .dest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
+  }
+
+  .dest-card-wide {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  /* MEDIA */
+  .dest-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #e5dfd5;
+  }
+
+  .dest-card-wide .dest-card-media {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 340px;
+  }
+
+  .dest-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .dest-card:hover .dest-card-img {
+    transform: scale(1.04);
+  }
+
+  .dest-card-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(8, 32, 23, 0.6) 100%
+    );
+  }
+
+  .dest-card-badges {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .dest-category-pill,
+  .dest-region-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    background: rgba(8, 32, 23, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff;
+  }
+
+  .dest-region-pill {
+    background: rgba(200, 139, 59, 0.9);
+    color: #ffffff;
+  }
+
+  /* CONTENT */
+  .dest-card-content {
+    padding: 28px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .dest-card-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .dest-card-tagline {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-gold, #c88b3b);
+    margin-bottom: 12px;
+  }
+
+  .dest-card-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .dest-highlights-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .dest-highlight-chip {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 16px;
+    background-color: var(--color-sand-light, #fbf8f2);
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.1));
+    color: var(--color-forest, #12382a);
+    font-weight: 600;
+  }
+
+  /* CARD FOOTER */
+  .dest-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  }
+
+  .dest-explore-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .dest-explore-btn:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .dest-explore-btn:hover .btn-arrow {
+    transform: translateX(3px);
+  }
+
+  .dest-custom-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gold, #c88b3b);
+    text-decoration: underline;
+    transition: color 0.25s ease;
+  }
+
+  .dest-custom-btn:hover {
+    color: var(--color-gold-hover, #b0742a);
+  }
+
+  /* CTA BANNER */
+  .dest-cta-banner {
+    background-color: var(--color-forest-deep, #082017);
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .text-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dest-cta-lede {
+    max-width: 680px;
+    margin-bottom: 36px;
+  }
+
+  .dest-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 960px) {
+    .dest-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .dest-card-wide {
+      grid-column: span 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dest-card-wide .dest-card-media {
+      aspect-ratio: 16 / 10;
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .dest-card-content {
+      padding: 20px 18px 18px;
+    }
+
+    .dest-card-name {
+      font-size: 1.5rem;
+    }
+
+    .dest-card-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .dest-cta-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .dest-cta-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

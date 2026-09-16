@@ -1,0 +1,256 @@
+---
+// src/components/WhyUs.astro
+const pillars = [
+  {
+    num: "01",
+    title: "25+ Years of Local Mastery",
+    desc: "Trusted South India travel specialists with over two decades of hospitality excellence and thousands of delighted families, couples, and groups."
+  },
+  {
+    num: "02",
+    title: "100% Tailored Itineraries",
+    desc: "Every journey is customized around your preferred pacing, accommodation tier, budget, and personal interests from backwaters to mountain peaks."
+  },
+  {
+    num: "03",
+    title: "Personally Handpicked Stays",
+    desc: "We exclusively book verified boutique resorts, colonial heritage estates, and private deluxe houseboats inspected for comfort and hygiene."
+  },
+  {
+    num: "04",
+    title: "24/7 On-Ground Care",
+    desc: "Our dedicated Kochi-based travel desk and personal concierge provide continuous assistance and peace of mind throughout every mile of your trip."
+  }
+];
+---
+
+<section class="section section-sand-warm why-section" id="why-us" aria-label="Why Choose MakeMyKerala">
+  <div class="container">
+    <div class="why-editorial-layout">
+      
+      <!-- LEFT: EDITORIAL ASIDE & TRUST SEAL -->
+      <div class="why-intro-col reveal">
+        <div class="section-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>THE MAKEMYKERALA STANDARD</span>
+        </div>
+
+        <h2 class="section-title why-main-title">
+          Travel Designed with <span class="editorial-accent">Experience & Care</span>
+        </h2>
+
+        <p class="why-lead-text">
+          A truly memorable holiday is more than a list of sightseeing stops. It is the peace of mind knowing that every detail — from seamless airport transfers to verified stays and authentic cuisine — is managed with genuine local dedication.
+        </p>
+
+        <!-- 25 YEARS TRUST SEAL -->
+        <div class="why-trust-seal">
+          <div class="seal-crest">
+            <img
+              src="/images/25yearslogo-sm.webp"
+              alt="Make My Kerala 25 Years Heritage"
+              width="70"
+              height="65"
+              loading="lazy"
+              decoding="async"
+              class="seal-img"
+            />
+          </div>
+          <div class="seal-details">
+            <strong class="seal-title">25 Years of Excellence</strong>
+            <span class="seal-sub">Kochi Operating Office • Trusted Across South India</span>
+          </div>
+        </div>
+
+        <div class="why-cta-wrap">
+          <a href="#plan-trip" class="btn btn-forest">
+            Plan Your Journey With Us
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: 4 NUMBERED EDITORIAL STATEMENTS -->
+      <div class="why-pillars-col">
+        {pillars.map((p, idx) => (
+          <article class={`why-pillar-row reveal ${idx === 1 ? 'reveal-delay-1' : idx === 2 ? 'reveal-delay-2' : idx === 3 ? 'reveal-delay-3' : ''}`}>
+            <span class="pillar-num">{p.num}</span>
+            <div class="pillar-body">
+              <h3 class="pillar-title">{p.title}</h3>
+              <p class="pillar-desc">{p.desc}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-section {
+    background-color: var(--color-sand, #f4ede2);
+  }
+
+  .why-editorial-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: clamp(40px, 6vw, 84px);
+    align-items: flex-start;
+  }
+
+  /* LEFT ASIDE */
+  .why-intro-col {
+    position: sticky;
+    top: 110px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .why-main-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.16;
+    margin-bottom: 20px;
+  }
+
+  .why-lead-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 32px;
+    max-width: 48ch;
+  }
+
+  /* TRUST SEAL */
+  .why-trust-seal {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.1));
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    margin-bottom: 32px;
+    max-width: 440px;
+  }
+
+  .seal-crest {
+    flex-shrink: 0;
+  }
+
+  .seal-img {
+    width: 58px;
+    height: auto;
+    display: block;
+  }
+
+  .seal-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .seal-title {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  .seal-sub {
+    font-size: 0.78rem;
+    color: var(--color-text-subtle, #7a8c83);
+    line-height: 1.4;
+  }
+
+  /* RIGHT PILLARS */
+  .why-pillars-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.12));
+  }
+
+  .why-pillar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+    align-items: flex-start;
+    padding-block: 32px;
+    border-bottom: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.12));
+    transition: background-color 0.25s ease;
+  }
+
+  .why-pillar-row:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .pillar-num {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    font-weight: 700;
+    color: var(--color-gold, #c88b3b);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .pillar-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .pillar-desc {
+    font-size: 0.94rem;
+    line-height: 1.7;
+    color: var(--color-text-muted, #5a6b63);
+    margin: 0;
+    max-width: 58ch;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .why-editorial-layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .why-intro-col {
+      position: static;
+    }
+
+    .why-lead-text {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .why-pillar-row {
+      grid-template-columns: 50px 1fr;
+      gap: 16px;
+      padding-block: 24px;
+    }
+
+    .pillar-num {
+      font-size: 1.8rem;
+    }
+
+    .pillar-title {
+      font-size: 1.2rem;
+    }
+
+    .why-cta-wrap .btn {
+      width: 100%;
+    }
+  }
+</style>

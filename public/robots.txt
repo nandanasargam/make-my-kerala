@@ -1,0 +1,6 @@
+﻿# Robots.txt for Make My Kerala
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://make-my-kerala.vercel.app/sitemap.xml

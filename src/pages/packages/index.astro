@@ -1,446 +1,631 @@
 ---
+// src/pages/packages/index.astro
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 import { packages } from "../../data/packages.js";
+import "../../styles/global.css";
+
+const packagesSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Kerala Tour Packages",
+  "description": "Curated Kerala tour packages featuring backwater houseboats, hill stations, wildlife sanctuaries, and romantic escapes.",
+  "itemListElement": packages.map((pkg, idx) => ({
+    "@type": "ListItem",
+    "position": idx + 1,
+    "name": pkg.title,
+    "url": `https://makemykerala.vercel.app${pkg.itineraryLink}`
+  }))
+};
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<Layout
+  title="Kerala Tour Packages | Curated South India Holidays - Make My Kerala"
+  description="Explore our curated Kerala tour packages covering Munnar, Thekkady, Alappuzha, Kumarakom and Kovalam. Transparent pricing, verified stays, and 25 years of travel excellence."
+  schema={packagesSchema}
+>
+  <Header />
 
-    <title>Kerala Tour Packages</title>
+  <main class="packages-page">
+    
+    <!-- 1. EDITORIAL HERO BANNER -->
+    <section class="packages-hero" aria-label="Kerala Packages Hero">
+      <div class="packages-hero-bg" aria-hidden="true">
+        <img
+          src="/images/allapey.webp"
+          alt="Tranquil Kerala backwaters and houseboats"
+          width="1920"
+          height="700"
+          class="packages-hero-img"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="packages-hero-veil"></div>
+      </div>
 
-    <meta
-      name="description"
-      content="Explore our Kerala tour packages covering Munnar, Thekkady, Alappuzha and other beautiful destinations."
-    />
-  </head>
+      <div class="container packages-hero-inner">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <span class="current">Tour Packages</span>
+        </nav>
 
-  <body>
-    <main class="packages-page">
+        <div class="section-eyebrow hero-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>CURATED SOUTH INDIA EXPERIENCES</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
 
-      <!-- Blurred Background -->
-      <div class="background-image"></div>
-      <div class="background-overlay"></div>
+        <h1 class="packages-hero-title">
+          Kerala <span class="editorial-accent">Tour Packages</span>
+        </h1>
 
-      <!-- Page Content -->
-      <section class="packages-section">
+        <p class="packages-hero-desc">
+          From the mist-shrouded tea valleys of Munnar to the tranquil labyrinthine backwaters of Alleppey and sun-kissed shores of Kovalam — explore our handpicked journeys designed with 25 years of local mastery.
+        </p>
+      </div>
+    </section>
 
-        <div class="page-heading">
-          <span>EXPLORE KERALA</span>
-          <h1>Kerala Tour Packages</h1>
-          <p>
-            Discover beautiful hill stations, wildlife, beaches and
-            peaceful backwaters with our specially designed Kerala tours.
+    <!-- 2. PACKAGES DIRECTORY -->
+    <section class="section section-sand packages-list-section" aria-label="Curated Itineraries">
+      <div class="container">
+        
+        <!-- SECTION HEAD -->
+        <div class="section-head section-head-center">
+          <div class="section-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span>HANDPICKED FOR YOU</span>
+            <span class="eyebrow-line" aria-hidden="true"></span>
+          </div>
+          <h2 class="section-title">
+            Signature <span class="editorial-accent">Itineraries</span>
+          </h2>
+          <p class="section-lede">
+            Every itinerary includes private sanitised transfers, handpicked boutique stays, curated breakfast, and 24/7 dedicated on-tour assistance.
           </p>
         </div>
 
-        <!-- Packages Grid -->
-        <div class="packages-grid">
-
-          {
-            packages.map((pkg) => (
-              <article class="package-card">
-
-                <!-- Package Image -->
+        <!-- PACKAGES GRID -->
+        <div class="packages-directory-grid">
+          {packages.map((pkg, idx) => (
+            <article class={`pkg-card reveal ${idx === 1 ? 'reveal-delay-1' : idx === 2 ? 'reveal-delay-2' : idx === 3 ? 'reveal-delay-3' : ''}`}>
+              <!-- CARD MEDIA -->
+              <a href={pkg.itineraryLink} class="pkg-media-wrap" aria-label={`View ${pkg.title} itinerary`}>
                 <img
                   src={pkg.image}
                   alt={pkg.title}
-                  class="package-image"
+                  width="600"
+                  height="380"
+                  loading="lazy"
+                  decoding="async"
+                  class="pkg-img"
                 />
+                <div class="pkg-media-veil"></div>
+                <span class="pkg-duration-pill">{pkg.duration}</span>
+              </a>
 
-                <!-- Image Overlay -->
-                <div class="card-overlay"></div>
-
-                <!-- Package Content -->
-                <div class="package-content">
-
-                  <h2>{pkg.title}</h2>
-
-                  <div class="package-info">
-                    <span>{pkg.duration}</span>
-                    <span>{pkg.places}</span>
-                  </div>
-
-                  <p class="package-description">
-                    {pkg.description}
-                  </p>
-
-                  <div class="package-bottom">
-
-                    <div class="price">
-                      <small>Starting from</small>
-                      <strong>₹{pkg.price.toLocaleString("en-IN")}</strong>
-                      <small>per person</small>
-                    </div>
-
-                    <a
-                      href={pkg.itineraryLink}
-                      class="itinerary-button"
-                    >
-                      View All Itinerary
-                      <span>→</span>
-                    </a>
-
-                  </div>
-
+              <!-- CARD CONTENT -->
+              <div class="pkg-content">
+                <div class="pkg-route">
+                  <span class="route-pin" aria-hidden="true">📍</span>
+                  <span class="route-names">{pkg.places}</span>
                 </div>
 
-              </article>
-            ))
-          }
+                <h3 class="pkg-title">
+                  <a href={pkg.itineraryLink}>{pkg.title}</a>
+                </h3>
 
+                <p class="pkg-desc">{pkg.description}</p>
+
+                <!-- HIGHLIGHT BULLETS -->
+                {pkg.highlights && (
+                  <ul class="pkg-highlights-list">
+                    {pkg.highlights.slice(0, 3).map((h) => (
+                      <li class="pkg-highlight-item">
+                        <span class="highlight-check" aria-hidden="true">✓</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                <!-- FOOTER -->
+                <div class="pkg-footer">
+                  <div class="pkg-price-col">
+                    <span class="price-label">Starting from</span>
+                    <strong class="price-amount">₹{pkg.price.toLocaleString("en-IN")}</strong>
+                    <span class="price-note">per person</span>
+                  </div>
+
+                  <a href={pkg.itineraryLink} class="btn btn-primary btn-sm">
+                    View Itinerary
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
 
-      </section>
-    </main>
-  </body>
-</html>
+        <!-- 3. BESPOKE TRIP PLANNING CTA BANNER -->
+        <div class="custom-plan-banner reveal">
+          <div class="custom-plan-content">
+            <span class="custom-eyebrow">BESPOKE TRAVEL PLANNING</span>
+            <h3 class="custom-title">Looking for a Tailor-Made Itinerary?</h3>
+            <p class="custom-desc">
+              Every package can be 100% customized to your preferred travel dates, hotel choices, and sightseeing pace. Speak with our local travel specialists in Kochi today.
+            </p>
+            <div class="custom-actions">
+              <a
+                href="https://wa.me/919876543210?text=Hello%20MakeMyKerala%2C%20I%20would%20like%20to%20plan%20a%20customized%20Kerala%20holiday"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-wa"
+              >
+                Chat on WhatsApp
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <a href="/contact" class="btn btn-outline-forest">
+                Send Trip Enquiry
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+          <div class="custom-badge-col">
+            <div class="experience-circle">
+              <strong class="exp-num">25+</strong>
+              <span class="exp-text">Years Local Mastery</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
 
 <style>
-  * {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-
-  body {
-    min-height: 100vh;
-  }
-
   .packages-page {
+    background-color: var(--color-sand-light, #fbf8f2);
+  }
+
+  /* ===================================================
+     1. HERO BANNER
+  =================================================== */
+  .packages-hero {
     position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-  }
-
-  /* =========================
-     BLURRED BACKGROUND
-  ========================= */
-
-  .background-image {
-    position: fixed;
-    inset: -30px;
-    z-index: -3;
-
-    background-image: url("/images/kerala-nature-backwater-tour.jpg");
-    background-size: cover;
-    background-position: center;
-
-    filter: blur(12px);
-    transform: scale(1.08);
-  }
-
-  .background-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-
-    background: rgba(0, 0, 0, 0.55);
-  }
-
-  /* =========================
-     SECTION
-  ========================= */
-
-  .packages-section {
-    width: 100%;
-    max-width: 1450px;
-    margin: 0 auto;
-    padding: 70px 30px 90px;
-  }
-
-  /* =========================
-     HEADING
-  ========================= */
-
-  .page-heading {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 50px;
-    color: white;
-  }
-
-  .page-heading span {
-    display: inline-block;
-    margin-bottom: 12px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-  }
-
-  .page-heading h1 {
-    margin: 0 0 15px;
-    font-size: 48px;
-    line-height: 1.15;
-    font-weight: 700;
-  }
-
-  .page-heading p {
-    margin: 0;
-    font-size: 17px;
-    line-height: 1.7;
-    opacity: 0.9;
-  }
-
-  /* =========================
-     GRID
-  ========================= */
-
-  .packages-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-  }
-
-  /* =========================
-     PACKAGE CARD
-  ========================= */
-
-  .package-card {
-    position: relative;
-    height: 560px;
-    overflow: hidden;
-    border-radius: 18px;
-    background: #222;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    transition:
-      transform 0.35s ease,
-      box-shadow 0.35s ease;
-  }
-
-  .package-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.45);
-  }
-
-  /* =========================
-     CARD IMAGE
-  ========================= */
-
-  .package-image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .package-card:hover .package-image {
-    transform: scale(1.08);
-  }
-
-  /* =========================
-     IMAGE GRADIENT
-  ========================= */
-
-  .card-overlay {
-    position: absolute;
-    inset: 0;
-
-    background:
-      linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.9) 0%,
-        rgba(0, 0, 0, 0.65) 35%,
-        rgba(0, 0, 0, 0.1) 75%,
-        rgba(0, 0, 0, 0) 100%
-      );
-  }
-
-  /* =========================
-     CARD CONTENT
-  ========================= */
-
-  .package-content {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    padding: 30px 28px;
-    color: white;
-  }
-
-  .package-content h2 {
-    margin: 0 0 15px;
-    font-size: 28px;
-    line-height: 1.2;
-    font-weight: 700;
-  }
-
-  .package-info {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-bottom: 15px;
-
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .package-info span:first-child {
-    font-size: 15px;
-  }
-
-  .package-description {
-    margin: 0 0 22px;
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.9;
-  }
-   .background-image {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-
-  background-image: url("/images/blurry.png");
-  background-size: cover;
-  background-position: center;
-
-  filter: blur(10px);
-  transform: scale(1.05);
-}
-  /* =========================
-     PRICE + BUTTON
-  ========================= */
-
-  .package-bottom {
+    min-height: 480px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+    padding-top: 100px;
+    padding-bottom: 70px;
+    overflow: hidden;
   }
 
-  .price {
-    display: flex;
-    flex-direction: column;
+  .packages-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
   }
 
-  .price small {
-    font-size: 11px;
-    opacity: 0.8;
+  .packages-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
   }
 
-  .price strong {
-    margin: 2px 0;
-    font-size: 23px;
+  .packages-hero-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 32, 23, 0.72) 0%,
+      rgba(8, 32, 23, 0.88) 100%
+    );
   }
 
-  .itinerary-button {
+  .packages-hero-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+
+  .breadcrumb {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 18px;
+  }
 
-    padding: 12px 17px;
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+  }
 
-    color: white;
-    background: rgba(255, 255, 255, 0.18);
+  .breadcrumb a:hover {
+    color: var(--color-gold, #c88b3b);
+  }
 
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
+  .breadcrumb .sep {
+    opacity: 0.5;
+  }
 
-    text-decoration: none;
-    font-size: 13px;
+  .breadcrumb .current {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .hero-eyebrow {
+    color: var(--color-gold-light, #e5a95b) !important;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .hero-eyebrow .eyebrow-line {
+    background-color: rgba(200, 139, 59, 0.5) !important;
+  }
+
+  .packages-hero-title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(2.4rem, 4.8vw, 4rem);
     font-weight: 700;
-
-    backdrop-filter: blur(8px);
-
-    transition:
-      background 0.3s ease,
-      transform 0.3s ease;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    text-wrap: balance;
   }
 
-  .itinerary-button:hover {
-    background: white;
-    color: black;
-    transform: translateX(3px);
+  .packages-hero-desc {
+    font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 auto;
+    max-width: 65ch;
+    text-wrap: pretty;
   }
 
-  .itinerary-button span {
-    font-size: 18px;
-    line-height: 1;
+  /* ===================================================
+     2. PACKAGES DIRECTORY GRID
+  =================================================== */
+  .packages-list-section {
+    padding-top: 60px;
+    padding-bottom: 90px;
   }
 
-  /* =========================
-     TABLET
-  ========================= */
-
-  @media (max-width: 1100px) {
-    .packages-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .package-card {
-      height: 520px;
-    }
-  }
-
-  @media (max-width: 650px) {
-  .packages-section {
-    padding: 50px 18px 60px;
-  }
-
-  .page-heading {
-    margin-bottom: 35px;
-  }
-
-  .page-heading h1 {
-    font-size: 34px;
-  }
-
-  .page-heading p {
-    font-size: 15px;
-  }
-
-  /* MOBILE HORIZONTAL SCROLL */
-   .packages-grid {
+  .packages-directory-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 22px;
-    max-height: 650px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding-right: 8px;
-    scroll-behavior: smooth;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 60px;
   }
 
-  /* Keep cards side-by-side */
-  .package-card {
-    flex: 0 0 82%;
-    width: 82%;
-    height: 500px;
-    scroll-snap-align: start;
+  .pkg-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
-  .package-content {
-    padding: 25px 22px;
+  .pkg-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
   }
 
-  .package-content h2 {
-    font-size: 24px;
+  .pkg-media-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    display: block;
+    background-color: #e8e2d8;
   }
 
-  .package-bottom {
+  .pkg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .pkg-card:hover .pkg-img {
+    transform: scale(1.05);
+  }
+
+  .pkg-media-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(8, 32, 23, 0.55) 100%
+    );
+  }
+
+  .pkg-duration-pill {
+    position: absolute;
+    bottom: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: rgba(8, 32, 23, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .pkg-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 26px 24px 24px;
+  }
+
+  .pkg-route {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+  }
+
+  .route-pin {
+    font-size: 0.84rem;
+  }
+
+  .route-names {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .pkg-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .pkg-title a:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .pkg-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 18px;
+  }
+
+  /* HIGHLIGHTS LIST */
+  .pkg-highlights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 0 0 22px;
+    padding: 14px 16px;
+    background-color: var(--color-sand-light, #fbf8f2);
+    border-radius: 12px;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.07));
+    list-style: none;
+  }
+
+  .pkg-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--color-forest, #12382a);
+  }
+
+  .highlight-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgba(200, 139, 59, 0.15);
+    color: var(--color-gold, #c88b3b);
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  .pkg-footer {
+    display: flex;
     align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
   }
 
-  .itinerary-button {
-    padding: 10px 13px;
-    font-size: 12px;
+  .pkg-price-col {
+    display: flex;
+    flex-direction: column;
   }
 
-  /* Hide scrollbar */
-  .packages-grid::-webkit-scrollbar {
-    display: none;
+  .price-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-text-subtle, #7a8c83);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
-  .packages-grid {
-    scrollbar-width: none;
+  .price-amount {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.1;
   }
-}
+
+  .price-note {
+    font-size: 0.72rem;
+    color: var(--color-text-subtle, #7a8c83);
+  }
+
+  /* ===================================================
+     3. BESPOKE PLANNING BANNER
+  =================================================== */
+  .custom-plan-banner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-sand-light, #fbf8f2) 100%);
+    border-radius: 24px;
+    padding: 44px 48px;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.1));
+    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.07));
+  }
+
+  .custom-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-gold, #c88b3b);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .custom-title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-forest, #12382a);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .custom-desc {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--color-text-muted, #5a6b63);
+    max-width: 680px;
+    margin-bottom: 24px;
+  }
+
+  .custom-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .btn-wa {
+    background-color: #25d366;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+
+  .btn-wa:hover {
+    background-color: #20bd5a;
+    transform: translateY(-2px);
+    color: #ffffff;
+  }
+
+  .experience-circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: var(--color-forest, #12382a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(18, 56, 42, 0.2);
+  }
+
+  .exp-num {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-gold-light, #e5a95b);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .exp-text {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* ===================================================
+     RESPONSIVE BREAKPOINTS
+  =================================================== */
+  @media (max-width: 1024px) {
+    .packages-directory-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .custom-plan-banner {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 32px 28px;
+    }
+
+    .custom-badge-col {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .packages-hero {
+      min-height: 400px;
+      padding-top: 80px;
+      padding-bottom: 50px;
+    }
+
+    .pkg-content {
+      padding: 20px 18px 18px;
+    }
+
+    .pkg-title {
+      font-size: 1.3rem;
+    }
+
+    .custom-actions {
+      flex-direction: column;
+    }
+
+    .custom-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 </style>

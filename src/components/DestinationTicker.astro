@@ -1,0 +1,39 @@
+---
+// src/components/DestinationTicker.astro
+const destinations = [
+  "Munnar",
+  "Alappuzha",
+  "Wayanad",
+  "Thekkady",
+  "Varkala",
+  "Kovalam",
+  "Fort Kochi",
+  "Kumarakom"
+];
+---
+
+<section class="ticker-section" id="ticker" aria-label="Destinations covered by MakeMyKerala">
+  <div class="ticker-marquee">
+    <div class="ticker-track">
+      <!-- SET 1 -->
+      <div class="ticker-group">
+        {destinations.map((name) => (
+          <span class="ticker-item">
+            <span class="ticker-name">{name}</span>
+            <span class="ticker-star" aria-hidden="true">✦</span>
+          </span>
+        ))}
+      </div>
+
+      <!-- SET 2 (CLONE FOR INFINITE LOOP) -->
+      <div class="ticker-group" aria-hidden="true">
+        {destinations.map((name) => (
+          <span class="ticker-item">
+            <span class="ticker-name">{name}</span>
+            <span class="ticker-star" aria-hidden="true">✦</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

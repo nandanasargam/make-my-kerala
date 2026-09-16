@@ -3,13 +3,20 @@ import MobileMenu from "./MobileMenu.jsx";
 import "../styles/header.css";
 ---
 
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="nav-container">
 
     <!-- MAIN LOGO -->
     <a href="/" class="site-logo">
       <img
-        src="/images/keralatourist logo.png"
+        src="/images/keralatourist-logo.webp"
+        srcset="/images/keralatourist-logo-sm.webp 480w, /images/keralatourist-logo.webp 800w"
+        sizes="(max-width: 600px) 240px, 340px"
+        width="340"
+        height="76"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
         alt="Make My Kerala - Kerala Tour Packages"
       />
     </a>
@@ -17,32 +24,64 @@ import "../styles/header.css";
     <!-- DESKTOP NAVIGATION -->
     <nav class="desktop-nav" aria-label="Main navigation">
       <a href="/">Home</a>
-      <a href="#packages">Packages</a>
-      <a href="#destinations">Destinations</a>
-      <a href="#experiences">Experiences</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
+      <a href="/packages">Packages</a>
+      <a href="/destinations">Destinations</a>
+      <a href="/experience">Experiences</a>
+      <a href="/about-us">About Us</a>
+      <a href="/contact">Contact</a>
     </nav>
 
-    <!-- DESKTOP CTA -->
-    <a href="#contact" class="nav-button">
-      Plan Your Trip
-    </a>
+    <!-- HEADER ACTIONS -->
+    <div class="header-actions">
+      <!-- PHONE CALL LINK -->
+      <a href="tel:+919876543210" class="header-phone" aria-label="Call +91 98765 43210">
+        <span class="header-phone-icon" aria-hidden="true">☎</span>
+        <span class="header-phone-text">+91 98765 43210</span>
+      </a>
 
-    <!-- 25 YEARS LOGO -->
-    <a
-      href="/"
-      class="header-anniversary-logo"
-      aria-label="Make My Kerala 25 Years"
-    >
-      <img
-        src="/images/25yearslogo.png"
-        alt="Make My Kerala 25 Years"
-      />
-    </a>
+      <!-- DESKTOP CTA -->
+      <a href="/contact" class="nav-button">
+        Plan Your Trip
+      </a>
+
+      <!-- 25 YEARS LOGO -->
+      <a
+        href="/"
+        class="header-anniversary-logo"
+        aria-label="Make My Kerala 25 Years"
+      >
+        <img
+          src="/images/25yearslogo-sm.webp"
+          width="100"
+          height="95"
+          loading="eager"
+          decoding="async"
+          alt="Make My Kerala 25 Years"
+        />
+      </a>
+    </div>
 
     <!-- MOBILE MENU -->
     <MobileMenu client:load />
 
   </div>
 </header>
+
+<!-- SPACER TO PREVENT CONTENT OVERLAP WITH FIXED HEADER -->
+<div class="header-spacer" aria-hidden="true"></div>
+
+<script is:inline>
+  (() => {
+    const header = document.getElementById('site-header');
+    if (!header) return;
+    const updateHeader = () => {
+      if (window.scrollY > 24) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  })();
+</script>

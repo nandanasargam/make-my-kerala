@@ -1,0 +1,160 @@
+---
+// src/components/PlanJourneyCta.astro
+---
+
+<section class="section plan-journey-banner" aria-label="Plan Your Kerala Holiday">
+  <!-- BACKGROUND MEDIA -->
+  <div class="banner-media-wrap" aria-hidden="true">
+    <img
+      src="/images/allapey.webp"
+      alt="Scenic Kerala backwaters"
+      width="1920"
+      height="800"
+      loading="lazy"
+      decoding="async"
+      class="banner-bg-img"
+    />
+    <div class="banner-gradient-veil"></div>
+  </div>
+
+  <div class="container banner-container">
+    <div class="banner-content">
+      <div class="section-eyebrow banner-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        <span>YOUR JOURNEY BEGINS HERE</span>
+        <span class="eyebrow-line" aria-hidden="true"></span>
+      </div>
+
+      <h2 class="banner-title">
+        Plan Your <span class="editorial-accent">Kerala Journey</span>
+      </h2>
+
+      <p class="banner-lead">
+        From peaceful backwater lagoons to misty tea plantations and sun-drenched coastal cliffs — our local specialists craft itineraries tailored exclusively for you, with transparent pricing and 24/7 care.
+      </p>
+
+      <div class="banner-actions">
+        <a href="#enquiry" class="btn btn-primary">
+          Start Planning Your Trip
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a
+          href="https://wa.me/919876543210?text=Hi%20MakeMyKerala!%20I%20am%20planning%20a%20trip%20to%20Kerala%20and%20would%20like%20to%20know%20more%20about%20your%20custom%20itineraries."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-outline"
+        >
+          <span>💬</span> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .plan-journey-banner {
+    position: relative;
+    padding-block: clamp(90px, 12vw, 150px);
+    overflow: hidden;
+    color: #ffffff;
+    text-align: center;
+    background-color: var(--color-forest-deep, #082017);
+  }
+
+  .banner-media-wrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .banner-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.7);
+    transform: scale(1.02);
+    transition: transform 1.2s ease;
+  }
+
+  .plan-journey-banner:hover .banner-bg-img {
+    transform: scale(1.06);
+  }
+
+  .banner-gradient-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 32, 23, 0.72) 0%,
+      rgba(8, 32, 23, 0.88) 100%
+    );
+  }
+
+  .banner-container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner-content {
+    max-width: 820px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-eyebrow {
+    color: var(--color-gold-light, #e5a95b);
+    margin-bottom: 20px;
+  }
+
+  .banner-eyebrow .eyebrow-line {
+    background-color: var(--color-gold-light, #e5a95b);
+  }
+
+  .banner-title {
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    margin-bottom: 22px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  .banner-title .editorial-accent {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
+  .banner-lead {
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+
+  .banner-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  @media (max-width: 560px) {
+    .banner-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .banner-actions .btn {
+      width: 100%;
+    }
+  }
+</style>
