@@ -1,0 +1,292 @@
+---
+// src/components/hotels/HotelLocation.astro
+interface LocationHighlight {
+  place: string;
+  distance: string;
+  time: string;
+  note: string;
+}
+
+interface Props {
+  hotelName: string;
+  locality: string;
+  address: string;
+  locationHighlights: LocationHighlight[];
+  mapQuery: string;
+}
+
+const { hotelName, locality, address, locationHighlights, mapQuery } = Astro.props;
+const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
+---
+
+<section class="section hotel-location-section reveal" id="location" aria-label="Location and Neighborhood">
+  <div class="container">
+    <div class="location-grid">
+      <!-- LEFT: ADDRESS & MAP LAUNCHER -->
+      <div class="location-info-card">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dash" aria-hidden="true">—</span>
+          <span>STRATEGIC POSITION</span>
+        </div>
+
+        <h2 class="location-title">
+          Location & Surroundings
+        </h2>
+
+        <p class="location-desc">
+          Situated in {locality}, {hotelName} offers premier connectivity to Kochi's metro network, railway junctions, and premier sightseeing attractions.
+        </p>
+
+        <div class="address-box">
+          <div class="address-icon-wrap" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="loc-pin-svg" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 21s7-6.2 7-12A7 7 0 0 0 5 9c0 5.8 7 12 7 12Z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <div class="address-details">
+            <span class="address-label">Full Postal Address</span>
+            <p class="address-content">{address}</p>
+          </div>
+        </div>
+
+        <div class="maps-launcher">
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="google-maps-btn"
+          >
+            <svg viewBox="0 0 24 24" class="external-map-svg" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+              <line x1="8" y1="2" x2="8" y2="18"/>
+              <line x1="16" y1="6" x2="16" y2="22"/>
+            </svg>
+            <span>Open in Google Maps</span>
+            <span class="external-glyph" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: DISTANCES & CONNECTIVITY LIST -->
+      <div class="transit-highlights-card">
+        <h3 class="transit-title">Key Distances & Connectivity</h3>
+        <div class="transit-list">
+          {locationHighlights.map((item) => (
+            <div class="transit-item">
+              <div class="transit-main">
+                <span class="transit-place">{item.place}</span>
+                <span class="transit-note">{item.note}</span>
+              </div>
+              <div class="transit-metrics">
+                <span class="transit-dist">{item.distance}</span>
+                <span class="transit-time">{item.time}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hotel-location-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(70px, 9vw, 110px);
+  }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: clamp(36px, 5vw, 64px);
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .location-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .location-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    color: var(--color-forest, #0d2e23);
+    line-height: 1.2;
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+
+  .location-desc {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-muted, #53645b);
+    margin-bottom: 24px;
+  }
+
+  .address-box {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #e0d8cb);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .address-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: var(--color-ivory, #f7f3ea);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .loc-pin-svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .address-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .address-label {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted, #53645b);
+  }
+
+  .address-content {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-forest, #0d2e23);
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  .google-maps-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-forest, #0d2e23);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .google-maps-btn:hover {
+    background-color: var(--color-gold, #c88b3b);
+    transform: translateY(-2px);
+  }
+
+  .external-map-svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .external-glyph {
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  /* TRANSIT CARD */
+  .transit-highlights-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid var(--color-border, #e0d8cb);
+    padding: clamp(24px, 4vw, 36px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .transit-title {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-forest, #0d2e23);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+    padding-bottom: 12px;
+  }
+
+  .transit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .transit-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed rgba(13, 46, 35, 0.1);
+  }
+
+  .transit-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .transit-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .transit-place {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .transit-note {
+    font-size: 0.8rem;
+    color: var(--color-muted, #53645b);
+  }
+
+  .transit-metrics {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .transit-dist {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .transit-time {
+    font-size: 0.76rem;
+    color: var(--color-muted, #53645b);
+    font-weight: 500;
+  }
+</style>

@@ -1,0 +1,286 @@
+---
+// src/components/hotels/HotelAbout.astro
+interface Props {
+  hotel: {
+    name: string;
+    overview: string;
+    checkIn: string;
+    checkOut: string;
+    petPolicy: string;
+    cancellationNote: string;
+    makeMyKeralaPerks: string[];
+  };
+}
+
+const { hotel } = Astro.props;
+---
+
+<section class="section hotel-about-section reveal" id="about" aria-label="About the Hotel">
+  <div class="container">
+    <div class="about-grid">
+      <!-- LEFT COLUMN: EDITORIAL OVERVIEW -->
+      <div class="about-narrative">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dash" aria-hidden="true">—</span>
+          <span>CURATED PROPERTY PROFILE</span>
+        </div>
+
+        <h2 class="section-title">
+          About <span class="editorial-accent">{hotel.name}</span>
+        </h2>
+
+        <div class="overview-body">
+          <p class="lead-paragraph">{hotel.overview}</p>
+        </div>
+
+        <!-- POLICIES CARD -->
+        <div class="policies-box">
+          <h3 class="policies-title">Stay Policies & Essentials</h3>
+          <div class="policies-grid">
+            <div class="policy-entry">
+              <span class="p-label">Check-in</span>
+              <span class="p-val">{hotel.checkIn}</span>
+            </div>
+            <div class="policy-entry">
+              <span class="p-label">Check-out</span>
+              <span class="p-val">{hotel.checkOut}</span>
+            </div>
+            <div class="policy-entry">
+              <span class="p-label">Pet Policy</span>
+              <span class="p-val">{hotel.petPolicy}</span>
+            </div>
+            <div class="policy-entry">
+              <span class="p-label">Cancellation</span>
+              <span class="p-val">{hotel.cancellationNote}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: MAKEMYKERALA ADVANTAGE -->
+      <aside class="perks-aside">
+        <div class="advantage-card">
+          <div class="card-badge">25 Years of Trust</div>
+          <h3 class="advantage-title">Why Book via MakeMyKerala?</h3>
+          <p class="advantage-desc">
+            When you reserve your stay at {hotel.name} as part of your Kerala itinerary with MakeMyKerala, you receive verified local care, transparent pricing, and zero hidden markups.
+          </p>
+
+          <ul class="perks-list">
+            {hotel.makeMyKeralaPerks.map((perk) => (
+              <li class="perk-item">
+                <span class="perk-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </span>
+                <span class="perk-text">{perk}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="advantage-action">
+            <a href="#enquire" class="advantage-btn">
+              <span>Plan Trip with {hotel.name}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hotel-about-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(60px, 8vw, 100px);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: clamp(40px, 5vw, 64px);
+    align-items: start;
+  }
+
+  @media (max-width: 992px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .overview-body {
+    margin-top: 20px;
+    margin-bottom: 32px;
+  }
+
+  .lead-paragraph {
+    font-size: clamp(1.05rem, 1.25vw, 1.15rem);
+    line-height: 1.8;
+    color: var(--color-text, #1b2821);
+  }
+
+  /* POLICIES */
+  .policies-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    border: 1px solid var(--color-border, #e0d8cb);
+    padding: 24px 28px;
+  }
+
+  .policies-title {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-forest, #0d2e23);
+    margin-bottom: 16px;
+  }
+
+  .policies-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .policies-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .policy-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .p-label {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-muted, #53645b);
+  }
+
+  .p-val {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-forest, #0d2e23);
+    line-height: 1.4;
+  }
+
+  /* PERKS ASIDE */
+  .advantage-card {
+    background: linear-gradient(135deg, #0d2e23 0%, #061913 100%);
+    border-radius: 20px;
+    padding: 32px 28px;
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .advantage-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(200, 139, 59, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .card-badge {
+    display: inline-block;
+    background-color: rgba(200, 139, 59, 0.25);
+    border: 1px solid var(--color-gold, #c88b3b);
+    color: #f7d59b;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+
+  .advantage-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.4rem;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  .advantage-desc {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 22px;
+  }
+
+  .perks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+
+  .perk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    color: #f1f5f9;
+  }
+
+  .perk-icon {
+    width: 18px;
+    height: 18px;
+    color: #e5a95b;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .advantage-action {
+    display: flex;
+  }
+
+  .advantage-btn {
+    width: 100%;
+    background-color: var(--color-gold, #c88b3b);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 12px 20px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .advantage-btn:hover {
+    background-color: var(--color-gold-hover, #b0742a);
+    transform: translateY(-2px);
+  }
+</style>

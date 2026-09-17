@@ -94,6 +94,7 @@ export default function MobileMenu() {
           <a href="/" onClick={handleNavClick}>Home</a>
           <a href="/packages" onClick={handleNavClick}>Packages</a>
           <a href="/destinations" onClick={handleNavClick}>Destinations</a>
+          <a href="/hotels/kochi" onClick={handleNavClick}>Hotels</a>
           <a href="/experience" onClick={handleNavClick}>Experiences</a>
           <a href="/about-us" onClick={handleNavClick}>About Us</a>
           <a href="/contact" onClick={handleNavClick}>Contact</a>

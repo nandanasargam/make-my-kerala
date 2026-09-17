@@ -1,0 +1,408 @@
+---
+// src/components/hotels/HotelGallery.astro
+interface GalleryItem {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  hotelName: string;
+  gallery: GalleryItem[];
+}
+
+const { hotelName, gallery } = Astro.props;
+---
+
+<section class="section hotel-gallery-section reveal" id="gallery" aria-label="Hotel Image Gallery">
+  <div class="container">
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-dash" aria-hidden="true">—</span>
+        <span>VISUAL EXPERIENCE</span>
+      </div>
+      <h2 class="section-title">
+        Photo Gallery of <span class="editorial-accent">{hotelName}</span>
+      </h2>
+      <p class="section-lede">
+        Verified exterior architecture, accommodations, and hospitality spaces in Kochi. Click any image to view in full resolution.
+      </p>
+    </div>
+
+    <div class="gallery-grid" role="list">
+      {gallery.map((item, index) => (
+        <figure class="gallery-item" role="listitem">
+          <button
+            type="button"
+            class="gallery-trigger-btn"
+            data-index={index}
+            data-src={item.src}
+            data-caption={item.caption}
+            aria-label={`Open high-resolution photo: ${item.caption}`}
+          >
+            <img
+              src={item.src}
+              alt={item.alt}
+              width="600"
+              height="400"
+              loading="lazy"
+              decoding="async"
+              class="gallery-thumbnail"
+            />
+            <span class="gallery-zoom-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="zoom-icon" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </span>
+          </button>
+          <figcaption class="gallery-caption">{item.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+
+  <!-- ACCESSIBLE LIGHTBOX DIALOG -->
+  <dialog class="hotel-lightbox" id="hotel-lightbox" aria-label="Photo Lightbox" aria-modal="true">
+    <div class="lightbox-wrapper">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close photo gallery">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <button type="button" class="lightbox-nav-btn prev-btn" id="lightbox-prev" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="lightbox-stage">
+        <img src="" alt="" id="lightbox-img" class="lightbox-image" />
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+      </div>
+
+      <button type="button" class="lightbox-nav-btn next-btn" id="lightbox-next" aria-label="Next photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+  </dialog>
+</section>
+
+<script is:inline>
+  (() => {
+    const dialog = document.getElementById('hotel-lightbox');
+    if (!dialog) return;
+
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    const triggers = document.querySelectorAll('.gallery-trigger-btn');
+
+    let currentIndex = 0;
+    const items = Array.from(triggers).map(btn => ({
+      src: btn.dataset.src,
+      caption: btn.dataset.caption
+    }));
+
+    function showImage(idx) {
+      if (!items.length) return;
+      currentIndex = (idx + items.length) % items.length;
+      img.src = items[currentIndex].src;
+      img.alt = items[currentIndex].caption;
+      caption.textContent = items[currentIndex].caption;
+    }
+
+    triggers.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        showImage(index);
+        dialog.showModal();
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      if (dialog.open) {
+        dialog.close();
+      }
+      document.body.style.overflow = '';
+    }
+
+    dialog.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+
+    closeBtn?.addEventListener('click', closeLightbox);
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+
+    // Close when clicking outside the image
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog || e.target.classList.contains('lightbox-wrapper') || e.target.classList.contains('lightbox-stage')) {
+        closeLightbox();
+      }
+    });
+
+    // Mobile touch gestures (swipe left / right)
+    let startX = 0;
+    dialog.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].clientX;
+    }, { passive: true });
+
+    dialog.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diffX = endX - startX;
+      if (diffX < -50) {
+        showImage(currentIndex + 1);
+      } else if (diffX > 50) {
+        showImage(currentIndex - 1);
+      }
+    }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+      if (!dialog.open) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+  })();
+</script>
+
+<style>
+  .hotel-gallery-section {
+    background-color: #ffffff;
+    padding-block: clamp(70px, 9vw, 110px);
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 840px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .gallery-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .gallery-trigger-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    background-color: var(--color-sand-warm, #e5dac6);
+    display: block;
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gallery-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .gallery-trigger-btn:hover .gallery-thumbnail {
+    transform: scale(1.06);
+  }
+
+  .gallery-zoom-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(6, 25, 19, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .gallery-trigger-btn:hover .gallery-zoom-badge {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .zoom-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .gallery-caption {
+    font-size: 0.84rem;
+    color: var(--color-muted, #53645b);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  /* LIGHTBOX DIALOG */
+  .hotel-lightbox {
+    border: none;
+    background-color: rgba(6, 25, 19, 0.94);
+    backdrop-filter: blur(16px);
+    width: 100vw;
+    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    padding: 0;
+    margin: 0;
+    color: #ffffff;
+  }
+
+  .hotel-lightbox::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .lightbox-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 80px;
+  }
+
+  @media (max-width: 640px) {
+    .lightbox-wrapper {
+      padding: 20px;
+    }
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease;
+  }
+
+  .lightbox-close:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .lightbox-close svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .lightbox-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .lightbox-nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .prev-btn {
+    left: 24px;
+  }
+
+  .next-btn {
+    right: 24px;
+  }
+
+  .lightbox-nav-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .lightbox-stage {
+    max-width: 90vw;
+    max-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+
+  .lightbox-caption {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    text-align: center;
+    font-family: var(--font-body);
+  }
+</style>

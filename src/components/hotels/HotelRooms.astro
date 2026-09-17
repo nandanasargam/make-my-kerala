@@ -1,0 +1,255 @@
+---
+// src/components/hotels/HotelRooms.astro
+interface Room {
+  name: string;
+  description: string;
+  size: string;
+  capacity: string;
+  bed: string;
+  amenities: string[];
+}
+
+interface Props {
+  hotelName: string;
+  rooms: Room[];
+}
+
+const { hotelName, rooms } = Astro.props;
+---
+
+<section class="section hotel-rooms-section reveal" id="rooms" aria-label="Rooms and Suites">
+  <div class="container">
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-dash" aria-hidden="true">—</span>
+        <span>ROOMS & SUITES</span>
+      </div>
+      <h2 class="section-title">
+        Accommodations at <span class="editorial-accent">{hotelName}</span>
+      </h2>
+      <p class="section-lede">
+        Verified room categories configured for business efficiency, romantic retreats, and family holidays.
+      </p>
+    </div>
+
+    <div class="rooms-grid">
+      {rooms.map((room) => (
+        <article class="room-card">
+          <div class="room-header">
+            <h3 class="room-title">{room.name}</h3>
+            <div class="room-specs">
+              <span class="spec-pill">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18M9 21V9"/>
+                </svg>
+                {room.size}
+              </span>
+              <span class="spec-pill">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                </svg>
+                {room.capacity}
+              </span>
+              <span class="spec-pill">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/>
+                </svg>
+                {room.bed}
+              </span>
+            </div>
+          </div>
+
+          <p class="room-desc">{room.description}</p>
+
+          <div class="room-amenities">
+            <span class="amenities-heading">Room Amenities</span>
+            <ul class="amenity-tags">
+              {room.amenities.map((item) => (
+                <li class="amenity-tag">
+                  <svg class="amenity-check" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="room-foot">
+            <a href="#enquire" class="room-request-btn">
+              <span>Request {room.name}</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hotel-rooms-section {
+    background-color: #ffffff;
+    padding-block: clamp(70px, 9vw, 110px);
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 1024px) {
+    .rooms-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 680px) {
+    .rooms-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .room-card {
+    background-color: var(--color-ivory, #f7f3ea);
+    border: 1px solid var(--color-border, #e0d8cb);
+    border-radius: 20px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .room-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold, #c88b3b);
+    background-color: #ffffff;
+  }
+
+  .room-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+    padding-bottom: 16px;
+  }
+
+  .room-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.35rem;
+    color: var(--color-forest, #0d2e23);
+    margin: 0;
+  }
+
+  .room-specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .spec-pill {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #e0d8cb);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-forest, #0d2e23);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .spec-icon {
+    width: 13px;
+    height: 13px;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .room-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-muted, #53645b);
+    margin: 0;
+  }
+
+  .room-amenities {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+
+  .amenities-heading {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .amenity-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .amenity-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-text, #1b2821);
+  }
+
+  .amenity-check {
+    width: 14px;
+    height: 14px;
+    color: #0e7a4b;
+    flex-shrink: 0;
+  }
+
+  .room-foot {
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+  }
+
+  .room-request-btn {
+    width: 100%;
+    background-color: var(--color-forest, #0d2e23);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 10px 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .room-request-btn:hover {
+    background-color: var(--color-gold, #c88b3b);
+    transform: translateY(-2px);
+  }
+</style>

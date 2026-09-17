@@ -1,0 +1,515 @@
+---
+// src/components/hotels/HotelHero.astro
+interface Props {
+  hotel: {
+    slug: string;
+    name: string;
+    tagline: string;
+    category: string;
+    starRating: number;
+    userRating: number;
+    reviewsCount: number;
+    startingPrice: string;
+    priceLabel: string;
+    locality: string;
+    address: string;
+    phone: string;
+    heroImage: string;
+    heroImageSm?: string;
+  };
+}
+
+const { hotel } = Astro.props;
+---
+
+<header class="hotel-hero" aria-label={`${hotel.name} Overview`}>
+  <div class="container">
+    <!-- BREADCRUMB & BACK LINK -->
+    <div class="hotel-nav-top">
+      <nav class="hotel-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <a href="/hotels/kochi/">Kochi Hotels</a>
+        <span class="sep" aria-hidden="true">/</span>
+        <span class="current" aria-current="page">{hotel.name}</span>
+      </nav>
+
+      <a href="/hotels/kochi/" class="back-to-hotels-link">
+        <span class="back-arrow" aria-hidden="true">←</span>
+        <span>Back to Kochi Hotels</span>
+      </a>
+    </div>
+
+    <!-- TOP HEADER ROW -->
+    <div class="hotel-hero-header">
+      <div class="hotel-hero-titles">
+        <div class="hotel-eyebrow-row">
+          <span class="hotel-category-pill">{hotel.category}</span>
+          <span class="hotel-locality-pill">
+            <svg viewBox="0 0 24 24" class="inline-icon" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 21s7-6.2 7-12A7 7 0 0 0 5 9c0 5.8 7 12 7 12Z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+            {hotel.locality}, Kochi
+          </span>
+          <span class="verified-badge">
+            <svg viewBox="0 0 20 20" class="badge-icon" fill="currentColor">
+              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            MakeMyKerala Verified
+          </span>
+        </div>
+
+        <h1 class="hotel-hero-title">{hotel.name}</h1>
+        <p class="hotel-hero-tagline">{hotel.tagline}</p>
+
+        <div class="hotel-meta-strip">
+          <div class="hotel-stars-rating">
+            <span class="stars-gold">
+              {Array.from({ length: hotel.starRating }).map(() => (
+                <span class="star-char">★</span>
+              ))}
+            </span>
+            <span class="score-pill">{hotel.userRating} / 5</span>
+            <span class="reviews-count">({hotel.reviewsCount} verified traveller reviews)</span>
+          </div>
+
+          <span class="meta-divider" aria-hidden="true">•</span>
+
+          <span class="address-text">{hotel.address}</span>
+        </div>
+      </div>
+
+      <!-- PRICE & CTA SIDEBAR -->
+      <div class="hotel-hero-pricing">
+        <div class="pricing-card">
+          <span class="pricing-header">Verified Tariff</span>
+          <div class="price-figure">
+            <span class="from-text">From</span>
+            <span class="amount">{hotel.startingPrice}</span>
+            <span class="night-text">/ night</span>
+          </div>
+          <p class="rate-note">*Seasonal rates apply • Best rate assurance via MakeMyKerala</p>
+
+          <div class="cta-actions">
+            <a href="#enquire" class="btn-primary-hotel">
+              <span>Book with Package</span>
+              <span class="arrow-glyph" aria-hidden="true">→</span>
+            </a>
+            <a href="tel:+919876543210" class="btn-secondary-hotel">
+              <svg viewBox="0 0 24 24" class="phone-svg" fill="currentColor">
+                <path d="M6.6 3.5 9 3l2 5-2.2 1.7a15 15 0 0 0 5.5 5.5L16 13l5 2-.5 2.4a3 3 0 0 1-3 2.4C10.6 19.8 4.2 13.4 4.2 6.5a3 3 0 0 1 2.4-3Z"/>
+              </svg>
+              <span>+91 98765 43210</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HERO MEDIA BANNER -->
+    <div class="hotel-hero-media">
+      <img
+        src={hotel.heroImage}
+        srcset={`${hotel.heroImageSm || hotel.heroImage} 640w, ${hotel.heroImage} 1280w`}
+        sizes="(max-width: 768px) 100vw, 1280px"
+        alt={`Exterior facade and entrance of ${hotel.name} in Kochi`}
+        width="1280"
+        height="640"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="hotel-hero-img"
+      />
+      <div class="hero-image-overlay"></div>
+      <div class="hero-caption-tag">
+        <span>Verified Exterior Facade • {hotel.locality}</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  .hotel-hero {
+    background-color: #ffffff;
+    padding-top: clamp(24px, 3vw, 40px);
+    padding-bottom: clamp(32px, 4vw, 56px);
+    border-bottom: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+  }
+
+  /* BREADCRUMB & TOP NAV */
+  .hotel-nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .hotel-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--color-muted, #53645b);
+    font-family: var(--font-body);
+    flex-wrap: wrap;
+    margin: 0;
+  }
+
+  .back-to-hotels-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-forest, #0d2e23);
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: var(--color-ivory, #f7f3ea);
+    border: 1px solid var(--color-border, #e0d8cb);
+    transition: all 0.2s ease;
+  }
+
+  .back-to-hotels-link:hover {
+    background-color: var(--color-forest, #0d2e23);
+    color: #ffffff;
+    border-color: var(--color-forest, #0d2e23);
+  }
+
+  .back-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .back-to-hotels-link:hover .back-arrow {
+    transform: translateX(-3px);
+  }
+
+  .hotel-breadcrumb a {
+    color: var(--color-muted, #53645b);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .hotel-breadcrumb a:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .hotel-breadcrumb .sep {
+    color: #c5bcae;
+  }
+
+  .hotel-breadcrumb .current {
+    color: var(--color-forest, #0d2e23);
+    font-weight: 600;
+  }
+
+  /* HEADER ROW */
+  .hotel-hero-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 900px) {
+    .hotel-hero-header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .hotel-eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .hotel-category-pill {
+    background-color: var(--color-forest, #0d2e23);
+    color: #ffffff;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .hotel-locality-pill {
+    background-color: var(--color-ivory, #f7f3ea);
+    color: var(--color-forest, #0d2e23);
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid var(--color-border, #e0d8cb);
+  }
+
+  .inline-icon {
+    width: 13px;
+    height: 13px;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .verified-badge {
+    background-color: #e8f5e9;
+    color: #1b5e20;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #c8e6c9;
+  }
+
+  .badge-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .hotel-hero-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    line-height: 1.15;
+    font-weight: 700;
+    color: var(--color-forest, #0d2e23);
+    margin-bottom: 10px;
+  }
+
+  .hotel-hero-tagline {
+    font-size: clamp(1rem, 1.3vw, 1.18rem);
+    line-height: 1.5;
+    color: var(--color-muted, #53645b);
+    max-width: 72ch;
+    margin-bottom: 14px;
+  }
+
+  .hotel-meta-strip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--color-muted, #53645b);
+  }
+
+  .hotel-stars-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stars-gold {
+    color: #e59819;
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .score-pill {
+    background-color: #0d2e23;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.76rem;
+    padding: 2px 7px;
+    border-radius: 4px;
+  }
+
+  .reviews-count {
+    font-weight: 500;
+  }
+
+  .meta-divider {
+    color: #c5bcae;
+  }
+
+  .address-text {
+    font-size: 0.84rem;
+  }
+
+  /* PRICING CARD */
+  .pricing-card {
+    background: linear-gradient(135deg, #fbf8f2 0%, #f4ede0 100%);
+    border: 1px solid rgba(200, 139, 59, 0.3);
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+    max-width: 360px;
+  }
+
+  @media (max-width: 600px) {
+    .pricing-card {
+      max-width: 100%;
+      padding: 18px 20px;
+    }
+  }
+
+  .pricing-header {
+    font-size: 0.72rem;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-forest, #0d2e23);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .price-figure {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .price-figure .from-text {
+    font-size: 0.85rem;
+    color: var(--color-muted, #53645b);
+  }
+
+  .price-figure .amount {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--color-forest, #0d2e23);
+    line-height: 1;
+  }
+
+  .price-figure .night-text {
+    font-size: 0.85rem;
+    color: var(--color-muted, #53645b);
+  }
+
+  .rate-note {
+    font-size: 0.7rem;
+    color: var(--color-muted, #53645b);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-primary-hotel {
+    background-color: var(--color-forest, #0d2e23);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 11px 18px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+  }
+
+  .btn-primary-hotel:hover {
+    background-color: var(--color-gold, #c88b3b);
+    transform: translateY(-2px);
+  }
+
+  .arrow-glyph {
+    transition: transform 0.2s ease;
+  }
+
+  .btn-primary-hotel:hover .arrow-glyph {
+    transform: translateX(3px);
+  }
+
+  .btn-secondary-hotel {
+    background-color: #ffffff;
+    color: var(--color-forest, #0d2e23);
+    border: 1px solid var(--color-border, #e0d8cb);
+    font-weight: 600;
+    font-size: 0.84rem;
+    padding: 9px 16px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-secondary-hotel:hover {
+    background-color: var(--color-ivory, #f7f3ea);
+    border-color: var(--color-forest, #0d2e23);
+  }
+
+  .phone-svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  /* MEDIA BANNER */
+  .hotel-hero-media {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 21 / 10;
+    max-height: 520px;
+    box-shadow: var(--shadow-md);
+    background-color: var(--color-sand-warm, #e5dac6);
+  }
+
+  @media (max-width: 640px) {
+    .hotel-hero-media {
+      aspect-ratio: 16 / 10;
+    }
+  }
+
+  .hotel-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(6, 25, 19, 0.45) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .hero-caption-tag {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    background-color: rgba(6, 25, 19, 0.85);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.74rem;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+</style>

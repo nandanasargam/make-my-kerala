@@ -1,0 +1,672 @@
+---
+// src/pages/hotels/kochi/index.astro
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import HotelCard from "../../../components/hotels/HotelCard.astro";
+import { hotels } from "../../../data/hotels.js";
+import "../../../styles/global.css";
+
+const pageTitle = "Kochi Hotels & Stays | 10 Handpicked Hotels in Cochin - Make My Kerala";
+const pageDescription = "Explore 10 curated hotels in Kochi, Kerala. From downtown MG Road icons and 5-star luxury bypass towers to serene convention suites and railway transit stays.";
+
+const categories = [
+  "All Stays",
+  "5-Star Luxury",
+  "Business & Transit",
+  "MG Road Downtown",
+  "Extended Suites"
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/destinations/kochi-600.webp"
+>
+  <Header />
+
+  <main class="kochi-hotels-page">
+    <!-- 1. HERO BANNER -->
+    <section class="hotels-hero-section" aria-label="Kochi Hotels Header">
+      <div class="hotels-hero-bg" aria-hidden="true">
+        <img
+          src="/images/destinations/kochi-600.webp"
+          alt="Historic Kochi harbor and skyline"
+          width="1920"
+          height="700"
+          class="hotels-hero-image"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="hotels-hero-veil"></div>
+      </div>
+
+      <div class="container hotels-hero-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <span class="current" aria-current="page">Kochi Hotels</span>
+        </nav>
+
+        <div class="section-eyebrow hotels-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>CURATED KOCHI HOSPITALITY</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h1 class="hotels-hero-title">
+          Handpicked Hotels <br />
+          <span class="editorial-accent">in Kochi, Kerala</span>
+        </h1>
+
+        <p class="hotels-hero-desc">
+          Kochi is Kerala’s commercial heartbeat and historic port of spice. Whether you seek five-star luxury on the expressway, heritage prestige on MG Road, or effortless rail transit, discover 10 verified properties vetted by MakeMyKerala.
+        </p>
+
+        <div class="hotels-quick-stats">
+          <div class="stat-bubble">
+            <span class="bubble-num">10</span>
+            <span class="bubble-text">Verified Hotels</span>
+          </div>
+          <div class="stat-bubble">
+            <span class="bubble-num">4+</span>
+            <span class="bubble-text">Prime Localities</span>
+          </div>
+          <div class="stat-bubble">
+            <span class="bubble-num">25 Yrs</span>
+            <span class="bubble-text">Local Destination Expertise</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DIRECTORY SECTION WITH FILTER TABS -->
+    <section class="section section-sand directory-section reveal" aria-label="Hotel Directory">
+      <div class="container">
+        <!-- FILTER BAR -->
+        <div class="hotels-filter-bar" role="tablist" aria-label="Filter hotels by category">
+          {categories.map((cat, idx) => (
+            <button
+              type="button"
+              class={`filter-tab-btn ${idx === 0 ? "is-active" : ""}`}
+              data-filter={cat}
+              role="tab"
+              aria-selected={idx === 0 ? "true" : "false"}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <!-- 10 HOTELS GRID -->
+        <div class="hotels-grid" id="hotels-grid">
+          {hotels.map((hotel) => (
+            <div
+              class="hotel-grid-item"
+              data-category={hotel.category}
+              data-stars={hotel.starRating}
+              data-locality={hotel.locality}
+            >
+              <HotelCard hotel={hotel} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. NEIGHBORHOOD GUIDE -->
+    <section class="section guide-section reveal" aria-label="Kochi Neighborhood Guide">
+      <div class="container">
+        <div class="section-head section-head-center">
+          <div class="section-eyebrow">
+            <span class="eyebrow-dash" aria-hidden="true">—</span>
+            <span>WHERE TO STAY IN COCHIN</span>
+          </div>
+          <h2 class="section-title">
+            Choosing Your <span class="editorial-accent">Kochi Neighborhood</span>
+          </h2>
+          <p class="section-lede">
+            Each district of Kochi offers unique advantages for connectivity, sightseeing, dining, and shopping.
+          </p>
+        </div>
+
+        <div class="neighborhoods-grid">
+          <div class="neighborhood-card">
+            <div class="n-head">
+              <span class="n-badge">Rail & Metro Hub</span>
+              <h3 class="n-title">Ernakulam North & Town Hall</h3>
+            </div>
+            <p class="n-desc">
+              Located around Paramara Road and Town Hall Metro, this district is ideal for rail passengers and corporate executives needing direct metro access to Lulu Mall and downtown MG Road without heavy traffic delays.
+            </p>
+            <div class="n-hotels">
+              <span class="n-label">Featured Hotels:</span>
+              <span class="n-names">North Seven, Hotel Presidency</span>
+            </div>
+          </div>
+
+          <div class="neighborhood-card">
+            <div class="n-head">
+              <span class="n-badge">Downtown Commercial</span>
+              <h3 class="n-title">Mahatma Gandhi (M.G.) Road</h3>
+            </div>
+            <p class="n-desc">
+              The historic commercial spine of Cochin. Walk to premier jewellery showrooms, textile emporiums, traditional Broadway spices, and the scenic Marine Drive waterfront promenade.
+            </p>
+            <div class="n-hotels">
+              <span class="n-label">Featured Hotels:</span>
+              <span class="n-names">ABAD Plaza, ABAD Atrium, Millennium Continental, Hotel Excellency</span>
+            </div>
+          </div>
+
+          <div class="neighborhood-card">
+            <div class="n-head">
+              <span class="n-badge">Expressway Luxury</span>
+              <h3 class="n-title">NH 66 Bypass & Maradu</h3>
+            </div>
+            <p class="n-desc">
+              Wide highways, upscale shopping malls, and rapid transit to Fort Kochi via Thoppumpady. Ideal for family road trips, convention delegates, and travelers wanting modern spacious suites.
+            </p>
+            <div class="n-hotels">
+              <span class="n-label">Featured Hotels:</span>
+              <span class="n-names">Starlit Suites, Monsoon Empress</span>
+            </div>
+          </div>
+
+          <div class="neighborhood-card">
+            <div class="n-head">
+              <span class="n-badge">Lifestyle & Greenery</span>
+              <h3 class="n-title">Kadavanthra & Kaloor</h3>
+            </div>
+            <p class="n-desc">
+              Kadavanthra connects to upscale Panampilly Nagar boutiques and cafes, while Kaloor offers green stadium environs and massive convention halls away from commercial congestion.
+            </p>
+            <div class="n-hotels">
+              <span class="n-label">Featured Hotels:</span>
+              <span class="n-names">Olive Downtown, IMA House</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CUSTOM TRIP PLANNING CTA -->
+    <section class="section section-sand planning-banner reveal" aria-label="Plan Your Kerala Journey">
+      <div class="container">
+        <div class="banner-box">
+          <div class="banner-content">
+            <span class="banner-eyebrow">CUSTOM KERALA ITINERARIES</span>
+            <h2 class="banner-title">
+              Pair Your Kochi Stay with <span class="accent-gold">Munnar, Thekkady & Alleppey</span>
+            </h2>
+            <p class="banner-text">
+              Most travelers spend 1 to 2 nights in Kochi before ascending the Western Ghats or cruising the Vembanad backwaters. Let our experienced travel designers create your seamless holiday.
+            </p>
+            <div class="banner-actions">
+              <a href="/contact" class="btn-gold-banner">
+                <span>Design Custom Itinerary</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <a href="tel:+919876543210" class="btn-outline-banner">
+                <span>Speak with a Specialist: +91 98765 43210</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<!-- CLIENT-SIDE FILTER TAB SCRIPT -->
+<script is:inline>
+  (() => {
+    const tabs = document.querySelectorAll('.filter-tab-btn');
+    const items = document.querySelectorAll('.hotel-grid-item');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.classList.remove('is-active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const filter = tab.dataset.filter;
+
+        items.forEach(item => {
+          const cat = item.dataset.category || "";
+          const stars = parseInt(item.dataset.stars || "0", 10);
+          const locality = item.dataset.locality || "";
+
+          let match = false;
+          if (filter === "All Stays") {
+            match = true;
+          } else if (filter === "5-Star Luxury") {
+            match = stars >= 5 || cat.includes("5-Star");
+          } else if (filter === "Business & Transit") {
+            match = cat.includes("Business") || cat.includes("Transit");
+          } else if (filter === "MG Road Downtown") {
+            match = locality.includes("M.G. Road") || locality.includes("Jos Junction");
+          } else if (filter === "Extended Suites") {
+            match = cat.includes("Suites") || cat.includes("Suite");
+          }
+
+          if (match) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    });
+  })();
+</script>
+
+<style>
+  /* HERO SECTION */
+  .hotels-hero-section {
+    position: relative;
+    padding-top: clamp(60px, 8vw, 100px);
+    padding-bottom: clamp(60px, 9vw, 110px);
+    color: #ffffff;
+    overflow: hidden;
+    background-color: #061913;
+  }
+
+  .hotels-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hotels-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+  }
+
+  .hotels-hero-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(6, 25, 19, 0.82) 0%,
+      rgba(6, 25, 19, 0.92) 65%,
+      rgba(6, 25, 19, 0.98) 100%
+    );
+  }
+
+  .hotels-hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 880px;
+    margin-inline: auto;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    font-family: var(--font-body);
+  }
+
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb a:hover {
+    color: #f7d59b;
+  }
+
+  .breadcrumb .sep {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .breadcrumb .current {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .hotels-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #f7d59b;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow-line {
+    width: 28px;
+    height: 1px;
+    background-color: #f7d59b;
+    opacity: 0.7;
+  }
+
+  .hotels-hero-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+    line-height: 1.15;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: #f7d59b;
+  }
+
+  .hotels-hero-desc {
+    font-size: clamp(1.05rem, 1.35vw, 1.22rem);
+    line-height: 1.7;
+    color: #d1dcda;
+    max-width: 68ch;
+    margin-bottom: 36px;
+  }
+
+  .hotels-quick-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 16px 32px;
+    border-radius: 999px;
+  }
+
+  .stat-bubble {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .bubble-num {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #f7d59b;
+  }
+
+  .bubble-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #f1f5f9;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* FILTER BAR */
+  .directory-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(60px, 8vw, 100px);
+  }
+
+  .hotels-filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 44px;
+  }
+
+  .filter-tab-btn {
+    border: 1px solid var(--color-border, #e0d8cb);
+    background-color: #ffffff;
+    color: var(--color-forest, #0d2e23);
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.84rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 6px rgba(6, 25, 19, 0.04);
+  }
+
+  .filter-tab-btn:hover {
+    border-color: var(--color-gold, #c88b3b);
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .filter-tab-btn.is-active {
+    background-color: var(--color-forest, #0d2e23);
+    color: #ffffff;
+    border-color: var(--color-forest, #0d2e23);
+    box-shadow: 0 4px 14px rgba(6, 25, 19, 0.15);
+  }
+
+  /* GRID */
+  .hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  @media (max-width: 1100px) {
+    .hotels-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .hotels-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  /* NEIGHBORHOOD GUIDE */
+  .guide-section {
+    background-color: #ffffff;
+    padding-block: clamp(70px, 9vw, 110px);
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .neighborhoods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 800px) {
+    .neighborhoods-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  .neighborhood-card {
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-ivory, #f7f3ea) 100%);
+    border: 1px solid var(--color-border, #e0d8cb);
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .n-badge {
+    background-color: rgba(200, 139, 59, 0.15);
+    color: #b0742a;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .n-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.45rem;
+    color: var(--color-forest, #0d2e23);
+    margin: 0;
+  }
+
+  .n-desc {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: var(--color-muted, #53645b);
+    margin: 0;
+  }
+
+  .n-hotels {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+    display: flex;
+    gap: 8px;
+    font-size: 0.84rem;
+    flex-wrap: wrap;
+  }
+
+  .n-label {
+    font-weight: 700;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .n-names {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 600;
+  }
+
+  /* PLANNING BANNER */
+  .planning-banner {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(60px, 8vw, 100px);
+  }
+
+  .banner-box {
+    background: linear-gradient(135deg, #0d2e23 0%, #061913 100%);
+    border-radius: 24px;
+    padding: clamp(36px, 6vw, 56px);
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .banner-box::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(200, 139, 59, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .banner-content {
+    max-width: 70ch;
+    position: relative;
+    z-index: 2;
+  }
+
+  .banner-eyebrow {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #f7d59b;
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .banner-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(2rem, 3.4vw, 3rem);
+    line-height: 1.2;
+    color: #ffffff;
+    margin-bottom: 16px;
+  }
+
+  .accent-gold {
+    font-style: italic;
+    color: #f7d59b;
+  }
+
+  .banner-text {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin-bottom: 32px;
+  }
+
+  .banner-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-gold-banner {
+    background-color: var(--color-gold, #c88b3b);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.94rem;
+    padding: 13px 26px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-gold-banner:hover {
+    background-color: var(--color-gold-hover, #b0742a);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline-banner {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.94rem;
+    padding: 13px 24px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .btn-outline-banner:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #ffffff;
+  }
+</style>

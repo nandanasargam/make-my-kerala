@@ -1,0 +1,107 @@
+---
+// src/components/hotels/RelatedHotels.astro
+import HotelCard from "./HotelCard.astro";
+
+interface Props {
+  currentSlug: string;
+  relatedHotels: any[];
+}
+
+const { currentSlug, relatedHotels } = Astro.props;
+---
+
+<section class="section related-hotels-section reveal" id="related-hotels" aria-label="More Hotels in Kochi">
+  <div class="container">
+    <div class="section-head-between">
+      <div>
+        <div class="section-eyebrow">
+          <span class="eyebrow-dash" aria-hidden="true">—</span>
+          <span>CURATED STAYS</span>
+        </div>
+        <h2 class="section-title">
+          More Handpicked <span class="editorial-accent">Kochi Hotels</span>
+        </h2>
+      </div>
+
+      <a href="/hotels/kochi/" class="view-all-link">
+        <span>View All 10 Kochi Hotels</span>
+        <span class="arrow-glyph" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="related-grid">
+      {relatedHotels.map((hotel) => (
+        <HotelCard hotel={hotel} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .related-hotels-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(70px, 9vw, 110px);
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .section-head-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-forest, #0d2e23);
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .view-all-link:hover {
+    color: var(--color-gold, #c88b3b);
+    transform: translateX(4px);
+  }
+
+  .arrow-glyph {
+    transition: transform 0.2s ease;
+  }
+
+  .view-all-link:hover .arrow-glyph {
+    transform: translateX(3px);
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 960px) {
+    .related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

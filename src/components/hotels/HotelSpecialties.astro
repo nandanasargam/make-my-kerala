@@ -1,0 +1,131 @@
+---
+// src/components/hotels/HotelSpecialties.astro
+interface Props {
+  hotelName: string;
+  specialties: string[];
+}
+
+const { hotelName, specialties } = Astro.props;
+---
+
+<section class="section hotel-specialties-section reveal" id="specialties" aria-label="Hotel Specialties and Highlights">
+  <div class="container">
+    <div class="specialties-card">
+      <div class="specialties-header">
+        <div class="section-eyebrow">
+          <span class="eyebrow-dash" aria-hidden="true">—</span>
+          <span>KEY DISTINCTIONS</span>
+        </div>
+        <h2 class="specialties-title">
+          Why Choose <span class="editorial-accent">{hotelName}</span>?
+        </h2>
+        <p class="specialties-subtitle">
+          Standout advantages and verified qualities that distinguish this property in Cochin.
+        </p>
+      </div>
+
+      <div class="specialties-grid">
+        {specialties.map((item, index) => (
+          <div class="specialty-item">
+            <div class="spec-number">0{index + 1}</div>
+            <div class="spec-content">
+              <p class="spec-text">{item}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hotel-specialties-section {
+    background-color: var(--color-sand-light, #fbf8f2);
+    padding-block: clamp(60px, 8vw, 90px);
+  }
+
+  .specialties-card {
+    background-color: #ffffff;
+    border-radius: 24px;
+    border: 1px solid var(--color-border, #e0d8cb);
+    padding: clamp(32px, 5vw, 56px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .specialties-header {
+    max-width: 64ch;
+    margin-bottom: 36px;
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .specialties-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    line-height: 1.2;
+    color: var(--color-forest, #0d2e23);
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+
+  .specialties-subtitle {
+    font-size: 1rem;
+    color: var(--color-muted, #53645b);
+    line-height: 1.6;
+  }
+
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  @media (max-width: 768px) {
+    .specialties-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  .specialty-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: var(--color-ivory, #f7f3ea);
+    border: 1px solid rgba(13, 46, 35, 0.06);
+    transition: transform 0.25s ease, background-color 0.25s ease;
+  }
+
+  .specialty-item:hover {
+    transform: translateX(4px);
+    background-color: #ffffff;
+    border-color: var(--color-gold, #c88b3b);
+  }
+
+  .spec-number {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--color-gold, #c88b3b);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .spec-text {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-forest, #0d2e23);
+    font-weight: 500;
+    margin: 0;
+  }
+</style>

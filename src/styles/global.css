@@ -382,14 +382,16 @@ p {
 }
 
 /* 9. SCROLL REVEAL & MOTION SYSTEM */
-.reveal {
+.reveal,
+.reveal-up {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.reveal.is-revealed {
+.reveal.is-revealed,
+.reveal-up.is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
@@ -435,6 +437,7 @@ p {
   }
 
   .reveal,
+  .reveal-up,
   .reveal-scale {
     opacity: 1 !important;
     transform: none !important;

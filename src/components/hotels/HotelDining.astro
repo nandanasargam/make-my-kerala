@@ -1,0 +1,176 @@
+---
+// src/components/hotels/HotelDining.astro
+interface DiningVenue {
+  name: string;
+  cuisine: string;
+  type: string;
+  timing: string;
+  description: string;
+}
+
+interface Props {
+  hotelName: string;
+  dining: DiningVenue[];
+}
+
+const { hotelName, dining } = Astro.props;
+---
+
+<section class="section hotel-dining-section reveal" id="dining" aria-label="Dining and Restaurants">
+  <div class="container">
+    <div class="section-head section-head-center">
+      <div class="section-eyebrow">
+        <span class="eyebrow-dash" aria-hidden="true">—</span>
+        <span>CULINARY JOURNEY</span>
+      </div>
+      <h2 class="section-title">
+        Dining at <span class="editorial-accent">{hotelName}</span>
+      </h2>
+      <p class="section-lede">
+        Authentic flavors of Kerala, celebrated regional Indian culinary traditions, and world-class continental dining.
+      </p>
+    </div>
+
+    <div class="dining-grid">
+      {dining.map((venue) => (
+        <div class="dining-card">
+          <div class="dining-top">
+            <div class="dining-titles">
+              <span class="venue-type-tag">{venue.type}</span>
+              <h3 class="venue-name">{venue.name}</h3>
+            </div>
+            <div class="venue-timing-badge">
+              <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>{venue.timing}</span>
+            </div>
+          </div>
+
+          <div class="cuisine-pill">
+            <span class="pill-label">Cuisine:</span>
+            <span class="pill-val">{venue.cuisine}</span>
+          </div>
+
+          <p class="venue-desc">{venue.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hotel-dining-section {
+    background-color: #ffffff;
+    padding-block: clamp(70px, 9vw, 110px);
+  }
+
+  .eyebrow-dash {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 800;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .dining-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .dining-card {
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-ivory, #f7f3ea) 100%);
+    border: 1px solid var(--color-border, #e0d8cb);
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dining-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold, #c88b3b);
+  }
+
+  .dining-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .venue-type-tag {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-gold, #c88b3b);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .venue-name {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.45rem;
+    color: var(--color-forest, #0d2e23);
+    margin: 0;
+  }
+
+  .venue-timing-badge {
+    background-color: #ffffff;
+    border: 1px solid var(--color-border, #e0d8cb);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--color-muted, #53645b);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .clock-icon {
+    width: 13px;
+    height: 13px;
+    color: var(--color-forest, #0d2e23);
+  }
+
+  .cuisine-pill {
+    background-color: rgba(13, 46, 35, 0.05);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.84rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+  }
+
+  .pill-label {
+    font-weight: 700;
+    color: var(--color-forest, #0d2e23);
+    font-size: 0.78rem;
+  }
+
+  .pill-val {
+    color: var(--color-text, #1b2821);
+  }
+
+  .venue-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-muted, #53645b);
+    margin: 0;
+  }
+</style>

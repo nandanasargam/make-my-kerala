@@ -1,0 +1,396 @@
+---
+// src/components/hotels/HotelCTA.astro
+interface Props {
+  hotel: {
+    name: string;
+    slug: string;
+    phone: string;
+    email: string;
+    website: string;
+    startingPrice: string;
+    locality: string;
+  };
+}
+
+const { hotel } = Astro.props;
+
+const waMessage = `Hello MakeMyKerala! I would like to inquire about booking a stay at ${hotel.name} (${hotel.locality}, Kochi) as part of my Kerala travel itinerary. Please share available rates and package options.`;
+const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`;
+---
+
+<section class="section hotel-cta-section reveal" id="enquire" aria-label="Book or Inquire About This Hotel">
+  <div class="container">
+    <div class="cta-dual-grid">
+      <!-- 1. MAKEMYKERALA PACKAGE RESERVATION -->
+      <div class="mmk-booking-card">
+        <div class="card-eyebrow">
+          <span class="dot-indicator" aria-hidden="true"></span>
+          <span>RECOMMENDED OPTION</span>
+        </div>
+
+        <h2 class="mmk-title">
+          Include <span class="editorial-accent">{hotel.name}</span> in Your Kerala Tour
+        </h2>
+
+        <p class="mmk-lede">
+          Let MakeMyKerala bundle your stay at {hotel.name} with chauffeured private AC transfers, Munnar & Alleppey extensions, and exclusive package tariffs.
+        </p>
+
+        <div class="mmk-features-list">
+          <div class="mmk-feature-item">
+            <svg class="feat-check" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>Handpicked room allocation with verified best tariffs</span>
+          </div>
+          <div class="mmk-feature-item">
+            <svg class="feat-check" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>Seamless airport & railway station private pickups</span>
+          </div>
+          <div class="mmk-feature-item">
+            <svg class="feat-check" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            <span>24/7 dedicated Kerala travel specialist support</span>
+          </div>
+        </div>
+
+        <div class="booking-actions">
+          <a
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-wa-btn"
+          >
+            <svg viewBox="0 0 24 24" class="wa-icon" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+            </svg>
+            <span>Inquire via WhatsApp</span>
+          </a>
+
+          <a href="/contact" class="cta-form-btn">
+            <span>Request Custom Itinerary</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. DIRECT HOTEL CONTACT (TRANSPARENCY) -->
+      <div class="direct-hotel-card">
+        <span class="direct-tag">Official Hotel Directory Info</span>
+
+        <h3 class="direct-title">Direct Hotel Contact</h3>
+
+        <p class="direct-note">
+          We believe in complete transparency. If you prefer to reach out to {hotel.name} directly for standalone room reservations, corporate bookings, or banquet inquiries:
+        </p>
+
+        <div class="direct-contact-items">
+          <div class="contact-item">
+            <span class="contact-label">Direct Telephone</span>
+            <a href={`tel:${hotel.phone.replace(/[^0-9+]/g, '')}`} class="contact-link">
+              <svg viewBox="0 0 24 24" class="c-icon" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>{hotel.phone}</span>
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Official Email</span>
+            <a href={`mailto:${hotel.email}`} class="contact-link">
+              <svg viewBox="0 0 24 24" class="c-icon" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>{hotel.email}</span>
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Official Website</span>
+            <a href={hotel.website} target="_blank" rel="noopener noreferrer" class="contact-link website-link">
+              <svg viewBox="0 0 24 24" class="c-icon" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>Visit Official Website</span>
+              <span class="ext-icon" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="transparency-callout">
+          <p>
+            MakeMyKerala is an independent licensed travel specialist founded in 2001. We coordinate holiday packages incorporating Kochi's premier hotels with zero hidden markups.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hotel-cta-section {
+    background-color: #ffffff;
+    padding-block: clamp(70px, 9vw, 110px);
+    border-top: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+  }
+
+  .cta-dual-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 36px;
+    align-items: stretch;
+  }
+
+  @media (max-width: 960px) {
+    .cta-dual-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* MMK BOOKING CARD */
+  .mmk-booking-card {
+    background: linear-gradient(135deg, #0d2e23 0%, #061913 100%);
+    border-radius: 24px;
+    padding: clamp(32px, 5vw, 48px);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(200, 139, 59, 0.2);
+    border: 1px solid var(--color-gold, #c88b3b);
+    color: #f7d59b;
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    border-radius: 999px;
+    width: fit-content;
+    margin-bottom: 16px;
+  }
+
+  .dot-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #f7d59b;
+  }
+
+  .mmk-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+  }
+
+  .editorial-accent {
+    font-style: italic;
+    color: #f7d59b;
+  }
+
+  .mmk-lede {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+  }
+
+  .mmk-features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .mmk-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: #f1f5f9;
+  }
+
+  .feat-check {
+    width: 18px;
+    height: 18px;
+    color: #4ade80;
+    flex-shrink: 0;
+  }
+
+  .booking-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: auto;
+  }
+
+  .cta-wa-btn {
+    background-color: #25d366;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 13px 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .cta-wa-btn:hover {
+    background-color: #1ebd5a;
+    transform: translateY(-2px);
+  }
+
+  .wa-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cta-form-btn {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 13px 22px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .cta-form-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+  }
+
+  @media (max-width: 480px) {
+    .cta-wa-btn,
+    .cta-form-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* DIRECT HOTEL CARD */
+  .direct-hotel-card {
+    background-color: var(--color-ivory, #f7f3ea);
+    border: 1px solid var(--color-border, #e0d8cb);
+    border-radius: 24px;
+    padding: clamp(32px, 5vw, 44px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .direct-tag {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted, #53645b);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .direct-title {
+    font-family: var(--font-display, "Fraunces", serif);
+    font-size: 1.6rem;
+    color: var(--color-forest, #0d2e23);
+    margin: 0 0 12px;
+  }
+
+  .direct-note {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--color-muted, #53645b);
+    margin-bottom: 24px;
+  }
+
+  .direct-contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .contact-item {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .contact-label {
+    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-muted, #53645b);
+  }
+
+  .contact-link {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-forest, #0d2e23);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .c-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .website-link {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .website-link:hover {
+    text-decoration: underline;
+  }
+
+  .ext-icon {
+    font-size: 0.9rem;
+  }
+
+  .transparency-callout {
+    margin-top: auto;
+    background-color: #ffffff;
+    border: 1px solid var(--color-border-subtle, rgba(13, 46, 35, 0.08));
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .transparency-callout p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--color-muted, #53645b);
+    margin: 0;
+  }
+</style>
