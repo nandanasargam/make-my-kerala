@@ -74,7 +74,7 @@ const categories = [
             <span class="bubble-text">Prime Localities</span>
           </div>
           <div class="stat-bubble">
-            <span class="bubble-num">25 Yrs</span>
+            <span class="bubble-num">25&nbsp;Yrs</span>
             <span class="bubble-text">Local Destination Expertise</span>
           </div>
         </div>
@@ -407,6 +407,8 @@ const categories = [
     font-size: 1.3rem;
     font-weight: 800;
     color: #f7d59b;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .bubble-text {
@@ -415,6 +417,87 @@ const categories = [
     color: #f1f5f9;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 768px) {
+    .hotels-hero-section {
+      padding-top: clamp(32px, 6vw, 48px);
+      padding-bottom: clamp(48px, 8vw, 72px);
+    }
+
+    .hotels-hero-container {
+      padding-inline: clamp(12px, 3.5vw, 24px);
+    }
+
+    .breadcrumb {
+      margin-bottom: 16px;
+    }
+
+    .hotels-eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .hotels-hero-title {
+      font-size: clamp(1.9rem, 6.4vw, 2.6rem);
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+
+    .hotels-hero-desc {
+      font-size: clamp(0.92rem, 3vw, 1.05rem);
+      line-height: 1.6;
+      max-width: 48ch;
+      margin-bottom: 24px;
+    }
+
+    .hotels-quick-stats {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      width: 100%;
+      max-width: 360px;
+      margin-inline: auto;
+      padding: 22px 20px;
+      border-radius: 999px;
+      box-sizing: border-box;
+    }
+
+    .stat-bubble {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .bubble-num {
+      font-size: clamp(1.05rem, 3.4vw, 1.25rem);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .bubble-text {
+      font-size: clamp(0.7rem, 2.1vw, 0.78rem);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .hotels-quick-stats {
+      padding: 18px 12px;
+      gap: 11px;
+    }
+
+    .bubble-num {
+      font-size: 1rem;
+    }
+
+    .bubble-text {
+      font-size: 0.65rem;
+      letter-spacing: 0.02em;
+    }
   }
 
   /* FILTER BAR */
