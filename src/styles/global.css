@@ -443,3 +443,24 @@ p {
     transform: none !important;
   }
 }
+
+/* 11. CONTENT FAIL-SAFE & MOBILE RESILIENCE */
+/* Hotel directory and hotel cards must always be visible regardless of JS or animation state */
+.directory-section,
+.directory-section.reveal,
+.hotels-grid,
+.hotel-grid-item,
+.hotel-card {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+@media (max-width: 768px) {
+  .reveal,
+  .reveal-up,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
