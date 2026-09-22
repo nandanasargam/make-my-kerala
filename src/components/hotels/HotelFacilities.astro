@@ -8,10 +8,30 @@ interface Facility {
 
 interface Props {
   hotelName: string;
-  facilities: Facility[];
+  facilities: (Facility | string)[];
 }
 
-const { hotelName, facilities } = Astro.props;
+const { hotelName, facilities = [] } = Astro.props;
+
+const normalizedFacilities: Facility[] = (facilities || []).map((fac) => {
+  if (typeof fac === "string") {
+    let icon = "concierge";
+    const lower = fac.toLowerCase();
+    if (lower.includes("wifi") || lower.includes("wi-fi") || lower.includes("internet")) icon = "wifi";
+    else if (lower.includes("pool") || lower.includes("swimming")) icon = "pool";
+    else if (lower.includes("dine") || lower.includes("restaurant") || lower.includes("café") || lower.includes("food")) icon = "dining";
+    else if (lower.includes("spa") || lower.includes("ayur") || lower.includes("wellness")) icon = "spa";
+    else if (lower.includes("meet") || lower.includes("conference") || lower.includes("banquet") || lower.includes("boardroom")) icon = "meetings";
+    else if (lower.includes("gym") || lower.includes("fitness")) icon = "gym";
+    else if (lower.includes("park") || lower.includes("valet")) icon = "parking";
+    return {
+      icon,
+      title: fac,
+      description: `Verified guest amenity curated for comfort, productivity, and relaxation at ${hotelName}.`
+    };
+  }
+  return fac;
+});
 ---
 
 <section class="section hotel-facilities-section reveal" id="facilities" aria-label="Facilities and Amenities">
@@ -30,7 +50,7 @@ const { hotelName, facilities } = Astro.props;
     </div>
 
     <div class="facilities-grid">
-      {facilities.map((fac) => (
+      {normalizedFacilities.map((fac) => (
         <div class="facility-card">
           <div class="facility-icon-wrap">
             {fac.icon === "wifi" && (

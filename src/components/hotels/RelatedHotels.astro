@@ -5,12 +5,21 @@ import HotelCard from "./HotelCard.astro";
 interface Props {
   currentSlug: string;
   relatedHotels: any[];
+  destinationName?: string;
+  destinationSlug?: string;
+  totalCount?: number;
 }
 
-const { currentSlug, relatedHotels } = Astro.props;
+const {
+  currentSlug,
+  relatedHotels,
+  destinationName = "Kochi",
+  destinationSlug = "kochi",
+  totalCount = 10
+} = Astro.props;
 ---
 
-<section class="section related-hotels-section reveal" id="related-hotels" aria-label="More Hotels in Kochi">
+<section class="section related-hotels-section reveal" id="related-hotels" aria-label={`More Hotels in ${destinationName}`}>
   <div class="container">
     <div class="section-head-between">
       <div>
@@ -19,12 +28,12 @@ const { currentSlug, relatedHotels } = Astro.props;
           <span>CURATED STAYS</span>
         </div>
         <h2 class="section-title">
-          More Handpicked <span class="editorial-accent">Kochi Hotels</span>
+          More Handpicked <span class="editorial-accent">{destinationName} Hotels</span>
         </h2>
       </div>
 
-      <a href="/hotels/kochi/" class="view-all-link">
-        <span>View All 10 Kochi Hotels</span>
+      <a href={`/hotels/${destinationSlug}/`} class="view-all-link">
+        <span>View All {totalCount} {destinationName} Hotels</span>
         <span class="arrow-glyph" aria-hidden="true">→</span>
       </a>
     </div>

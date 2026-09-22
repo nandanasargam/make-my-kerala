@@ -4,15 +4,25 @@ interface Props {
   hotel: {
     name: string;
     overview: string;
-    checkIn: string;
-    checkOut: string;
-    petPolicy: string;
-    cancellationNote: string;
-    makeMyKeralaPerks: string[];
+    checkIn?: string;
+    checkOut?: string;
+    petPolicy?: string;
+    cancellationNote?: string;
+    makeMyKeralaPerks?: string[];
   };
 }
 
 const { hotel } = Astro.props;
+const checkIn = hotel.checkIn || "12:00 PM";
+const checkOut = hotel.checkOut || "11:00 AM";
+const petPolicy = hotel.petPolicy || "Please check with hotel prior to arrival";
+const cancellationNote = hotel.cancellationNote || "Flexible cancellation up to 48 hours prior";
+const perks = hotel.makeMyKeralaPerks && hotel.makeMyKeralaPerks.length > 0 ? hotel.makeMyKeralaPerks : [
+  "Verified best room tariff guarantee with transparent pricing",
+  "Complimentary high-speed Wi-Fi and welcome refreshment",
+  "Dedicated 24/7 MakeMyKerala on-trip coordinator helpline",
+  "Seamless private chauffeured AC transfer bundling"
+];
 ---
 
 <section class="section hotel-about-section reveal" id="about" aria-label="About the Hotel">
@@ -39,19 +49,19 @@ const { hotel } = Astro.props;
           <div class="policies-grid">
             <div class="policy-entry">
               <span class="p-label">Check-in</span>
-              <span class="p-val">{hotel.checkIn}</span>
+              <span class="p-val">{checkIn}</span>
             </div>
             <div class="policy-entry">
               <span class="p-label">Check-out</span>
-              <span class="p-val">{hotel.checkOut}</span>
+              <span class="p-val">{checkOut}</span>
             </div>
             <div class="policy-entry">
               <span class="p-label">Pet Policy</span>
-              <span class="p-val">{hotel.petPolicy}</span>
+              <span class="p-val">{petPolicy}</span>
             </div>
             <div class="policy-entry">
               <span class="p-label">Cancellation</span>
-              <span class="p-val">{hotel.cancellationNote}</span>
+              <span class="p-val">{cancellationNote}</span>
             </div>
           </div>
         </div>
@@ -67,7 +77,7 @@ const { hotel } = Astro.props;
           </p>
 
           <ul class="perks-list">
-            {hotel.makeMyKeralaPerks.map((perk) => (
+            {perks.map((perk) => (
               <li class="perk-item">
                 <span class="perk-icon" aria-hidden="true">
                   <svg viewBox="0 0 20 20" fill="currentColor">

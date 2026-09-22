@@ -1256,16 +1256,67 @@ export const hotels = [
   }
 ];
 
+import { munnarHotels } from "./munnarHotels.js";
+import { thekkadyHotels } from "./thekkadyHotels.js";
+import { alleppeyHotels } from "./alleppeyHotels.js";
+import { trivandrumHotels } from "./trivandrumHotels.js";
+
+export const kochiHotels = hotels.map((h) => ({
+  destination: "kochi",
+  destinationName: "Kochi",
+  ...h
+}));
+
+export { munnarHotels, thekkadyHotels, alleppeyHotels, trivandrumHotels };
+
+export const allHotels = [
+  ...kochiHotels,
+  ...munnarHotels,
+  ...thekkadyHotels,
+  ...alleppeyHotels,
+  ...trivandrumHotels
+];
+
 export function getAllHotels() {
-  return hotels;
+  return allHotels;
 }
 
-export function getHotelBySlug(slug) {
-  return hotels.find((hotel) => hotel.slug === slug);
+export function getKochiHotels() {
+  return kochiHotels;
 }
 
-export function getRelatedHotels(currentSlug, limit = 3) {
-  return hotels
+export function getMunnarHotels() {
+  return munnarHotels;
+}
+
+export function getThekkadyHotels() {
+  return thekkadyHotels;
+}
+
+export function getAlleppeyHotels() {
+  return alleppeyHotels;
+}
+
+export function getTrivandrumHotels() {
+  return trivandrumHotels;
+}
+
+export function getHotelBySlug(slug, destination = "kochi") {
+  let list = kochiHotels;
+  if (destination === "munnar") list = munnarHotels;
+  else if (destination === "thekkady") list = thekkadyHotels;
+  else if (destination === "alleppey") list = alleppeyHotels;
+  else if (destination === "trivandrum") list = trivandrumHotels;
+  return list.find((hotel) => hotel.slug === slug) || allHotels.find((hotel) => hotel.slug === slug);
+}
+
+export function getRelatedHotels(currentSlug, limit = 3, destination = "kochi") {
+  let list = kochiHotels;
+  if (destination === "munnar") list = munnarHotels;
+  else if (destination === "thekkady") list = thekkadyHotels;
+  else if (destination === "alleppey") list = alleppeyHotels;
+  else if (destination === "trivandrum") list = trivandrumHotels;
+  return list
     .filter((hotel) => hotel.slug !== currentSlug)
     .slice(0, limit);
 }

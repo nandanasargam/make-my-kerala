@@ -9,12 +9,25 @@ interface Props {
     website: string;
     startingPrice: string;
     locality: string;
+    destination?: string;
+    destinationName?: string;
   };
 }
 
 const { hotel } = Astro.props;
+const destination = hotel.destination || "kochi";
+const destinationName = hotel.destinationName || (destination === "munnar" ? "Munnar" : "Kochi");
 
-const waMessage = `Hello MakeMyKerala! I would like to inquire about booking a stay at ${hotel.name} (${hotel.locality}, Kochi) as part of my Kerala travel itinerary. Please share available rates and package options.`;
+const extensionDestinations: Record<string, string> = {
+  kochi: "Munnar, Thekkady & Alleppey",
+  munnar: "Kochi, Thekkady & Alleppey",
+  thekkady: "Munnar, Alleppey & Kochi",
+  alleppey: "Kochi, Munnar & Trivandrum",
+  trivandrum: "Kovalam, Varkala & Alleppey"
+};
+const extensionText = extensionDestinations[destination.toLowerCase()] || "Munnar, Alleppey & Kochi";
+
+const waMessage = `Hello MakeMyKerala! I would like to inquire about booking a stay at ${hotel.name} (${hotel.locality}, ${destinationName}) as part of my Kerala travel itinerary. Please share available rates and package options.`;
 const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`;
 ---
 
@@ -33,7 +46,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
         </h2>
 
         <p class="mmk-lede">
-          Let MakeMyKerala bundle your stay at {hotel.name} with chauffeured private AC transfers, Munnar & Alleppey extensions, and exclusive package tariffs.
+          Let MakeMyKerala bundle your stay at {hotel.name} with chauffeured private AC transfers, {extensionText} extensions, and exclusive package tariffs.
         </p>
 
         <div class="mmk-features-list">
@@ -125,7 +138,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
 
         <div class="transparency-callout">
           <p>
-            MakeMyKerala is an independent licensed travel specialist founded in 2001. We coordinate holiday packages incorporating Kochi's premier hotels with zero hidden markups.
+            MakeMyKerala is an independent licensed travel specialist founded in 2001. We coordinate holiday packages incorporating {destinationName}'s premier hotels with zero hidden markups.
           </p>
         </div>
       </div>

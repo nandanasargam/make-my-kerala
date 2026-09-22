@@ -16,10 +16,16 @@ interface Props {
     phone: string;
     heroImage: string;
     heroImageSm?: string;
+    destination?: string;
+    destinationName?: string;
   };
 }
 
 const { hotel } = Astro.props;
+const destination = hotel.destination || "kochi";
+const destinationName = hotel.destinationName || (destination === "munnar" ? "Munnar" : "Kochi");
+const directoryUrl = `/hotels/${destination}/`;
+const backText = `Back to ${destinationName} Hotels`;
 ---
 
 <header class="hotel-hero" aria-label={`${hotel.name} Overview`}>
@@ -29,14 +35,14 @@ const { hotel } = Astro.props;
       <nav class="hotel-breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a>
         <span class="sep" aria-hidden="true">/</span>
-        <a href="/hotels/kochi/">Kochi Hotels</a>
+        <a href={directoryUrl}>{destinationName} Hotels</a>
         <span class="sep" aria-hidden="true">/</span>
         <span class="current" aria-current="page">{hotel.name}</span>
       </nav>
 
-      <a href="/hotels/kochi/" class="back-to-hotels-link">
+      <a href={directoryUrl} class="back-to-hotels-link">
         <span class="back-arrow" aria-hidden="true">←</span>
-        <span>Back to Kochi Hotels</span>
+        <span>{backText}</span>
       </a>
     </div>
 
@@ -50,7 +56,7 @@ const { hotel } = Astro.props;
               <path d="M12 21s7-6.2 7-12A7 7 0 0 0 5 9c0 5.8 7 12 7 12Z"/>
               <circle cx="12" cy="9" r="2.5"/>
             </svg>
-            {hotel.locality}, Kochi
+            {hotel.locality}, {destinationName}
           </span>
           <span class="verified-badge">
             <svg viewBox="0 0 20 20" class="badge-icon" fill="currentColor">
@@ -113,7 +119,7 @@ const { hotel } = Astro.props;
         src={hotel.heroImage}
         srcset={`${hotel.heroImageSm || hotel.heroImage} 640w, ${hotel.heroImage} 1280w`}
         sizes="(max-width: 768px) 100vw, 1280px"
-        alt={`Exterior facade and entrance of ${hotel.name} in Kochi`}
+        alt={`Exterior facade and entrance of ${hotel.name} in ${destinationName}`}
         width="1280"
         height="640"
         fetchpriority="high"

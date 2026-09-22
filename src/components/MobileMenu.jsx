@@ -94,7 +94,31 @@ export default function MobileMenu() {
           <a href="/" onClick={handleNavClick}>Home</a>
           <a href="/packages" onClick={handleNavClick}>Packages</a>
           <a href="/destinations" onClick={handleNavClick}>Destinations</a>
-          <a href="/hotels/kochi" onClick={handleNavClick}>Hotels</a>
+          <div className="mobile-subnav-group">
+            <span className="mobile-subnav-label">Curated Stays</span>
+            <div className="mobile-subnav-links">
+              <a href="/hotels/kochi" onClick={handleNavClick} className="mobile-subnav-item">
+                <span>Kochi Hotels</span>
+                <span className="mobile-subnav-badge">10 Stays</span>
+              </a>
+              <a href="/hotels/munnar" onClick={handleNavClick} className="mobile-subnav-item">
+                <span>Munnar Hotels</span>
+                <span className="mobile-subnav-badge">15 Stays</span>
+              </a>
+              <a href="/hotels/thekkady" onClick={handleNavClick} className="mobile-subnav-item">
+                <span>Thekkady Hotels</span>
+                <span className="mobile-subnav-badge">15 Stays</span>
+              </a>
+              <a href="/hotels/alleppey" onClick={handleNavClick} className="mobile-subnav-item">
+                <span>Alleppey Hotels</span>
+                <span className="mobile-subnav-badge">15 Stays</span>
+              </a>
+              <a href="/hotels/trivandrum" onClick={handleNavClick} className="mobile-subnav-item">
+                <span>Trivandrum Hotels</span>
+                <span className="mobile-subnav-badge">20 Stays</span>
+              </a>
+            </div>
+          </div>
           <a href="/experience" onClick={handleNavClick}>Experiences</a>
           <a href="/about-us" onClick={handleNavClick}>About Us</a>
           <a href="/contact" onClick={handleNavClick}>Contact</a>

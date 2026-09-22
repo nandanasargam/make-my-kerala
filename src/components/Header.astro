@@ -26,7 +26,34 @@ import "../styles/header.css";
       <a href="/">Home</a>
       <a href="/packages">Packages</a>
       <a href="/destinations">Destinations</a>
-      <a href="/hotels/kochi">Hotels</a>
+      <div class="nav-dropdown-wrap">
+        <a href="/hotels/kochi" class="nav-dropdown-trigger">
+          <span>Hotels</span>
+          <span class="dropdown-chevron" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-dropdown-menu">
+          <a href="/hotels/kochi/">
+            <strong>Kochi Hotels</strong>
+            <span>10 Curated Stays</span>
+          </a>
+          <a href="/hotels/munnar/">
+            <strong>Munnar Hotels</strong>
+            <span>15 Curated Stays</span>
+          </a>
+          <a href="/hotels/thekkady/">
+            <strong>Thekkady Hotels</strong>
+            <span>15 Curated Stays</span>
+          </a>
+          <a href="/hotels/alleppey/">
+            <strong>Alleppey Hotels</strong>
+            <span>15 Curated Stays</span>
+          </a>
+          <a href="/hotels/trivandrum/">
+            <strong>Trivandrum Hotels</strong>
+            <span>20 Curated Stays</span>
+          </a>
+        </div>
+      </div>
       <a href="/experience">Experiences</a>
       <a href="/about-us">About Us</a>
       <a href="/contact">Contact</a>

@@ -13,10 +13,23 @@ interface Props {
   address: string;
   locationHighlights: LocationHighlight[];
   mapQuery: string;
+  destinationName?: string;
 }
 
-const { hotelName, locality, address, locationHighlights, mapQuery } = Astro.props;
+const { hotelName, locality, address, locationHighlights, mapQuery, destinationName = "Kochi" } = Astro.props;
 const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`;
+const destKey = (destinationName || "kochi").toLowerCase();
+let locationDesc = `Situated in ${locality}, ${hotelName} offers premier connectivity to Kochi's metro network, railway junctions, and premier sightseeing attractions.`;
+
+if (destKey === "munnar") {
+  locationDesc = `Situated in ${locality}, ${hotelName} offers serene mountain views and effortless connectivity to Munnar's tea plantations, viewpoints, and nature trails.`;
+} else if (destKey === "thekkady") {
+  locationDesc = `Situated in ${locality}, ${hotelName} offers tranquil forest ambiance and effortless connectivity to Periyar Wildlife Sanctuary, spice plantations, and Kumily cultural centers.`;
+} else if (destKey === "alleppey") {
+  locationDesc = `Situated in ${locality}, ${hotelName} provides scenic backwater surroundings and immediate connectivity to Alappuzha's canals, houseboat boarding points, and Arabian Sea beaches.`;
+} else if (destKey === "trivandrum") {
+  locationDesc = `Situated in ${locality}, ${hotelName} offers central access to Kerala's historic capital, Padmanabhaswamy Temple, the State Secretariat, and nearby coastal beaches.`;
+}
 ---
 
 <section class="section hotel-location-section reveal" id="location" aria-label="Location and Neighborhood">
@@ -34,7 +47,7 @@ const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeU
         </h2>
 
         <p class="location-desc">
-          Situated in {locality}, {hotelName} offers premier connectivity to Kochi's metro network, railway junctions, and premier sightseeing attractions.
+          {locationDesc}
         </p>
 
         <div class="address-box">

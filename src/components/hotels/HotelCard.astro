@@ -15,21 +15,26 @@ interface Props {
     heroImage: string;
     heroImageSm?: string;
     highlights: string[];
+    destination?: string;
+    destinationName?: string;
   };
 }
 
 const { hotel } = Astro.props;
+const destination = hotel.destination || "kochi";
+const destinationName = hotel.destinationName || (destination === "munnar" ? "Munnar" : "Kochi");
+const detailUrl = `/hotels/${destination}/${hotel.slug}/`;
 ---
 
 <article class="hotel-card" id={`hotel-${hotel.slug}`}>
   <!-- IMAGE & OVERLAYS -->
   <div class="hotel-media">
-    <a href={`/hotels/kochi/${hotel.slug}/`} class="hotel-media-link" aria-label={`View details for ${hotel.name}`}>
+    <a href={detailUrl} class="hotel-media-link" aria-label={`View details for ${hotel.name}`}>
       <img
         src={hotel.heroImageSm || hotel.heroImage}
         srcset={`${hotel.heroImageSm || hotel.heroImage} 640w, ${hotel.heroImage} 1280w`}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
-        alt={`${hotel.name} exterior facade in Kochi`}
+        alt={`${hotel.name} exterior facade in ${destinationName}`}
         width="640"
         height="420"
         loading="lazy"
@@ -63,7 +68,7 @@ const { hotel } = Astro.props;
           <path d="M12 21s7-6.2 7-12A7 7 0 0 0 5 9c0 5.8 7 12 7 12Z"/>
           <circle cx="12" cy="9" r="2.5"/>
         </svg>
-        {hotel.locality}, Kochi
+        {hotel.locality}, {destinationName}
       </span>
       <span class="hotel-stars">
         {Array.from({ length: hotel.starRating }).map(() => (
@@ -73,7 +78,7 @@ const { hotel } = Astro.props;
     </div>
 
     <h3 class="hotel-title">
-      <a href={`/hotels/kochi/${hotel.slug}/`}>{hotel.name}</a>
+      <a href={detailUrl}>{hotel.name}</a>
     </h3>
 
     <p class="hotel-tagline">{hotel.tagline}</p>
@@ -98,7 +103,7 @@ const { hotel } = Astro.props;
         <span class="price-sub">per night</span>
       </div>
 
-      <a href={`/hotels/kochi/${hotel.slug}/`} class="hotel-view-btn">
+      <a href={detailUrl} class="hotel-view-btn">
         <span>Explore Hotel</span>
         <span class="btn-arrow" aria-hidden="true">→</span>
       </a>

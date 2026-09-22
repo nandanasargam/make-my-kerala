@@ -2,10 +2,16 @@
 // src/components/hotels/HotelSpecialties.astro
 interface Props {
   hotelName: string;
-  specialties: string[];
+  specialties?: string[];
 }
 
 const { hotelName, specialties } = Astro.props;
+const items = (specialties && specialties.length > 0) ? specialties : [
+  "Prime strategic location with immediate local connectivity",
+  "Exceptional hospitality with personalized guest care",
+  "Curated culinary experiences celebrating authentic regional flavors",
+  "Impeccable hygiene and verified modern amenities"
+];
 ---
 
 <section class="section hotel-specialties-section reveal" id="specialties" aria-label="Hotel Specialties and Highlights">
@@ -20,12 +26,12 @@ const { hotelName, specialties } = Astro.props;
           Why Choose <span class="editorial-accent">{hotelName}</span>?
         </h2>
         <p class="specialties-subtitle">
-          Standout advantages and verified qualities that distinguish this property in Cochin.
+          Standout advantages and verified qualities that distinguish this property.
         </p>
       </div>
 
       <div class="specialties-grid">
-        {specialties.map((item, index) => (
+        {items.map((item, index) => (
           <div class="specialty-item">
             <div class="spec-number">0{index + 1}</div>
             <div class="spec-content">
