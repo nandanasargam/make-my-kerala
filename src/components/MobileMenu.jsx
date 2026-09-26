@@ -5,6 +5,9 @@ export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  const [keralaOpen, setKeralaOpen] = useState(true);
+  const [tnOpen, setTnOpen] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -94,30 +97,126 @@ export default function MobileMenu() {
           <a href="/" onClick={handleNavClick}>Home</a>
           <a href="/packages" onClick={handleNavClick}>Packages</a>
           <a href="/destinations" onClick={handleNavClick}>Destinations</a>
+          {/* KERALA HOTELS ACCORDION */}
           <div className="mobile-subnav-group">
-            <span className="mobile-subnav-label">Curated Stays</span>
-            <div className="mobile-subnav-links">
-              <a href="/hotels/kochi" onClick={handleNavClick} className="mobile-subnav-item">
-                <span>Kochi Hotels</span>
-                <span className="mobile-subnav-badge">10 Stays</span>
-              </a>
-              <a href="/hotels/munnar" onClick={handleNavClick} className="mobile-subnav-item">
-                <span>Munnar Hotels</span>
-                <span className="mobile-subnav-badge">15 Stays</span>
-              </a>
-              <a href="/hotels/thekkady" onClick={handleNavClick} className="mobile-subnav-item">
-                <span>Thekkady Hotels</span>
-                <span className="mobile-subnav-badge">15 Stays</span>
-              </a>
-              <a href="/hotels/alleppey" onClick={handleNavClick} className="mobile-subnav-item">
-                <span>Alleppey Hotels</span>
-                <span className="mobile-subnav-badge">15 Stays</span>
-              </a>
-              <a href="/hotels/trivandrum" onClick={handleNavClick} className="mobile-subnav-item">
-                <span>Trivandrum Hotels</span>
-                <span className="mobile-subnav-badge">20 Stays</span>
-              </a>
+            <div
+              className="mobile-state-accordion-header"
+              onClick={() => setKeralaOpen(!keralaOpen)}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="mobile-state-title-wrap">
+                <span className="mobile-state-name">Kerala Hotels</span>
+                <span className="mobile-state-count">17 Destinations</span>
+              </div>
+              <span className="mobile-accordion-toggle">{keralaOpen ? '−' : '+'}</span>
             </div>
+
+            {keralaOpen && (
+              <div className="mobile-subnav-links">
+                <a href="/hotels/kochi" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Kochi Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/munnar" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Munnar Hotels</span>
+                  <span className="mobile-subnav-badge">15 Stays</span>
+                </a>
+                <a href="/hotels/thekkady" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Thekkady Hotels</span>
+                  <span className="mobile-subnav-badge">15 Stays</span>
+                </a>
+                <a href="/hotels/alleppey" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Alleppey Hotels</span>
+                  <span className="mobile-subnav-badge">15 Stays</span>
+                </a>
+                <a href="/hotels/trivandrum" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Trivandrum Hotels</span>
+                  <span className="mobile-subnav-badge">20 Stays</span>
+                </a>
+                <a href="/hotels/kumarakom" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Kumarakom Hotels</span>
+                  <span className="mobile-subnav-badge">6 Stays</span>
+                </a>
+                <a href="/hotels/kovalam" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Kovalam Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/poovar" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Poovar Hotels</span>
+                  <span className="mobile-subnav-badge">5 Stays</span>
+                </a>
+                <a href="/hotels/vagamon" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Vagamon Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/guruvayur" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Guruvayur Hotels</span>
+                  <span className="mobile-subnav-badge">5 Stays</span>
+                </a>
+                <a href="/hotels/cochin-airport" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Cochin Airport Hotels</span>
+                  <span className="mobile-subnav-badge">5 Stays</span>
+                </a>
+                <a href="/hotels/varkala" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Varkala Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/kannur" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Kannur Hotels</span>
+                  <span className="mobile-subnav-badge">7 Stays</span>
+                </a>
+                <a href="/hotels/kozhikode" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Kozhikode Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/wayanad" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Wayanad Hotels</span>
+                  <span className="mobile-subnav-badge">13 Stays</span>
+                </a>
+                <a href="/hotels/cherai" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Cherai Hotels</span>
+                  <span className="mobile-subnav-badge">5 Stays</span>
+                </a>
+                <a href="/hotels/athirapally" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Athirapally Hotels</span>
+                  <span className="mobile-subnav-badge">6 Stays</span>
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* TAMIL NADU HOTELS ACCORDION */}
+          <div className="mobile-subnav-group">
+            <div
+              className="mobile-state-accordion-header"
+              onClick={() => setTnOpen(!tnOpen)}
+              role="button"
+              tabIndex={0}
+            >
+              <div className="mobile-state-title-wrap">
+                <span className="mobile-state-name">Tamil Nadu Hotels</span>
+                <span className="mobile-state-count">3 Destinations</span>
+              </div>
+              <span className="mobile-accordion-toggle">{tnOpen ? '−' : '+'}</span>
+            </div>
+
+            {tnOpen && (
+              <div className="mobile-subnav-links">
+                <a href="/hotels/tamil-nadu/madurai" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Madurai Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/tamil-nadu/kanyakumari" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Kanyakumari Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+                <a href="/hotels/tamil-nadu/rameshwaram" onClick={handleNavClick} className="mobile-subnav-item">
+                  <span>Rameshwaram Hotels</span>
+                  <span className="mobile-subnav-badge">10 Stays</span>
+                </a>
+              </div>
+            )}
           </div>
           <a href="/experience" onClick={handleNavClick}>Experiences</a>
           <a href="/about-us" onClick={handleNavClick}>About Us</a>

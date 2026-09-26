@@ -1,0 +1,129 @@
+---
+// src/pages/hotels/varkala/[slug].astro
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import HotelHero from "../../../components/hotels/HotelHero.astro";
+import HotelQuickFacts from "../../../components/hotels/HotelQuickFacts.astro";
+import HotelAbout from "../../../components/hotels/HotelAbout.astro";
+import HotelRooms from "../../../components/hotels/HotelRooms.astro";
+import HotelFacilities from "../../../components/hotels/HotelFacilities.astro";
+import HotelDining from "../../../components/hotels/HotelDining.astro";
+import HotelSpecialties from "../../../components/hotels/HotelSpecialties.astro";
+import HotelGallery from "../../../components/hotels/HotelGallery.astro";
+import HotelLocation from "../../../components/hotels/HotelLocation.astro";
+import HotelCTA from "../../../components/hotels/HotelCTA.astro";
+import RelatedHotels from "../../../components/hotels/RelatedHotels.astro";
+
+import { varkalaHotels, getRelatedHotels } from "../../../data/hotels.js";
+import "../../../styles/global.css";
+
+export async function getStaticPaths() {
+  return varkalaHotels.map((hotel) => ({
+    params: { slug: hotel.slug },
+    props: { hotel }
+  }));
+}
+
+const { hotel } = Astro.props;
+const relatedHotels = getRelatedHotels(hotel.slug, 3, "varkala");
+
+const pageTitle = `${hotel.name} Varkala | Verified Resorts & Stays - Make My Kerala`;
+const pageDescription = `${hotel.name} in ${hotel.locality}, Varkala. ${hotel.tagline}. Verified accommodations, custom Kerala holiday packages with MakeMyKerala.`;
+
+const hotelSchema = {
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": hotel.name,
+  "description": hotel.tagline,
+  "image": `https://makemykerala.vercel.app${hotel.heroImage}`,
+  "telephone": hotel.phone,
+  "email": hotel.email,
+  "url": `https://makemykerala.vercel.app/hotels/varkala/${hotel.slug}/`,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": hotel.address,
+    "addressLocality": "Varkala",
+    "addressRegion": "Kerala",
+    "addressCountry": "IN"
+  },
+  "priceRange": hotel.startingPrice,
+  "starRating": {
+    "@type": "Rating",
+    "ratingValue": hotel.starRating
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": hotel.userRating,
+    "reviewCount": hotel.reviewsCount,
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  image={hotel.heroImage}
+  schema={hotelSchema}
+>
+  <Header />
+
+  <main class="hotel-detail-page">
+    <!-- 1. CINEMATIC HERO & INTRO -->
+    <HotelHero hotel={hotel} />
+
+    <!-- 2. QUICK FACTS RIBBON -->
+    <HotelQuickFacts quickFacts={hotel.quickFacts} />
+
+    <!-- 3. EDITORIAL ABOUT & MAKEMYKERALA PERKS -->
+    <HotelAbout hotel={hotel} />
+
+    <!-- 4. ROOMS & SUITES -->
+    <HotelRooms hotelName={hotel.name} rooms={hotel.rooms} />
+
+    <!-- 5. FACILITIES & AMENITIES -->
+    <HotelFacilities hotelName={hotel.name} facilities={hotel.facilities} />
+
+    <!-- 6. DINING & RESTAURANTS -->
+    <HotelDining hotelName={hotel.name} dining={hotel.dining} />
+
+    <!-- 7. WHY CHOOSE THIS HOTEL -->
+    <HotelSpecialties hotelName={hotel.name} specialties={hotel.specialties} />
+
+    <!-- 8. PHOTO GALLERY WITH LIGHTBOX -->
+    <HotelGallery hotelName={hotel.name} gallery={hotel.gallery} />
+
+    <!-- 9. NEIGHBORHOOD & CONNECTIVITY -->
+    <HotelLocation
+      hotelName={hotel.name}
+      locality={hotel.locality}
+      address={hotel.address}
+      locationHighlights={hotel.locationHighlights}
+      mapQuery={hotel.mapQuery}
+      destinationName="Varkala"
+    />
+
+    <!-- 10. ENQUIRY & CALL TO ACTION -->
+    <HotelCTA hotel={hotel} />
+
+    <!-- 11. RELATED ALTERNATIVES -->
+    <RelatedHotels
+      currentSlug={hotel.slug}
+      relatedHotels={relatedHotels}
+      destinationName="Varkala"
+      destinationSlug="varkala"
+      totalCount={10}
+    />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hotel-detail-page {
+    background-color: var(--color-sand, #f7f3ea);
+    min-height: 100vh;
+  }
+</style>

@@ -15,8 +15,14 @@ const {
   relatedHotels,
   destinationName = "Kochi",
   destinationSlug = "kochi",
-  totalCount = 10
+  totalCount = 10,
+  state = "kerala",
+  viewAllUrl
 } = Astro.props;
+
+const targetViewAllUrl = viewAllUrl || (state === "tamil-nadu"
+  ? `/hotels/tamil-nadu/${destinationSlug}/`
+  : `/hotels/${destinationSlug}/`);
 ---
 
 <section class="section related-hotels-section reveal" id="related-hotels" aria-label={`More Hotels in ${destinationName}`}>
@@ -32,14 +38,14 @@ const {
         </h2>
       </div>
 
-      <a href={`/hotels/${destinationSlug}/`} class="view-all-link">
+      <a href={targetViewAllUrl} class="view-all-link">
         <span>View All {totalCount} {destinationName} Hotels</span>
         <span class="arrow-glyph" aria-hidden="true">→</span>
       </a>
     </div>
 
     <div class="related-grid">
-      {relatedHotels.map((hotel) => (
+      {(relatedHotels || []).map((hotel) => (
         <HotelCard hotel={hotel} />
       ))}
     </div>
@@ -75,7 +81,7 @@ const {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.88rem;
     font-weight: 700;
     color: var(--color-forest, #0d2e23);

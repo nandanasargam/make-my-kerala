@@ -1260,6 +1260,22 @@ import { munnarHotels } from "./munnarHotels.js";
 import { thekkadyHotels } from "./thekkadyHotels.js";
 import { alleppeyHotels } from "./alleppeyHotels.js";
 import { trivandrumHotels } from "./trivandrumHotels.js";
+import { kumarakomHotels } from "./kumarakomHotels.js";
+import { kovalamHotels } from "./kovalamHotels.js";
+import { poovarHotels } from "./poovarHotels.js";
+import { vagamonHotels } from "./vagamonHotels.js";
+import { guruvayurHotels } from "./guruvayurHotels.js";
+import { cochinAirportHotels } from "./cochinAirportHotels.js";
+import { varkalaHotels } from "./varkalaHotels.js";
+import { kannurHotels } from "./kannurHotels.js";
+import { kozhikodeHotels } from "./kozhikodeHotels.js";
+import { wayanadHotels } from "./wayanadHotels.js";
+import { cheraiHotels } from "./cheraiHotels.js";
+import { athirapallyHotels } from "./athirapallyHotels.js";
+import { maduraiHotels } from "./maduraiHotels.js";
+import { kanyakumariHotels } from "./kanyakumariHotels.js";
+import { rameshwaramHotels } from "./rameshwaramHotels.js";
+import { allTamilNaduHotels } from "./tamilNaduHotels.js";
 
 export const kochiHotels = hotels.map((h) => ({
   destination: "kochi",
@@ -1267,14 +1283,47 @@ export const kochiHotels = hotels.map((h) => ({
   ...h
 }));
 
-export { munnarHotels, thekkadyHotels, alleppeyHotels, trivandrumHotels };
+export {
+  munnarHotels,
+  thekkadyHotels,
+  alleppeyHotels,
+  trivandrumHotels,
+  kumarakomHotels,
+  kovalamHotels,
+  poovarHotels,
+  vagamonHotels,
+  guruvayurHotels,
+  cochinAirportHotels,
+  varkalaHotels,
+  kannurHotels,
+  kozhikodeHotels,
+  wayanadHotels,
+  cheraiHotels,
+  athirapallyHotels,
+  maduraiHotels,
+  kanyakumariHotels,
+  rameshwaramHotels,
+  allTamilNaduHotels
+};
 
 export const allHotels = [
   ...kochiHotels,
   ...munnarHotels,
   ...thekkadyHotels,
   ...alleppeyHotels,
-  ...trivandrumHotels
+  ...trivandrumHotels,
+  ...kumarakomHotels,
+  ...kovalamHotels,
+  ...poovarHotels,
+  ...vagamonHotels,
+  ...guruvayurHotels,
+  ...cochinAirportHotels,
+  ...varkalaHotels,
+  ...kannurHotels,
+  ...kozhikodeHotels,
+  ...wayanadHotels,
+  ...cheraiHotels,
+  ...athirapallyHotels
 ];
 
 export function getAllHotels() {
@@ -1301,21 +1350,84 @@ export function getTrivandrumHotels() {
   return trivandrumHotels;
 }
 
+export function getKumarakomHotels() {
+  return kumarakomHotels;
+}
+
+export function getKovalamHotels() {
+  return kovalamHotels;
+}
+
+export function getPoovarHotels() {
+  return poovarHotels;
+}
+
+export function getVagamonHotels() {
+  return vagamonHotels;
+}
+
+export function getGuruvayurHotels() {
+  return guruvayurHotels;
+}
+
+export function getCochinAirportHotels() {
+  return cochinAirportHotels;
+}
+
+export function getVarkalaHotels() {
+  return varkalaHotels;
+}
+
+export function getKannurHotels() {
+  return kannurHotels;
+}
+
+export function getKozhikodeHotels() {
+  return kozhikodeHotels;
+}
+
+export function getWayanadHotels() {
+  return wayanadHotels;
+}
+
+export function getCheraiHotels() {
+  return cheraiHotels;
+}
+
+export function getAthirapallyHotels() {
+  return athirapallyHotels;
+}
+
+const destinationListMap = {
+  kochi: kochiHotels,
+  munnar: munnarHotels,
+  thekkady: thekkadyHotels,
+  alleppey: alleppeyHotels,
+  trivandrum: trivandrumHotels,
+  kumarakom: kumarakomHotels,
+  kovalam: kovalamHotels,
+  poovar: poovarHotels,
+  vagamon: vagamonHotels,
+  guruvayur: guruvayurHotels,
+  "cochin-airport": cochinAirportHotels,
+  varkala: varkalaHotels,
+  kannur: kannurHotels,
+  kozhikode: kozhikodeHotels,
+  wayanad: wayanadHotels,
+  cherai: cheraiHotels,
+  athirapally: athirapallyHotels,
+  madurai: maduraiHotels,
+  kanyakumari: kanyakumariHotels,
+  rameshwaram: rameshwaramHotels
+};
+
 export function getHotelBySlug(slug, destination = "kochi") {
-  let list = kochiHotels;
-  if (destination === "munnar") list = munnarHotels;
-  else if (destination === "thekkady") list = thekkadyHotels;
-  else if (destination === "alleppey") list = alleppeyHotels;
-  else if (destination === "trivandrum") list = trivandrumHotels;
+  const list = destinationListMap[destination] || kochiHotels;
   return list.find((hotel) => hotel.slug === slug) || allHotels.find((hotel) => hotel.slug === slug);
 }
 
 export function getRelatedHotels(currentSlug, limit = 3, destination = "kochi") {
-  let list = kochiHotels;
-  if (destination === "munnar") list = munnarHotels;
-  else if (destination === "thekkady") list = thekkadyHotels;
-  else if (destination === "alleppey") list = alleppeyHotels;
-  else if (destination === "trivandrum") list = trivandrumHotels;
+  const list = destinationListMap[destination] || kochiHotels;
   return list
     .filter((hotel) => hotel.slug !== currentSlug)
     .slice(0, limit);

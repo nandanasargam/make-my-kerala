@@ -23,7 +23,22 @@ const extensionDestinations: Record<string, string> = {
   munnar: "Kochi, Thekkady & Alleppey",
   thekkady: "Munnar, Alleppey & Kochi",
   alleppey: "Kochi, Munnar & Trivandrum",
-  trivandrum: "Kovalam, Varkala & Alleppey"
+  trivandrum: "Kovalam, Varkala & Alleppey",
+  kumarakom: "Alleppey, Kochi & Munnar",
+  kovalam: "Poovar, Trivandrum & Varkala",
+  poovar: "Kovalam, Kanyakumari & Trivandrum",
+  vagamon: "Thekkady, Munnar & Kumarakom",
+  guruvayur: "Thrissur, Athirapally & Kochi",
+  "cochin-airport": "Kochi, Athirapally & Munnar",
+  varkala: "Kovalam, Poovar & Alleppey",
+  kannur: "Bekal, Wayanad & Kozhikode",
+  kozhikode: "Wayanad, Kannur & Bekal",
+  wayanad: "Kozhikode, Kannur & Ooty",
+  cherai: "Kochi, Athirapally & Alleppey",
+  athirapally: "Kochi, Valparai & Munnar",
+  madurai: "Rameshwaram, Kanyakumari & Chettinad",
+  kanyakumari: "Rameshwaram, Madurai & Kovalam",
+  rameshwaram: "Madurai, Kanyakumari & Dhanushkodi"
 };
 const extensionText = extensionDestinations[destination.toLowerCase()] || "Munnar, Alleppey & Kochi";
 
@@ -184,7 +199,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
     background-color: rgba(200, 139, 59, 0.2);
     border: 1px solid var(--color-gold, #c88b3b);
     color: #f7d59b;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -203,7 +218,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
   }
 
   .mmk-title {
-    font-family: var(--font-display, "Fraunces", serif);
+    font-family: var(--font-display, "Poppins", sans-serif);
     font-size: clamp(1.8rem, 2.8vw, 2.4rem);
     color: #ffffff;
     line-height: 1.2;
@@ -314,7 +329,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
   }
 
   .direct-tag {
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -325,7 +340,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
   }
 
   .direct-title {
-    font-family: var(--font-display, "Fraunces", serif);
+    font-family: var(--font-display, "Poppins", sans-serif);
     font-size: 1.6rem;
     color: var(--color-forest, #0d2e23);
     margin: 0 0 12px;
@@ -352,7 +367,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
   }
 
   .contact-label {
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;

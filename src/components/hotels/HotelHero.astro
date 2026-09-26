@@ -24,7 +24,9 @@ interface Props {
 const { hotel } = Astro.props;
 const destination = hotel.destination || "kochi";
 const destinationName = hotel.destinationName || (destination === "munnar" ? "Munnar" : "Kochi");
-const directoryUrl = `/hotels/${destination}/`;
+const directoryUrl = (hotel as any).directoryUrl || (hotel as any).state === "tamil-nadu"
+  ? `/hotels/tamil-nadu/${destination}/`
+  : `/hotels/${destination}/`;
 const backText = `Back to ${destinationName} Hotels`;
 ---
 
@@ -168,7 +170,7 @@ const backText = `Back to ${destinationName} Hotels`;
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -242,7 +244,7 @@ const backText = `Back to ${destinationName} Hotels`;
   .hotel-category-pill {
     background-color: var(--color-forest, #0d2e23);
     color: #ffffff;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -254,7 +256,7 @@ const backText = `Back to ${destinationName} Hotels`;
   .hotel-locality-pill {
     background-color: var(--color-ivory, #f7f3ea);
     color: var(--color-forest, #0d2e23);
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.72rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -276,7 +278,7 @@ const backText = `Back to ${destinationName} Hotels`;
   .verified-badge {
     background-color: #e8f5e9;
     color: #1b5e20;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.72rem;
     font-weight: 700;
     padding: 4px 10px;
@@ -293,7 +295,7 @@ const backText = `Back to ${destinationName} Hotels`;
   }
 
   .hotel-hero-title {
-    font-family: var(--font-display, "Fraunces", serif);
+    font-family: var(--font-display, "Poppins", sans-serif);
     font-size: clamp(2rem, 3.8vw, 3.2rem);
     line-height: 1.15;
     font-weight: 700;
@@ -371,7 +373,7 @@ const backText = `Back to ${destinationName} Hotels`;
 
   .pricing-header {
     font-size: 0.72rem;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--color-forest, #0d2e23);
@@ -393,7 +395,7 @@ const backText = `Back to ${destinationName} Hotels`;
   }
 
   .price-figure .amount {
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 1.9rem;
     font-weight: 800;
     color: var(--color-forest, #0d2e23);
@@ -481,7 +483,10 @@ const backText = `Back to ${destinationName} Hotels`;
     aspect-ratio: 21 / 10;
     max-height: 520px;
     box-shadow: var(--shadow-md);
-    background-color: var(--color-sand-warm, #e5dac6);
+    background: linear-gradient(145deg, #0e241c 0%, #17382d 50%, #0a1b15 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (max-width: 640px) {
@@ -493,7 +498,7 @@ const backText = `Back to ${destinationName} Hotels`;
   .hotel-hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
   }
 
@@ -511,7 +516,7 @@ const backText = `Back to ${destinationName} Hotels`;
     background-color: rgba(6, 25, 19, 0.85);
     backdrop-filter: blur(8px);
     color: #ffffff;
-    font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+    font-family: var(--font-eyebrow, "Poppins", sans-serif);
     font-size: 0.74rem;
     font-weight: 500;
     padding: 6px 14px;

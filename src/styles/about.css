@@ -116,7 +116,7 @@ body {
 .about-hero-content h1 {
   margin: 0;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(58px, 7vw, 92px);
   font-weight: 600;
   line-height: 0.92;
@@ -260,7 +260,7 @@ body {
 }
 
 .hero-floating-card strong {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 42px;
   line-height: 0.8;
   color: #dca45b;
@@ -329,7 +329,7 @@ body {
 .about-section-heading h2 {
   margin: 0;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(46px, 5vw, 70px);
   font-weight: 600;
   line-height: 0.98;
@@ -395,7 +395,7 @@ body {
 
 .intro-number > span {
   color: #bd8736;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 50px;
   line-height: 1;
 }
@@ -431,7 +431,7 @@ body {
 
 .intro-text .large-text {
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 29px;
   line-height: 1.35;
 }
@@ -516,7 +516,7 @@ body {
 
 .year-number span {
   color: #dca45b;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 170px;
   font-weight: 600;
   line-height: 0.75;
@@ -559,7 +559,7 @@ body {
 .twenty-five-content h2 {
   margin: 0;
   color: #ffffff;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(48px, 5vw, 70px);
   font-weight: 600;
   line-height: 0.98;
@@ -597,7 +597,7 @@ body {
   display: block;
   margin-bottom: 8px;
   color: #ffffff;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
 }
 
@@ -653,7 +653,7 @@ body {
   top: 22px;
   right: 25px;
   color: #c9bda8;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
 }
 
@@ -681,7 +681,7 @@ body {
 .service-card h3 {
   margin: 0 0 13px;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 29px;
   font-weight: 600;
 }
@@ -723,7 +723,7 @@ body {
 .destination-heading h2 {
   margin: 0;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(50px, 5vw, 72px);
   font-weight: 600;
   line-height: 0.95;
@@ -777,7 +777,7 @@ body {
 
 .destination-item strong {
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
 }
@@ -812,7 +812,7 @@ body {
 .travel-experience-content h2 {
   margin: 0;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(50px, 5vw, 74px);
   font-weight: 600;
   line-height: 0.95;
@@ -851,7 +851,7 @@ body {
 .journey-step h3 {
   margin: 0 0 5px;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
 }
@@ -909,7 +909,7 @@ body {
   z-index: 2;
   margin: 30px 0;
   color: #ffffff;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 39px;
   font-style: italic;
   line-height: 1.15;
@@ -954,7 +954,7 @@ body {
 .founders-intro h2 {
   margin: 0 0 25px;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(50px, 5vw, 70px);
   font-weight: 600;
   line-height: 0.95;
@@ -1029,7 +1029,7 @@ body {
 .founder-names h3 {
   margin: 5px 0;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 43px;
   font-weight: 600;
 }
@@ -1037,7 +1037,7 @@ body {
 .founder-names > span {
   display: block;
   color: #bd8736;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 27px;
   font-style: italic;
 }
@@ -1077,7 +1077,7 @@ body {
 .value-item h3 {
   margin: 45px 0 13px;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 28px;
   font-weight: 600;
   line-height: 1.05;
@@ -1120,7 +1120,7 @@ body {
 .mission-section h2 {
   margin: 0;
   color: #ffffff;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(52px, 6vw, 80px);
   font-weight: 600;
   line-height: 0.95;
@@ -1162,7 +1162,7 @@ body {
 .mission-section strong {
   display: block;
   color: #ffffff;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 28px;
   font-weight: 600;
 }
@@ -1225,7 +1225,7 @@ body {
 .cta-content h2 {
   margin: 0;
   color: #12382a;
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Poppins", sans-serif;
   font-size: clamp(45px, 5vw, 68px);
   font-weight: 600;
   line-height: 0.95;

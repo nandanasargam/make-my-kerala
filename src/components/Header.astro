@@ -27,31 +27,161 @@ import "../styles/header.css";
       <a href="/packages">Packages</a>
       <a href="/destinations">Destinations</a>
       <div class="nav-dropdown-wrap">
-        <a href="/hotels/kochi" class="nav-dropdown-trigger">
+        <a href="/hotels/kochi" class="nav-dropdown-trigger" id="hotels-nav-trigger">
           <span>Hotels</span>
           <span class="dropdown-chevron" aria-hidden="true">▾</span>
         </a>
-        <div class="nav-dropdown-menu">
-          <a href="/hotels/kochi/">
-            <strong>Kochi Hotels</strong>
-            <span>10 Curated Stays</span>
-          </a>
-          <a href="/hotels/munnar/">
-            <strong>Munnar Hotels</strong>
-            <span>15 Curated Stays</span>
-          </a>
-          <a href="/hotels/thekkady/">
-            <strong>Thekkady Hotels</strong>
-            <span>15 Curated Stays</span>
-          </a>
-          <a href="/hotels/alleppey/">
-            <strong>Alleppey Hotels</strong>
-            <span>15 Curated Stays</span>
-          </a>
-          <a href="/hotels/trivandrum/">
-            <strong>Trivandrum Hotels</strong>
-            <span>20 Curated Stays</span>
-          </a>
+        <div class="nav-dropdown-menu mega-hotels-menu" id="hotels-dropdown-menu">
+          <!-- LEFT: STATE SELECTOR -->
+          <div class="nav-states-nav" role="tablist" aria-label="Select State">
+            <button
+              type="button"
+              class="state-nav-btn is-active"
+              id="tab-kerala"
+              data-state="kerala"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-kerala"
+            >
+              <div class="state-btn-content">
+                <span class="state-btn-name">Kerala</span>
+                <span class="state-btn-count">17 Destinations</span>
+              </div>
+              <span class="state-btn-arrow" aria-hidden="true">›</span>
+            </button>
+
+            <button
+              type="button"
+              class="state-nav-btn"
+              id="tab-tamilnadu"
+              data-state="tamilnadu"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-tamilnadu"
+            >
+              <div class="state-btn-content">
+                <span class="state-btn-name">Tamil Nadu</span>
+                <span class="state-btn-count">3 Destinations</span>
+              </div>
+              <span class="state-btn-arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
+
+          <!-- RIGHT: DESTINATIONS CONTENT PANELS -->
+          <div class="nav-destinations-panels">
+            <!-- KERALA PANEL -->
+            <div
+              class="nav-dest-panel is-active"
+              id="panel-kerala"
+              role="tabpanel"
+              aria-labelledby="tab-kerala"
+            >
+              <div class="panel-header">
+                <span class="panel-title">Kerala Destinations</span>
+                <span class="panel-subtitle">17 Curated Directories</span>
+              </div>
+              <div class="dest-grid dest-grid-kerala">
+                <a href="/hotels/kochi/">
+                  <strong>Kochi Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/munnar/">
+                  <strong>Munnar Hotels</strong>
+                  <span>15 Curated Stays</span>
+                </a>
+                <a href="/hotels/thekkady/">
+                  <strong>Thekkady Hotels</strong>
+                  <span>15 Curated Stays</span>
+                </a>
+                <a href="/hotels/alleppey/">
+                  <strong>Alleppey Hotels</strong>
+                  <span>15 Curated Stays</span>
+                </a>
+                <a href="/hotels/trivandrum/">
+                  <strong>Trivandrum Hotels</strong>
+                  <span>20 Curated Stays</span>
+                </a>
+                <a href="/hotels/kumarakom/">
+                  <strong>Kumarakom Hotels</strong>
+                  <span>6 Curated Stays</span>
+                </a>
+                <a href="/hotels/kovalam/">
+                  <strong>Kovalam Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/poovar/">
+                  <strong>Poovar Hotels</strong>
+                  <span>5 Curated Stays</span>
+                </a>
+                <a href="/hotels/vagamon/">
+                  <strong>Vagamon Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/guruvayur/">
+                  <strong>Guruvayur Hotels</strong>
+                  <span>5 Curated Stays</span>
+                </a>
+                <a href="/hotels/cochin-airport/">
+                  <strong>Cochin Airport Hotels</strong>
+                  <span>5 Curated Stays</span>
+                </a>
+                <a href="/hotels/varkala/">
+                  <strong>Varkala Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/kannur/">
+                  <strong>Kannur Hotels</strong>
+                  <span>7 Curated Stays</span>
+                </a>
+                <a href="/hotels/kozhikode/">
+                  <strong>Kozhikode Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/wayanad/">
+                  <strong>Wayanad Hotels</strong>
+                  <span>13 Curated Stays</span>
+                </a>
+                <a href="/hotels/cherai/">
+                  <strong>Cherai Hotels</strong>
+                  <span>5 Curated Stays</span>
+                </a>
+                <a href="/hotels/athirapally/">
+                  <strong>Athirapally Hotels</strong>
+                  <span>6 Curated Stays</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- TAMIL NADU PANEL -->
+            <div
+              class="nav-dest-panel"
+              id="panel-tamilnadu"
+              role="tabpanel"
+              aria-labelledby="tab-tamilnadu"
+            >
+              <div class="panel-header">
+                <span class="panel-title">Tamil Nadu Destinations</span>
+                <span class="panel-subtitle">3 Curated Directories</span>
+              </div>
+              <div class="dest-grid dest-grid-tn">
+                <a href="/hotels/tamil-nadu/madurai/">
+                  <strong>Madurai Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/tamil-nadu/kanyakumari/">
+                  <strong>Kanyakumari Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+                <a href="/hotels/tamil-nadu/rameshwaram/">
+                  <strong>Rameshwaram Hotels</strong>
+                  <span>10 Curated Stays</span>
+                </a>
+              </div>
+              <div class="panel-footer-link">
+                <a href="/hotels/tamil-nadu/">Explore All Tamil Nadu Stays →</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <a href="/experience">Experiences</a>
@@ -111,5 +241,33 @@ import "../styles/header.css";
     };
     window.addEventListener('scroll', updateHeader, { passive: true });
     updateHeader();
+
+    // Hotels Mega-Menu Tab Switcher (Hover & Click)
+    const stateBtns = document.querySelectorAll('.state-nav-btn');
+    const panels = document.querySelectorAll('.nav-dest-panel');
+
+    function activateState(state) {
+      stateBtns.forEach(btn => {
+        const isActive = btn.getAttribute('data-state') === state;
+        btn.classList.toggle('is-active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      panels.forEach(panel => {
+        const isActive = panel.id === `panel-${state}`;
+        panel.classList.toggle('is-active', isActive);
+      });
+    }
+
+    stateBtns.forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        const state = btn.getAttribute('data-state');
+        if (state) activateState(state);
+      });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const state = btn.getAttribute('data-state');
+        if (state) activateState(state);
+      });
+    });
   })();
 </script>

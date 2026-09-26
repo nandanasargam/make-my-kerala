@@ -1,0 +1,265 @@
+---
+// src/pages/hotels/tamil-nadu/index.astro
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import { tamilNaduDestinations } from "../../../data/tamilNaduHotels.js";
+import "../../../styles/global.css";
+
+const pageTitle = "Tamil Nadu Hotels & Resorts | 30 Curated Stays across Madurai, Kanyakumari & Rameshwaram - Make My Kerala";
+const pageDescription = "Explore 30 verified hotels and resorts across Tamil Nadu's top destinations: Madurai, Kanyakumari, and Rameshwaram. Curated stays with verified amenities by MakeMyKerala.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  image="/images/destinations/madurai-hero.webp"
+>
+  <Header />
+
+  <main class="tamil-nadu-overview-page">
+    <section class="overview-hero">
+      <div class="overview-hero-bg">
+        <img
+          src="/images/destinations/madurai-hero.webp"
+          alt="Tamil Nadu Heritage and Coastal Stays"
+          class="overview-hero-img"
+          width="1920"
+          height="600"
+          loading="eager"
+        />
+        <div class="overview-hero-veil"></div>
+      </div>
+
+      <div class="container overview-hero-container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <span class="current" aria-current="page">Tamil Nadu Hotels</span>
+        </nav>
+
+        <div class="section-eyebrow">
+          <span class="eyebrow-line" aria-hidden="true"></span>
+          <span>TAMIL NADU HOSPITALITY DIRECTORY</span>
+          <span class="eyebrow-line" aria-hidden="true"></span>
+        </div>
+
+        <h1 class="overview-title">
+          Curated Hotels & Resorts <br />
+          <span class="editorial-accent">across Tamil Nadu</span>
+        </h1>
+
+        <p class="overview-desc">
+          Experience timeless Dravidian architecture in Madurai, sacred three-ocean vistas in Kanyakumari, and revered island pilgrimages in Rameshwaram. 30 handpicked stays with verified excellence.
+        </p>
+      </div>
+    </section>
+
+    <section class="section destinations-grid-section">
+      <div class="container">
+        <div class="destinations-cards-grid">
+          {tamilNaduDestinations.map((dest) => (
+            <div class="dest-card">
+              <div class="dest-card-media">
+                <img
+                  src={dest.heroImage}
+                  alt={dest.name}
+                  class="dest-card-img"
+                  width="600"
+                  height="380"
+                  loading="lazy"
+                />
+                <span class="dest-card-badge">{dest.count} Curated Stays</span>
+              </div>
+              <div class="dest-card-body">
+                <h2 class="dest-card-title">{dest.name}</h2>
+                <p class="dest-card-tagline">{dest.tagline}</p>
+                <p class="dest-card-desc">{dest.description}</p>
+                <a href={`/hotels/tamil-nadu/${dest.slug}/`} class="dest-card-btn">
+                  Explore {dest.name} Hotels →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .tamil-nadu-overview-page {
+    background-color: var(--color-sand, #f7f3ea);
+    min-height: 100vh;
+  }
+  .overview-hero {
+    position: relative;
+    padding: 130px 0 64px;
+    background-color: #0c1a17;
+    color: #ffffff;
+    overflow: hidden;
+  }
+  .overview-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .overview-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+  }
+  .overview-hero-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10, 24, 20, 0.7) 0%, #0c1a17 100%);
+  }
+  .overview-hero-container {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .breadcrumb {
+    display: inline-flex;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+  }
+  .breadcrumb .current {
+    color: var(--color-gold, #c88b3b);
+    font-weight: 600;
+  }
+  .section-eyebrow {
+    color: var(--color-gold, #c88b3b);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--color-gold, #c88b3b);
+  }
+  .overview-title {
+    font-family: var(--font-heading, "Playfair Display", serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .editorial-accent {
+    color: var(--color-gold, #c88b3b);
+    font-style: italic;
+  }
+  .overview-desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .destinations-grid-section {
+    padding: 60px 0 80px;
+  }
+  .destinations-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+  .dest-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(18, 56, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .dest-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(18, 56, 42, 0.14);
+  }
+  .dest-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+  }
+  .dest-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .dest-card:hover .dest-card-img {
+    transform: scale(1.04);
+  }
+  .dest-card-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(18, 56, 42, 0.85);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    backdrop-filter: blur(6px);
+  }
+  .dest-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .dest-card-title {
+    font-family: var(--font-heading, "Playfair Display", serif);
+    font-size: 1.6rem;
+    color: var(--color-forest, #12382a);
+    margin-bottom: 6px;
+  }
+  .dest-card-tagline {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-gold, #c88b3b);
+    margin-bottom: 12px;
+  }
+  .dest-card-desc {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--color-muted, #53645b);
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  .dest-card-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-forest, #12382a);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 999px;
+    transition: background 0.25s ease;
+  }
+  .dest-card-btn:hover {
+    background: var(--color-gold, #c88b3b);
+  }
+</style>

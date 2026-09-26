@@ -60,7 +60,7 @@
 }
 
 .desktop-nav a {
-  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-family: var(--font-body, "Poppins", sans-serif);
   font-size: 0.92rem;
   font-weight: 600;
   color: var(--color-forest, #12382a);
@@ -124,7 +124,11 @@
   border-radius: 14px;
   box-shadow: 0 12px 32px rgba(18, 56, 42, 0.14);
   padding: 8px;
-  min-width: 210px;
+  min-width: 220px;
+  max-height: 480px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold, #c88b3b) #f7f3ea;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
@@ -132,6 +136,20 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+.nav-dropdown-menu::-webkit-scrollbar {
+  width: 5px;
+}
+
+.nav-dropdown-menu::-webkit-scrollbar-track {
+  background: #f7f3ea;
+  border-radius: 8px;
+}
+
+.nav-dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--color-gold, #c88b3b);
+  border-radius: 8px;
 }
 
 .nav-dropdown-wrap:hover .nav-dropdown-menu,
@@ -159,7 +177,7 @@
 }
 
 .nav-dropdown-menu a strong {
-  font-family: var(--font-body, "Plus Jakarta Sans", sans-serif);
+  font-family: var(--font-body, "Poppins", sans-serif);
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--color-forest, #12382a);
@@ -169,6 +187,200 @@
   font-size: 0.74rem;
   color: var(--color-gold, #c88b3b);
   font-weight: 600;
+}
+
+/* MEGA HOTELS MENU (DUAL STATE: KERALA & TAMIL NADU) */
+.nav-dropdown-menu.mega-hotels-menu {
+  display: flex;
+  flex-direction: row;
+  min-width: 580px;
+  max-width: 680px;
+  max-height: 520px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.nav-states-nav {
+  width: 190px;
+  background-color: var(--color-sand-light, #fbf8f2);
+  border-right: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.state-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-body, "Poppins", sans-serif);
+}
+
+.state-nav-btn:hover {
+  background-color: rgba(18, 56, 42, 0.05);
+}
+
+.state-nav-btn.is-active {
+  background-color: #ffffff;
+  border-color: var(--color-border-subtle, rgba(18, 56, 42, 0.12));
+  box-shadow: 0 4px 12px rgba(18, 56, 42, 0.06);
+}
+
+.state-btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.state-btn-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-forest, #12382a);
+}
+
+.state-btn-count {
+  font-size: 0.72rem;
+  color: var(--color-gold, #c88b3b);
+  font-weight: 600;
+}
+
+.state-btn-arrow {
+  font-size: 1.15rem;
+  color: var(--color-gold, #c88b3b);
+  font-weight: 700;
+  opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.state-nav-btn.is-active .state-btn-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.nav-destinations-panels {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 520px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold, #c88b3b) #f7f3ea;
+}
+
+.nav-destinations-panels::-webkit-scrollbar {
+  width: 5px;
+}
+
+.nav-destinations-panels::-webkit-scrollbar-thumb {
+  background: var(--color-gold, #c88b3b);
+  border-radius: 8px;
+}
+
+.nav-dest-panel {
+  display: none;
+}
+
+.nav-dest-panel.is-active {
+  display: block;
+}
+
+.panel-header {
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.panel-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--color-forest, #12382a);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.panel-subtitle {
+  font-size: 0.74rem;
+  color: var(--color-gold, #c88b3b);
+  font-weight: 600;
+}
+
+.dest-grid {
+  display: grid;
+  gap: 4px;
+}
+
+.dest-grid-kerala {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dest-grid-tn {
+  grid-template-columns: 1fr;
+}
+
+.panel-footer-link {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--color-border-subtle, rgba(18, 56, 42, 0.12));
+}
+
+.panel-footer-link a {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-gold, #c88b3b);
+  text-decoration: none;
+}
+
+.panel-footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* MOBILE ACCORDIONS */
+.mobile-state-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 6px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mobile-state-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-state-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-forest, #12382a);
+}
+
+.mobile-state-count {
+  font-size: 0.72rem;
+  color: var(--color-gold, #c88b3b);
+  font-weight: 600;
+}
+
+.mobile-accordion-toggle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-forest, #12382a);
+  line-height: 1;
+  padding-right: 4px;
 }
 
 /* MOBILE SUBNAV */
@@ -182,7 +394,7 @@
 .mobile-subnav-label {
   display: block;
   font-size: 0.72rem;
-  font-family: var(--font-eyebrow, "Space Grotesk", sans-serif);
+  font-family: var(--font-eyebrow, "Poppins", sans-serif);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-muted, #53645b);
@@ -358,7 +570,7 @@
 }
 
 .mobile-menu-top strong {
-  font-family: var(--font-display, Georgia, serif);
+  font-family: var(--font-display, "Poppins", sans-serif);
   font-size: 1.3rem;
   color: var(--color-forest, #12382a);
 }
@@ -395,7 +607,7 @@
 
 .mobile-drawer-badge-text strong {
   display: block;
-  font-family: var(--font-display, Georgia, serif);
+  font-family: var(--font-display, "Poppins", sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-forest, #12382a);

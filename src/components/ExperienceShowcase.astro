@@ -8,7 +8,7 @@ const featuredExperience = {
   image: "/images/allapey.webp",
   tag: "Signature Waterways",
   highlights: ["Private Overnight Kettuvallam", "Traditional Meals on Board", "Village Life Along the Canals"],
-  link: "/experience"
+  link: "/houseboats/"
 };
 
 const supportingExperiences = [
@@ -64,12 +64,13 @@ const supportingExperiences = [
       
       <!-- 1. HERO FEATURED EXPERIENCE -->
       <article class="featured-exp-card reveal">
-        <div class="featured-exp-media">
+        <a href={featuredExperience.link} class="featured-exp-media" aria-label={`Explore ${featuredExperience.title}`}>
+          <div class="featured-exp-backdrop" style={`background-image: url('${featuredExperience.image}')`} aria-hidden="true"></div>
           <img
             src={featuredExperience.image}
             alt={featuredExperience.title}
-            width="1200"
-            height="600"
+            width="860"
+            height="1280"
             loading="lazy"
             decoding="async"
             class="featured-exp-img"
@@ -79,11 +80,13 @@ const supportingExperiences = [
             <span class="badge-accent">✦ SIGNATURE EXPERIENCE</span>
             <span class="badge-tag">{featuredExperience.tag}</span>
           </div>
-        </div>
+        </a>
 
         <div class="featured-exp-body">
           <span class="exp-location">📍 {featuredExperience.location}</span>
-          <h3 class="featured-exp-title">{featuredExperience.title}</h3>
+          <h3 class="featured-exp-title">
+            <a href={featuredExperience.link} class="title-link">{featuredExperience.title}</a>
+          </h3>
           <p class="featured-exp-desc">{featuredExperience.description}</p>
 
           <!-- HIGHLIGHT CHIPS -->
@@ -169,7 +172,7 @@ const supportingExperiences = [
   =================================================== */
   .featured-exp-card {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 24px;
@@ -186,30 +189,54 @@ const supportingExperiences = [
 
   .featured-exp-media {
     position: relative;
-    aspect-ratio: 16 / 10;
-    min-height: 380px;
     overflow: hidden;
-    background-color: #0d2e22;
+    background-color: #061913;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  .featured-exp-backdrop {
+    position: absolute;
+    inset: -30px;
+    background-size: cover;
+    background-position: center 30%;
+    filter: blur(24px) brightness(0.38) saturate(1.25);
+    transform: scale(1.15);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .featured-exp-img {
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
+    max-height: 520px;
+    object-fit: contain;
+    object-position: center center;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .featured-exp-card:hover .featured-exp-img {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   .featured-exp-veil {
     position: absolute;
     inset: 0;
+    z-index: 3;
+    pointer-events: none;
     background: linear-gradient(
       180deg,
-      rgba(6, 25, 19, 0.2) 0%,
-      rgba(6, 25, 19, 0.6) 100%
+      rgba(6, 25, 19, 0.35) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(6, 25, 19, 0.45) 100%
     );
   }
 
@@ -218,6 +245,7 @@ const supportingExperiences = [
     top: 20px;
     left: 20px;
     right: 20px;
+    z-index: 4;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -428,6 +456,16 @@ const supportingExperiences = [
     justify-content: center;
   }
 
+  .title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .title-link:hover {
+    color: var(--color-gold-light, #e5a95b);
+  }
+
   /* RESPONSIVE BREAKPOINTS */
   @media (max-width: 1024px) {
     .featured-exp-card {
@@ -435,8 +473,8 @@ const supportingExperiences = [
     }
 
     .featured-exp-media {
-      aspect-ratio: 16 / 9;
-      min-height: auto;
+      height: clamp(380px, 55vw, 500px);
+      min-height: unset;
     }
 
     .supporting-exp-grid {
@@ -446,6 +484,10 @@ const supportingExperiences = [
   }
 
   @media (max-width: 640px) {
+    .featured-exp-media {
+      height: clamp(320px, 85vw, 420px);
+    }
+
     .supporting-exp-grid {
       grid-template-columns: 1fr;
       gap: 18px;
