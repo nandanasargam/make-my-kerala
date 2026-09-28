@@ -28,7 +28,7 @@ const categories = [
     <section class="dest-hero-section" aria-label="Destinations Header">
       <div class="dest-hero-bg" aria-hidden="true">
         <img
-          src="/images/destinations/munnar-600.webp"
+          src="/images/destinations/munnar.webp"
           alt="Misty tea valleys of Kerala"
           width="1920"
           height="700"
@@ -40,11 +40,6 @@ const categories = [
       </div>
 
       <div class="container dest-hero-container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="sep" aria-hidden="true">/</span>
-          <span class="current">Destinations</span>
-        </nav>
 
         <div class="section-eyebrow dest-eyebrow">
           <span class="eyebrow-line" aria-hidden="true"></span>
@@ -57,7 +52,7 @@ const categories = [
         </h1>
 
         <p class="dest-hero-desc">
-          From rolling high-altitude tea trails to labyrinthine backwater canals and golden Arabian sea cliffs — immerse yourself in the living landscapes of God’s Own Country.
+          Discover misty hills, tranquil backwaters and golden coastal shores.
         </p>
       </div>
     </section>
@@ -81,11 +76,11 @@ const categories = [
           ))}
         </div>
 
-        <!-- ASYMMETRIC EDITORIAL GRID -->
+        <!-- UNIFORM DESTINATIONS GRID -->
         <div class="dest-editorial-grid" id="destinations-grid">
           {destinations.map((d) => (
             <article
-              class={`dest-card dest-card-${d.aspect || "medium"}`}
+              class="dest-card"
               data-category={d.category}
             >
               <div class="dest-card-media">
@@ -109,7 +104,7 @@ const categories = [
 
               <!-- BODY -->
               <div class="dest-card-content">
-                <h2 class="dest-card-name">{d.name}</h2>
+                <h2 class="dest-card-name"><a href={`/destinations/${d.slug}/`} class="dest-card-title-link">{d.name}</a></h2>
                 <p class="dest-card-tagline">{d.tagline}</p>
                 <p class="dest-card-desc">{d.shortDescription}</p>
 
@@ -122,12 +117,12 @@ const categories = [
 
                 <!-- FOOTER CTA -->
                 <div class="dest-card-footer">
-                  <a href="/packages" class="dest-explore-btn">
-                    <span>View Tour Packages</span>
+                  <a href={`/destinations/${d.slug}/`} class="dest-explore-btn">
+                    <span>Discover {d.name}</span>
                     <span class="btn-arrow" aria-hidden="true">→</span>
                   </a>
-                  <a href="/contact" class="dest-custom-btn">
-                    Plan Custom Trip
+                  <a href="/packages" class="dest-custom-btn">
+                    View Tour Packages
                   </a>
                 </div>
               </div>
@@ -205,12 +200,14 @@ const categories = [
   /* HERO BANNER */
   .dest-hero-section {
     position: relative;
-    min-height: clamp(420px, 50vh, 560px);
+    width: 100%;
+    min-height: clamp(380px, 42vh, 480px);
     display: flex;
     align-items: center;
     color: #ffffff;
     overflow: hidden;
     background-color: var(--color-forest-deep, #082017);
+    padding-block: clamp(65px, 8vw, 90px);
   }
 
   .dest-hero-bg {
@@ -224,8 +221,9 @@ const categories = [
   .dest-hero-image {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    object-position: center;
+    object-position: center 40%;
   }
 
   .dest-hero-veil {
@@ -233,47 +231,28 @@ const categories = [
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(8, 32, 23, 0.6) 0%,
-      rgba(8, 32, 23, 0.85) 100%
+      rgba(8, 32, 23, 0.62) 0%,
+      rgba(8, 32, 23, 0.82) 100%
     );
   }
 
   .dest-hero-container {
     position: relative;
     z-index: 2;
-    padding-block: clamp(60px, 8vw, 100px);
-  }
-
-  .breadcrumb {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .breadcrumb a {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .breadcrumb a:hover {
-    color: var(--color-gold-light, #e5a95b);
-  }
-
-  .breadcrumb .sep {
-    opacity: 0.5;
-  }
-
-  .breadcrumb .current {
-    color: var(--color-gold-light, #e5a95b);
+    max-width: 640px;
+    padding-block: 0;
   }
 
   .dest-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     color: var(--color-gold-light, #e5a95b);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
   }
 
   .dest-eyebrow .eyebrow-line {
@@ -281,20 +260,21 @@ const categories = [
   }
 
   .dest-hero-title {
-    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
     font-weight: 700;
     color: #ffffff;
-    line-height: 1.1;
-    margin-bottom: 20px;
+    line-height: 1.15;
+    margin-bottom: 14px;
     letter-spacing: -0.015em;
     text-wrap: balance;
   }
 
   .dest-hero-desc {
-    font-size: clamp(1.05rem, 1.3vw, 1.2rem);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 65ch;
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 52ch;
     text-wrap: pretty;
   }
 
@@ -335,15 +315,12 @@ const categories = [
     border-color: var(--color-forest, #12382a);
   }
 
-  /* ASYMMETRIC GRID */
+  /* UNIFORM DESTINATIONS GRID */
   .dest-editorial-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-
-  .dest-card-wide {
-    grid-column: span 2;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: stretch;
   }
 
   .dest-card {
@@ -354,6 +331,7 @@ const categories = [
     box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
     display: flex;
     flex-direction: column;
+    height: 100%;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
   }
 
@@ -362,29 +340,22 @@ const categories = [
     box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
   }
 
-  .dest-card-wide {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-  }
-
   /* MEDIA */
   .dest-card-media {
     position: relative;
+    width: 100%;
     aspect-ratio: 16 / 10;
     overflow: hidden;
     background-color: #e5dfd5;
-  }
-
-  .dest-card-wide .dest-card-media {
-    aspect-ratio: auto;
-    height: 100%;
-    min-height: 340px;
+    flex-shrink: 0;
   }
 
   .dest-card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
     transition: transform 0.6s ease;
   }
 
@@ -400,27 +371,32 @@ const categories = [
       rgba(0, 0, 0, 0) 50%,
       rgba(8, 32, 23, 0.6) 100%
     );
+    pointer-events: none;
   }
 
   .dest-card-badges {
     position: absolute;
     top: 14px;
     left: 14px;
+    right: 14px;
     display: flex;
-    gap: 8px;
+    flex-wrap: wrap;
+    gap: 6px;
+    z-index: 2;
   }
 
   .dest-category-pill,
   .dest-region-pill {
-    padding: 4px 12px;
+    padding: 4px 10px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     background: rgba(8, 32, 23, 0.85);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     color: #ffffff;
+    white-space: nowrap;
   }
 
   .dest-region-pill {
@@ -430,45 +406,56 @@ const categories = [
 
   /* CONTENT */
   .dest-card-content {
-    padding: 28px 26px 24px;
+    padding: 24px 22px 20px;
     display: flex;
     flex-direction: column;
     flex: 1;
   }
 
   .dest-card-name {
-    font-size: 1.8rem;
+    font-size: 1.55rem;
     font-weight: 700;
     color: var(--color-forest, #12382a);
     margin-bottom: 6px;
-    line-height: 1.2;
+    line-height: 1.25;
+  }
+
+  .dest-card-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .dest-card-title-link:hover {
+    color: var(--color-gold, #c88b3b);
   }
 
   .dest-card-tagline {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--color-gold, #c88b3b);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    line-height: 1.4;
   }
 
   .dest-card-desc {
-    font-size: 0.92rem;
-    line-height: 1.65;
+    font-size: 0.88rem;
+    line-height: 1.6;
     color: var(--color-text-muted, #5a6b63);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     flex: 1;
   }
 
   .dest-highlights-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 22px;
+    gap: 6px;
+    margin-bottom: 20px;
   }
 
   .dest-highlight-chip {
-    font-size: 0.78rem;
-    padding: 4px 10px;
+    font-size: 0.75rem;
+    padding: 4px 9px;
     border-radius: 16px;
     background-color: var(--color-sand-light, #fbf8f2);
     border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.1));
@@ -481,8 +468,11 @@ const categories = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 14px;
-    padding-top: 18px;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 14px;
+    padding-top: 16px;
+    margin-top: auto;
     border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
   }
 
@@ -490,7 +480,7 @@ const categories = [
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     font-weight: 700;
     color: var(--color-forest, #12382a);
     text-decoration: none;
@@ -506,7 +496,7 @@ const categories = [
   }
 
   .dest-custom-btn {
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 600;
     color: var(--color-gold, #c88b3b);
     text-decoration: underline;
@@ -543,37 +533,48 @@ const categories = [
   }
 
   /* RESPONSIVE */
-  @media (max-width: 960px) {
+  @media (max-width: 1024px) {
     .dest-editorial-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
-    }
-
-    .dest-card-wide {
-      grid-column: span 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .dest-card-wide .dest-card-media {
-      aspect-ratio: 16 / 10;
-      min-height: auto;
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
+    .dest-hero-section {
+      min-height: 350px;
+      padding-block: 55px;
+    }
+
+    .dest-hero-title {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+    }
+
+    .dest-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
     .dest-card-content {
       padding: 20px 18px 18px;
     }
 
     .dest-card-name {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     .dest-card-footer {
       flex-direction: column;
       align-items: flex-start;
-      gap: 8px;
+      gap: 10px;
+    }
+
+    .dest-explore-btn {
+      width: 100%;
+    }
+
+    .dest-custom-btn {
+      display: inline-block;
     }
 
     .dest-cta-actions {

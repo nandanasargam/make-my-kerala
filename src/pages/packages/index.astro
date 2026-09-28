@@ -45,11 +45,6 @@ const packagesSchema = {
       </div>
 
       <div class="container packages-hero-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="sep" aria-hidden="true">/</span>
-          <span class="current">Tour Packages</span>
-        </nav>
 
         <div class="section-eyebrow hero-eyebrow">
           <span class="eyebrow-line" aria-hidden="true"></span>
@@ -62,7 +57,7 @@ const packagesSchema = {
         </h1>
 
         <p class="packages-hero-desc">
-          From the mist-shrouded tea valleys of Munnar to the tranquil labyrinthine backwaters of Alleppey and sun-kissed shores of Kovalam — explore our handpicked journeys designed with 25 years of local mastery.
+          Thoughtfully crafted journeys across Kerala, shaped by 25 years of local expertise.
         </p>
       </div>
     </section>
@@ -96,7 +91,7 @@ const packagesSchema = {
                   src={pkg.image}
                   alt={pkg.title}
                   width="600"
-                  height="380"
+                  height="338"
                   loading="lazy"
                   decoding="async"
                   class="pkg-img"
@@ -198,25 +193,29 @@ const packagesSchema = {
   =================================================== */
   .packages-hero {
     position: relative;
-    min-height: 480px;
+    width: 100%;
+    min-height: clamp(380px, 42vh, 480px);
     display: flex;
     align-items: center;
-    padding-top: 100px;
-    padding-bottom: 70px;
+    justify-content: center;
+    padding-block: clamp(65px, 8vw, 90px);
     overflow: hidden;
   }
 
   .packages-hero-bg {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1;
   }
 
   .packages-hero-img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    object-position: center 35%;
+    object-position: center 65%;
   }
 
   .packages-hero-veil {
@@ -224,8 +223,8 @@ const packagesSchema = {
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(8, 32, 23, 0.72) 0%,
-      rgba(8, 32, 23, 0.88) 100%
+      rgba(8, 32, 23, 0.65) 0%,
+      rgba(8, 32, 23, 0.82) 100%
     );
   }
 
@@ -233,41 +232,21 @@ const packagesSchema = {
     position: relative;
     z-index: 2;
     text-align: center;
-    max-width: 860px;
+    max-width: 640px;
     margin-inline: auto;
   }
 
-  .breadcrumb {
+  .hero-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 18px;
-  }
-
-  .breadcrumb a {
-    color: rgba(255, 255, 255, 0.8);
-    transition: color 0.2s ease;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--color-gold, #c88b3b);
-  }
-
-  .breadcrumb .sep {
-    opacity: 0.5;
-  }
-
-  .breadcrumb .current {
-    color: var(--color-gold-light, #e5a95b);
-  }
-
-  .hero-eyebrow {
+    gap: 12px;
     color: var(--color-gold-light, #e5a95b) !important;
-    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     margin-bottom: 14px;
+    justify-content: center;
   }
 
   .hero-eyebrow .eyebrow-line {
@@ -275,21 +254,21 @@ const packagesSchema = {
   }
 
   .packages-hero-title {
-    font-family: var(--font-serif, Georgia, serif);
-    font-size: clamp(2.4rem, 4.8vw, 4rem);
+    font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
     font-weight: 700;
     color: #ffffff;
     line-height: 1.15;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     text-wrap: balance;
   }
 
   .packages-hero-desc {
-    font-size: clamp(0.98rem, 1.25vw, 1.12rem);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
     margin: 0 auto;
-    max-width: 65ch;
+    max-width: 52ch;
     text-wrap: pretty;
   }
 
@@ -305,12 +284,14 @@ const packagesSchema = {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 32px;
+    align-items: stretch;
     margin-bottom: 60px;
   }
 
   .pkg-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
     background-color: #ffffff;
     border-radius: 20px;
     overflow: hidden;
@@ -326,17 +307,21 @@ const packagesSchema = {
 
   .pkg-media-wrap {
     position: relative;
-    aspect-ratio: 16 / 10;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     display: block;
     background-color: #e8e2d8;
+    flex-shrink: 0;
   }
 
   .pkg-img {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    object-position: center 72%;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .pkg-card:hover .pkg-img {
@@ -348,24 +333,27 @@ const packagesSchema = {
     inset: 0;
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.15) 0%,
-      rgba(8, 32, 23, 0.55) 100%
+      rgba(0, 0, 0, 0) 50%,
+      rgba(8, 32, 23, 0.32) 100%
     );
+    pointer-events: none;
   }
 
   .pkg-duration-pill {
     position: absolute;
     bottom: 14px;
     left: 14px;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(8, 32, 23, 0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: rgba(8, 32, 23, 0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: #ffffff;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.03em;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
 
   .pkg-content {
@@ -384,6 +372,7 @@ const packagesSchema = {
 
   .route-pin {
     font-size: 0.84rem;
+    flex-shrink: 0;
   }
 
   .route-names {
@@ -400,6 +389,12 @@ const packagesSchema = {
     margin-bottom: 10px;
   }
 
+  .pkg-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
   .pkg-title a:hover {
     color: var(--color-gold, #c88b3b);
   }
@@ -409,6 +404,7 @@ const packagesSchema = {
     line-height: 1.6;
     color: var(--color-text-muted, #5a6b63);
     margin-bottom: 18px;
+    flex: 1;
   }
 
   /* HIGHLIGHTS LIST */
@@ -452,7 +448,9 @@ const packagesSchema = {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: 12px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    column-gap: 16px;
     margin-top: auto;
     padding-top: 18px;
     border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
@@ -461,6 +459,7 @@ const packagesSchema = {
   .pkg-price-col {
     display: flex;
     flex-direction: column;
+    min-width: fit-content;
   }
 
   .price-label {
@@ -482,6 +481,11 @@ const packagesSchema = {
   .price-note {
     font-size: 0.72rem;
     color: var(--color-text-subtle, #7a8c83);
+  }
+
+  .pkg-footer .btn {
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* ===================================================
@@ -589,8 +593,7 @@ const packagesSchema = {
   =================================================== */
   @media (max-width: 1024px) {
     .packages-directory-grid {
-      grid-template-columns: 1fr;
-      gap: 28px;
+      gap: 24px;
     }
 
     .custom-plan-banner {
@@ -604,19 +607,25 @@ const packagesSchema = {
     }
   }
 
+  @media (max-width: 720px) {
+    .packages-directory-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
   @media (max-width: 640px) {
     .packages-hero {
-      min-height: 400px;
-      padding-top: 80px;
-      padding-bottom: 50px;
+      min-height: 350px;
+      padding-block: 55px;
     }
 
     .pkg-content {
-      padding: 20px 18px 18px;
+      padding: 22px 20px 20px;
     }
 
     .pkg-title {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
     }
 
     .custom-actions {
@@ -624,6 +633,27 @@ const packagesSchema = {
     }
 
     .custom-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .pkg-content {
+      padding: 18px 16px 16px;
+    }
+
+    .pkg-title {
+      font-size: 1.25rem;
+    }
+
+    .pkg-footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+    }
+
+    .pkg-footer .btn {
       width: 100%;
       justify-content: center;
     }

@@ -315,7 +315,7 @@ export const kanyakumariHotels = [
     "gallery": [
       {
         "src": "/images/hotels/tamil-nadu/kanyakumari/seaface/exterior.webp",
-        "alt": "Hotel Seaface exterior view in Kanyakumari",
+        "alt": "Hotel Sea Face Kanyakumari",
         "caption": "Coastal hotel facade situated facing the sea"
       },
       {
@@ -1180,7 +1180,7 @@ export const kanyakumariHotels = [
     "gallery": [
       {
         "src": "/images/hotels/tamil-nadu/kanyakumari/sreedevi/exterior.webp",
-        "alt": "Hotel Sreedevi Kanyakumari exterior",
+        "alt": "Hotel Sri Devi Kanyakumari",
         "caption": "Hotel Sreedevi building on South Car Street"
       },
       {

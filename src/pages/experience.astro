@@ -261,19 +261,24 @@ const schemaData = {
 
   <main class="experiences-page">
     <!-- HERO -->
-    <section class="exp-hero">
-      <div class="exp-hero-bg" aria-hidden="true"></div>
+    <section class="exp-hero" aria-label="Experience Kerala Hero">
+      <div class="exp-hero-bg" aria-hidden="true">
+        <img
+          src="/images/why-choose-kerala.webp"
+          alt="Signature Kerala travel experiences"
+          width="1920"
+          height="700"
+          class="exp-hero-img"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="exp-hero-veil"></div>
+      </div>
       <div class="container exp-hero-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="sep">/</span>
-          <span class="current">Experiences</span>
-        </nav>
         <span class="hero-tag">GOD'S OWN COUNTRY</span>
         <h1>10 Signature Kerala Travel Experiences</h1>
         <p class="hero-lead">
-          From tranquil backwater houseboats and misty mountain tea gardens to authentic Ayurvedic rejuvenation
-          and rich cultural heritage. Discover the unforgettable journeys waiting for you in Kerala.
+          Discover Kerala through backwaters, mountains, culture, wellness and more.
         </p>
         <div class="hero-stats">
           <div class="stat-pill"><strong>25+</strong> Years of Expertise</div>
@@ -398,99 +403,105 @@ const schemaData = {
   /* HERO */
   .exp-hero {
     position: relative;
-    padding: 75px 0 65px;
-    background: linear-gradient(135deg, #092e22 0%, #12382a 100%);
+    width: 100%;
+    min-height: clamp(380px, 42vh, 480px);
+    display: flex;
+    align-items: center;
+    padding-block: clamp(65px, 8vw, 90px);
     color: #ffffff;
     overflow: hidden;
+    background-color: var(--color-forest-deep, #082017);
   }
 
   .exp-hero-bg {
     position: absolute;
     inset: 0;
-    opacity: 0.12;
-    background-image: radial-gradient(circle at 85% 20%, #c98b36 0%, transparent 55%);
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .exp-hero-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .exp-hero-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 32, 23, 0.68) 0%,
+      rgba(8, 32, 23, 0.85) 100%
+    );
   }
 
   .exp-hero-inner {
     position: relative;
     z-index: 2;
-    max-width: 860px;
-  }
-
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 16px;
-  }
-
-  .breadcrumb a {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .breadcrumb a:hover {
-    color: #f1c47b;
-  }
-
-  .breadcrumb .sep {
-    opacity: 0.4;
-  }
-
-  .breadcrumb .current {
-    color: #f1c47b;
-    font-weight: 600;
+    max-width: 660px;
   }
 
   .hero-tag {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 2.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
     font-weight: 700;
     color: #f1c47b;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
   }
 
   .exp-hero h1 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(34px, 4.8vw, 56px);
+    font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
     line-height: 1.15;
-    margin: 0 0 16px;
+    margin: 0 0 14px;
     color: #ffffff;
     font-weight: 700;
+    text-wrap: balance;
   }
 
   .hero-lead {
-    font-size: 16px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.88);
-    margin: 0 0 26px;
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 22px;
+    max-width: 52ch;
+    text-wrap: pretty;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
   }
 
   .hero-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
   }
 
   .stat-pill {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 7px 14px;
-    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 14px;
+    background: rgba(0, 0, 0, 0.32);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    font-size: 13px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
     color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   }
 
   .stat-pill strong {
-    color: #f1c47b;
+    color: #fbd38d;
+    font-weight: 700;
   }
 
   /* CATEGORIES TRACK */
@@ -593,30 +604,62 @@ const schemaData = {
     transform: scale(1.04);
   }
 
+  /* SUBTLE READABILITY OVERLAY FOR BADGES OVER IMAGES */
+  .exp-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(6, 25, 19, 0.48) 0%,
+      rgba(6, 25, 19, 0.05) 30%,
+      rgba(6, 25, 19, 0.08) 60%,
+      rgba(6, 25, 19, 0.72) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+
   .exp-category-badge {
     position: absolute;
     top: 18px;
     left: 18px;
-    padding: 6px 14px;
-    background: rgba(18, 56, 42, 0.92);
-    color: #f1c47b;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    z-index: 2;
+    padding: 7px 15px;
+    background: rgba(8, 32, 23, 0.9);
+    color: #fbd38d;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
     border-radius: 20px;
-    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
   }
 
   .exp-location-badge {
     position: absolute;
     bottom: 18px;
     left: 18px;
-    padding: 5px 12px;
-    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    padding: 6px 14px;
+    background: rgba(6, 25, 19, 0.88);
     color: #ffffff;
-    font-size: 11px;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 12px;
     font-weight: 600;
-    border-radius: 14px;
+    letter-spacing: 0.02em;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 
   /* CONTENT */
@@ -628,35 +671,41 @@ const schemaData = {
   }
 
   .exp-content h2 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(26px, 2.8vw, 34px);
-    color: #12382a;
-    line-height: 1.2;
+    font-family: var(--font-display, "Poppins", sans-serif);
+    font-size: clamp(23px, 2.3vw, 29px);
+    font-weight: 700;
+    color: #0b261c;
+    line-height: 1.28;
+    letter-spacing: -0.015em;
     margin: 0 0 14px;
   }
 
   .exp-desc {
-    font-size: 14px;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 14.5px;
+    font-weight: 450;
     line-height: 1.7;
-    color: #556b60;
+    color: #24352c;
     margin: 0 0 20px;
   }
 
   /* HIGHLIGHTS */
   .exp-highlights-box {
-    background: #f7fbf8;
+    background: #f4f8f5;
     border-radius: 12px;
     padding: 16px 20px;
     margin-bottom: 22px;
-    border-left: 3px solid #12382a;
+    border: 1px solid rgba(18, 56, 42, 0.08);
+    border-left: 4px solid #12382a;
   }
 
   .exp-highlights-box h4 {
     margin: 0 0 10px;
-    font-size: 12px;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 11.5px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #12382a;
+    color: #0d281e;
     font-weight: 700;
   }
 
@@ -673,13 +722,15 @@ const schemaData = {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 12px;
-    color: #3e5348;
-    line-height: 1.4;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #1b2f24;
+    line-height: 1.45;
   }
 
   .bullet-check {
-    color: #c98b36;
+    color: #b57622;
     font-weight: 800;
     font-size: 13px;
     flex-shrink: 0;
@@ -687,8 +738,8 @@ const schemaData = {
 
   /* SAMPLE STORY CARD */
   .traveller-story-card {
-    background: #fdfbf7;
-    border: 1px dashed rgba(201, 139, 54, 0.4);
+    background: #fdfaf3;
+    border: 1px dashed rgba(185, 126, 42, 0.45);
     border-radius: 10px;
     padding: 14px 18px;
     margin-bottom: 24px;
@@ -700,29 +751,34 @@ const schemaData = {
 
   .story-badge {
     display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 10.5px;
+    font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    color: #8c5d1a;
-    background: #faeed9;
+    color: #7a4a0e;
+    background: #faecd5;
     padding: 3px 8px;
     border-radius: 12px;
+    border: 1px solid rgba(185, 126, 42, 0.2);
   }
 
   .story-quote {
     margin: 0 0 6px;
+    font-family: var(--font-body, "Poppins", sans-serif);
     font-style: italic;
     font-size: 13px;
-    line-height: 1.55;
-    color: #444b47;
+    font-weight: 450;
+    line-height: 1.6;
+    color: #1c2b22;
   }
 
   .story-author {
     display: block;
-    font-size: 11px;
-    font-weight: 700;
-    color: #12382a;
+    font-family: var(--font-body, "Poppins", sans-serif);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #0b261c;
     font-style: normal;
   }
 
@@ -742,30 +798,36 @@ const schemaData = {
     background: #12382a;
     color: #ffffff;
     border-radius: 30px;
+    font-family: var(--font-body, "Poppins", sans-serif);
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.02em;
     text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px rgba(18, 56, 42, 0.18);
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .btn-primary-exp:hover {
-    background: #c98b36;
+    background: #c88b3b;
     transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(200, 139, 59, 0.3);
   }
 
   .btn-secondary-exp {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #12382a;
+    color: #0d2e23;
+    font-family: var(--font-body, "Poppins", sans-serif);
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     text-decoration: none;
     transition: color 0.2s ease, transform 0.2s ease;
   }
 
   .btn-secondary-exp:hover {
-    color: #c98b36;
+    color: #c88b3b;
     transform: translateX(3px);
   }
 
@@ -904,7 +966,12 @@ const schemaData = {
 
   @media (max-width: 600px) {
     .exp-hero {
-      padding: 50px 0 42px;
+      min-height: 350px;
+      padding-block: 55px;
+    }
+
+    .exp-hero h1 {
+      font-size: clamp(2rem, 7vw, 2.5rem);
     }
 
     .exp-highlights-box ul {

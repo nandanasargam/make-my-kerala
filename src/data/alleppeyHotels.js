@@ -1353,7 +1353,7 @@ export const alleppeyHotels = [
     "gallery": [
       {
         "src": "/images/hotels/alleppey/venice-iva-residency/exterior.webp",
-        "alt": "Venice Iva Residency contemporary building in Thathampally",
+        "alt": "Venice Iva Residency Alleppey",
         "caption": "Peaceful contemporary building nestled in green residential lane"
       },
       {
@@ -2185,7 +2185,7 @@ export const alleppeyHotels = [
     "gallery": [
       {
         "src": "/images/hotels/alleppey/hotel-bonanza/exterior.webp",
-        "alt": "Hotel Bonanza Alappuzha building facade on Beach Road",
+        "alt": "Hotel Bonanza Alleppey",
         "caption": "Multistory facade near Beach Road and Iron Bridge"
       },
       {

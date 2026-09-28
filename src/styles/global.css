@@ -466,3 +466,11 @@ p {
     transform: none !important;
   }
 }
+
+/* 12. GLOBAL HERO BREADCRUMB REMOVAL */
+/* Completely removes visual breadcrumbs from all hero sections across the site */
+.breadcrumb,
+.hotel-breadcrumb,
+nav[aria-label="Breadcrumb"] {
+  display: none !important;
+}

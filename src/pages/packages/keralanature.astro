@@ -128,6 +128,8 @@ const tripSchema = {
 
     <section class="hero">
 
+      <div class="hero-backdrop" style={`background-image: url('${heroImage}')`} aria-hidden="true"></div>
+
       <img
         src={heroImage}
         alt={packageTitle}
@@ -793,51 +795,48 @@ const tripSchema = {
 
   .hero {
     position: relative;
-
+    width: 100%;
     min-height: 620px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
     text-align: center;
-
     color: white;
+    background-color: #061913;
   }
 
+  .hero-backdrop {
+    display: none;
+  }
 
   .hero-image {
     position: absolute;
-
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
+    object-position: center 70%;
+    display: block;
+    z-index: 1;
   }
-
 
   .hero-overlay {
     position: absolute;
-
     inset: 0;
-
-    background:
-      linear-gradient(
-        to bottom,
-        rgba(8, 48, 37, 0.18),
-        rgba(8, 38, 30, 0.88)
-      );
+    z-index: 2;
+    background: linear-gradient(
+      to bottom,
+      rgba(8, 48, 37, 0.4) 0%,
+      rgba(8, 38, 30, 0.65) 50%,
+      rgba(8, 38, 30, 0.88) 100%
+    );
   }
 
 
   .hero-content {
     position: relative;
-
-    z-index: 2;
+    z-index: 3;
 
     width: min(950px, 90%);
 
@@ -1672,6 +1671,10 @@ const tripSchema = {
       min-height: 600px;
     }
 
+    .hero-image {
+      object-position: center 65%;
+    }
+
 
     .hero-content {
       padding: 60px 15px;
@@ -1778,6 +1781,10 @@ const tripSchema = {
 
     .hero {
       min-height: 560px;
+    }
+
+    .hero-image {
+      object-position: center 55%;
     }
 
 

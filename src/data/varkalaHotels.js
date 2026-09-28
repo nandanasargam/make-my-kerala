@@ -342,7 +342,7 @@ export const varkalaHotels = [
     "gallery": [
       {
         "src": "/images/hotels/varkala/nikhil-residence/exterior.webp",
-        "alt": "Nikhil Residence exterior",
+        "alt": "Nikhil Residence Varkala",
         "caption": "Neat modern residence set along the beach approach road"
       },
       {

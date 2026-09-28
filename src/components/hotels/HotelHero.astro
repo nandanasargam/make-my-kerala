@@ -32,15 +32,7 @@ const backText = `Back to ${destinationName} Hotels`;
 
 <header class="hotel-hero" aria-label={`${hotel.name} Overview`}>
   <div class="container">
-    <!-- BREADCRUMB & BACK LINK -->
     <div class="hotel-nav-top">
-      <nav class="hotel-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a>
-        <span class="sep" aria-hidden="true">/</span>
-        <a href={directoryUrl}>{destinationName} Hotels</a>
-        <span class="sep" aria-hidden="true">/</span>
-        <span class="current" aria-current="page">{hotel.name}</span>
-      </nav>
 
       <a href={directoryUrl} class="back-to-hotels-link">
         <span class="back-arrow" aria-hidden="true">←</span>

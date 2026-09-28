@@ -496,7 +496,7 @@ export const cochinAirportHotels = [
   {
     "id": "gems9-airport-hotel",
     "slug": "gems9-airport-hotel",
-    "name": "Gems9 Airport Hotel",
+    "name": "Base9 Airport Hotel",
     "tagline": "Crisp boutique transit stay offering spotless rooms and warm hospitality minutes from CIAL",
     "category": "3-Star Boutique Hotel",
     "starRating": 3,
@@ -516,16 +516,16 @@ export const cochinAirportHotels = [
     "gallery": [
       {
         "src": "/images/hotels/cochin-airport/gems9-airport-hotel/exterior.webp",
-        "alt": "Gems9 Airport Hotel exterior",
+        "alt": "Base9 Airport Hotel Cochin exterior",
         "caption": "Boutique hotel building along Airport Road"
       },
       {
         "src": "/images/hotels/cochin-airport/gems9-airport-hotel/exterior-detail.webp",
-        "alt": "Gems9 Airport Hotel lobby",
+        "alt": "Base9 Airport Hotel Cochin lobby",
         "caption": "Modern check-in lobby and travel desk"
       }
     ],
-    "overview": "Positioned along Airport Road in Vappalassery, Gems9 Airport Hotel is a dependable boutique transit hotel. Providing immaculate air-conditioned rooms, warm personalized service, 24-hour check-in support, and fast transfers to the airport, it is a preferred stopover for frequent fliers.",
+    "overview": "Positioned along Airport Road in Vappalassery, Base9 Airport Hotel is a dependable boutique transit hotel. Providing immaculate air-conditioned rooms, warm personalized service, 24-hour check-in support, and fast transfers to the airport, it is a preferred stopover for frequent fliers.",
     "quickFacts": [
       {
         "label": "Hotel Class",
@@ -637,7 +637,7 @@ export const cochinAirportHotels = [
       "Govt ID required for all adult guests",
       "Airport transfers bookable at front desk"
     ],
-    "mapQuery": "Gems9 Airport Hotel, Nedumbassery, Kochi, Kerala",
+    "mapQuery": "Base9 Airport Hotel, Nedumbassery, Kochi, Kerala",
     "highlights": [
       "Clean & Crisp",
       "Affordable",

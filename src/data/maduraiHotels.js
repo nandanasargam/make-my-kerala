@@ -621,7 +621,7 @@ export const maduraiHotels = [
     "gallery": [
       {
         "src": "/images/hotels/tamil-nadu/madurai/gopuram-grand/exterior.webp",
-        "alt": "Gopuram Grand hotel exterior facade",
+        "alt": "Gopuram Grand Madurai",
         "caption": "Contemporary hotel building near Madurai Junction"
       },
       {
@@ -766,7 +766,7 @@ export const maduraiHotels = [
     "gallery": [
       {
         "src": "/images/hotels/tamil-nadu/madurai/vishwa-grand/exterior.webp",
-        "alt": "Hotel Vishwa Grand Madurai exterior",
+        "alt": "Hotel Vishwa Grand Madurai",
         "caption": "Hotel Vishwa Grand facade near railway station"
       },
       {

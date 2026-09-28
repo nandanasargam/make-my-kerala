@@ -14,19 +14,24 @@ import "../styles/global.css";
 
   <main class="contact-page">
     <!-- HERO BANNER -->
-    <section class="contact-hero">
-      <div class="hero-bg" aria-hidden="true"></div>
+    <section class="contact-hero" aria-label="Contact Make My Kerala">
+      <div class="hero-bg" aria-hidden="true">
+        <img
+          src="/images/kerala2.webp"
+          alt="Lush green landscapes of Kerala"
+          width="1920"
+          height="700"
+          class="contact-hero-img"
+          loading="eager"
+          decoding="async"
+        />
+        <div class="hero-veil"></div>
+      </div>
       <div class="container hero-inner">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a>
-          <span class="sep">/</span>
-          <span class="current">Contact Us</span>
-        </nav>
         <span class="hero-eyebrow">CONNECT WITH US</span>
         <h1>Let's Plan Your Dream Kerala Journey</h1>
         <p class="hero-desc">
-          Speak with our local travel specialists based in Kochi. With 25 years of experience,
-          we craft tailor-made holidays that match your pace, style, and budget.
+          Talk to our local travel specialists and start planning your Kerala journey.
         </p>
       </div>
     </section>
@@ -184,77 +189,77 @@ import "../styles/global.css";
   /* HERO BANNER */
   .contact-hero {
     position: relative;
-    padding: 70px 0 60px;
-    background: linear-gradient(135deg, #092e22 0%, #12382a 100%);
+    width: 100%;
+    min-height: clamp(360px, 40vh, 460px);
+    display: flex;
+    align-items: center;
+    padding-block: clamp(65px, 8vw, 90px);
     color: #ffffff;
     overflow: hidden;
+    background-color: var(--color-forest-deep, #082017);
   }
 
   .contact-hero .hero-bg {
     position: absolute;
     inset: 0;
-    opacity: 0.12;
-    background-image: radial-gradient(circle at 20% 50%, #c98b36 0%, transparent 60%);
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .contact-hero-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .contact-hero .hero-veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(8, 32, 23, 0.7) 0%,
+      rgba(8, 32, 23, 0.86) 100%
+    );
   }
 
   .hero-inner {
     position: relative;
     z-index: 2;
-    max-width: 840px;
-  }
-
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 18px;
-  }
-
-  .breadcrumb a {
-    color: rgba(255, 255, 255, 0.85);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .breadcrumb a:hover {
-    color: #f1c47b;
-  }
-
-  .breadcrumb .sep {
-    opacity: 0.4;
-  }
-
-  .breadcrumb .current {
-    color: #f1c47b;
-    font-weight: 600;
+    max-width: 640px;
   }
 
   .hero-eyebrow {
-    display: inline-block;
-    font-size: 11px;
-    letter-spacing: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
     font-weight: 700;
     color: #f1c47b;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
   }
 
   .contact-hero h1 {
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(34px, 4.5vw, 54px);
+    font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
     line-height: 1.15;
-    margin: 0 0 16px;
+    margin: 0 0 14px;
     color: #ffffff;
     font-weight: 700;
+    text-wrap: balance;
   }
 
   .hero-desc {
-    font-size: 16px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(1rem, 1.25vw, 1.12rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.88);
     margin: 0;
+    max-width: 50ch;
+    text-wrap: pretty;
   }
 
   /* MAIN CONTENT GRID */
@@ -517,7 +522,12 @@ import "../styles/global.css";
 
   @media (max-width: 600px) {
     .contact-hero {
-      padding: 50px 0 45px;
+      min-height: 350px;
+      padding-block: 55px;
+    }
+
+    .contact-hero h1 {
+      font-size: clamp(2rem, 7vw, 2.5rem);
     }
 
     .info-card,

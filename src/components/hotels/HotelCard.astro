@@ -23,9 +23,11 @@ interface Props {
 const { hotel } = Astro.props;
 const destination = hotel.destination || "kochi";
 const destinationName = hotel.destinationName || (destination === "munnar" ? "Munnar" : "Kochi");
-const detailUrl = (hotel as any).detailUrl || (hotel as any).state === "tamil-nadu"
-  ? `/hotels/tamil-nadu/${destination}/${hotel.slug}/`
-  : `/hotels/${destination}/${hotel.slug}/`;
+const detailUrl = (hotel as any).detailUrl
+  ? (hotel as any).detailUrl
+  : (hotel as any).state === "tamil-nadu"
+    ? `/hotels/tamil-nadu/${destination}/${hotel.slug}/`
+    : `/hotels/${destination}/${hotel.slug}/`;
 ---
 
 <article class="hotel-card" id={`hotel-${hotel.slug}`}>
@@ -106,7 +108,7 @@ const detailUrl = (hotel as any).detailUrl || (hotel as any).state === "tamil-na
       </div>
 
       <a href={detailUrl} class="hotel-view-btn">
-        <span>Explore Hotel</span>
+        <span>{(hotel as any).btnText || "View Details"}</span>
         <span class="btn-arrow" aria-hidden="true">→</span>
       </a>
     </div>

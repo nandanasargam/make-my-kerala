@@ -25,7 +25,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/sfs-homebridge-highway/exterior.webp",
-        "alt": "SFS Homebridge Highway modern serviced suites building",
+        "alt": "SFS Homebridge Highway Trivandrum",
         "caption": "Contemporary glass-fronted executive suites on NH Bypass"
       },
       {
@@ -191,7 +191,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/sfs-homebridge-vellayambalam/exterior.webp",
-        "alt": "SFS Homebridge Vellayambalam elegant exterior facade",
+        "alt": "SFS Homebridge Vellayambalam Trivandrum",
         "caption": "Refined serviced residence in upscale Vellayambalam"
       },
       {
@@ -354,7 +354,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/kkm-international/exterior.webp",
-        "alt": "KKM International hotel exterior Thampanoor",
+        "alt": "KKM International Trivandrum",
         "caption": "Prominent city hotel facade steps from Trivandrum Central"
       },
       {
@@ -841,7 +841,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/maurya-rajadhani/exterior.webp",
-        "alt": "Maurya Rajadhani luxury facade Statue Junction",
+        "alt": "Maurya Rajadhani Trivandrum",
         "caption": "Grand 4-star facade at Statue Junction in downtown Trivandrum"
       },
       {
@@ -1011,7 +1011,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/windsor-rajadhani/exterior.webp",
-        "alt": "Windsor Rajadhani majestic hotel tower Kowdiar",
+        "alt": "Windsor Rajadhani Trivandrum",
         "caption": "Regal multistorey tower in Trivandrum's royal Kowdiar precinct"
       },
       {
@@ -1853,7 +1853,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/central-residency/exterior.webp",
-        "alt": "Central Residency hotel facade Thampanoor",
+        "alt": "Central Residency Trivandrum",
         "caption": "Contemporary multistorey hotel in the heart of Aristo Junction"
       },
       {
@@ -2177,7 +2177,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/hotel-horizon/exterior.webp",
-        "alt": "Hotel Horizon exterior Aristo Junction",
+        "alt": "Hotel Horizon Trivandrum",
         "caption": "Historic 3-star hospitality landmark at Aristo Junction"
       },
       {
@@ -2988,7 +2988,7 @@ export const trivandrumHotels = [
     "gallery": [
       {
         "src": "/images/hotels/trivandrum/residency-tower/exterior.webp",
-        "alt": "Residency Tower Trivandrum landmark business hotel facade",
+        "alt": "Residency Tower Trivandrum",
         "caption": "Landmark 4-star business hotel in downtown Trivandrum"
       },
       {
