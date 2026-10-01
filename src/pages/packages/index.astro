@@ -22,7 +22,7 @@ const packagesSchema = {
 
 <Layout
   title="Kerala Tour Packages | Curated South India Holidays - Make My Kerala"
-  description="Explore our curated Kerala tour packages covering Munnar, Thekkady, Alappuzha, Kumarakom and Kovalam. Transparent pricing, verified stays, and 25 years of travel excellence."
+  description="Explore our curated Kerala tour packages covering Munnar, Thekkady, Alappuzha, Kumarakom and Kovalam. Verified stays, seamless transfers, and 25 years of travel excellence."
   schema={packagesSchema}
 >
   <Header />
@@ -127,12 +127,6 @@ const packagesSchema = {
 
                 <!-- FOOTER -->
                 <div class="pkg-footer">
-                  <div class="pkg-price-col">
-                    <span class="price-label">Starting from</span>
-                    <strong class="price-amount">₹{pkg.price.toLocaleString("en-IN")}</strong>
-                    <span class="price-note">per person</span>
-                  </div>
-
                   <a href={pkg.itineraryLink} class="btn btn-primary btn-sm">
                     View Itinerary
                     <span class="btn-arrow" aria-hidden="true">→</span>
@@ -446,11 +440,8 @@ const packagesSchema = {
   /* FOOTER */
   .pkg-footer {
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    row-gap: 12px;
-    column-gap: 16px;
+    align-items: center;
+    justify-content: flex-end;
     margin-top: auto;
     padding-top: 18px;
     border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));

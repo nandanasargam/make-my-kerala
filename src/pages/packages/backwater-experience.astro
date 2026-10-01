@@ -12,7 +12,7 @@ const heroImage = "/images/kerala-backwater-experience.webp";
 
 const whatsappNumber = "919876543210";
 const whatsappText = encodeURIComponent(
-  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}) starting at ₹${price.toLocaleString("en-IN")}/person.`
+  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}).`
 );
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
@@ -114,13 +114,6 @@ const tripSchema = {
   "name": packageTitle,
   "description": "4 Days & 3 Nights signature tour covering Kochi heritage, Kumarakom lakeside resort, and an overnight Alleppey backwater houseboat cruise.",
   "touristType": ["Couples", "Family", "Solo"],
-  "offers": {
-    "@type": "Offer",
-    "price": price,
-    "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
-    "url": "https://make-my-kerala.vercel.app/packages/backwater-experience/"
-  },
   "provider": {
     "@type": "TravelAgency",
     "name": "Make My Kerala",
@@ -172,13 +165,6 @@ const tripSchema = {
           <div>
             <strong>{places}</strong>
             <span>Destinations</span>
-          </div>
-
-          <div class="hero-divider"></div>
-
-          <div>
-            <strong>₹{price.toLocaleString("en-IN")}</strong>
-            <span>Per Person</span>
           </div>
         </div>
       </div>
@@ -365,12 +351,6 @@ const tripSchema = {
               Custom dates, premium houseboat upgrades, and private transfers available.
               Speak directly with our local travel team.
             </p>
-          </div>
-
-          <div class="booking-price">
-            <small>Starting From</small>
-            <strong>₹{price.toLocaleString("en-IN")}</strong>
-            <span>Per Person</span>
           </div>
 
           <div class="booking-actions">

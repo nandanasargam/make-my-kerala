@@ -2803,165 +2803,182 @@ export const trivandrumHotels = [
     "imageReviewRequired": false
   },
   {
-    "id": "the-ridges-hotel",
-    "slug": "the-ridges-hotel",
-    "name": "The Ridges Hotel",
-    "tagline": "Exclusive boutique luxury nestled along the stylish Kuravankonam-Kowdiar ridge",
-    "category": "4-Star Boutique Hotel",
-    "starRating": 4,
-    "userRating": 4.5,
-    "reviewsCount": 680,
-    "startingPrice": "₹4,800",
-    "priceLabel": "Starting from ₹4,800 / night",
-    "locality": "Kuravankonam / Kowdiar",
-    "address": "Kuravankonam Road, Kowdiar, Thiruvananthapuram, Kerala 695003",
-    "phone": "+91 471 243 9999",
-    "email": "stay@theridgeshotel.com",
-    "website": "https://theridgeshotel.com",
+    "id": "hotel-pallava-rajadhani",
+    "slug": "hotel-pallava-rajadhani",
+    "name": "Hotel Pallava Rajadhani",
+    "tagline": "Comfortable business & transit hotel by Rajadhani Group along the NH Bypass",
+    "category": "3-Star Business & Transit Hotel",
+    "starRating": 3,
+    "userRating": 4.1,
+    "reviewsCount": 540,
+    "startingPrice": "₹2,500",
+    "priceLabel": "Starting from ₹2,500 / night",
+    "locality": "Eenchakkal / NH Bypass, Trivandrum",
+    "address": "NH-66 Bypass Road, Near Eenchakkal Junction, Thiruvananthapuram, Kerala 695024",
+    "phone": "+91 471 250 4040",
+    "email": "pallava@rajadhanihotels.com",
+    "website": "https://rajadhanihotels.com",
     "destination": "trivandrum",
     "destinationName": "Trivandrum",
-    "heroImage": "/images/hotels/trivandrum/the-ridges-hotel/exterior.webp",
-    "heroImageSm": "/images/hotels/trivandrum/the-ridges-hotel/exterior-sm.webp",
+    "heroImage": "/images/hotels/trivandrum/hotel-pallava-rajadhani/exterior.webp",
+    "heroImageSm": "/images/hotels/trivandrum/hotel-pallava-rajadhani/exterior-sm.webp",
     "gallery": [
       {
-        "src": "/images/hotels/trivandrum/the-ridges-hotel/exterior.webp",
-        "alt": "The Ridges Hotel boutique facade Kuravankonam",
-        "caption": "Sophisticated boutique architecture in upscale Kuravankonam"
+        "src": "/images/hotels/trivandrum/hotel-pallava-rajadhani/exterior.webp",
+        "alt": "Hotel Pallava Rajadhani exterior building facade",
+        "caption": "Contemporary facade and entrance on the NH Bypass"
       },
       {
-        "src": "/images/hotels/trivandrum/the-ridges-hotel/exterior-detail.webp",
-        "alt": "The Ridges Hotel luxury suite",
-        "caption": "Plush designer suites with floor-to-ceiling windows"
+        "src": "/images/hotels/trivandrum/hotel-pallava-rajadhani/exterior-sm.webp",
+        "alt": "Hotel Pallava Rajadhani architecture detail",
+        "caption": "Conveniently located transit and business property"
       }
     ],
-    "overview": "Perched along the trendy Kuravankonam-Kowdiar ridge—Trivandrum's premier dining, boutique shopping, and café district—The Ridges Hotel delivers an exclusive 4-star boutique sanctuary. Blending sleek glass architecture, plush contemporary interiors, gourmet culinary outlets, and personalized concierge care, it is a top pick for discerning luxury travelers.",
+    "overview": "Hotel Pallava Rajadhani, a prominent property of the esteemed Rajadhani Group of Hotels, is situated along the bustling NH-66 Bypass near Eenchakkal in Thiruvananthapuram. Catering ideally to business executives, city transit travelers, and holidaymakers, the hotel offers comfortable air-conditioned rooms, a multi-cuisine restaurant serving authentic Kerala specialties, conference facilities, and prompt service with easy access to Trivandrum International Airport, West Fort, and Central Railway Station.",
     "quickFacts": [
       {
         "label": "Hotel Class",
-        "value": "4-Star Boutique Luxury"
+        "value": "3-Star Business Hotel"
       },
       {
         "label": "Total Keys",
-        "value": "32 Designer Rooms"
+        "value": "40 Well-Appointed Rooms"
       },
       {
         "label": "Check-in / Check-out",
-        "value": "2:00 PM / 12:00 PM"
-      },
-      {
-        "label": "Kowdiar Palace",
-        "value": "1.2 km (3 mins drive)"
-      },
-      {
-        "label": "Napier Museum",
-        "value": "3.2 km (8 mins drive)"
+        "value": "12:00 PM / 11:00 AM"
       },
       {
         "label": "Trivandrum Airport",
-        "value": "8.5 km (20 mins drive)"
+        "value": "2.5 km (7 mins drive)"
+      },
+      {
+        "label": "Trivandrum Central",
+        "value": "3.5 km (10 mins drive)"
+      },
+      {
+        "label": "Padmanabhaswamy Temple",
+        "value": "2.2 km (6 mins drive)"
       }
     ],
     "rooms": [
       {
-        "type": "Ridge Deluxe Room",
-        "size": "30 sq.m",
+        "type": "Standard AC Room",
+        "size": "22 sq.m",
         "occupancy": "2 Adults",
-        "view": "Kuravankonam Ridge View",
+        "view": "City View",
+        "bedding": "Queen Bed or Twin Beds",
+        "amenities": [
+          "Air Conditioning",
+          "LED Television",
+          "Complimentary Wi-Fi",
+          "Ensuite Bathroom with 24-hr Hot Water",
+          "Room Service",
+          "Work Desk"
+        ],
+        "description": "Clean, well-appointed air-conditioned room featuring comfortable bedding, functional work desk, and modern ensuite bathroom."
+      },
+      {
+        "type": "Executive Deluxe Room",
+        "size": "28 sq.m",
+        "occupancy": "2-3 Adults",
+        "view": "City & Bypass View",
         "bedding": "King Bed",
         "amenities": [
           "Air Conditioning",
-          "50-inch Smart TV",
-          "Minibar",
-          "Bathtub & Rain Shower",
-          "Electronic Safe",
-          "Free High-Speed Wi-Fi"
+          "Flat-screen TV",
+          "High-speed Wi-Fi",
+          "Electric Kettle / Tea Maker",
+          "Seating Area",
+          "Attached Rain Shower"
         ],
-        "startingPrice": "₹4,800"
-      },
-      {
-        "type": "Ridge Grand Suite",
-        "size": "54 sq.m",
-        "occupancy": "2 Adults + 1 Child",
-        "view": "Panoramic Hill & Skyline View",
-        "bedding": "King Bed + Separate Lounge",
-        "amenities": [
-          "Designer Lounge",
-          "Luxury Marble Bath",
-          "Nespresso Machine",
-          "Two Smart TVs",
-          "Robes & Slippers"
-        ],
-        "startingPrice": "₹8,200"
+        "description": "Spacious executive room offering upgraded amenities, comfortable seating area, and seamless connectivity for business and leisure."
       }
     ],
     "facilities": [
-      "Gourmet Restaurant",
-      "Rooftop Terrace",
-      "Fitness Centre",
-      "Boardroom",
-      "24-Hour Concierge",
-      "Valet Parking",
-      "High-Speed Wi-Fi",
-      "Airport Transfers"
+      {
+        "name": "Multi-Cuisine Restaurant",
+        "description": "In-house dining serving traditional Kerala sadhya, coastal seafood, South Indian, and North Indian delicacies.",
+        "icon": "dining"
+      },
+      {
+        "name": "Conference & Banquet Hall",
+        "description": "Well-equipped meeting spaces suitable for business gatherings, seminars, and social events.",
+        "icon": "events"
+      },
+      {
+        "name": "24-Hour Front Desk",
+        "description": "Round-the-clock reception offering express check-in, concierge assistance, and luggage storage.",
+        "icon": "concierge"
+      },
+      {
+        "name": "Free High-Speed Wi-Fi",
+        "description": "Complimentary wireless internet connectivity throughout guest rooms and public areas.",
+        "icon": "wifi"
+      },
+      {
+        "name": "Travel & Transit Assistance",
+        "description": "Airport transfers, local taxi bookings, and Kerala sightseeing guidance.",
+        "icon": "transport"
+      },
+      {
+        "name": "Ample On-Site Parking",
+        "description": "Secure parking spaces for cars and tour coaches.",
+        "icon": "parking"
+      }
     ],
     "dining": [
       {
-        "name": "The Ridge Grill",
-        "type": "Gourmet Dining & Grill",
-        "cuisine": "Continental, Mediterranean & Kerala Artisanal",
-        "hours": "7:00 AM – 11:00 PM",
-        "description": "Sophisticated culinary destination celebrated for wood-fired pizzas, gourmet steaks, fresh catch fish pollichathu, and artisan coffees."
+        "name": "Pallava Restaurant",
+        "type": "Multi-Cuisine Dining",
+        "cuisine": "Kerala, South Indian & North Indian",
+        "timing": "7:00 AM – 10:30 PM",
+        "description": "Family-friendly restaurant serving flavorful regional Kerala specialties, daily breakfast spreads, and a variety of Indian favorites."
       }
     ],
     "specialties": [
-      "Upscale Kuravankonam Café & Lifestyle Hub Location",
-      "Exclusive 32-Key Boutique Privacy",
-      "The Ridge Grill Acclaimed Artisanal Dining",
-      "Proximity to Kowdiar Palace & Golf Club"
+      "Part of Trusted Rajadhani Group",
+      "Near Trivandrum Airport & Eenchakkal",
+      "Multi-Cuisine Family Dining",
+      "Swift Bypass Connectivity"
     ],
-    "experiences": [
-      "Café hopping and boutique shopping along Kuravankonam strip",
-      "Evening walks around Kowdiar Palace gates and royal avenue",
-      "Tasting curated Kerala-Continental fusion dishes at The Ridge Grill",
-      "Rounds of golf at the historic Trivandrum Golf Club (1.8 km)"
-    ],
-    "locationHighlights": [
+    "nearbyAttractions": [
       {
-        "place": "Kuravankonam Lifestyle Hub",
-        "distance": "On doorstep",
-        "time": "Instant walk",
-        "note": "Top cafés, bistros, and bakeries"
+        "place": "Sree Padmanabhaswamy Temple",
+        "distance": "2.2 km",
+        "time": "6 mins drive",
+        "note": "World-famous historic temple"
       },
       {
-        "place": "Kowdiar Palace",
-        "distance": "1.2 km",
-        "time": "3 mins drive",
-        "note": "Travancore royal palace"
+        "place": "Trivandrum International Airport",
+        "distance": "2.5 km",
+        "time": "7 mins drive",
+        "note": "Quick domestic & international transit"
       },
       {
-        "place": "Trivandrum Golf Club",
-        "distance": "1.8 km",
-        "time": "5 mins drive",
-        "note": "Historic 1850s golf links"
+        "place": "Shanghumugham Beach",
+        "distance": "4.5 km",
+        "time": "12 mins drive",
+        "note": "Popular coastal sunset beach"
       }
     ],
     "policies": [
       "Government photo ID required at check-in",
-      "Check-in at 2:00 PM; check-out at 12:00 PM",
-      "Non-smoking rooms throughout property"
+      "Check-in at 12:00 PM; check-out at 11:00 AM",
+      "Children welcome with guardians"
     ],
-    "mapQuery": "The Ridges Hotel, Kuravankonam, Kowdiar, Thiruvananthapuram, Kerala",
+    "mapQuery": "Hotel Pallava Rajadhani, Eenchakkal, Thiruvananthapuram, Kerala",
     "highlights": [
-      "Kuravankonam Café Strip",
-      "Boutique 4-Star Luxury",
-      "The Ridge Grill",
-      "Kowdiar Proximity"
+      "Rajadhani Group Hospitality",
+      "Airport & Bypass Proximity",
+      "Pallava Restaurant",
+      "Conference Facilities"
     ],
     "makeMyKeralaPerks": [
-      "Exclusive MakeMyKerala boutique rates",
-      "Complimentary gourmet breakfast and high-speed Wi-Fi",
-      "24/7 dedicated MakeMyKerala on-trip concierge",
-      "Welcome beverage upon arrival"
+      "Direct MakeMyKerala partner rates",
+      "Complimentary breakfast & Wi-Fi",
+      "24/7 on-trip assistance",
+      "Assistance with airport & station transfers"
     ],
     "imageReviewRequired": false
   },

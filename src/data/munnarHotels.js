@@ -1237,118 +1237,8 @@ export const munnarHotels = [
     ]
   },
 
-  // 11. WINDERMERE ESTATE
-  {
-    id: "windermere-estate",
-    slug: "windermere-estate",
-    name: "Windermere Estate",
-    tagline: "Handcrafted boutique plantation retreat amidst cardamom & coffee groves",
-    category: "Boutique Heritage Plantation Retreat",
-    starRating: 5,
-    userRating: 4.8,
-    reviewsCount: 620,
-    startingPrice: "₹8,500",
-    priceLabel: "Starting from ₹8,500 / night",
-    locality: "Pothamedu",
-    address: "Pothamedu, Munnar, Idukki District, Kerala 685612",
-    phone: "+91 4865 230 512",
-    email: "info@windermeremunnar.com",
-    website: "https://windermeremunnar.com",
-    heroImage: "/images/hotels/windermere-estate/exterior.webp",
-    heroImageSm: "/images/hotels/windermere-estate/exterior-sm.webp",
-    destination: "munnar",
-    destinationName: "Munnar",
-    gallery: [
-      {
-        src: "/images/hotels/windermere-estate/exterior.webp",
-        alt: "Windermere Estate Munnar boutique plantation chalets",
-        caption: "Handcrafted stone and timber chalets set within a 60-acre private plantation"
-      },
-      {
-        src: "/images/hotels/windermere-estate/exterior-detail.webp",
-        alt: "Windermere Estate garden and plantation veranda",
-        caption: "Serene garden veranda overlooking cardamom and coffee plants"
-      },
-      {
-        src: "/images/destinations/munnar-600.webp",
-        alt: "Pothamedu tea slopes and valley vistas",
-        caption: "Breathtaking panoramic viewpoints over Pothamedu ridge"
-      }
-    ],
-    overview: "Set within a secluded 60-acre cardamom and coffee plantation in Pothamedu, Windermere Estate is an intimate boutique sanctuary of just 18 handcrafted chalets. Designed in the tradition of old planter homes with terracotta tiles, teakwood furniture, and high gabled roofs, the estate avoids commercialism in favor of quiet luxury. Guests dine on farm-to-table cuisine at The Barn, explore private walking trails with naturalists, and read in a cozy colonial library overlooking misty mountain peaks.",
-    quickFacts: [
-      { label: "Hotel Class", value: "Boutique Plantation Retreat" },
-      { label: "Total Keys", value: "18 Handcrafted Chalets" },
-      { label: "Check-in / Check-out", value: "01:00 PM / 11:00 AM" },
-      { label: "Estate Area", value: "60-Acre Private Plantation" },
-      { label: "Location", value: "Pothamedu (High Altitude Ridge)" },
-      { label: "Munnar Town", value: "4.5 km (12 min drive)" }
-    ],
-    rooms: [
-      {
-        name: "Garden Room",
-        description: "Ground-floor chalet room opening directly onto private manicured garden lawns with cedar wood furniture and ensuite shower.",
-        size: "350 sq.ft",
-        capacity: "2 Adults",
-        bed: "King Bed",
-        amenities: ["Private Garden Sit-Out", "Free Wi-Fi", "Tea/Coffee Maker", "Handcrafted Furniture", "Luxury Toiletries"]
-      },
-      {
-        name: "Estate Room",
-        description: "Upper-level chalet offering expansive high ceilings, large private balcony with panoramic mountain views, and wooden flooring.",
-        size: "550 sq.ft",
-        capacity: "2 Adults + 1 Child",
-        bed: "King Bed",
-        amenities: ["Private Mountain Balcony", "Double-Height Ceilings", "High-speed Wi-Fi", "Minibar", "Plush Bathrobes"]
-      }
-    ],
-    facilities: [
-      { icon: "dining", title: "The Barn Restaurant", description: "Farm-to-table estate dining room utilizing fresh vegetables from the plantation kitchen garden" },
-      { icon: "nature", title: "Plantation Nature Walks", description: "Guided daily walks through the 60-acre estate covering cardamom, coffee, pepper, and tea" },
-      { icon: "library", title: "Colonial Library & Lounge", description: "First-floor library stocked with literature, botanical books, and panoramic reading corners" },
-      { icon: "pool", title: "Estate Swimming Pool", description: "Serene garden pool nestled amidst lush green coffee and cardamom plants" },
-      { icon: "bonfire", title: "Evening Plantation Bonfires", description: "Intimate fireside gatherings with warm beverages and conversations under starry skies" }
-    ],
-    dining: [
-      {
-        name: "The Barn",
-        cuisine: "Kerala Farm-to-Table, North Indian & Continental Comfort",
-        type: "Estate Table Dining",
-        timing: "07:30 AM - 10:00 PM",
-        description: "Centered in an atmospheric barn-style timber building, meals are personalized and prepared with organic produce picked directly from the estate's vegetable patches and local markets."
-      }
-    ],
-    specialties: [
-      "Only 18 boutique keys ensuring unparalleled privacy and tranquility",
-      "Authentic 60-acre working cardamom and coffee plantation setting",
-      "Farm-to-table dining at The Barn celebrating fresh estate produce",
-      "Guided birdwatching and nature walks led by estate naturalists"
-    ],
-    highlights: [
-      "Intimate 18-key boutique plantation retreat",
-      "60-acre private working estate in Pothamedu",
-      "The Barn farm-to-table dining experience",
-      "Garden swimming pool & colonial library",
-      "Top-tier 4.8 traveler rating"
-    ],
-    locationHighlights: [
-      { place: "Pothamedu Viewpoint", distance: "1.2 km", time: "3 min drive", note: "Panoramic valley vistas" },
-      { place: "Munnar Town Center", distance: "4.5 km", time: "12 min drive", note: "Bazaars and tea tasting" },
-      { place: "Attukad Waterfalls", distance: "6.0 km", time: "15 min drive", note: "Cascading waterfall" },
-      { place: "KDHP Tea Museum", distance: "6.5 km", time: "18 min drive", note: "Factory history tour" }
-    ],
-    checkIn: "01:00 PM",
-    checkOut: "11:00 AM",
-    petPolicy: "Pets are not permitted on the estate",
-    cancellationNote: "Full refund for cancellations made 7 days prior to arrival",
-    mapQuery: "Windermere Estate, Pothamedu, Munnar, Kerala",
-    makeMyKeralaPerks: [
-      "Special contracted boutique rates on Garden & Estate rooms",
-      "Complimentary guided plantation tour with estate naturalist",
-      "Chauffeured private AC vehicle for all transfers and sightseeing",
-      "24/7 dedicated MakeMyKerala concierge assistance"
-    ]
-  },
+
+
 
   // 12. VIBE RESORT & SPA
   {
@@ -1721,126 +1611,1149 @@ export const munnarHotels = [
     ]
   },
 
-  // 15. GOLDEN MUNNAR PALACE
   {
-    id: "golden-munnar-palace",
-    slug: "golden-munnar-palace",
-    name: "Golden Munnar Palace",
-    tagline: "Expansive family hospitality managed by Hawk Hospitality in Chithirapuram",
-    category: "Family & Group Leisure Hotel",
-    starRating: 3,
-    userRating: 4.0,
-    reviewsCount: 390,
-    startingPrice: "₹2,700",
-    priceLabel: "Starting from ₹2,700 / night",
-    locality: "Chithirapuram",
-    address: "Near Power House, Chithirapuram, Munnar, Kerala 685565",
-    phone: "+91 4865 263 111",
-    email: "bookings@hawkhospitality.in",
-    website: "https://hawkhospitality.in",
-    heroImage: "/images/hotels/golden-munnar-palace/exterior.webp",
-    heroImageSm: "/images/hotels/golden-munnar-palace/exterior-sm.webp",
-    destination: "munnar",
-    destinationName: "Munnar",
-    gallery: [
-      {
-        src: "/images/hotels/golden-munnar-palace/exterior.webp",
-        alt: "Golden Munnar Palace exterior building facade",
-        caption: "High-inventory modern property in the scenic hills of Chithirapuram"
-      },
-      {
-        src: "/images/hotels/golden-munnar-palace/exterior-detail.webp",
-        alt: "Golden Munnar Palace entrance and parking area",
-        caption: "Expansive parking capacity and welcoming reception lobby"
-      },
-      {
-        src: "/images/destinations/munnar-600.webp",
-        alt: "Munnar rolling tea gardens and mountain slopes",
-        caption: "Breathtaking natural surroundings along Power House Road"
-      }
-    ],
-    overview: "Conveniently located near the Power House area in Chithirapuram, Golden Munnar Palace (managed by Hawk Hospitality) is a spacious leisure property boasting an impressive inventory of nearly 100 well-appointed rooms. Ideal for family holidays, tour groups, and corporate getaways, the property features a 160-seat multi-cuisine restaurant, an outdoor swimming pool, extensive parking for up to 100 vehicles, and private balconies framing panoramic views of tea gardens and misty hills.",
-    quickFacts: [
-      { label: "Hotel Class", value: "3-Star Leisure Hotel" },
-      { label: "Total Keys", value: "97 Spacious Rooms & Suites" },
-      { label: "Check-in / Check-out", value: "12:00 PM / 11:00 AM" },
-      { label: "Management", value: "Hawk Hospitality" },
-      { label: "Parking Capacity", value: "Up to 100 Vehicles On-Site" },
-      { label: "Munnar Town", value: "8 km (18 min drive)" }
-    ],
-    rooms: [
-      {
-        name: "Deluxe Balcony Room",
-        description: "Comfortable room with private sit-out balcony overlooking the tea valleys, attached bathroom, and work desk.",
-        size: "250 sq.ft",
-        capacity: "2 Adults",
-        bed: "Queen Bed",
-        amenities: ["Private Balcony", "Free Wi-Fi", "LED Television", "Electric Kettle", "Hot Water 24/7", "Daily Toiletries"]
-      },
-      {
-        name: "Executive Valley View Room",
-        description: "Enhanced room offering panoramic mountain views, seating sofa chairs, and extra wardrobe space.",
-        size: "320 sq.ft",
-        capacity: "2 Adults + 1 Child",
-        bed: "King Bed",
-        amenities: ["Valley Panorama", "High-speed Wi-Fi", "Smart TV", "Coffee Maker", "Mini Fridge"]
-      },
-      {
-        name: "Family Suite",
-        description: "Spacious layout with dual bedding and seating area designed for family comfort and group getaways.",
-        size: "450 sq.ft",
-        capacity: "4 Adults",
-        bed: "Two Double Beds",
-        amenities: ["Family Layout", "Two Televisions", "Wardrobe", "Spacious Bath", "Room Service Support"]
-      }
-    ],
-    facilities: [
-      { icon: "dining", title: "Golden Munnar Restaurant", description: "160-seat multi-cuisine dining hall serving South Indian, North Indian, Chinese, Continental, and Arabic dishes" },
-      { icon: "pool", title: "Outdoor Swimming Pool", description: "Refreshing swimming pool with mountain view deck" },
-      { icon: "parking", title: "100-Car Parking", description: "Extensive secure on-site parking accommodating large tourist coaches and family vehicles" },
-      { icon: "fitness", title: "Gym & Yoga Space", description: "Fitness equipment and open terrace for morning yoga in fresh mountain air" },
-      { icon: "desk", title: "24-Hour Front Desk", description: "Luggage assistance, travel desk, doctor-on-call, and round-the-clock security" }
-    ],
-    dining: [
-      {
-        name: "Golden Munnar Restaurant",
-        cuisine: "South Indian, North Indian, Chinese, Continental & Arabic",
-        type: "160-Seater Multi-Cuisine Dining",
-        timing: "07:00 AM - 10:30 PM",
-        description: "A spacious 160-seater dining hall offering extensive buffet and à la carte options, from authentic Kerala fish curry to rich tandoori chicken, biryanis, and continental breakfasts."
-      }
-    ],
-    specialties: [
-      "Large 97-key inventory making it ideal for group tours and large families",
-      "Massive parking capacity for up to 100 private cars and tourist buses",
-      "160-seat dining hall offering diverse multi-cuisine and vegetarian options",
-      "Private balconies in every room overlooking misty tea garden ridges"
-    ],
-    highlights: [
-      "Managed by Hawk Hospitality",
-      "97 spacious rooms with private valley balconies",
-      "Large 160-seat multi-cuisine restaurant",
-      "Outdoor swimming pool & gym",
-      "Massive parking capacity for 100 vehicles"
-    ],
-    locationHighlights: [
-      { place: "Chithirapuram Viewpoint", distance: "1.8 km", time: "4 min drive", note: "Scenic valley panorama" },
-      { place: "Pallivasal Falls", distance: "4.0 km", time: "9 min drive", note: "Mountain waterfall" },
-      { place: "Munnar Town Market", distance: "8.0 km", time: "18 min drive", note: "Spices and shopping" },
-      { place: "Attukad Waterfalls", distance: "9.5 km", time: "22 min drive", note: "Scenic waterfall trek" }
-    ],
-    checkIn: "12:00 PM",
-    checkOut: "11:00 AM",
-    petPolicy: "Pets are not permitted on the premises",
-    cancellationNote: "Full refund for cancellations made 48 hours prior to arrival",
-    mapQuery: "Golden Munnar Palace, Chithirapuram, Munnar, Kerala",
-    makeMyKeralaPerks: [
-      "Best guaranteed group and family tariffs with zero booking fees",
-      "Daily breakfast spread included in package bookings",
-      "Private AC transfer vehicle with local driver for entire stay",
-      "24/7 dedicated MakeMyKerala on-trip assistance"
-    ]
-  }
+    "id": "star-emirates",
+  "slug": "star-emirates",
+  "name": "Star Emirates",
+  "tagline": "Tranquil mountain resort with panoramic valley views and landscaped garden lawns",
+  "category": "3-Star Mountain Resort",
+  "starRating": 3,
+  "userRating": 4.3,
+  "reviewsCount": 380,
+  "startingPrice": "₹3,200",
+  "priceLabel": "Starting from ₹3,200 / night",
+  "locality": "Anachal / Chithirapuram, Munnar",
+  "address": "Anachal, Chithirapuram P.O., Munnar, Idukki, Kerala 685565",
+  "phone": "+91 4865 263 111",
+  "email": "info@staremiratesmunnar.com",
+  "website": "https://staremiratesmunnar.com",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/star-emirates/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/star-emirates/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/star-emirates/exterior.webp",
+      "alt": "Star Emirates Munnar exterior facade and lawns",
+      "caption": "Multi-tiered hillside property with lush landscaped surroundings"
+    },
+    {
+      "src": "/images/hotels/munnar/star-emirates/exterior-sm.webp",
+      "alt": "Star Emirates scenic mountain setting",
+      "caption": "Panoramic mountain viewpoints and serene valley atmosphere"
+    }
+  ],
+  "overview": "Set against the emerald hillsides of the Western Ghats near Anachal, Star Emirates delivers a peaceful mountain holiday retreat. Boasting multi-tiered gabled architecture, expansive lawns, fish spa, children's play area, and panoramic tea valley vistas, it offers an idyllic hillside stay for families, leisure travelers, and couples.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "3-Star Mountain Resort"
+    },
+    {
+      "label": "Total Keys",
+      "value": "35 Mountain View Rooms"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "12:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Munnar Town",
+      "value": "12 km (20 mins drive)"
+    },
+    {
+      "label": "Cochin Airport",
+      "value": "98 km (3 hrs drive)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Deluxe Mountain View Room",
+      "size": "24 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Valley & Mountain View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Free Wi-Fi",
+        "LED TV",
+        "Balcony View",
+        "Ensuite Rain Shower",
+        "24-hr Hot Water",
+        "Room Service"
+      ],
+      "description": "Comfortable hillside room featuring a private balcony overlooking rolling tea valleys and green mountain slopes."
+    },
+    {
+      "type": "Family Suite",
+      "size": "36 sq.m",
+      "occupancy": "2-4 Adults",
+      "view": "Panoramic Hill View",
+      "bedding": "Two Queen Beds",
+      "amenities": [
+        "High-speed Wi-Fi",
+        "Balcony",
+        "Coffee Maker",
+        "Living Area",
+        "Attached Bathroom"
+      ],
+      "description": "Spacious family accommodations designed for group comfort with scenic mountain outlooks."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Multi-Cuisine Restaurant",
+      "description": "In-house restaurant serving traditional Kerala sadhya, coastal curries, and Indian favorites.",
+      "icon": "dining"
+    },
+    {
+      "name": "Landscaped Garden & Lawn",
+      "description": "Spacious outdoor lawns with play area and seating to enjoy cool mountain breezes.",
+      "icon": "nature"
+    },
+    {
+      "name": "24-Hour Front Desk",
+      "description": "Round-the-clock reception assistance, luggage storage, and wake-up service.",
+      "icon": "concierge"
+    },
+    {
+      "name": "Free Wi-Fi",
+      "description": "Wireless internet access in rooms and public areas.",
+      "icon": "wifi"
+    },
+    {
+      "name": "Travel Desk & Sightseeing",
+      "description": "Guided tea garden tours, jeep safari bookings, and airport transfers.",
+      "icon": "transport"
+    },
+    {
+      "name": "Secure Parking",
+      "description": "Ample on-site parking for private vehicles and tour coaches.",
+      "icon": "parking"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Emirates Dine",
+      "type": "All-Day Restaurant",
+      "cuisine": "Kerala, South Indian & North Indian",
+      "timing": "7:00 AM – 10:30 PM",
+      "description": "Warm restaurant serving hearty South Indian breakfasts, traditional meals, and flavorful regional dishes."
+    }
+  ],
+  "specialties": [
+    "Panoramic Valley Views",
+    "Spacious Lawn & Play Area",
+    "Family-Friendly Hill Retreat",
+    "Convenient Anachal Location"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Ripple Tea Point",
+      "distance": "4 km",
+      "time": "8 mins drive",
+      "note": "Scenic tea tasting spot"
+    },
+    {
+      "place": "Munnar Town Center",
+      "distance": "12 km",
+      "time": "20 mins drive",
+      "note": "Local bazaars & spice shops"
+    },
+    {
+      "place": "Attukad Waterfalls",
+      "distance": "10 km",
+      "time": "18 mins drive",
+      "note": "Picturesque cascading falls"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 12:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Star Emirates, Anachal, Munnar, Kerala",
+  "highlights": [
+    "Panoramic Valley Views",
+    "Children's Play Area",
+    "Multi-Cuisine Dining",
+    "Free Parking"
+  ],
+  "makeMyKeralaPerks": [
+    "Verified MakeMyKerala partner rates",
+    "Complimentary breakfast",
+    "24/7 dedicated on-trip helpline"
+  ]
+},
+  {
+  "id": "windernote",
+  "slug": "windernote",
+  "name": "Windernote",
+  "tagline": "Boutique hillside retreat surrounded by mist-laden forests and tranquil mountain air",
+  "category": "Boutique Hill Resort",
+  "starRating": 3,
+  "userRating": 4.2,
+  "reviewsCount": 290,
+  "startingPrice": "₹2,800",
+  "priceLabel": "Starting from ₹2,800 / night",
+  "locality": "Misty Valley, Munnar",
+  "address": "Misty Valley, Chithirapuram Road, Munnar, Idukki, Kerala 685565",
+  "phone": "+91 4865 252 888",
+  "email": "reservations@windernotemunnar.com",
+  "website": "https://windernotemunnar.com",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/windernote/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/windernote/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/windernote/exterior.webp",
+      "alt": "Windernote Munnar illuminated hillside facade",
+      "caption": "Contemporary multi-story architecture nestled in misty hills"
+    },
+    {
+      "src": "/images/hotels/munnar/windernote/exterior-sm.webp",
+      "alt": "Windernote mountain valley retreat",
+      "caption": "Tranquil nature setting shielded from city noise"
+    }
+  ],
+  "overview": "Nestled into a lush forested slope in the Munnar hills, Windernote offers a secluded mountain hideaway characterized by contemporary multi-story architecture, crisp clean valley breezes, and scenic balcony perspectives. The property provides modern comfort and serene nature immersion.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "Boutique Nature Resort"
+    },
+    {
+      "label": "Total Keys",
+      "value": "24 Valley View Rooms"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "1:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Munnar Town",
+      "value": "11 km (20 mins drive)"
+    },
+    {
+      "label": "Cochin Airport",
+      "value": "96 km (3 hrs drive)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Deluxe Valley View Room",
+      "size": "22 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Valley & Forest View",
+      "bedding": "Queen Bed",
+      "amenities": [
+        "Wi-Fi",
+        "LED TV",
+        "Balcony",
+        "Hot Water",
+        "Room Service"
+      ],
+      "description": "Quiet room with private balcony looking out onto mist-covered mountain trees."
+    },
+    {
+      "type": "Mountain Chalet Room",
+      "size": "28 sq.m",
+      "occupancy": "2-3 Adults",
+      "view": "Panoramic View",
+      "bedding": "King Bed",
+      "amenities": [
+        "High-speed Wi-Fi",
+        "Tea Maker",
+        "Balcony",
+        "Attached Bathroom"
+      ],
+      "description": "Spacious accommodation offering peaceful mountain views and comfortable interiors."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "In-House Dining",
+      "description": "Freshly prepared South Indian and Kerala homestyle food.",
+      "icon": "dining"
+    },
+    {
+      "name": "24-Hour Helpdesk",
+      "description": "Dedicated front desk assistance and local travel advice.",
+      "icon": "concierge"
+    },
+    {
+      "name": "Free Wi-Fi",
+      "description": "Complimentary wireless internet access across all rooms.",
+      "icon": "wifi"
+    },
+    {
+      "name": "Ample Parking",
+      "description": "Convenient vehicle parking on the property grounds.",
+      "icon": "parking"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Windernote Dining Hall",
+      "type": "Homestyle Restaurant",
+      "cuisine": "Kerala & South Indian",
+      "timing": "7:30 AM – 10:00 PM",
+      "description": "Homestyle dining serving hot Kerala breakfasts, vegetarian feasts, and dinner specialties."
+    }
+  ],
+  "specialties": [
+    "Serene Forested Setting",
+    "Private Mountain Balconies",
+    "Crisp Mountain Air & Mist",
+    "Attentive Personalized Hospitality"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Pothamedu Viewpoint",
+      "distance": "9 km",
+      "time": "18 mins drive",
+      "note": "Sweeping valley outlook"
+    },
+    {
+      "place": "Sengulam Dam Boating",
+      "distance": "6 km",
+      "time": "12 mins drive",
+      "note": "Boating & watersports"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 1:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Windernote, Chithirapuram, Munnar, Kerala",
+  "highlights": [
+    "Forest Hillside Setting",
+    "Private Balconies",
+    "Clean Modern Rooms",
+    "Free Parking"
+  ],
+  "makeMyKeralaPerks": [
+    "Best rate assurance",
+    "Complimentary breakfast",
+    "Dedicated 24/7 travel support"
+  ]
+},
+  {
+  "id": "valle-munnar",
+  "slug": "valle-munnar",
+  "name": "Valle Munnar",
+  "tagline": "Luxury nature resort with handcrafted timber architecture and sweeping mountain horizons",
+  "category": "4-Star Luxury Nature Resort",
+  "starRating": 4,
+  "userRating": 4.6,
+  "reviewsCount": 460,
+  "startingPrice": "₹5,500",
+  "priceLabel": "Starting from ₹5,500 / night",
+  "locality": "Pallivasal / Tea Valley, Munnar",
+  "address": "Pallivasal Tea Estate Road, Munnar, Idukki, Kerala 685612",
+  "phone": "+91 4865 278 999",
+  "email": "experience@vallemunnar.com",
+  "website": "https://vallemunnar.com",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/valle-munnar/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/valle-munnar/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/valle-munnar/exterior.webp",
+      "alt": "Valle Munnar architectural entrance and stone facade",
+      "caption": "Striking high-gabled timber portico overlooking lush valley gardens"
+    },
+    {
+      "src": "/images/hotels/munnar/valle-munnar/exterior-sm.webp",
+      "alt": "Valle Munnar panoramic valley views",
+      "caption": "Pristine mountain horizons and luxury leisure surroundings"
+    }
+  ],
+  "overview": "Perched gracefully above tea-carpeted slopes, Valle Munnar stands out with its grand high-gabled timber lobby, natural stone facades, and glass atrium framing breathtaking sunsets. Designed for high-end leisure and romantic holidays, the resort combines world-class hospitality with pristine wilderness scenery.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "4-Star Nature Resort"
+    },
+    {
+      "label": "Total Keys",
+      "value": "38 Luxury Chalets & Suites"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "2:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Attukad Falls",
+      "value": "5 km (10 mins drive)"
+    },
+    {
+      "label": "Munnar Town",
+      "value": "8 km (15 mins drive)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Valley View Luxury Room",
+      "size": "32 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Unobstructed Valley View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Air Conditioning",
+        "Private Balcony",
+        "Smart TV",
+        "Mini Fridge",
+        "Ensuite Rain Shower",
+        "Wi-Fi"
+      ],
+      "description": "Designer luxury room with custom teak furnishings and large glass doors opening to scenic mountain panoramas."
+    },
+    {
+      "type": "Plantation Suite",
+      "size": "45 sq.m",
+      "occupancy": "2-3 Adults",
+      "view": "Sunset Mountain Panorama",
+      "bedding": "King Bed",
+      "amenities": [
+        "Living Lounge",
+        "Espresso Machine",
+        "Soaking Tub",
+        "High-speed Wi-Fi",
+        "Scenic Balcony"
+      ],
+      "description": "Generous suite with dedicated lounge area, premium bathtub, and sunset vistas."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Fine-Dining Restaurant",
+      "description": "Artfully prepared regional Kerala dishes, Asian delights, and continental delicacies.",
+      "icon": "dining"
+    },
+    {
+      "name": "Scenic Viewing Deck",
+      "description": "Elevated outdoor promenade offering unobstructed views of morning clouds and sunset horizons.",
+      "icon": "nature"
+    },
+    {
+      "name": "Ayurvedic Spa & Wellness",
+      "description": "Rejuvenating therapies and traditional herbal oil massages.",
+      "icon": "spa"
+    },
+    {
+      "name": "High-Speed Wi-Fi",
+      "description": "Broadband Wi-Fi throughout rooms and public lounge areas.",
+      "icon": "wifi"
+    },
+    {
+      "name": "Concierge & Valet",
+      "description": "Full-service valet parking and curated destination excursions.",
+      "icon": "concierge"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Valle Vista Restaurant",
+      "type": "Panoramic Fine-Dining",
+      "cuisine": "Kerala, Continental & Pan-Asian",
+      "timing": "7:00 AM – 11:00 PM",
+      "description": "Elegant restaurant featuring floor-to-ceiling glass windows with breathtaking mountain gorge outlooks."
+    }
+  ],
+  "specialties": [
+    "Stunning Timber & Stone Architecture",
+    "Panoramic Gorge & Valley Vistas",
+    "Luxury Spa & Fine-Dining",
+    "Romantic Sunset Decks"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Attukad Waterfalls",
+      "distance": "5 km",
+      "time": "10 mins drive",
+      "note": "Scenic jungle cascade"
+    },
+    {
+      "place": "Pallivasal Tea Falls",
+      "distance": "3 km",
+      "time": "7 mins drive",
+      "note": "Historic hydro-electric region"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 2:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Valle Munnar, Pallivasal, Munnar, Kerala",
+  "highlights": [
+    "Architectural Landmark",
+    "Panoramic Viewing Deck",
+    "Luxury Spa & Wellness",
+    "Fine-Dining Cuisine"
+  ],
+  "makeMyKeralaPerks": [
+    "Exclusive MakeMyKerala partner rates",
+    "Complimentary gourmet breakfast",
+    "Welcome tea plantation beverage on arrival",
+    "24/7 VIP on-trip assistance"
+  ]
+},
+  {
+  "id": "hill-view",
+  "slug": "hill-view",
+  "name": "Hill View",
+  "tagline": "Prominent highway landmark with expansive tea garden views and Ayurvedic spa wellness",
+  "category": "3-Star Landmark Hill Hotel",
+  "starRating": 3,
+  "userRating": 4.2,
+  "reviewsCount": 820,
+  "startingPrice": "₹3,400",
+  "priceLabel": "Starting from ₹3,400 / night",
+  "locality": "Near KSRTC / Headworks Dam, Munnar",
+  "address": "Aluva - Munnar Highway, Near Headworks Dam, Munnar, Idukki, Kerala 685612",
+  "phone": "+91 4865 230 567",
+  "email": "booking@hotelhillview.com",
+  "website": "https://hotelhillview.com",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/hill-view/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/hill-view/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/hill-view/exterior.webp",
+      "alt": "Hotel Hill View exterior facade on Munnar highway",
+      "caption": "Well-established multistory landmark facing emerald tea hills"
+    },
+    {
+      "src": "/images/hotels/munnar/hill-view/exterior-sm.webp",
+      "alt": "Hotel Hill View architecture detail",
+      "caption": "Comfortable rooms, conference facilities, and Ayurvedic wellness"
+    }
+  ],
+  "overview": "Hotel Hill View is a well-established hospitality landmark situated along the Munnar highway overlooking lush green hills and rolling tea gardens. With its distinctive architecture, Samruthy multi-cuisine restaurant, Ayurvedic wellness spa, and versatile conference facilities, it is a favored choice for vacationers and corporate travelers.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "3-Star Landmark Hotel"
+    },
+    {
+      "label": "Total Keys",
+      "value": "50 Well-Furnished Rooms"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "12:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Munnar KSRTC",
+      "value": "1.5 km (4 mins drive)"
+    },
+    {
+      "label": "Blossom Park",
+      "value": "1 km (3 mins walk)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Deluxe Valley View Room",
+      "size": "24 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Tea Valley View",
+      "bedding": "King Bed or Twin Beds",
+      "amenities": [
+        "Free Wi-Fi",
+        "LED TV",
+        "Tea/Coffee Maker",
+        "Attached Shower",
+        "Room Service"
+      ],
+      "description": "Comfortable room facing the lush Kannan Devan tea plantations along the hillside."
+    },
+    {
+      "type": "Super Deluxe Room",
+      "size": "30 sq.m",
+      "occupancy": "2-3 Adults",
+      "view": "Panoramic Hill View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Sitting Area",
+        "Smart TV",
+        "Wi-Fi",
+        "Direct Dial Phone",
+        "24-hr Hot Water"
+      ],
+      "description": "Spacious corner room with large glass windows and picturesque plantation views."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Samruthy Restaurant",
+      "description": "Multi-cuisine restaurant known for authentic Kerala buffets and North Indian specialties.",
+      "icon": "dining"
+    },
+    {
+      "name": "Ayurvedic Spa",
+      "description": "Traditional massage therapies and rejuvenation treatments by certified practitioners.",
+      "icon": "spa"
+    },
+    {
+      "name": "Conference & Banquet Hall",
+      "description": "Equipped meeting halls for seminars, retreats, and private parties.",
+      "icon": "events"
+    },
+    {
+      "name": "Coffee Shop",
+      "description": "Cozy café serving fresh tea, coffee, and light snacks.",
+      "icon": "dining"
+    },
+    {
+      "name": "Ample Parking",
+      "description": "Secure open and sheltered parking space.",
+      "icon": "parking"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Samruthy Multi-Cuisine Restaurant",
+      "type": "Fine Dining & Buffet",
+      "cuisine": "Kerala, South Indian, North Indian & Chinese",
+      "timing": "7:00 AM – 10:30 PM",
+      "description": "Renowned restaurant offering tasty Kerala curries, appams, fresh river catch, and varied vegetarian meals."
+    }
+  ],
+  "specialties": [
+    "Prime Highway & Blossom Park Locale",
+    "Direct View of Tea Hills",
+    "Ayurvedic Rejuvenation Spa",
+    "Samruthy Family Dining"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Blossom Hydel Park",
+      "distance": "1 km",
+      "time": "3 mins walk",
+      "note": "Landscaped gardens & flowers"
+    },
+    {
+      "place": "Headworks Dam",
+      "distance": "500 m",
+      "time": "2 mins walk",
+      "note": "Historic hydel landmark"
+    },
+    {
+      "place": "Tea Museum",
+      "distance": "3.5 km",
+      "time": "8 mins drive",
+      "note": "Century-old tea history"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 12:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Hotel Hill View, Aluva - Munnar Highway, Munnar, Kerala",
+  "highlights": [
+    "Highway & Town Proximity",
+    "Tea Hill Views",
+    "Ayurvedic Spa",
+    "Samruthy Restaurant"
+  ],
+  "makeMyKeralaPerks": [
+    "Direct partner rates",
+    "Complimentary breakfast",
+    "24/7 dedicated support"
+  ]
+},
+  {
+  "id": "eastend",
+  "slug": "eastend",
+  "name": "Eastend",
+  "tagline": "Sprawling heritage resort with lush landscaped gardens, tree houses, and cottage chalets",
+  "category": "3-Star Garden & Heritage Resort",
+  "starRating": 3,
+  "userRating": 4.4,
+  "reviewsCount": 960,
+  "startingPrice": "₹4,200",
+  "priceLabel": "Starting from ₹4,200 / night",
+  "locality": "Silent Valley Road, Munnar Town",
+  "address": "Silent Valley Road, Near Munnar Town, Idukki, Kerala 685612",
+  "phone": "+91 4865 230 451",
+  "email": "reservation@eastend.in",
+  "website": "https://eastend.in",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/eastend/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/eastend/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/eastend/exterior.webp",
+      "alt": "Hotel Eastend Munnar exterior entrance and gardens",
+      "caption": "Sprawling heritage garden resort surrounded by pine trees"
+    },
+    {
+      "src": "/images/hotels/munnar/eastend/exterior-sm.webp",
+      "alt": "Hotel Eastend cottages and flower pathways",
+      "caption": "Picturesque cottage chalets and landscaped grounds"
+    }
+  ],
+  "overview": "Set amidst sprawling, flower-filled gardens in the heart of Munnar, Hotel Eastend offers a tranquil oasis with traditional charm. Featuring independent chalets, tree-house accommodations, well-tended lawns, and evening campfires, Eastend allows guests to enjoy town proximity while feeling enveloped in serene mountain flora.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "3-Star Garden Resort"
+    },
+    {
+      "label": "Total Keys",
+      "value": "45 Cottage & Chalet Keys"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "1:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Munnar Town Center",
+      "value": "600 m (8 mins walk)"
+    },
+    {
+      "label": "Mattupetty Dam",
+      "value": "11 km (22 mins drive)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Deluxe Cottage Room",
+      "size": "26 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Garden & Flower Lawn View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Wi-Fi",
+        "LED TV",
+        "Garden Sit-out",
+        "Tea/Coffee Maker",
+        "Hot Water"
+      ],
+      "description": "Cozy garden cottage room with warm wooden details and direct veranda access."
+    },
+    {
+      "type": "Tree House Chalet",
+      "size": "28 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Canopy & Mountain View",
+      "bedding": "Queen Bed",
+      "amenities": [
+        "Unique Tree-House Design",
+        "Balcony",
+        "Wi-Fi",
+        "Attached Bathroom"
+      ],
+      "description": "Charming elevated tree-house accommodation offering an authentic forest canopy experience."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Green Land Restaurant",
+      "description": "Multi-cuisine dining serving Kerala sadhya, continental breakfasts, and North Indian favorites.",
+      "icon": "dining"
+    },
+    {
+      "name": "Landscaped Gardens & Walkways",
+      "description": "Beautifully maintained floral gardens, lawn seating, and paved nature strolls.",
+      "icon": "nature"
+    },
+    {
+      "name": "Campfire & Music",
+      "description": "Evening campfire gatherings with music under starry mountain skies.",
+      "icon": "events"
+    },
+    {
+      "name": "Conference & Meeting Hall",
+      "description": "Ideal venue for family get-togethers and corporate offsites.",
+      "icon": "events"
+    },
+    {
+      "name": "Children's Play Area",
+      "description": "Safe outdoor playground for children within the resort grounds.",
+      "icon": "family"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Green Land Restaurant",
+      "type": "Multi-Cuisine Garden Dining",
+      "cuisine": "Kerala, South Indian, North Indian & Continental",
+      "timing": "7:00 AM – 10:30 PM",
+      "description": "Family restaurant overlooking the garden courtyard, famous for its lavish buffet spreads."
+    }
+  ],
+  "specialties": [
+    "Expansive Landscaped Floral Gardens",
+    "Authentic Tree-House Accommodations",
+    "Walking Distance to Munnar Town",
+    "Evening Campfire Evenings"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Munnar Town Bazaars",
+      "distance": "600 m",
+      "time": "8 mins walk",
+      "note": "Spices, tea & chocolates"
+    },
+    {
+      "place": "Tea Museum",
+      "distance": "2 km",
+      "time": "5 mins drive",
+      "note": "Historical tea machinery"
+    },
+    {
+      "place": "Pothamedu Viewpoint",
+      "distance": "4.5 km",
+      "time": "10 mins drive",
+      "note": "Sunset viewpoint"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 1:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Hotel Eastend, Silent Valley Road, Munnar, Kerala",
+  "highlights": [
+    "Botanical Garden Grounds",
+    "Tree House Experience",
+    "Town Proximity",
+    "Green Land Restaurant"
+  ],
+  "makeMyKeralaPerks": [
+    "MakeMyKerala guaranteed best rates",
+    "Complimentary breakfast",
+    "24/7 dedicated support"
+  ]
+},
+  {
+  "id": "issac-residency",
+  "slug": "issac-residency",
+  "name": "Issac Residency",
+  "tagline": "Centrally positioned hill hotel near Blossom Park with comfortable scenic valley stays",
+  "category": "3-Star Premium Hill Hotel",
+  "starRating": 3,
+  "userRating": 4.1,
+  "reviewsCount": 510,
+  "startingPrice": "₹2,900",
+  "priceLabel": "Starting from ₹2,900 / night",
+  "locality": "Top Station Road, Munnar",
+  "address": "Top Station Road, Near Blossom Park, Munnar, Idukki, Kerala 685612",
+  "phone": "+91 4865 230 501",
+  "email": "stay@issacresidency.com",
+  "website": "https://issacresidency.com",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/issac-residency/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/issac-residency/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/issac-residency/exterior.webp",
+      "alt": "Issac Residency Munnar exterior building facade",
+      "caption": "Prominent multistorey hotel on Top Station Road"
+    },
+    {
+      "src": "/images/hotels/munnar/issac-residency/exterior-sm.webp",
+      "alt": "Issac Residency mountain valley views",
+      "caption": "Clean, comfortable accommodations with scenic vistas"
+    }
+  ],
+  "overview": "Issac Residency is a dependable, high-comfort hotel positioned conveniently close to Blossom Hydel Park and Munnar Town center. Offering well-furnished guest rooms with views of misty mountain ridges, on-site multi-cuisine dining, and personalized tour assistance, it provides a warm and comfortable stay for holidaymakers.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "3-Star Hill Hotel"
+    },
+    {
+      "label": "Total Keys",
+      "value": "32 Well-Appointed Rooms"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "12:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Blossom Park",
+      "value": "500 m (6 mins walk)"
+    },
+    {
+      "label": "Munnar Town",
+      "value": "1.2 km (4 mins drive)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Executive Valley View Room",
+      "size": "22 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Valley & Mountain View",
+      "bedding": "Queen Bed",
+      "amenities": [
+        "Free Wi-Fi",
+        "LED TV",
+        "24-hr Hot Water",
+        "Room Service"
+      ],
+      "description": "Well-ventilated room with scenic mountain views and clean, modern furnishings."
+    },
+    {
+      "type": "Royal Suite",
+      "size": "32 sq.m",
+      "occupancy": "2-3 Adults",
+      "view": "Panoramic Hill View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Sitting Area",
+        "Smart TV",
+        "Tea Maker",
+        "Attached Shower"
+      ],
+      "description": "Expanded suite accommodation suitable for family comfort."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Multi-Cuisine Restaurant",
+      "description": "Serving traditional Kerala meals, tandoori preparations, and Chinese dishes.",
+      "icon": "dining"
+    },
+    {
+      "name": "24-Hour Front Desk",
+      "description": "Assisting with express check-ins, transfers, and luggage care.",
+      "icon": "concierge"
+    },
+    {
+      "name": "Free Wi-Fi",
+      "description": "Complimentary wireless internet access across all rooms.",
+      "icon": "wifi"
+    },
+    {
+      "name": "Travel & Tour Desk",
+      "description": "Local sightseeing cabs, jeep safari arrangements, and trekking guidance.",
+      "icon": "transport"
+    },
+    {
+      "name": "Parking Facility",
+      "description": "On-site parking spaces for cars and tour vans.",
+      "icon": "parking"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Issac Dining Room",
+      "type": "Multi-Cuisine Restaurant",
+      "cuisine": "Kerala, South Indian, North Indian & Chinese",
+      "timing": "7:00 AM – 10:30 PM",
+      "description": "Casual dining outlet serving freshly prepared breakfast, Kerala fish curries, and evening dinners."
+    }
+  ],
+  "specialties": [
+    "Top Station Road Location",
+    "Near Blossom Hydel Park",
+    "Dependable Family Comfort",
+    "Swift Access to Munnar Town"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Blossom Hydel Park",
+      "distance": "500 m",
+      "time": "6 mins walk",
+      "note": "Riverfront park & garden"
+    },
+    {
+      "place": "Pothamedu View Point",
+      "distance": "3.5 km",
+      "time": "8 mins drive",
+      "note": "Sunset viewpoint"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 12:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Issac Residency, Top Station Road, Munnar, Kerala",
+  "highlights": [
+    "Blossom Park Proximity",
+    "Valley View Rooms",
+    "Multi-Cuisine Dining",
+    "Free Parking"
+  ],
+  "makeMyKeralaPerks": [
+    "Direct MakeMyKerala partner rates",
+    "Complimentary breakfast",
+    "24/7 dedicated support"
+  ]
+},
+  {
+  "id": "grand-plaza",
+  "slug": "grand-plaza",
+  "name": "Grand Plaza",
+  "tagline": "Upscale 4-star mountain hotel facing Kannan Devan tea estates with luxury spa & fine dining",
+  "category": "4-Star Premium Hotel",
+  "starRating": 4,
+  "userRating": 4.5,
+  "reviewsCount": 1140,
+  "startingPrice": "₹4,600",
+  "priceLabel": "Starting from ₹4,600 / night",
+  "locality": "M.S.A Road, Old Munnar",
+  "address": "M.S.A Road, Old Munnar, Idukki, Kerala 685612",
+  "phone": "+91 4865 232 201",
+  "email": "info@grandplazamunnar.com",
+  "website": "https://grandplazamunnar.com",
+  "destination": "munnar",
+  "destinationName": "Munnar",
+  "heroImage": "/images/hotels/munnar/grand-plaza/exterior.webp",
+  "heroImageSm": "/images/hotels/munnar/grand-plaza/exterior-sm.webp",
+  "gallery": [
+    {
+      "src": "/images/hotels/munnar/grand-plaza/exterior.webp",
+      "alt": "Grand Plaza Munnar dusk exterior facade",
+      "caption": "Prominent 4-star multistory hotel facing tea-covered slopes"
+    },
+    {
+      "src": "/images/hotels/munnar/grand-plaza/exterior-sm.webp",
+      "alt": "Grand Plaza Munnar lobby and restaurant",
+      "caption": "Refined modern interiors and scenic dining spaces"
+    }
+  ],
+  "overview": "Grand Plaza is one of Munnar's most celebrated premium hotels, gracefully situated along the riverbank facing the rolling slopes of the Kannan Devan tea hills. Featuring refined modern interiors, the popular 'Grand Spices' restaurant, an authentic Ayurvedic rejuvenation center, and attentive hospitality, it offers an elevated hill station experience.",
+  "quickFacts": [
+    {
+      "label": "Hotel Class",
+      "value": "4-Star Premium Hotel"
+    },
+    {
+      "label": "Total Keys",
+      "value": "42 Luxury Rooms & Suites"
+    },
+    {
+      "label": "Check-in / Check-out",
+      "value": "1:00 PM / 11:00 AM"
+    },
+    {
+      "label": "Munnar Town",
+      "value": "1 km (3 mins drive)"
+    },
+    {
+      "label": "Tea Museum",
+      "value": "2 km (5 mins drive)"
+    }
+  ],
+  "rooms": [
+    {
+      "type": "Grand Vista Room",
+      "size": "28 sq.m",
+      "occupancy": "2 Adults",
+      "view": "Tea Garden & River View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Air Conditioning",
+        "Wi-Fi",
+        "LED TV",
+        "Tea/Coffee Maker",
+        "Attached Shower"
+      ],
+      "description": "Elegant room facing emerald tea estates across the riverbank with large picture windows."
+    },
+    {
+      "type": "Eminence Suite",
+      "size": "40 sq.m",
+      "occupancy": "2-3 Adults",
+      "view": "Panoramic Mountain View",
+      "bedding": "King Bed",
+      "amenities": [
+        "Separate Living Area",
+        "Mini Bar",
+        "Espresso Maker",
+        "Premium Toiletries",
+        "Wi-Fi"
+      ],
+      "description": "Expansive luxury suite with separate sitting room and views of Munnar's mountain skyline."
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Grand Spices Restaurant",
+      "description": "Renowned multi-cuisine restaurant serving authentic Kerala dishes, North Indian, and continental dining.",
+      "icon": "dining"
+    },
+    {
+      "name": "Ayurvedic Wellness Spa",
+      "description": "Holistic herbal oil therapies, abhyanga, and relaxation packages.",
+      "icon": "spa"
+    },
+    {
+      "name": "Health Club & Gym",
+      "description": "Fitness studio with modern cardio and strength equipment.",
+      "icon": "fitness"
+    },
+    {
+      "name": "Coffee Cellar",
+      "description": "Contemporary lounge café serving signature coffee, mocktails, and fresh bakes.",
+      "icon": "dining"
+    },
+    {
+      "name": "Banquets & Meeting Spaces",
+      "description": "Sophisticated event venues for up to 150 guests.",
+      "icon": "events"
+    }
+  ],
+  "dining": [
+    {
+      "name": "Grand Spices",
+      "type": "Fine-Dining Restaurant",
+      "cuisine": "Kerala, South Indian, North Indian & Continental",
+      "timing": "7:00 AM – 11:00 PM",
+      "description": "Celebrated restaurant known for attentive service, Kerala seafood delicacies, and varied buffet spreads."
+    }
+  ],
+  "specialties": [
+    "Direct Views of Kannan Devan Tea Hills",
+    "Celebrated 'Grand Spices' Dining",
+    "Full-Service Ayurvedic Spa & Gym",
+    "Minutes from Old Munnar & Tea Museum"
+  ],
+  "nearbyAttractions": [
+    {
+      "place": "Tata Tea Museum",
+      "distance": "2 km",
+      "time": "5 mins drive",
+      "note": "Historic tea manufacturing"
+    },
+    {
+      "place": "Mattupetty Dam",
+      "distance": "10 km",
+      "time": "20 mins drive",
+      "note": "Boating & scenic hills"
+    },
+    {
+      "place": "Eravikulam National Park",
+      "distance": "8 km",
+      "time": "18 mins drive",
+      "note": "Nilgiri Tahr habitat"
+    }
+  ],
+  "policies": [
+    "Government photo ID required at check-in",
+    "Check-in at 1:00 PM; check-out at 11:00 AM"
+  ],
+  "mapQuery": "Grand Plaza, M.S.A Road, Old Munnar, Kerala",
+  "highlights": [
+    "Tea Estate Views",
+    "Grand Spices Restaurant",
+    "Ayurvedic Spa & Gym",
+    "Central Old Munnar Locale"
+  ],
+  "makeMyKeralaPerks": [
+    "Exclusive MakeMyKerala partner rates",
+    "Complimentary breakfast",
+    "24/7 dedicated support"
+  ]
+},
 ];
 
 export function getAllMunnarHotels() {

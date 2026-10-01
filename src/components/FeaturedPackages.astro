@@ -2,8 +2,23 @@
 // src/components/FeaturedPackages.astro
 import { packages } from "../data/packages.js";
 
-const signaturePackage = packages[0];
-const companionPackages = packages.slice(1);
+// First 3 existing companion packages for the grid below the featured tour
+const gridPackages = packages.slice(1, 4);
+
+// Featured Tour Details
+const featuredTour = {
+  title: "Munnar - Thekkady - Alappuzha",
+  packageName: "Kerala Nature & Backwater Tour",
+  url: "/packages/keralanature/",
+  description: "Explore the misty hills of Munnar, wildlife and spice plantations of Thekkady, and the peaceful backwaters of Alappuzha.",
+  duration: "5 Days & 4 Nights",
+  image: "/images/allapey.webp",
+  highlights: [
+    "Cheeyappara & Valara Waterfalls",
+    "Munnar Tea Gardens & Eravikulam National Park",
+    "Periyar Lake Wildlife & Spice Plantation Tour"
+  ]
+};
 ---
 
 <section class="section section-sand packages-section" id="packages" aria-label="Curated Kerala Tour Packages">
@@ -23,119 +38,98 @@ const companionPackages = packages.slice(1);
       </p>
     </div>
 
-    <!-- ASYMMETRIC EDITORIAL SHOWCASE -->
-    <div class="packages-editorial-showcase">
-      
-      <!-- LEFT: SIGNATURE FEATURED PACKAGE -->
-      <article class="signature-card reveal">
-        <a href={signaturePackage.itineraryLink} class="signature-media-link" aria-label={`View ${signaturePackage.title} itinerary`}>
-          <div class="signature-media-wrap">
-            <div class="signature-media-backdrop" style={`background-image: url('${signaturePackage.image}')`} aria-hidden="true"></div>
-            <img
-              src={signaturePackage.image}
-              alt={signaturePackage.title}
-              width="800"
-              height="500"
-              loading="lazy"
-              decoding="async"
-              class="signature-card-img"
-            />
-            <div class="signature-card-overlay"></div>
-            <div class="signature-top-badges">
-              <span class="badge-signature">✦ SIGNATURE JOURNEY</span>
-              <span class="badge-duration">{signaturePackage.duration}</span>
-            </div>
-          </div>
-        </a>
-
-        <div class="signature-card-body">
-          <div class="package-route">
-            <span class="route-icon" aria-hidden="true">📍</span>
-            <span class="route-text">{signaturePackage.places}</span>
-          </div>
-
-          <h3 class="signature-title">
-            <a href={signaturePackage.itineraryLink}>{signaturePackage.title}</a>
-          </h3>
-
-          <p class="signature-desc">{signaturePackage.description}</p>
-
-          <!-- HIGHLIGHT BULLETS -->
-          <ul class="signature-highlights">
-            {signaturePackage.highlights.slice(0, 3).map((h) => (
-              <li class="sig-highlight-item">
-                <span class="check-icon" aria-hidden="true">✓</span>
-                <span>{h}</span>
-              </li>
-            ))}
-          </ul>
-
-          <div class="signature-card-footer">
-            <div class="package-price-wrap">
-              <span class="price-prefix">Starting from</span>
-              <strong class="price-value">₹{signaturePackage.price.toLocaleString("en-IN")}</strong>
-              <span class="price-suffix">per person</span>
-            </div>
-            <a href={signaturePackage.itineraryLink} class="btn btn-primary btn-sm">
-              View Full Itinerary
-              <span class="btn-arrow" aria-hidden="true">→</span>
-            </a>
-          </div>
+    <!-- 1. FEATURED TOUR: KERALA NATURE & BACKWATER TOUR (CLEAN & NATURAL) -->
+    <article class="featured-tour-card reveal">
+      <a href={featuredTour.url} class="featured-tour-media-link" aria-label={`View ${featuredTour.packageName} itinerary`}>
+        <div class="featured-tour-media-wrap">
+          <img
+            src={featuredTour.image}
+            alt={`${featuredTour.packageName} - ${featuredTour.title}`}
+            width="800"
+            height="500"
+            loading="lazy"
+            decoding="async"
+            class="featured-tour-card-img"
+          />
         </div>
-      </article>
+      </a>
 
-      <!-- RIGHT: COMPANION PACKAGES STACK -->
-      <div class="companion-packages-stack">
-        {companionPackages.map((pkg, idx) => (
-          <article class={`companion-card reveal ${idx === 0 ? 'reveal-delay-1' : idx === 1 ? 'reveal-delay-2' : 'reveal-delay-3'}`}>
-            <a href={pkg.itineraryLink} class="companion-media-link" aria-label={`View ${pkg.title} itinerary`}>
-              <div class="companion-image-wrap">
-                <img
-                  src={pkg.image}
-                  alt={pkg.title}
-                  width="360"
-                  height="240"
-                  loading="lazy"
-                  decoding="async"
-                  class="companion-card-img"
-                />
-                <span class="companion-duration-pill">{pkg.duration}</span>
-              </div>
-            </a>
+      <div class="featured-tour-body">
+        <div class="package-route">
+          <span class="route-icon" aria-hidden="true">📍</span>
+          <span class="route-text">{featuredTour.title}</span>
+        </div>
 
-            <div class="companion-body">
-              <div class="package-route">
-                <span class="route-icon" aria-hidden="true">📍</span>
-                <span class="route-text">{pkg.places}</span>
-              </div>
+        <h3 class="featured-tour-title">
+          <a href={featuredTour.url}>{featuredTour.packageName}</a>
+        </h3>
 
-              <h4 class="companion-title">
-                <a href={pkg.itineraryLink}>{pkg.title}</a>
-              </h4>
+        <p class="featured-tour-desc">{featuredTour.description}</p>
 
-              <p class="companion-desc">{pkg.description}</p>
+        <!-- HIGHLIGHT BULLETS (CLEAN, NATURAL LIST) -->
+        <ul class="featured-tour-highlights">
+          {featuredTour.highlights.map((h) => (
+            <li class="featured-highlight-item">
+              <span class="check-icon" aria-hidden="true">✓</span>
+              <span class="highlight-text">{h}</span>
+            </li>
+          ))}
+        </ul>
 
-              <div class="companion-footer">
-                <div class="companion-price-wrap">
-                  <span class="price-prefix">From</span>
-                  <strong class="price-value-sm">₹{pkg.price.toLocaleString("en-IN")}</strong>
-                  <span class="price-suffix">/ person</span>
-                </div>
-                <a href={pkg.itineraryLink} class="btn btn-outline-forest btn-xs">
-                  View Itinerary
-                  <span class="btn-arrow" aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </article>
-        ))}
+        <div class="featured-tour-footer">
+          <a href={featuredTour.url} class="btn btn-primary btn-sm">
+            View Full Itinerary
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
+    </article>
 
+    <!-- 2. EXISTING PACKAGE GRID — 3 COMPANION CARDS -->
+    <div class="home-packages-grid">
+      {gridPackages.map((pkg, idx) => (
+        <article class={`home-pkg-card reveal ${idx === 0 ? 'reveal-delay-1' : idx === 1 ? 'reveal-delay-2' : 'reveal-delay-3'}`}>
+          <a href={pkg.itineraryLink} class="home-pkg-media-link" aria-label={`View ${pkg.title} itinerary`}>
+            <div class="home-pkg-image-wrap">
+              <img
+                src={pkg.image}
+                alt={pkg.title}
+                width="400"
+                height="260"
+                loading="lazy"
+                decoding="async"
+                class="home-pkg-card-img"
+              />
+              <span class="home-pkg-duration-pill">{pkg.duration}</span>
+            </div>
+          </a>
+
+          <div class="home-pkg-body">
+            <div class="package-route">
+              <span class="route-icon" aria-hidden="true">📍</span>
+              <span class="route-text">{pkg.places}</span>
+            </div>
+
+            <h4 class="home-pkg-title">
+              <a href={pkg.itineraryLink}>{pkg.title}</a>
+            </h4>
+
+            <p class="home-pkg-desc">{pkg.description}</p>
+
+            <div class="home-pkg-footer">
+              <a href={pkg.itineraryLink} class="btn btn-outline-forest btn-sm">
+                View Itinerary
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
     </div>
 
-    <!-- CENTERED VIEW ALL BUTTON -->
+    <!-- 3. EXPLORE ALL KERALA TOUR PACKAGES BUTTON -->
     <div class="packages-cta-center">
-      <a href="/packages" class="btn btn-forest">
+      <a href="/packages" class="btn btn-forest btn-lg">
         Explore All Kerala Tour Packages
         <span class="btn-arrow" aria-hidden="true">→</span>
       </a>
@@ -144,48 +138,88 @@ const companionPackages = packages.slice(1);
 </section>
 
 <style>
+  /* ===================================================
+     SECTION BASE & HEADER
+  =================================================== */
   .packages-section {
     background-color: var(--color-sand-light, #fbf8f2);
+    padding-top: clamp(48px, 6vw, 84px);
+    padding-bottom: clamp(48px, 6vw, 84px);
+    overflow: hidden;
   }
 
-  /* ASYMMETRIC EDITORIAL LAYOUT */
-  .packages-editorial-showcase {
-    display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 32px;
-    align-items: stretch;
-    margin-bottom: 50px;
+  .packages-section .container {
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(16px, 4vw, 32px);
+    box-sizing: border-box;
+  }
+
+  .packages-section .section-head {
+    max-width: 740px;
+    margin-inline: auto;
+    margin-bottom: clamp(28px, 4vw, 44px);
+    text-align: center;
+  }
+
+  .packages-section .section-title {
+    font-size: clamp(1.75rem, 3.4vw, 2.65rem);
+    line-height: 1.22;
+    color: var(--color-forest, #0d2e23);
+    margin-bottom: 12px;
+    text-wrap: balance;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .packages-section .section-lede {
+    font-size: clamp(0.92rem, 1.2vw, 1.04rem);
+    line-height: 1.65;
+    color: var(--color-muted, #53645b);
+    max-width: 60ch;
+    margin-inline: auto;
+    text-wrap: pretty;
   }
 
   /* ===================================================
-     LEFT: SIGNATURE HERO CARD
+     1. FEATURED TOUR CARD (CLEAN, NATURAL, NO GRID / OVERLAYS)
   =================================================== */
-  .signature-card {
+  .featured-tour-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #ffffff;
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
-    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
-    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.07));
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border: none;
+    box-shadow: var(--shadow-sm, 0 4px 16px rgba(18, 56, 42, 0.06));
+    margin-bottom: 28px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
-  .signature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg, 0 18px 45px rgba(18, 56, 42, 0.12));
+  .featured-tour-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md, 0 12px 32px rgba(18, 56, 42, 0.1));
   }
 
-  .signature-media-link {
+  .featured-tour-media-link {
     display: block;
     position: relative;
+    flex: 0 0 360px;
+    width: 360px;
+    height: 100%;
+    min-height: 230px;
+    max-height: 250px;
     overflow: hidden;
   }
 
-  .signature-media-wrap {
+  .featured-tour-media-wrap {
     position: relative;
-    aspect-ratio: 16 / 10;
-    min-height: 320px;
+    width: 100%;
+    height: 100%;
+    min-height: 230px;
+    max-height: 250px;
     overflow: hidden;
     background-color: #061913;
     display: flex;
@@ -193,370 +227,562 @@ const companionPackages = packages.slice(1);
     justify-content: center;
   }
 
-  .signature-media-backdrop {
-    position: absolute;
-    inset: -25px;
-    background-size: cover;
-    background-position: center;
-    filter: blur(24px) brightness(0.35) saturate(1.25);
-    transform: scale(1.15);
-    pointer-events: none;
+  .featured-tour-card-img {
+    position: relative;
     z-index: 1;
-  }
-
-  .signature-card-img {
-    position: relative;
-    z-index: 2;
     width: 100%;
     height: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    transition: transform 0.6s ease;
-  }
-
-  .signature-card:hover .signature-card-img {
-    transform: scale(1.03);
-  }
-
-  .signature-card-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.3) 0%,
-      transparent 35%,
-      rgba(8, 32, 23, 0.55) 100%
-    );
-  }
-
-  .signature-top-badges {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 4;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .badge-signature {
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: var(--color-gold, #c88b3b);
-    color: #ffffff;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    box-shadow: 0 4px 12px rgba(200, 139, 59, 0.35);
-  }
-
-  .badge-duration {
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: rgba(8, 32, 23, 0.85);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    color: #ffffff;
-    font-size: 0.78rem;
-    font-weight: 700;
-  }
-
-  .signature-card-body {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 28px 26px 26px;
-  }
-
-  .signature-title {
-    font-size: 1.65rem;
-    font-weight: 700;
-    color: var(--color-forest, #12382a);
-    line-height: 1.25;
-    margin-bottom: 10px;
-    text-wrap: balance;
-  }
-
-  .signature-title a:hover {
-    color: var(--color-gold, #c88b3b);
-  }
-
-  .signature-desc {
-    font-size: 0.94rem;
-    line-height: 1.65;
-    color: var(--color-text-muted, #5a6b63);
-    margin-bottom: 20px;
-    max-width: 58ch;
-    text-wrap: pretty;
-  }
-
-  /* HIGHLIGHTS LIST */
-  .signature-highlights {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 0 0 24px;
-    padding: 16px 18px;
-    background-color: var(--color-sand-light, #fbf8f2);
-    border-radius: 12px;
-    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
-    list-style: none;
-  }
-
-  .sig-highlight-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.86rem;
-    font-weight: 600;
-    color: var(--color-forest, #12382a);
-  }
-
-  .check-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: rgba(200, 139, 59, 0.15);
-    color: var(--color-gold, #c88b3b);
-    font-size: 0.75rem;
-    font-weight: 800;
-    flex-shrink: 0;
-  }
-
-  .signature-card-footer {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 16px;
-    margin-top: auto;
-    padding-top: 20px;
-    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
-  }
-
-  /* ===================================================
-     RIGHT: COMPANION PACKAGES STACK
-  =================================================== */
-  .companion-packages-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    justify-content: space-between;
-  }
-
-  .companion-card {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    background-color: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
-    box-shadow: var(--shadow-sm, 0 4px 12px rgba(18, 56, 42, 0.05));
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .companion-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md, 0 10px 28px rgba(18, 56, 42, 0.08));
-  }
-
-  .companion-media-link {
-    display: block;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .companion-image-wrap {
-    position: relative;
-    height: 100%;
-    min-height: 140px;
-    background-color: #e8e2d8;
-  }
-
-  .companion-card-img {
-    width: 100%;
-    height: 100%;
+    max-height: 250px;
     object-fit: cover;
+    object-position: center 42%;
+    display: block;
     transition: transform 0.5s ease;
   }
 
-  .companion-card:hover .companion-card-img {
-    transform: scale(1.06);
+  .featured-tour-card:hover .featured-tour-card-img {
+    transform: scale(1.04);
   }
 
-  .companion-duration-pill {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    padding: 3px 8px;
-    border-radius: 12px;
-    background: rgba(8, 32, 23, 0.85);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    color: #ffffff;
-    font-size: 0.7rem;
-    font-weight: 700;
+  /* Ensure absolutely no unwanted grid lines, pseudo-overlays, or backgrounds */
+  .featured-tour-card,
+  .featured-tour-card *,
+  .featured-tour-body,
+  .featured-tour-body * {
+    background-image: none !important;
   }
 
-  .companion-body {
+  .featured-tour-card::before,
+  .featured-tour-card::after,
+  .featured-tour-body::before,
+  .featured-tour-body::after,
+  .featured-tour-highlights::before,
+  .featured-tour-highlights::after,
+  .featured-highlight-item::before,
+  .featured-highlight-item::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* ===================================================
+     FEATURED TOUR BODY (CLEAN WHITE PANEL, NATURAL TEXT)
+  =================================================== */
+  .featured-tour-body {
+    position: relative;
+    z-index: 1;
+    isolation: isolate;
+    flex: 1 1 auto;
+    min-width: 0;
     display: flex;
     flex-direction: column;
-    padding: 16px 18px 14px;
+    justify-content: center;
+    padding: 20px 24px 18px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .companion-title {
-    font-size: 1.15rem;
+  /* Ensure text elements have clean backgrounds that blend naturally */
+  .featured-tour-body ::selection {
+    background-color: rgba(200, 139, 59, 0.22);
+    color: inherit;
+  }
+
+  .featured-tour-body ::-moz-selection {
+    background-color: rgba(200, 139, 59, 0.22);
+    color: inherit;
+  }
+
+  .featured-tour-title {
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--color-forest, #12382a);
     line-height: 1.25;
     margin-bottom: 6px;
+    text-wrap: balance;
+    background: transparent !important;
   }
 
-  .companion-title a:hover {
+  .featured-tour-title a {
+    color: inherit;
+    text-decoration: none;
+    background: transparent !important;
+    outline: none;
+    transition: color 0.2s ease;
+  }
+
+  .featured-tour-title a:hover {
     color: var(--color-gold, #c88b3b);
   }
 
-  .companion-desc {
-    font-size: 0.82rem;
+  .featured-tour-title a:focus {
+    outline: none;
+  }
+
+  .featured-tour-title a:focus-visible {
+    outline: 2px solid var(--color-gold, #c88b3b);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  .featured-tour-desc {
+    font-size: 0.86rem;
     line-height: 1.5;
     color: var(--color-text-muted, #5a6b63);
     margin-bottom: 12px;
+    text-wrap: pretty;
+    background: transparent !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
 
-  .companion-footer {
+  /* Tour Highlights — Clean, natural vertical bullet list */
+  .featured-tour-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin: 0 0 14px;
+    padding: 0;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  .featured-highlight-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-forest, #12382a);
+    line-height: 1.35;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .highlight-text {
+    background: transparent !important;
+  }
+
+  .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: rgba(200, 139, 59, 0.15);
+    color: var(--color-gold, #c88b3b);
+    font-size: 0.7rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .featured-tour-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     margin-top: auto;
     padding-top: 10px;
-    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    border-top: none;
+    background: transparent;
   }
 
-  .companion-price-wrap {
+  /* ===================================================
+     2. EXISTING PACKAGE GRID — 3 COMPANION CARDS
+  =================================================== */
+  .home-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-bottom: 36px;
+    box-sizing: border-box;
+  }
+
+  .home-pkg-card {
     display: flex;
-    align-items: baseline;
-    gap: 4px;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    box-shadow: var(--shadow-sm, 0 4px 14px rgba(18, 56, 42, 0.05));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    max-width: 100%;
   }
 
-  .price-value-sm {
-    font-family: var(--font-display, Georgia, serif);
-    font-size: 1.2rem;
+  .home-pkg-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md, 0 10px 26px rgba(18, 56, 42, 0.09));
+  }
+
+  .home-pkg-media-link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .home-pkg-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background-color: #e8e2d8;
+  }
+
+  .home-pkg-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .home-pkg-card:hover .home-pkg-card-img {
+    transform: scale(1.05);
+  }
+
+  .home-pkg-duration-pill {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 3px 9px;
+    border-radius: 12px;
+    background: rgba(8, 32, 23, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .home-pkg-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 18px 18px 16px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+  }
+
+  .home-pkg-title {
+    font-size: 1.12rem;
     font-weight: 700;
     color: var(--color-forest, #12382a);
+    line-height: 1.3;
+    margin-bottom: 6px;
+    text-wrap: balance;
+    background: transparent;
   }
 
-  .btn-xs {
-    padding: 7px 12px;
-    font-size: 0.78rem;
-    border-radius: 8px;
+  .home-pkg-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
   }
 
-  /* SHARED ROUTE STYLES */
+  .home-pkg-title a:hover {
+    color: var(--color-gold, #c88b3b);
+  }
+
+  .home-pkg-desc {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: var(--color-text-muted, #5a6b63);
+    margin-bottom: 14px;
+    flex: 1;
+    background: transparent;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .home-pkg-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border-subtle, rgba(18, 56, 42, 0.08));
+    background: transparent;
+  }
+
+  .home-pkg-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ===================================================
+     SHARED / COMMON ELEMENTS
+  =================================================== */
   .package-route {
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin-bottom: 8px;
+    gap: 5px;
+    margin-bottom: 6px;
+    background: transparent !important;
   }
 
   .route-icon {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     flex-shrink: 0;
   }
 
   .route-text {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 600;
     color: var(--color-gold, #c88b3b);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    background: transparent !important;
   }
 
-  .package-price-wrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .price-prefix {
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--color-text-subtle, #7a8c83);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .price-value {
-    font-family: var(--font-display, Georgia, serif);
-    font-size: 1.65rem;
-    font-weight: 700;
-    color: var(--color-forest, #12382a);
-    line-height: 1.1;
-  }
-
-  .price-suffix {
-    font-size: 0.72rem;
-    color: var(--color-text-subtle, #7a8c83);
-  }
-
+  /* ===================================================
+     3. EXPLORE ALL PACKAGES CTA BUTTON
+  =================================================== */
   .packages-cta-center {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 4px;
   }
 
-  /* RESPONSIVE BREAKPOINTS */
+  .packages-cta-center .btn {
+    padding: 14px 34px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 16px rgba(18, 56, 42, 0.15);
+    transition: all 0.25s ease;
+  }
+
+  .packages-cta-center .btn:hover {
+    box-shadow: 0 8px 24px rgba(200, 139, 59, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* ===================================================
+     RESPONSIVE BREAKPOINTS (Desktop, Tablet, Mobile)
+  =================================================== */
+  /* Tablet Landscape (1024px and below) */
   @media (max-width: 1024px) {
-    .packages-editorial-showcase {
-      grid-template-columns: 1fr;
-      gap: 30px;
+    .featured-tour-card {
+      margin-bottom: 24px;
     }
 
-    .companion-packages-stack {
-      display: grid;
+    .featured-tour-media-link {
+      flex: 0 0 280px;
+      width: 280px;
+    }
+
+    .featured-tour-media-wrap {
+      min-height: 220px;
+      max-height: 230px;
+    }
+
+    .featured-tour-card-img {
+      max-height: 230px;
+    }
+
+    .featured-tour-body {
+      padding: 18px 20px 16px;
+    }
+
+    .featured-tour-title {
+      font-size: 1.2rem;
+    }
+
+    .home-packages-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
+      margin-bottom: 30px;
     }
 
-    .companion-card {
-      grid-template-columns: 1fr;
-    }
-
-    .companion-image-wrap {
-      aspect-ratio: 16 / 10;
-      min-height: auto;
+    .home-pkg-image-wrap {
+      height: 200px;
     }
   }
 
-  @media (max-width: 640px) {
-    .companion-packages-stack {
+  /* Tablet Portrait & Large Mobile (768px and below) */
+  @media (max-width: 768px) {
+    .featured-tour-card {
+      flex-direction: column;
+      border-radius: 16px;
+    }
+
+    .featured-tour-media-link,
+    .featured-tour-media-wrap {
+      flex: none;
+      width: 100%;
+      height: clamp(165px, 32vw, 210px);
+      min-height: auto;
+      max-height: none;
+      aspect-ratio: 16 / 9;
+    }
+
+    .featured-tour-card-img {
+      max-height: none;
+    }
+
+    .featured-tour-body {
+      padding: 18px 18px 16px;
+    }
+
+    .home-packages-grid {
       grid-template-columns: 1fr;
       gap: 18px;
+      margin-bottom: 28px;
     }
 
-    .signature-card-body {
-      padding: 22px 18px 20px;
+    .home-pkg-image-wrap {
+      width: 100%;
+      height: clamp(165px, 32vw, 210px);
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  /* Mobile Standard (640px and below) */
+  @media (max-width: 640px) {
+    .packages-section {
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
 
-    .signature-title {
-      font-size: 1.4rem;
+    .packages-section .container {
+      padding-inline: 16px;
+    }
+
+    .packages-section .section-head {
+      margin-bottom: 24px;
+    }
+
+    .packages-section .section-title {
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+
+    .packages-section .section-lede {
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .featured-tour-media-link,
+    .featured-tour-media-wrap {
+      height: clamp(155px, 45vw, 185px);
+      aspect-ratio: 16 / 9;
+    }
+
+    .featured-tour-body {
+      padding: 16px 14px 14px;
+    }
+
+    .featured-tour-title {
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .featured-tour-desc {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .featured-tour-highlights {
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .featured-highlight-item {
+      font-size: 0.76rem;
+    }
+
+    .featured-tour-footer .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 10px 16px;
+      font-size: 0.84rem;
+    }
+
+    .home-pkg-card {
+      border-radius: 14px;
+    }
+
+    .home-pkg-image-wrap {
+      height: clamp(155px, 45vw, 185px);
+      aspect-ratio: 16 / 9;
+    }
+
+    .home-pkg-body {
+      padding: 16px 14px 14px;
+    }
+
+    .home-pkg-title {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .home-pkg-desc {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      -webkit-line-clamp: 2;
+      margin-bottom: 12px;
+    }
+
+    .home-pkg-footer .btn {
+      padding: 10px 16px;
+      font-size: 0.84rem;
     }
 
     .packages-cta-center .btn {
       width: 100%;
+      max-width: 360px;
+      padding: 13px 20px;
+      font-size: 0.88rem;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  /* Small Mobile (360px and 320px) */
+  @media (max-width: 360px) {
+    .packages-section .container {
+      padding-inline: 12px;
+    }
+
+    .packages-section .section-title {
+      font-size: 1.4rem;
+    }
+
+    .packages-section .section-lede {
+      font-size: 0.82rem;
+    }
+
+    .featured-tour-media-link,
+    .featured-tour-media-wrap,
+    .home-pkg-image-wrap {
+      height: 150px;
+    }
+
+    .featured-tour-title {
+      font-size: 1.05rem;
+    }
+
+    .packages-cta-center .btn {
+      font-size: 0.82rem;
+      padding: 12px 14px;
     }
   }
 </style>

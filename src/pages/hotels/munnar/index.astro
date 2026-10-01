@@ -128,7 +128,7 @@ const categories = [
             </p>
             <div class="n-hotels">
               <span class="n-label">Featured Resorts:</span>
-              <span class="n-names">The Fog Resort, The Leaf Munnar, Gokulam Park, Tea Castle, Vibe Munnar, Golden Munnar Palace</span>
+              <span class="n-names">The Fog Resort, The Leaf Munnar, Gokulam Park, Tea Castle, Vibe Munnar, Star Emirates, Windernote</span>
             </div>
           </div>
 
@@ -142,7 +142,7 @@ const categories = [
             </p>
             <div class="n-hotels">
               <span class="n-label">Featured Hotels:</span>
-              <span class="n-names">The Silvertips, Green Ridge, Bellmount Resort, Elysium Garden</span>
+              <span class="n-names">The Silvertips, Grand Plaza, Eastend Munnar, Hill View, Green Ridge, Bellmount Resort, Elysium Garden</span>
             </div>
           </div>
 
@@ -170,7 +170,7 @@ const categories = [
             </p>
             <div class="n-hotels">
               <span class="n-label">Featured Stays:</span>
-              <span class="n-names">Windermere Estate, Gap Valley Resort</span>
+              <span class="n-names">Valle Munnar, Hill View, Eastend, Issac Residency, Grand Plaza, Gap Valley Resort</span>
             </div>
           </div>
         </div>
@@ -234,7 +234,7 @@ const categories = [
           if (filter === "All Stays") {
             match = true;
           } else if (filter === "5-Star & Luxury") {
-            match = stars >= 5 || cat.includes("5-Star") || slug === "windermere-estate";
+            match = stars >= 5 || cat.includes("5-Star");
           } else if (filter === "Tea Plantation & Valley") {
             match = cat.includes("Nature") || cat.includes("Valley") || cat.includes("Plantation") || cat.includes("Waterfall") || cat.includes("Ridge");
           } else if (filter === "Family & Leisure") {

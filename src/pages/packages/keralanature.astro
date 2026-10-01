@@ -97,13 +97,6 @@ const tripSchema = {
   "name": packageTitle,
   "description": "5 Days & 4 Nights Kerala nature and backwater tour covering Munnar tea gardens, Periyar wildlife at Thekkady, and Alappuzha houseboat cruise.",
   "touristType": ["Nature Lovers", "Family", "Couples"],
-  "offers": {
-    "@type": "Offer",
-    "price": price,
-    "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
-    "url": "https://make-my-kerala.vercel.app/packages/keralanature/"
-  },
   "provider": {
     "@type": "TravelAgency",
     "name": "Make My Kerala",
@@ -170,16 +163,6 @@ const tripSchema = {
             <strong>{places}</strong>
             <span>Destinations</span>
           </div>
-
-          <div class="hero-divider"></div>
-
-          <div>
-            <strong>
-              ₹{price.toLocaleString("en-IN")}
-            </strong>
-            <span>Per Person</span>
-          </div>
-
         </div>
 
       </div>
@@ -709,22 +692,6 @@ const tripSchema = {
 
           </div>
 
-          <div class="booking-price">
-
-            <small>
-              Starting From
-            </small>
-
-            <strong>
-              ₹{price.toLocaleString("en-IN")}
-            </strong>
-
-            <span>
-              Per Person
-            </span>
-
-          </div>
-
           <div class="booking-actions" style="display: flex; gap: 12px; flex-wrap: wrap;">
             <a
               href="/contact"
@@ -802,7 +769,7 @@ const tripSchema = {
     justify-content: center;
     overflow: hidden;
     text-align: center;
-    color: white;
+    color: #d2f0e6;
     background-color: #061913;
   }
 
@@ -851,7 +818,7 @@ const tripSchema = {
 
     padding: 9px 18px;
 
-    border: 1px solid rgba(255,255,255,.6);
+    border: 1px solid rgba(210, 240, 230, 0.6);
 
     border-radius: 30px;
 
@@ -860,6 +827,8 @@ const tripSchema = {
     font-weight: 700;
 
     letter-spacing: 3px;
+
+    color: #d2f0e6;
   }
 
 
@@ -871,6 +840,8 @@ const tripSchema = {
     font-size: clamp(42px, 7vw, 76px);
 
     line-height: 1.05;
+
+    color: #d2f0e6;
   }
 
 
@@ -882,6 +853,8 @@ const tripSchema = {
     font-size: 21px;
 
     font-style: italic;
+
+    color: #d2f0e6;
   }
 
 
@@ -900,6 +873,8 @@ const tripSchema = {
     background: rgba(0,0,0,.25);
 
     backdrop-filter: blur(8px);
+
+    color: #d2f0e6;
   }
 
 
@@ -909,11 +884,15 @@ const tripSchema = {
     flex-direction: column;
 
     gap: 7px;
+
+    color: #d2f0e6;
   }
 
 
   .hero-details strong {
     font-size: 15px;
+
+    color: #d2f0e6;
   }
 
 
@@ -925,6 +904,8 @@ const tripSchema = {
     text-transform: uppercase;
 
     letter-spacing: 1px;
+
+    color: #d2f0e6;
   }
 
 

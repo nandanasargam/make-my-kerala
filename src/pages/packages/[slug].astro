@@ -1,0 +1,333 @@
+---
+// src/pages/packages/[slug].astro
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { packages } from "../../data/packages.js";
+import "../../styles/package-detail.css";
+
+export async function getStaticPaths() {
+  const existingSlugs = new Set([
+    "keralanature",
+    "family-holiday",
+    "honeymoon-escape",
+    "backwater-experience"
+  ]);
+
+  return packages
+    .filter((pkg) => !existingSlugs.has(pkg.slug))
+    .map((pkg) => ({
+      params: { slug: pkg.slug },
+      props: { pkg }
+    }));
+}
+
+const { pkg } = Astro.props;
+
+const packageTitle = pkg.title;
+const duration = pkg.duration;
+const places = pkg.places;
+const heroImage = pkg.heroImage || pkg.image;
+
+const whatsappNumber = "919876543210";
+const whatsappText = encodeURIComponent(
+  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}).`
+);
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+const highlights = pkg.highlights || [
+  "Handpicked stays with daily breakfast",
+  "Dedicated private AC vehicle throughout",
+  "Sightseeing tours as per detailed itinerary",
+  "All tolls, driver allowance, and parking charges included",
+  "24/7 dedicated on-tour travel concierge"
+];
+
+const days = pkg.days || [];
+const inclusions = pkg.inclusions || [
+  `${duration} accommodation in handpicked verified hotels and resorts`,
+  "Daily breakfast at all hotels and all meals on houseboat",
+  "Private sanitized AC vehicle for all transfers and sightseeing",
+  "Airport or railway station pickup and drop",
+  "Tolls, parking, driver allowance, and interstate road permits",
+  "24/7 dedicated MakeMyKerala on-tour assistance"
+];
+
+const exclusions = pkg.exclusions || [
+  "Airfare or train tickets",
+  "Entry tickets for monuments, boating, national parks, or activities",
+  "Personal expenses (laundry, room service, telephone calls, tips)",
+  "Optional activities not mentioned in inclusions"
+];
+
+const gallery = pkg.gallery || [
+  pkg.image,
+  "/images/munnar.webp",
+  "/images/thekkady.webp",
+  "/images/allapey.webp"
+];
+
+const tripSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": packageTitle,
+  "description": pkg.description,
+  "touristType": ["Family", "Couples", "Groups", "Solo"],
+  "provider": {
+    "@type": "TravelAgency",
+    "name": "Make My Kerala",
+    "url": "https://makemykerala.vercel.app/"
+  }
+};
+---
+
+<Layout
+  title={`${packageTitle} | Make My Kerala - ${duration}`}
+  description={`${packageTitle}: ${duration} covering ${places}. ${pkg.description} Verified stays, private AC vehicle, and 24/7 local support.`}
+  image={heroImage}
+  schema={tripSchema}
+>
+  <Header />
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-backdrop" style={`background-image: url('${heroImage}')`} aria-hidden="true"></div>
+      <img
+        src={heroImage}
+        alt={packageTitle}
+        class="hero-image"
+        width="1200"
+        height="600"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          {pkg.badge || "CURATED KERALA TOUR"}
+        </div>
+
+        <h1>{packageTitle}</h1>
+        <p class="hero-subtitle">{pkg.subtitle || "South India's Most Inspiring Landscapes & Cultural Shrines"}</p>
+
+        <div class="hero-details">
+          <div>
+            <strong>{duration}</strong>
+            <span>Duration</span>
+          </div>
+
+          <div class="hero-divider"></div>
+
+          <div>
+            <strong>{places}</strong>
+            <span>Destinations</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="intro">
+      <div class="container">
+        <div class="section-title">
+          <span>{pkg.badge || "CURATED TOUR EXPERIENCE"}</span>
+          <h2>{pkg.introTitle || "Thoughtfully Planned for Pure Comfort"}</h2>
+          <p>
+            {pkg.introDesc || pkg.description}
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🚗</div>
+            <h3>Private AC Vehicle</h3>
+            <p>Spacious, clean sanitized vehicle throughout your journey</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🏨</div>
+            <h3>Verified Stays</h3>
+            <p>Handpicked boutique hotels & premium resorts</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">📍</div>
+            <h3>Guided Itinerary</h3>
+            <p>Smooth daily schedule with all prime attractions</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🍴</div>
+            <h3>Curated Breakfast</h3>
+            <p>Daily healthy, freshly prepared regional & continental meals</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🛡️</div>
+            <h3>24/7 Assistance</h3>
+            <p>Dedicated local travel coordinator on call</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="section-title">
+          <span>TOUR HIGHLIGHTS</span>
+          <h2>Key Journey Experiences</h2>
+        </div>
+
+        <div class="highlights-grid">
+          {highlights.map((item) => (
+            <div class="highlight-card">
+              <span class="highlight-icon">✦</span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ITINERARY TIMELINE -->
+    <section class="itinerary-section">
+      <div class="container">
+        <div class="section-title">
+          <span>DAY-BY-DAY ITINERARY</span>
+          <h2>{duration} of Memorable Travel</h2>
+          <p>A relaxed pace designed to ensure you enjoy every moment without rushing.</p>
+        </div>
+
+        <div class="timeline">
+          {days.map((day) => (
+            <article class="day-card">
+              <div class="day-number">
+                <span>DAY</span>
+                <strong>{day.number}</strong>
+              </div>
+
+              <div class="day-image">
+                <img
+                  src={day.image}
+                  alt={day.title}
+                  width="400"
+                  height="260"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="day-content">
+                <span class="day-label">DAY {day.number}</span>
+                <h3>{day.title}</h3>
+                <p>{day.description}</p>
+
+                <ul>
+                  {day.activities.map((act) => (
+                    <li>
+                      <span>✓</span>
+                      {act}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUSIONS & EXCLUSIONS -->
+    <section class="includes-section">
+      <div class="container">
+        <div class="section-title">
+          <span>TRANSPARENT ITINERARY</span>
+          <h2>Package Inclusions &amp; Exclusions</h2>
+        </div>
+
+        <div class="includes-grid">
+          <div class="include-card">
+            <div class="include-icon">✨</div>
+            <h3>What's Included</h3>
+            <ul>
+              {inclusions.map((item) => (
+                <li class="inc">{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="include-card">
+            <div class="include-icon">ℹ️</div>
+            <h3>What's Excluded</h3>
+            <ul>
+              {exclusions.map((item) => (
+                <li class="exc">{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="section-title">
+          <span>DESTINATION GALLERY</span>
+          <h2>Memories Waiting to Be Made</h2>
+        </div>
+
+        <div class="gallery-grid">
+          {gallery.map((imgUrl, i) => (
+            <div class="gallery-card">
+              <img
+                src={imgUrl}
+                alt={`${packageTitle} Photo ${i + 1}`}
+                width="360"
+                height="240"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING & WHATSAPP CTA -->
+    <section class="booking-section">
+      <div class="container">
+        <div class="booking-box">
+          <div class="booking-content">
+            <span>PLAN YOUR TRIP WITH EXPERTS</span>
+            <h2>Ready to Experience South India?</h2>
+            <p>
+              Contact our holiday specialists for custom dates, personalized hotel options, or package enquiries.
+            </p>
+          </div>
+
+          <div class="booking-actions">
+            <a href="/contact" class="booking-button">
+              Enquire Online <span>→</span>
+            </a>
+
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="booking-whatsapp-btn"
+            >
+              WhatsApp Enquiry <span>💬</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

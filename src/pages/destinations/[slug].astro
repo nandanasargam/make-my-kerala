@@ -650,12 +650,6 @@ const breadcrumbSchema = {
                 <p class="pkg-card-desc">{pkg.description}</p>
 
                 <div class="pkg-card-footer">
-                  <div class="pkg-card-price">
-                    <span class="price-prefix">From</span>
-                    <strong class="price-value">₹{pkg.price.toLocaleString("en-IN")}</strong>
-                    <span class="price-suffix">/ person</span>
-                  </div>
-
                   <a href={pkg.itineraryLink} class="btn btn-primary btn-sm">
                     <span>View Tour</span>
                     <span class="btn-arrow" aria-hidden="true">→</span>
@@ -1350,7 +1344,7 @@ const breadcrumbSchema = {
   .pkg-card-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding-top: 16px;
     border-top: 1px solid rgba(18, 56, 42, 0.08);
   }

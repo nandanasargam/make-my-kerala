@@ -17,6 +17,16 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+::selection {
+  background-color: rgba(200, 139, 59, 0.22);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(200, 139, 59, 0.22);
+  color: inherit;
+}
+
 /* 2. DESIGN SYSTEM TOKENS */
 :root {
   /* PALETTE */

@@ -12,7 +12,7 @@ const heroImage = "/images/kerala-honeymoon-escape.webp";
 
 const whatsappNumber = "919876543210";
 const whatsappText = encodeURIComponent(
-  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}) starting at ₹${price.toLocaleString("en-IN")}/person.`
+  `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}).`
 );
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
@@ -124,7 +124,7 @@ const inclusions = [
 
 const exclusions = [
   "Airfare or train tickets",
-  "Ayurvedic spa treatments (can be arranged on request)",
+  "Optional Ayurvedic spa treatments",
   "Monument entry fees and camera charges",
   "Personal expenses, room service, laundry, and tips"
 ];
@@ -142,13 +142,6 @@ const tripSchema = {
   "name": packageTitle,
   "description": "6 Days & 5 Nights romantic honeymoon tour covering Munnar hill stations, Thekkady, and a private backwater houseboat cruise with candlelit dinner.",
   "touristType": ["Couples", "Honeymooners"],
-  "offers": {
-    "@type": "Offer",
-    "price": price,
-    "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
-    "url": "https://make-my-kerala.vercel.app/packages/honeymoon-escape/"
-  },
   "provider": {
     "@type": "TravelAgency",
     "name": "Make My Kerala",
@@ -200,13 +193,6 @@ const tripSchema = {
           <div>
             <strong>{places}</strong>
             <span>Destinations</span>
-          </div>
-
-          <div class="hero-divider"></div>
-
-          <div>
-            <strong>₹{price.toLocaleString("en-IN")}</strong>
-            <span>Per Person</span>
           </div>
         </div>
       </div>
@@ -393,12 +379,6 @@ const tripSchema = {
               Let our honeymoon specialists customize this itinerary with luxury pool villas,
               ayurvedic couple massages, or private transfers.
             </p>
-          </div>
-
-          <div class="booking-price">
-            <small>Starting From</small>
-            <strong>₹{price.toLocaleString("en-IN")}</strong>
-            <span>Per Person</span>
           </div>
 
           <div class="booking-actions">

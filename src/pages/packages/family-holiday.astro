@@ -130,13 +130,6 @@ const tripSchema = {
   "name": packageTitle,
   "description": "5 Days & 4 Nights family tour covering Munnar tea gardens, Periyar wildlife boating, and an Alleppey private houseboat cruise.",
   "touristType": ["Family", "Groups"],
-  "offers": {
-    "@type": "Offer",
-    "price": price,
-    "priceCurrency": "INR",
-    "availability": "https://schema.org/InStock",
-    "url": "https://make-my-kerala.vercel.app/packages/family-holiday/"
-  },
   "provider": {
     "@type": "TravelAgency",
     "name": "Make My Kerala",
@@ -188,13 +181,6 @@ const tripSchema = {
           <div>
             <strong>{places}</strong>
             <span>Destinations</span>
-          </div>
-
-          <div class="hero-divider"></div>
-
-          <div>
-            <strong>₹{price.toLocaleString("en-IN")}</strong>
-            <span>Per Person</span>
           </div>
         </div>
       </div>
@@ -378,14 +364,8 @@ const tripSchema = {
             <span>PLAN YOUR FAMILY VACATION</span>
             <h2>Ready to Experience Kerala?</h2>
             <p>
-              Contact our Kerala holiday planners for custom dates, hotel upgrades, or instant quotes.
+              Contact our Kerala holiday planners for custom dates, hotel upgrades, or complete holiday planning.
             </p>
-          </div>
-
-          <div class="booking-price">
-            <small>Starting From</small>
-            <strong>₹{price.toLocaleString("en-IN")}</strong>
-            <span>Per Person</span>
           </div>
 
           <div class="booking-actions">
