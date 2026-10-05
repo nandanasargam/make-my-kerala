@@ -1,0 +1,834 @@
+---
+// src/components/PackageHotelRates.astro
+interface HotelItem {
+  name: string;
+  link: string | null;
+}
+
+interface DestinationGroup {
+  name: string;
+  hotels: HotelItem[];
+}
+
+interface TierData {
+  packageRate: string;
+  dblSharing: string;
+  tplSharing?: string;
+  extraBed?: string;
+  destinations: DestinationGroup[];
+}
+
+interface Props {
+  rates: {
+    deluxe?: TierData;
+    economy?: TierData;
+  };
+}
+
+const { rates } = Astro.props;
+
+const hasDeluxe = Boolean(rates.deluxe);
+const hasEconomy = Boolean(rates.economy);
+const hasBoth = hasDeluxe && hasEconomy;
+---
+
+<section class="hotel-rates-section" id="rates-hotels" aria-label="Hotel & Package Rates">
+  <div class="container">
+    <div class="section-title">
+      <span>TRANSPARENT PRICING &amp; STAYS</span>
+      <h2>Hotel &amp; Package Rates</h2>
+      <p>
+        Select your preferred accommodation tier with verified stays, transparent pricing, and direct hotel details.
+      </p>
+    </div>
+
+    {hasBoth && (
+      <div class="rate-tier-tabs" role="tablist" aria-label="Accommodation Tiers">
+        <button
+          type="button"
+          class="tier-tab-btn active"
+          data-tier="deluxe"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tier-panel-deluxe"
+          id="tab-deluxe"
+        >
+          <span class="tab-badge">⭐ Recommended</span>
+          <span class="tab-title">Deluxe</span>
+          <span class="tab-price">{rates.deluxe?.packageRate}</span>
+        </button>
+
+        <button
+          type="button"
+          class="tier-tab-btn"
+          data-tier="economy"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tier-panel-economy"
+          id="tab-economy"
+        >
+          <span class="tab-badge">💰 Value Choice</span>
+          <span class="tab-title">Economy</span>
+          <span class="tab-price">{rates.economy?.packageRate}</span>
+        </button>
+      </div>
+    )}
+
+    <!-- DELUXE TIER PANEL -->
+    {hasDeluxe && rates.deluxe && (
+      <div
+        class="tier-panel active"
+        id="tier-panel-deluxe"
+        role="tabpanel"
+        aria-labelledby="tab-deluxe"
+      >
+        <div class="tier-card deluxe-theme">
+          <div class="tier-card-header">
+            <div class="tier-header-left">
+              <span class="tier-pill deluxe-pill">DELUXE TIER</span>
+              <h3 class="tier-heading">Deluxe Package &amp; Hotel Rates</h3>
+            </div>
+            <div class="tier-guarantee">
+              <span class="shield-icon" aria-hidden="true">✓</span>
+              <span>Handpicked Verified Stays</span>
+            </div>
+          </div>
+
+          <!-- RATES SUMMARY GRID -->
+          <div class="rates-summary-box">
+            <div class="rate-item primary-rate">
+              <span class="rate-label">Package Rate</span>
+              <div class="rate-val-group">
+                <strong class="rate-value">{rates.deluxe.packageRate}</strong>
+              </div>
+              <span class="rate-subtext">Per Person / Double Sharing</span>
+            </div>
+
+            <div class="rate-item">
+              <span class="rate-label">DBL Sharing</span>
+              <div class="rate-val-group">
+                <strong class="rate-value">{rates.deluxe.dblSharing}</strong>
+              </div>
+              <span class="rate-subtext">Twin / Double Occupancy</span>
+            </div>
+
+            {rates.deluxe.tplSharing && (
+              <div class="rate-item">
+                <span class="rate-label">TPL Sharing</span>
+                <div class="rate-val-group">
+                  <strong class="rate-value">{rates.deluxe.tplSharing}</strong>
+                </div>
+                <span class="rate-subtext">Triple Occupancy</span>
+              </div>
+            )}
+
+            {rates.deluxe.extraBed && (
+              <div class="rate-item">
+                <span class="rate-label">Extra Bed</span>
+                <div class="rate-val-group">
+                  <strong class="rate-value">{rates.deluxe.extraBed}</strong>
+                </div>
+                <span class="rate-subtext">Per Extra Adult / Child</span>
+              </div>
+            )}
+          </div>
+
+          <!-- DESTINATION HOTELS LIST -->
+          <div class="hotels-group-wrapper">
+            <div class="hotels-subhead">
+              <span class="subhead-icon" aria-hidden="true">📍</span>
+              <h4>Curated Hotels by Destination</h4>
+              <span class="hotels-note">Click a hotel to view rooms, amenities &amp; details</span>
+            </div>
+
+            <div class="destinations-grid">
+              {rates.deluxe.destinations.map((dest) => (
+                <div class="destination-card">
+                  <div class="destination-head">
+                    <span class="dest-pin" aria-hidden="true">📍</span>
+                    <h5>{dest.name}</h5>
+                    <span class="dest-count">{dest.hotels.length} {dest.hotels.length === 1 ? "Option" : "Options"}</span>
+                  </div>
+
+                  <ul class="hotel-list">
+                    {dest.hotels.map((h) => (
+                      <li class="hotel-list-item">
+                        {h.link ? (
+                          <a href={h.link} class="hotel-anchor" title={`View ${h.name} detail page`}>
+                            <span class="bullet" aria-hidden="true">•</span>
+                            <span class="name">{h.name}</span>
+                            <span class="arrow-ext" aria-hidden="true">↗</span>
+                          </a>
+                        ) : (
+                          <span class="hotel-plain">
+                            <span class="bullet" aria-hidden="true">•</span>
+                            <span class="name">{h.name}</span>
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- ECONOMY TIER PANEL -->
+    {hasEconomy && rates.economy && (
+      <div
+        class={`tier-panel ${!hasBoth ? 'active' : ''}`}
+        id="tier-panel-economy"
+        role="tabpanel"
+        aria-labelledby="tab-economy"
+        hidden={hasBoth ? true : undefined}
+      >
+        <div class="tier-card economy-theme">
+          <div class="tier-card-header">
+            <div class="tier-header-left">
+              <span class="tier-pill economy-pill">ECONOMY TIER</span>
+              <h3 class="tier-heading">Economy Package &amp; Hotel Rates</h3>
+            </div>
+            <div class="tier-guarantee">
+              <span class="shield-icon" aria-hidden="true">✓</span>
+              <span>Best Value Budget Comfort</span>
+            </div>
+          </div>
+
+          <!-- RATES SUMMARY GRID -->
+          <div class="rates-summary-box">
+            <div class="rate-item primary-rate">
+              <span class="rate-label">Package Rate</span>
+              <div class="rate-val-group">
+                <strong class="rate-value">{rates.economy.packageRate}</strong>
+              </div>
+              <span class="rate-subtext">Per Person / Double Sharing</span>
+            </div>
+
+            <div class="rate-item">
+              <span class="rate-label">DBL Sharing</span>
+              <div class="rate-val-group">
+                <strong class="rate-value">{rates.economy.dblSharing}</strong>
+              </div>
+              <span class="rate-subtext">Twin / Double Occupancy</span>
+            </div>
+
+            {rates.economy.tplSharing && (
+              <div class="rate-item">
+                <span class="rate-label">TPL Sharing</span>
+                <div class="rate-val-group">
+                  <strong class="rate-value">{rates.economy.tplSharing}</strong>
+                </div>
+                <span class="rate-subtext">Triple Occupancy</span>
+              </div>
+            )}
+
+            {rates.economy.extraBed && (
+              <div class="rate-item">
+                <span class="rate-label">Extra Bed</span>
+                <div class="rate-val-group">
+                  <strong class="rate-value">{rates.economy.extraBed}</strong>
+                </div>
+                <span class="rate-subtext">Per Extra Adult / Child</span>
+              </div>
+            )}
+          </div>
+
+          <!-- DESTINATION HOTELS LIST -->
+          <div class="hotels-group-wrapper">
+            <div class="hotels-subhead">
+              <span class="subhead-icon" aria-hidden="true">📍</span>
+              <h4>Curated Hotels by Destination</h4>
+              <span class="hotels-note">Click a hotel to view rooms, amenities &amp; details</span>
+            </div>
+
+            <div class="destinations-grid">
+              {rates.economy.destinations.map((dest) => (
+                <div class="destination-card">
+                  <div class="destination-head">
+                    <span class="dest-pin" aria-hidden="true">📍</span>
+                    <h5>{dest.name}</h5>
+                    <span class="dest-count">{dest.hotels.length} {dest.hotels.length === 1 ? "Option" : "Options"}</span>
+                  </div>
+
+                  <ul class="hotel-list">
+                    {dest.hotels.map((h) => (
+                      <li class="hotel-list-item">
+                        {h.link ? (
+                          <a href={h.link} class="hotel-anchor" title={`View ${h.name} detail page`}>
+                            <span class="bullet" aria-hidden="true">•</span>
+                            <span class="name">{h.name}</span>
+                            <span class="arrow-ext" aria-hidden="true">↗</span>
+                          </a>
+                        ) : (
+                          <span class="hotel-plain">
+                            <span class="bullet" aria-hidden="true">•</span>
+                            <span class="name">{h.name}</span>
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  function initRateTabs() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.rate-tier-tabs .tier-tab-btn');
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const targetTier = tab.getAttribute('data-tier');
+        const container = tab.closest('.hotel-rates-section');
+        if (!container || !targetTier) return;
+
+        // Toggle button states
+        container.querySelectorAll<HTMLButtonElement>('.tier-tab-btn').forEach((btn) => {
+          const isActive = btn === tab;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        // Toggle panel states
+        container.querySelectorAll<HTMLElement>('.tier-panel').forEach((panel) => {
+          const isTarget = panel.id === `tier-panel-${targetTier}`;
+          panel.classList.toggle('active', isTarget);
+          if (isTarget) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  }
+
+  // Run on initial load and View Transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initRateTabs);
+  } else {
+    initRateTabs();
+  }
+  document.addEventListener('astro:page-load', initRateTabs);
+</script>
+
+<style>
+  /* =====================================================
+     HOTEL & PACKAGE RATES SECTION
+  ===================================================== */
+  .hotel-rates-section {
+    padding: 85px 0 95px;
+    background: #ffffff;
+    border-top: 1px solid #e7e5dc;
+    border-bottom: 1px solid #e7e5dc;
+  }
+
+  /* TABS */
+  .rate-tier-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 36px;
+    max-width: 680px;
+    padding: 6px;
+    background: #f4f2ea;
+    border-radius: 20px;
+    border: 1px solid #e2ded4;
+  }
+
+  .tier-tab-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 20px 16px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: inherit;
+    text-align: center;
+    color: #4b5a52;
+  }
+
+  .tier-tab-btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+    color: #12382a;
+  }
+
+  .tier-tab-btn.active {
+    background: #ffffff;
+    color: #12382a;
+    box-shadow: 0 4px 18px rgba(18, 56, 42, 0.08);
+    border-color: #d8d2c4;
+  }
+
+  .tab-badge {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    color: #c88b3b;
+  }
+
+  .tab-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #12382a;
+    line-height: 1.2;
+    margin-bottom: 3px;
+  }
+
+  .tab-price {
+    font-size: 13px;
+    font-weight: 600;
+    color: #5d6e64;
+  }
+
+  .tier-tab-btn.active .tab-price {
+    color: #c88b3b;
+  }
+
+  /* PANELS */
+  .tier-panel {
+    display: none;
+    animation: fadeIn 0.3s ease forwards;
+  }
+
+  .tier-panel.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* TIER CARD */
+  .tier-card {
+    background: #fbfaf6;
+    border: 1px solid #e7e3d8;
+    border-radius: 22px;
+    padding: 38px 40px;
+    box-shadow: 0 8px 30px rgba(18, 56, 42, 0.05);
+  }
+
+  .tier-card.deluxe-theme {
+    border-top: 4px solid #c88b3b;
+  }
+
+  .tier-card.economy-theme {
+    border-top: 4px solid #1b4937;
+  }
+
+  .tier-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #eae5d9;
+  }
+
+  .tier-header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .tier-pill {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+
+  .deluxe-pill {
+    background: rgba(200, 139, 59, 0.15);
+    color: #9c6722;
+    border: 1px solid rgba(200, 139, 59, 0.35);
+  }
+
+  .economy-pill {
+    background: rgba(27, 73, 55, 0.12);
+    color: #12382a;
+    border: 1px solid rgba(27, 73, 55, 0.3);
+  }
+
+  .tier-heading {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #12382a;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .tier-guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #12382a;
+    background: #ffffff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1px solid #e0d9cc;
+  }
+
+  .shield-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #12382a;
+    color: #d2f0e6;
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  /* RATES SUMMARY GRID */
+  .rates-summary-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 38px;
+  }
+
+  .rate-item {
+    background: #ffffff;
+    border: 1px solid #e5dfd2;
+    border-radius: 16px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(18, 56, 42, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .rate-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(18, 56, 42, 0.06);
+  }
+
+  .rate-item.primary-rate {
+    background: linear-gradient(135deg, #ffffff 0%, #faf6ee 100%);
+    border-color: #d8c4a0;
+  }
+
+  .rate-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6a7970;
+    margin-bottom: 6px;
+  }
+
+  .rate-item.primary-rate .rate-label {
+    color: #9c6722;
+  }
+
+  .rate-val-group {
+    margin-bottom: 6px;
+  }
+
+  .rate-value {
+    font-size: 22px;
+    font-weight: 800;
+    color: #12382a;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .rate-item.primary-rate .rate-value {
+    color: #12382a;
+    font-size: 24px;
+  }
+
+  .rate-subtext {
+    font-size: 12px;
+    color: #798a80;
+    line-height: 1.4;
+  }
+
+  /* HOTELS GROUP WRAPPER */
+  .hotels-group-wrapper {
+    background: #ffffff;
+    border: 1px solid #e7e2d6;
+    border-radius: 18px;
+    padding: 30px;
+  }
+
+  .hotels-subhead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0ecdf;
+  }
+
+  .subhead-icon {
+    font-size: 18px;
+  }
+
+  .hotels-subhead h4 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 700;
+    color: #12382a;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .hotels-note {
+    margin-left: auto;
+    font-size: 13px;
+    color: #6f7f75;
+    font-style: italic;
+  }
+
+  /* DESTINATIONS GRID */
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+  }
+
+  .destination-card {
+    background: #fdfcf9;
+    border: 1px solid #e8e3d7;
+    border-radius: 15px;
+    padding: 20px 22px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .destination-card:hover {
+    border-color: #c88b3b;
+    box-shadow: 0 6px 18px rgba(18, 56, 42, 0.05);
+  }
+
+  .destination-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e2dcce;
+  }
+
+  .dest-pin {
+    font-size: 16px;
+  }
+
+  .destination-head h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #12382a;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .dest-count {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 700;
+    color: #7d8b82;
+    background: #ede8dc;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* HOTEL LIST */
+  .hotel-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hotel-list-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .hotel-anchor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #ffffff;
+    border: 1px solid #e7e2d5;
+    border-radius: 10px;
+    color: #12382a;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .hotel-anchor:hover {
+    background: #faf5eb;
+    border-color: #c88b3b;
+    color: #9c6722;
+    transform: translateX(2px);
+  }
+
+  .hotel-plain {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(240, 236, 226, 0.6);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #4f5f56;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .bullet {
+    color: #c88b3b;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .hotel-plain .bullet {
+    color: #9ca69e;
+  }
+
+  .name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .arrow-ext {
+    font-size: 12px;
+    color: #c88b3b;
+    opacity: 0.7;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .hotel-anchor:hover .arrow-ext {
+    opacity: 1;
+    transform: translate(2px, -2px);
+  }
+
+  /* =====================================================
+     RESPONSIVE BREAKPOINTS
+  ===================================================== */
+  @media (max-width: 992px) {
+    .tier-card {
+      padding: 30px 24px;
+    }
+
+    .hotels-group-wrapper {
+      padding: 22px 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hotel-rates-section {
+      padding: 60px 0 70px;
+    }
+
+    .rate-tier-tabs {
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .tier-tab-btn {
+      padding: 12px 14px;
+    }
+
+    .tab-title {
+      font-size: 17px;
+    }
+
+    .tab-price {
+      font-size: 12px;
+    }
+
+    .tier-card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+    }
+
+    .tier-heading {
+      font-size: 20px;
+    }
+
+    .rates-summary-box {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .rate-value {
+      font-size: 20px;
+    }
+
+    .destinations-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .hotels-note {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rate-tier-tabs {
+      flex-direction: column;
+      border-radius: 16px;
+    }
+
+    .tier-card {
+      padding: 22px 16px;
+      border-radius: 16px;
+    }
+
+    .hotels-group-wrapper {
+      padding: 16px 12px;
+      border-radius: 14px;
+    }
+  }
+</style>

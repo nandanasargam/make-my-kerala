@@ -10,7 +10,7 @@ const places = "Kochi - Alleppey - Kumarakom";
 const price = 11999;
 const heroImage = "/images/kerala-backwater-experience.webp";
 
-const whatsappNumber = "919876543210";
+const whatsappNumber = "919745269272";
 const whatsappText = encodeURIComponent(
   `Hi MakeMyKerala! I would like to enquire about the ${packageTitle} (${duration}).`
 );
@@ -354,7 +354,7 @@ const tripSchema = {
           </div>
 
           <div class="booking-actions">
-            <a href="/contact" class="booking-button">
+            <a href={`/enquiry/?package=${encodeURIComponent(packageTitle)}`} class="booking-button">
               Enquire Online <span>→</span>
             </a>
 

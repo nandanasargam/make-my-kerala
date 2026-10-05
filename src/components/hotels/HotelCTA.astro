@@ -43,7 +43,7 @@ const extensionDestinations: Record<string, string> = {
 const extensionText = extensionDestinations[destination.toLowerCase()] || "Munnar, Alleppey & Kochi";
 
 const waMessage = `Hello MakeMyKerala! I would like to inquire about booking a stay at ${hotel.name} (${hotel.locality}, ${destinationName}) as part of my Kerala travel itinerary. Please share available rates and package options.`;
-const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`;
+const waUrl = `https://wa.me/919745269272?text=${encodeURIComponent(waMessage)}`;
 ---
 
 <section class="section hotel-cta-section reveal" id="enquire" aria-label="Book or Inquire About This Hotel">
@@ -98,7 +98,7 @@ const waUrl = `https://wa.me/919876543210?text=${encodeURIComponent(waMessage)}`
             <span>Inquire via WhatsApp</span>
           </a>
 
-          <a href="/contact" class="cta-form-btn">
+          <a href={`/enquiry/?hotel=${encodeURIComponent(hotel.name)}&destination=${encodeURIComponent(destinationName)}`} class="cta-form-btn">
             <span>Request Custom Itinerary</span>
             <span aria-hidden="true">→</span>
           </a>

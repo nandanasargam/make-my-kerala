@@ -224,11 +224,11 @@ export default function MobileMenu() {
         </nav>
 
         <div className="mobile-drawer-contact">
-          <a href="tel:+919876543210" className="mobile-phone-link">
-            <span>📞</span> +91 98765 43210
+          <a href="tel:+919745269272" className="mobile-phone-link">
+            <span>📞</span> +91 97452 69272
           </a>
           <a
-            href="https://wa.me/919876543210?text=Hi%20MakeMyKerala!%20I%20am%20planning%20a%20trip%20to%20Kerala%20and%20would%20like%20to%20know%20more%20about%20your%20tour%20packages."
+            href="https://wa.me/919745269272?text=Hi%20MakeMyKerala!%20I%20am%20planning%20a%20trip%20to%20Kerala%20and%20would%20like%20to%20know%20more%20about%20your%20tour%20packages."
             target="_blank"
             rel="noopener noreferrer"
             className="mobile-wa-link"
@@ -238,7 +238,7 @@ export default function MobileMenu() {
         </div>
 
         <a
-          href="/contact"
+          href="/enquiry/"
           className="mobile-cta"
           onClick={handleNavClick}
         >

@@ -269,7 +269,7 @@ const relatedPackages = packages.filter((pkg) => {
 const displayPackages = relatedPackages.length > 0 ? relatedPackages.slice(0, 3) : packages.slice(0, 3);
 
 // WhatsApp message builder
-const whatsappNumber = "919876543210";
+const whatsappNumber = "919745269272";
 const whatsappText = encodeURIComponent(
   `Hi MakeMyKerala! I am interested in planning a holiday to ${destination.name}. Please share customized itineraries and hotel stay options.`
 );
@@ -695,7 +695,7 @@ const breadcrumbSchema = {
               <span>Chat on WhatsApp</span>
               <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
-            <a href="/contact/" class="btn btn-outline-light btn-lg">
+            <a href={`/enquiry/?destination=${encodeURIComponent(destination.name)}`} class="btn btn-outline-light btn-lg">
               <span>Request Custom Quote</span>
             </a>
           </div>

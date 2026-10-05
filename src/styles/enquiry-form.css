@@ -1,0 +1,506 @@
+/* ============================================================
+   MAKEMYKERALA - CENTRAL ENQUIRY FORM STYLES
+   ============================================================ */
+
+.mmk-enquiry-form {
+  display: block;
+  width: 100%;
+}
+
+/* Context Source Badge (When referred from a specific package or hotel) */
+.context-source-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #eef6f1;
+  border: 1.5px solid #2e684d;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 22px;
+}
+
+.context-source-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.context-source-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.context-source-label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #2e684d;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.context-source-name {
+  display: block;
+  font-size: 15px;
+  color: #0d2e23;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.context-source-clear {
+  background: transparent;
+  border: 1px solid rgba(46, 104, 77, 0.4);
+  color: #2e684d;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.context-source-clear:hover {
+  background: #2e684d;
+  color: #ffffff;
+}
+
+/* Form Error Alert */
+.form-error-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fdf2f2;
+  border: 1px solid #f8b4b4;
+  border-left: 4px solid #e02424;
+  color: #9b1c1c;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.form-error-alert .alert-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Form Section Headers */
+.form-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.section-step {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0d2e23;
+  color: #f1c47b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.form-section-header h4 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #0d2e23;
+  margin: 0;
+}
+
+/* Grid Layouts */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 640px) {
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+}
+
+/* Field Groups */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field-group label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #12382a;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.field-group label .req {
+  color: #c98b36;
+  font-weight: 800;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  font-size: 14.5px;
+  border: 1.5px solid #d5cec0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #12382a;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  line-height: 1.4;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+  color: #95a39b;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  outline: none;
+  border-color: #2e684d;
+  box-shadow: 0 0 0 3px rgba(46, 104, 77, 0.12);
+  background-color: #ffffff;
+}
+
+.field-group textarea {
+  resize: vertical;
+  min-height: 85px;
+}
+
+/* ============================================================
+   TWO DISTINCT SUBMISSION CHOICES
+   ============================================================ */
+.submission-choices-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: stretch;
+  margin-top: 24px;
+  padding: 22px;
+  background: #fcfbf7;
+  border: 1.5px solid #e7e2d6;
+  border-radius: 16px;
+}
+
+.choice-option {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5dfd2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.choice-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(18, 56, 42, 0.06);
+}
+
+.choice-option.email-choice {
+  border-top: 4px solid #c98b36;
+}
+
+.choice-option.whatsapp-choice {
+  border-top: 4px solid #25d366;
+  background: #fbfdfc;
+}
+
+.choice-meta {
+  margin-bottom: 14px;
+}
+
+.choice-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8f5c15;
+  background: #fdf5ea;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.choice-badge.wa-badge {
+  color: #12793b;
+  background: #e8f9ee;
+}
+
+.choice-heading {
+  display: block;
+  font-size: 16px;
+  color: #12382a;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.choice-desc {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #63776c;
+  margin: 0;
+}
+
+/* Button 1: Send Online Enquiry */
+.btn-submit-online {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-radius: 30px;
+  background-color: #c98b36;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(201, 139, 54, 0.25);
+}
+
+.btn-submit-online:hover:not(:disabled) {
+  background-color: #b3792c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(201, 139, 54, 0.35);
+}
+
+.btn-submit-online:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* Button 2: Enquiry on WhatsApp */
+.btn-submit-wa {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-radius: 30px;
+  background-color: #25d366;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+}
+
+.btn-submit-wa:hover {
+  background-color: #20ba5a;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #ffffff;
+  animation: mmk-spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes mmk-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.choice-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-divider span {
+  display: inline-block;
+  padding: 6px 8px;
+  border-radius: 50%;
+  background: #ebe5d7;
+  color: #7d8b83;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .submission-choices-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .choice-divider {
+    padding: 2px 0;
+  }
+}
+
+.form-security-note {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 11.5px;
+  color: #7b8b82;
+}
+
+/* ============================================================
+   SUCCESS STATE SCREEN
+   ============================================================ */
+.mmk-enquiry-success {
+  text-align: center;
+  padding: 36px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #d9e5dc;
+}
+
+.success-icon-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #e7f7ed;
+  color: #1b633e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  border: 2px solid #bce6ca;
+}
+
+.success-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px;
+  color: #12382a;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.success-lead {
+  font-size: 14.5px;
+  color: #4b5e54;
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 22px;
+}
+
+.success-summary-box {
+  background: #f7faf8;
+  border: 1px solid #e1eee5;
+  border-radius: 12px;
+  padding: 16px 20px;
+  max-width: 420px;
+  margin: 0 auto 20px;
+  text-align: left;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #e1eee5;
+  font-size: 13.5px;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-lbl {
+  color: #6a7c73;
+}
+
+.summary-val {
+  color: #12382a;
+  font-weight: 700;
+}
+
+.success-note {
+  font-size: 13px;
+  color: #6c7c73;
+  margin: 0 auto 24px;
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 30px;
+  background-color: #25d366;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
+  transition: all 0.25s ease;
+}
+
+.success-wa-btn:hover {
+  background-color: #20ba5a;
+  transform: translateY(-1px);
+}
+
+.success-reset-btn {
+  background: transparent;
+  border: none;
+  color: #c98b36;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 6px 12px;
+}
