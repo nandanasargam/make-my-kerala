@@ -17,6 +17,9 @@
   border-radius: 12px;
   padding: 12px 16px;
   margin-bottom: 22px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .context-source-icon {
@@ -27,6 +30,8 @@
 .context-source-info {
   flex: 1;
   min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .context-source-label {
@@ -42,11 +47,11 @@
 .context-source-name {
   display: block;
   font-size: 15px;
+  line-height: 1.35;
   color: #0d2e23;
   font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .context-source-clear {
@@ -60,6 +65,7 @@
   cursor: pointer;
   transition: all 0.2s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .context-source-clear:hover {
@@ -127,6 +133,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-bottom: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .form-grid-3 {
@@ -134,6 +143,15 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
   margin-bottom: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.form-grid-2 > *,
+.form-grid-3 > * {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (max-width: 640px) {
@@ -150,6 +168,10 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .field-group label {
@@ -160,6 +182,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  flex-wrap: wrap;
 }
 
 .field-group label .req {
@@ -171,6 +194,8 @@
 .field-group select,
 .field-group textarea {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   padding: 12px 14px;
   font-size: 14.5px;
@@ -181,6 +206,10 @@
   font-family: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   line-height: 1.4;
+}
+
+.field-group select {
+  text-overflow: ellipsis;
 }
 
 .field-group input::placeholder,
@@ -215,6 +244,9 @@
   background: #fcfbf7;
   border: 1.5px solid #e7e2d6;
   border-radius: 16px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .choice-option {
@@ -226,6 +258,10 @@
   background: #ffffff;
   border: 1px solid #e5dfd2;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .choice-option:hover {
@@ -270,6 +306,7 @@
   color: #12382a;
   font-weight: 700;
   margin-bottom: 4px;
+  overflow-wrap: break-word;
 }
 
 .choice-desc {
@@ -277,11 +314,14 @@
   line-height: 1.45;
   color: #63776c;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 /* Button 1: Send Online Enquiry */
 .btn-submit-online {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -296,6 +336,9 @@
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 4px 12px rgba(201, 139, 54, 0.25);
+  white-space: normal;
+  text-align: center;
+  word-break: normal;
 }
 
 .btn-submit-online:hover:not(:disabled) {
@@ -312,6 +355,8 @@
 /* Button 2: Enquiry on WhatsApp */
 .btn-submit-wa {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -326,6 +371,9 @@
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  white-space: normal;
+  text-align: center;
+  word-break: normal;
 }
 
 .btn-submit-wa:hover {
@@ -366,6 +414,16 @@
   font-weight: 800;
 }
 
+@media (min-width: 769px) {
+  .btn-submit-online,
+  .btn-submit-wa {
+    min-height: 52px;
+    padding: 15px 22px;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+}
+
 @media (max-width: 768px) {
   .submission-choices-wrapper {
     grid-template-columns: 1fr;
@@ -375,6 +433,28 @@
 
   .choice-divider {
     padding: 2px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .submission-choices-wrapper {
+    padding: 14px 10px;
+    gap: 12px;
+    border-radius: 12px;
+  }
+
+  .choice-option {
+    padding: 14px 12px;
+  }
+
+  .choice-heading {
+    font-size: 15px;
+  }
+
+  .btn-submit-online,
+  .btn-submit-wa {
+    padding: 12px 10px;
+    font-size: 13px;
   }
 }
 
@@ -394,6 +474,9 @@
   background: #ffffff;
   border-radius: 16px;
   border: 1px solid #d9e5dc;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .success-icon-badge {
@@ -417,6 +500,7 @@
   color: #12382a;
   margin: 0 0 10px;
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 .success-lead {
@@ -425,6 +509,7 @@
   line-height: 1.6;
   max-width: 480px;
   margin: 0 auto 22px;
+  overflow-wrap: break-word;
 }
 
 .success-summary-box {
@@ -433,8 +518,10 @@
   border-radius: 12px;
   padding: 16px 20px;
   max-width: 420px;
+  width: 100%;
   margin: 0 auto 20px;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .summary-item {
@@ -443,6 +530,7 @@
   padding: 6px 0;
   border-bottom: 1px dashed #e1eee5;
   font-size: 13.5px;
+  gap: 12px;
 }
 
 .summary-item:last-child {
@@ -451,11 +539,16 @@
 
 .summary-lbl {
   color: #6a7c73;
+  flex-shrink: 0;
 }
 
 .summary-val {
   color: #12382a;
   font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  min-width: 0;
 }
 
 .success-note {
@@ -464,6 +557,7 @@
   margin: 0 auto 24px;
   max-width: 440px;
   line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 .success-actions {
@@ -471,6 +565,9 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .success-wa-btn {
@@ -487,6 +584,11 @@
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(37, 211, 102, 0.28);
   transition: all 0.25s ease;
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
+  white-space: normal;
+  text-align: center;
 }
 
 .success-wa-btn:hover {

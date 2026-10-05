@@ -12,7 +12,7 @@ const featuredTour = {
   url: "/packages/keralanature/",
   description: "Explore the misty hills of Munnar, wildlife and spice plantations of Thekkady, and the peaceful backwaters of Alappuzha.",
   duration: "5 Days & 4 Nights",
-  image: "/images/allapey.webp",
+  image: "/images/kerala-houseboat.png",
   highlights: [
     "Cheeyappara & Valara Waterfalls",
     "Munnar Tea Gardens & Eravikulam National Park",
@@ -45,8 +45,8 @@ const featuredTour = {
           <img
             src={featuredTour.image}
             alt={`${featuredTour.packageName} - ${featuredTour.title}`}
-            width="800"
-            height="500"
+            width="547"
+            height="511"
             loading="lazy"
             decoding="async"
             class="featured-tour-card-img"
@@ -208,23 +208,20 @@ const featuredTour = {
     position: relative;
     flex: 0 0 360px;
     width: 360px;
-    height: 100%;
-    min-height: 230px;
-    max-height: 250px;
+    background-color: #061913;
     overflow: hidden;
+    text-decoration: none;
   }
 
   .featured-tour-media-wrap {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 230px;
-    max-height: 250px;
-    overflow: hidden;
     background-color: #061913;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
 
   .featured-tour-card-img {
@@ -232,15 +229,9 @@ const featuredTour = {
     z-index: 1;
     width: 100%;
     height: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    object-position: center 42%;
+    object-fit: contain;
+    object-position: center;
     display: block;
-    transition: transform 0.5s ease;
-  }
-
-  .featured-tour-card:hover .featured-tour-card-img {
-    transform: scale(1.04);
   }
 
   /* Ensure absolutely no unwanted grid lines, pseudo-overlays, or backgrounds */
@@ -589,12 +580,14 @@ const featuredTour = {
     }
 
     .featured-tour-media-wrap {
-      min-height: 220px;
-      max-height: 230px;
+      min-height: unset;
+      max-height: none;
     }
 
     .featured-tour-card-img {
-      max-height: 230px;
+      max-height: none;
+      object-fit: contain;
+      object-position: center;
     }
 
     .featured-tour-body {
@@ -627,14 +620,23 @@ const featuredTour = {
     .featured-tour-media-wrap {
       flex: none;
       width: 100%;
-      height: clamp(165px, 32vw, 210px);
+      height: auto;
       min-height: auto;
       max-height: none;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: auto;
+      background-color: #061913;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .featured-tour-card-img {
-      max-height: none;
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
     }
 
     .featured-tour-body {
@@ -771,7 +773,10 @@ const featuredTour = {
     }
 
     .featured-tour-media-link,
-    .featured-tour-media-wrap,
+    .featured-tour-media-wrap {
+      height: auto;
+    }
+
     .home-pkg-image-wrap {
       height: 150px;
     }

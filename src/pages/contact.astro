@@ -272,6 +272,14 @@ import "../styles/global.css";
     grid-template-columns: 1fr 1.1fr;
     gap: 48px;
     align-items: start;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .contact-grid > * {
+    min-width: 0;
+    max-width: 100%;
   }
 
   /* LEFT INFO CARD */
@@ -281,6 +289,10 @@ import "../styles/global.css";
     padding: 42px 38px;
     box-shadow: 0 12px 35px rgba(18, 56, 42, 0.06);
     border: 1px solid rgba(18, 56, 42, 0.08);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .badge-eyebrow {
@@ -537,6 +549,13 @@ import "../styles/global.css";
 
     .trust-highlights {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .info-card,
+    .form-wrapper {
+      padding: 20px 14px;
     }
   }
 </style>

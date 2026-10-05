@@ -5,7 +5,7 @@ const featuredExperience = {
   location: "Alleppey & Kumarakom",
   description:
     "Drift serenely through palm-fringed canals aboard a private handcrafted Kettuvallam houseboat. Enjoy authentic Kerala meals prepared freshly by your private on-board chef as golden sunset reflections ripple across Vembanad Lake.",
-  image: "/images/allapey.webp",
+  image: "/images/kerala-houseboat.png",
   tag: "Signature Waterways",
   highlights: ["Private Overnight Kettuvallam", "Traditional Meals on Board", "Village Life Along the Canals"],
   link: "/houseboats/"
@@ -65,12 +65,11 @@ const supportingExperiences = [
       <!-- 1. HERO FEATURED EXPERIENCE -->
       <article class="featured-exp-card reveal">
         <a href={featuredExperience.link} class="featured-exp-media" aria-label={`Explore ${featuredExperience.title}`}>
-          <div class="featured-exp-backdrop" style={`background-image: url('${featuredExperience.image}')`} aria-hidden="true"></div>
           <img
             src={featuredExperience.image}
             alt={featuredExperience.title}
-            width="860"
-            height="1280"
+            width="547"
+            height="511"
             loading="lazy"
             decoding="async"
             class="featured-exp-img"
@@ -199,17 +198,6 @@ const supportingExperiences = [
     text-decoration: none;
   }
 
-  .featured-exp-backdrop {
-    position: absolute;
-    inset: -30px;
-    background-size: cover;
-    background-position: center 30%;
-    filter: blur(24px) brightness(0.38) saturate(1.25);
-    transform: scale(1.15);
-    pointer-events: none;
-    z-index: 1;
-  }
-
   .featured-exp-img {
     position: relative;
     z-index: 2;
@@ -219,11 +207,6 @@ const supportingExperiences = [
     object-fit: contain;
     object-position: center center;
     display: block;
-    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .featured-exp-card:hover .featured-exp-img {
-    transform: scale(1.03);
   }
 
   .featured-exp-veil {
@@ -473,8 +456,17 @@ const supportingExperiences = [
     }
 
     .featured-exp-media {
-      height: clamp(380px, 55vw, 500px);
+      height: auto;
       min-height: unset;
+      padding: 20px;
+    }
+
+    .featured-exp-img {
+      width: 100%;
+      height: auto;
+      max-height: 460px;
+      object-fit: contain;
+      object-position: center;
     }
 
     .supporting-exp-grid {
@@ -485,7 +477,17 @@ const supportingExperiences = [
 
   @media (max-width: 640px) {
     .featured-exp-media {
-      height: clamp(320px, 85vw, 420px);
+      height: auto;
+      min-height: unset;
+      padding: 12px;
+    }
+
+    .featured-exp-img {
+      width: 100%;
+      height: auto;
+      max-height: 380px;
+      object-fit: contain;
+      object-position: center;
     }
 
     .supporting-exp-grid {
