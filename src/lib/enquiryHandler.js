@@ -219,20 +219,29 @@ export async function sendEnquiryEmail(sanitizedData) {
 
   const { subject, text, html } = buildEmailContent(sanitizedData);
 
-  // If no API key configured (e.g. local test or dev server), simulate success and log to console
+  // If no API key configured (e.g. local test or dev server)
   if (!apiKey || apiKey === "re_your_api_key_here") {
-    console.log("\n=======================================================");
-    console.log("ℹ️  [DEV MODE] RESEND_API_KEY is not configured.");
-    console.log("Simulating successful delivery to:", toEmail);
-    console.log("Subject:", subject);
-    console.log("Customer:", sanitizedData.name, `(${sanitizedData.email})`);
-    console.log("Package:", sanitizedData.package);
-    console.log("=======================================================\n");
+    const isDev = process.env.NODE_ENV !== "production" && process.env.VERCEL_ENV !== "production";
+    if (isDev) {
+      console.log("\n=======================================================");
+      console.log("ℹ️  [DEV MODE] RESEND_API_KEY is not configured.");
+      console.log("Simulating successful delivery to:", toEmail);
+      console.log("Subject:", subject);
+      console.log("Customer:", sanitizedData.name, `(${sanitizedData.email})`);
+      console.log("Package:", sanitizedData.package);
+      console.log("=======================================================\n");
 
+      return {
+        success: true,
+        simulated: true,
+        message: "Thank you! Your enquiry has been sent successfully. Our team will get back to you soon."
+      };
+    }
+
+    console.error("❌ [PRODUCTION ERROR] RESEND_API_KEY is not configured in environment variables.");
     return {
-      success: true,
-      simulated: true,
-      message: "Thank you! Your enquiry has been sent successfully. Our team will get back to you soon."
+      success: false,
+      error: "Email service is temporarily unavailable. Please contact us directly via WhatsApp at +91 97452 69272."
     };
   }
 
