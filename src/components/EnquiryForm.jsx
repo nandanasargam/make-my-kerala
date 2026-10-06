@@ -373,7 +373,7 @@ export default function EnquiryForm({ initialContext = {} }) {
         <h4>Your Contact Details</h4>
       </div>
 
-      <div className="form-grid-2">
+      <div className="form-grid-2 form-row">
         <div className="field-group">
           <label htmlFor="mmk-name">
             Full Name <span className="req">*</span>
@@ -429,7 +429,7 @@ export default function EnquiryForm({ initialContext = {} }) {
         <h4>Trip &amp; Travel Details</h4>
       </div>
 
-      <div className="form-grid-2">
+      <div className="form-grid-2 form-row">
         <div className="field-group">
           <label htmlFor="mmk-date">
             Travel Date <span className="req">*</span>
@@ -467,7 +467,7 @@ export default function EnquiryForm({ initialContext = {} }) {
         </div>
       </div>
 
-      <div className="form-grid-3">
+      <div className="form-grid-3 form-row three-columns">
         <div className="field-group">
           <label htmlFor="mmk-adults">
             Adults (12+ yrs) <span className="req">*</span>
@@ -521,7 +521,7 @@ export default function EnquiryForm({ initialContext = {} }) {
         </div>
       </div>
 
-      <div className="form-grid-2">
+      <div className="form-grid-2 form-row">
         <div className="field-group">
           <label htmlFor="mmk-duration">Number of Nights / Days (Optional)</label>
           <input
@@ -563,8 +563,8 @@ export default function EnquiryForm({ initialContext = {} }) {
       </div>
 
       {/* TWO DISTINCT SUBMISSION OPTIONS */}
-      <div className="submission-choices-wrapper">
-        <div className="choice-option email-choice">
+      <div className="submission-choices-wrapper enquiry-options">
+        <div className="choice-option option-card email-choice">
           <div className="choice-meta">
             <span className="choice-badge">OPTION 1</span>
             <strong className="choice-heading">Send Online Enquiry</strong>
@@ -591,11 +591,11 @@ export default function EnquiryForm({ initialContext = {} }) {
           </button>
         </div>
 
-        <div className="choice-divider">
+        <div className="choice-divider or-divider">
           <span>OR</span>
         </div>
 
-        <div className="choice-option whatsapp-choice">
+        <div className="choice-option option-card whatsapp-choice">
           <div className="choice-meta">
             <span className="choice-badge wa-badge">OPTION 2</span>
             <strong className="choice-heading">Enquiry on WhatsApp</strong>

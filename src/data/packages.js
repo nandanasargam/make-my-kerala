@@ -19,7 +19,7 @@ export const packages = [
     ],
     "inclusions": [
       "4 Nights accommodation (Munnar, Thekkady, Alleppey)",
-      "Daily breakfast at hotels & all meals on houseboat",
+      "Daily breakfast and dinner at hotels & all meals on houseboat",
       "Private AC vehicle with fuel, parking, driver allowance, and tolls",
       "Airport/Railway station pickup and drop",
       "Sightseeing tours as per itinerary"
@@ -57,7 +57,7 @@ export const packages = [
     ],
     "inclusions": [
       "4 Nights accommodation in verified family resorts",
-      "Daily breakfast at all hotels & all meals on Alleppey houseboat",
+      "Daily breakfast and dinner at all hotels & all meals on Alleppey houseboat",
       "Private sanitized AC vehicle for the whole family",
       "Airport or railway station transfers (Cochin)",
       "Dedicated local driver-guide throughout the journey"
@@ -94,11 +94,12 @@ export const packages = [
       "Handpicked romantic luxury boutique stays"
     ],
     "inclusions": [
-      "5 Nights accommodation in premium romantic resorts",
-      "Daily gourmet breakfast & special honeymoon inclusions",
-      "Private AC premium sedan for all transfers and sightseeing",
-      "Houseboat cruise with candlelit dinner",
-      "Tolls, parking, fuel, and chauffeur allowance"
+      "5 Nights accommodation (2N Munnar, 1N Thekkady, 1N Kumarakom, 1N Private Houseboat)",
+      "Special honeymoon inclusions: flower bed decoration, honeymoon cake & candlelit dinner",
+      "Daily breakfast and dinner at all luxury resorts and all meals on the Houseboat",
+      "Private AC premium sedan for all transfers and sightseeing tours",
+      "Pickup and drop from Cochin International Airport / Railway Station",
+      "Driver allowance, fuel, toll, parking, and all state taxes"
     ],
     "exclusions": [
       "Flights or train tickets to Cochin",
@@ -133,7 +134,7 @@ export const packages = [
     ],
     "inclusions": [
       "3 Nights accommodation in lakeside & backwater resorts",
-      "Daily breakfast and traditional Kerala meals on houseboat",
+      "Daily breakfast and dinner at resort and all meals on houseboat",
       "Private AC vehicle throughout the tour",
       "Pickup and drop from Cochin International Airport / Railway Station",
       "All toll, parking, and driver charges"
@@ -174,7 +175,7 @@ export const packages = [
     ],
     "inclusions": [
       "4 Nights accommodation (2N Munnar, 1N Thekkady, 1N Alleppey)",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private sanitized AC vehicle throughout the tour",
       "Airport or railway station pickup and drop (Cochin)",
       "Tolls, parking, driver allowance, and interstate permits",
@@ -284,7 +285,7 @@ export const packages = [
     ],
     "inclusions": [
       "5 Nights accommodation (1N Cochin, 2N Munnar, 1N Thekkady, 1N Alleppey)",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC sedan/SUV with experienced local chauffeur",
       "Airport/station pickup and drop",
       "All tolls, driver bata, parking, and interstate permits",
@@ -408,7 +409,7 @@ export const packages = [
     ],
     "inclusions": [
       "6 Nights accommodation (2N Munnar, 1N Thekkady, 1N Alleppey, 2N Trivandrum/Kovalam)",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC vehicle with dedicated driver throughout",
       "Cochin pickup and Trivandrum drop",
       "Tolls, fuel, driver bata, and parking included",
@@ -542,7 +543,7 @@ export const packages = [
     ],
     "inclusions": [
       "6 Nights accommodation (2N Munnar, 1N Thekkady, 1N Alleppey, 1N Trivandrum, 1N Kanyakumari)",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC sedan or SUV for all travel and sightseeing",
       "Cochin pickup and Trivandrum drop",
       "Tolls, parking, driver allowance, and permits",
@@ -676,7 +677,7 @@ export const packages = [
     ],
     "inclusions": [
       "7 Nights accommodation (1N Cochin, 2N Munnar, 1N Thekkady, 1N Alleppey, 2N Trivandrum)",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC vehicle with dedicated driver throughout",
       "Cochin pickup and Trivandrum drop",
       "Fuel, tolls, parking, and driver charges included",
@@ -820,7 +821,7 @@ export const packages = [
     ],
     "inclusions": [
       "8 Nights accommodation (1N Kanyakumari, 2N Trivandrum, 1N Alleppey, 1N Thekkady, 2N Munnar, 1N Guruvayur)",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC vehicle with dedicated chauffeur throughout",
       "Trivandrum/Nagercoil pickup and Trichur/Cochin drop",
       "Tolls, parking, driver allowance, and permits",
@@ -975,7 +976,7 @@ export const packages = [
     ],
     "inclusions": [
       "11 Nights accommodation in handpicked heritage and premium hotels",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC vehicle throughout with interstate permits",
       "Trichur pickup and Madurai drop",
       "Tolls, parking, driver allowance, and road taxes included",
@@ -1169,7 +1170,7 @@ export const packages = [
     ],
     "inclusions": [
       "10 Nights accommodation in verified hotels and backwater resort/houseboat",
-      "Daily breakfast at all hotels and all meals on houseboat",
+      "Daily breakfast and dinner at all hotels and all meals on houseboat",
       "Private AC vehicle with dedicated interstate chauffeur",
       "Cochin pickup and Cochin drop",
       "All tolls, driver allowance, state permits, and parking",
@@ -1343,7 +1344,7 @@ export const packages = [
     ],
     "inclusions": [
       "4 Nights accommodation (1N Kannur, 2N Wayanad, 1N Calicut)",
-      "Daily breakfast at all hotels and resorts",
+      "Daily breakfast and dinner at all hotels and resorts",
       "Private AC vehicle throughout the tour",
       "Kannur pickup and Calicut drop",
       "All fuel, tolls, parking, and driver allowance",
@@ -1448,7 +1449,7 @@ export const packages = [
     ],
     "inclusions": [
       "3 Nights accommodation in premium Trivandrum hotel",
-      "Daily breakfast at the hotel",
+      "Daily breakfast and dinner at the hotel",
       "Private AC vehicle for all transfers and excursions",
       "Trivandrum pickup and Trivandrum drop",
       "Tolls, parking, driver allowance, and permits",
@@ -1543,7 +1544,7 @@ export const packages = [
     ],
     "inclusions": [
       "3 Nights accommodation (2N Madurai, 1N Rameswaram)",
-      "Daily breakfast at all hotels",
+      "Daily breakfast and dinner at all hotels",
       "Private AC vehicle for all transfers and sightseeing",
       "Madurai pickup and Madurai drop",
       "Tolls, parking, driver allowance, and permits",
@@ -1635,7 +1636,7 @@ export const packages = [
     ],
     "inclusions": [
       "5 Nights accommodation (1N Madurai, 1N Rameswaram, 1N Kanyakumari, 2N Trivandrum)",
-      "Daily breakfast at all hotels",
+      "Daily breakfast and dinner at all hotels",
       "Private AC vehicle throughout with interstate permits",
       "Madurai pickup and Trivandrum drop",
       "Tolls, parking, driver allowance, and permits included",
@@ -1752,7 +1753,7 @@ export const packages = [
     ],
     "inclusions": [
       "5 Nights accommodation (1N Coimbatore, 2N Kodaikanal, 1N Rameswaram, 1N Madurai)",
-      "Daily breakfast at all hotels",
+      "Daily breakfast and dinner at all hotels",
       "Private AC vehicle for all transfers and sightseeing",
       "Coimbatore pickup and Madurai drop",
       "All tolls, driver allowance, permits, and parking included",

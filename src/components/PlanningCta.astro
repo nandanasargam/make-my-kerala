@@ -22,9 +22,9 @@ const features = [
 ];
 ---
 
-<section class="section section-forest planning-cta-section" id="enquiry" aria-label="Trip Enquiry Form">
+<section class="section section-forest planning-cta-section enquiry-section" id="enquiry" aria-label="Trip Enquiry Form">
   <span id="plan-trip" class="anchor-offset" aria-hidden="true"></span>
-  <div class="container">
+  <div class="container enquiry-form-container">
     <div class="planning-grid">
       
       <!-- LEFT: VALUE PROPOSITION & DIRECT CONTACT -->
@@ -101,16 +101,35 @@ const features = [
 </section>
 
 <style>
-  .planning-cta-section {
+  .planning-cta-section,
+  .enquiry-section {
     background-color: var(--color-forest-deep, #082017);
     color: #ffffff;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .enquiry-form-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 
   .planning-grid {
     display: grid;
     grid-template-columns: 1fr 1.15fr;
-    gap: clamp(40px, 6vw, 80px);
-    align-items: center;
+    gap: clamp(36px, 5vw, 64px);
+    align-items: flex-start;
+  }
+
+  .planning-info-col,
+  .planning-form-col {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   /* LEFT INFO */
@@ -223,8 +242,12 @@ const features = [
     background-color: #ffffff;
     color: var(--color-forest, #12382a);
     border-radius: 20px;
-    padding: clamp(28px, 4vw, 44px);
+    padding: clamp(26px, 3.5vw, 40px);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .form-card-head {
@@ -267,6 +290,11 @@ const features = [
     .planning-contacts-grid {
       grid-template-columns: repeat(3, 1fr);
     }
+
+    .planning-form-card {
+      max-width: 800px;
+      margin-inline: auto;
+    }
   }
 
   @media (max-width: 768px) {
@@ -275,7 +303,25 @@ const features = [
     }
 
     .planning-form-card {
-      padding: 24px 20px;
+      padding: 24px 18px;
+      border-radius: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .planning-form-card {
+      padding: 18px 12px;
+      border-radius: 14px;
+    }
+
+    .form-card-title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .planning-form-card {
+      padding: 16px 10px;
     }
   }
 </style>
